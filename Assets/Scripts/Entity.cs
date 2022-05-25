@@ -10,8 +10,8 @@ public class Entity : MonoBehaviour
     private int hp;
     //priority of entity (player always first)
     public int prio;
-    //mobility of entity per turn
     [Header("Movement")]
+    //mobility of entity per turn
     public int maxMobility;
     //movement of entity in X and Y
     public int mobilityX;
