@@ -207,62 +207,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &912360822 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3349293145593528495, guid: 96289d04b7d0bae42af623fb924f841a, type: 3}
-  m_PrefabInstance: {fileID: 2132027979}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &980708240
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 980708242}
-  - component: {fileID: 980708241}
-  m_Layer: 0
-  m_Name: Map
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &980708241
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 980708240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f827840be9c49164f8196165c8ba71c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tilePrefab: {fileID: 8972557629110569728, guid: ae06a887b4a8c474a8723e4a2ca39a41, type: 3}
-  player: {fileID: 912360822}
-  mapHeight: 5
-  mapWidth: 5
-  tileSprites: []
-  tilesList: []
-  playerB: {fileID: 0}
---- !u!4 &980708242
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 980708240}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.53, y: -3.4, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1810435512
 GameObject:
   m_ObjectHideFlags: 0
@@ -386,7 +330,7 @@ MonoBehaviour:
     - isReachable: 1
       tileSprite: {fileID: 0}
       spriteColor: {r: 0, g: 0, b: 0, a: 0}
-    - isReachable: 1
+    - isReachable: 0
       tileSprite: {fileID: 0}
       spriteColor: {r: 0, g: 0, b: 0, a: 0}
     - isReachable: 1
@@ -425,16 +369,16 @@ MonoBehaviour:
     - isReachable: 1
       tileSprite: {fileID: 0}
       spriteColor: {r: 0, g: 0, b: 0, a: 0}
+    - isReachable: 1
+      tileSprite: {fileID: 0}
+      spriteColor: {r: 0, g: 0, b: 0, a: 0}
     - isReachable: 0
       tileSprite: {fileID: 0}
       spriteColor: {r: 0, g: 0, b: 0, a: 0}
-    - isReachable: 1
+    - isReachable: 0
       tileSprite: {fileID: 0}
       spriteColor: {r: 0, g: 0, b: 0, a: 0}
-    - isReachable: 1
-      tileSprite: {fileID: 0}
-      spriteColor: {r: 0, g: 0, b: 0, a: 0}
-    - isReachable: 1
+    - isReachable: 0
       tileSprite: {fileID: 0}
       spriteColor: {r: 0, g: 0, b: 0, a: 0}
     - isReachable: 1
@@ -462,7 +406,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2132027979
 PrefabInstance:
@@ -473,7 +417,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1958096826157051963, guid: 96289d04b7d0bae42af623fb924f841a, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1958096826157051963, guid: 96289d04b7d0bae42af623fb924f841a, type: 3}
       propertyPath: m_LocalPosition.x

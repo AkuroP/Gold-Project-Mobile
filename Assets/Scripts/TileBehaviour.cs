@@ -30,6 +30,7 @@ public class Tile
 {
     public int tileIndex;
     public int tileX, tileY;
+
     public GameObject tileGO;
 
     public bool hasEntity = false;
@@ -38,24 +39,16 @@ public class Tile
     [SerializeField]
     public Tile topTile, rightTile, bottomTile, leftTile;
 
-    public Tile(int _tileIndex, int _tileX, int _tileY, GameObject _tileGO, bool _hasEntity, bool _isReachable)
+    public Tile(int _tileIndex, int _tileX, int _tileY)
     {
         tileIndex = _tileIndex;
         tileX = _tileX;
         tileY = _tileY;
-
+/*
         isReachable = _isReachable;
         hasEntity = _hasEntity;
 
-        tileGO = _tileGO;
+        tileGO = _tileGO;*/
     }
-}
-
-[System.Serializable]
-public class TileSettings
-{
-    public bool isReachable = true;
-    public Sprite tileSprite;
-    public Color spriteColor;
 }
 
