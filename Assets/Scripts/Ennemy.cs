@@ -15,4 +15,48 @@ public class Ennemy : Entity
     {
         
     }
+
+
+    protected override void Attack()
+    {
+        
+    }
+
+    //check if the player is in range
+    private bool IsPlayerInRange(WeaponType weapon, int range)
+    {
+        bool inRange = false;
+        switch (weaponType)
+        {
+            case WeaponType.SWORD:
+                /*if(check si joueur sur une case)
+                {
+                    IsPlayerInRange = true;
+                }*/
+                break;
+            case WeaponType.GRIMOIRE:
+                /*if(check si joueur sur une case)
+                {
+                    IsPlayerInRange = true;
+                }*/
+                break;
+            case WeaponType.GUN:
+                /*if(check si joueur sur une case)
+                {
+                    IsPlayerInRange = true;
+                }*/
+                break;
+        }
+        return inRange;
+    }
+
+    //function to take damage / die
+    public override void Damage(int damage)
+    {
+        hp -= damage;
+        if (hp <= 0)
+        {
+            Destroy(this);
+        }
+    }
 }
