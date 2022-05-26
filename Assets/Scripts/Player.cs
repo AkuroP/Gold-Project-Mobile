@@ -29,19 +29,19 @@ public class Player : Entity
     protected override void Attack(WeaponType weapon, int range, int damage, WeaponEffect effect, int cout)
     {
         numEssence -= cout;
-        List<Ennemy> ennemiesInRange = GetEnnemiesInRange();
+        List<Enemy> ennemiesInRange = GetEnnemiesInRange();
         for(int i = 0 ; i < ennemiesInRange.Count - 1 ; i++)
         {
             ennemiesInRange[i].Damage(weaponDamage);
         }
     }
 
-    private List<Ennemy> GetEnnemiesInRange()
+    private List<Enemy> GetEnnemiesInRange()
     {
-        List<Ennemy> ennemiesInRange;
+        List<Enemy> ennemiesInRange;
         switch (weaponType)
         {
-            case WeaponType.SWORD:
+            case WeaponType.DAGGER:
                 Debug.Log("épée");
                 //fonction de calcul position
                 ennemiesInRange = null;
@@ -51,7 +51,7 @@ public class Player : Entity
                 //fonction de calcul position
                 ennemiesInRange = null;
                 return ennemiesInRange;
-            case WeaponType.GUN:
+            case WeaponType.HANDGUN:
                 Debug.Log("flingue");
                 //fonction de calcul position
                 ennemiesInRange = null;

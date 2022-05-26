@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ennemy : Entity
+public class Enemy : Entity
 {
     // Start is called before the first frame update
     void Start()
@@ -28,7 +28,7 @@ public class Ennemy : Entity
         bool inRange = false;
         switch (weaponType)
         {
-            case WeaponType.SWORD:
+            case WeaponType.DAGGER:
                 /*if(check si joueur sur une case)
                 {
                     IsPlayerInRange = true;
@@ -40,7 +40,7 @@ public class Ennemy : Entity
                     IsPlayerInRange = true;
                 }*/
                 break;
-            case WeaponType.GUN:
+            case WeaponType.HANDGUN:
                 /*if(check si joueur sur une case)
                 {
                     IsPlayerInRange = true;

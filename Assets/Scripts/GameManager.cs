@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        if(instanceGM != null)
+        if (instanceGM != null)
         {
             Destroy(instanceGM);
         }
@@ -24,18 +24,40 @@ public class GameManager : MonoBehaviour
     }
 
     private GameObject player;
-
+    [SerializeField] private GameObject[] enemiesPlaying;
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindWithTag("Player");
         whatTurn = Turn.PLAYERTURN;
+        enemiesPlaying = GameObject.FindGameObjectsWithTag("Enemy");
+        enemiesPlaying = TriGnome(enemiesPlaying);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
+    }
+
+    public static GameObject[] TriGnome(GameObject[] enemies)
+    {
+        int index = 1;
+        while (index < enemies.Length)
+        {
+            if (enemies[index].GetComponent<Enemy>().prio > enemies[index - 1].GetComponent<Enemy>().prio)
+            {
+                GameObject temp = enemies[index];
+                enemies[index] = enemies[index - 1];
+                enemies[index - 1] = temp;
+                if (index > 1)
+                {
+                    index--;
+                }
+            }
+            else { index++; }
+        }
+        return enemies;
     }
 }

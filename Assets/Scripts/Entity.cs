@@ -22,7 +22,7 @@ public class Entity : MonoBehaviour
     [SerializeField] protected Direction direction;
 
     //weapons enum and weapon equiped by the entity
-    protected enum WeaponType {SWORD, GRIMOIRE, GUN};
+    protected enum WeaponType {DAGGER, GRIMOIRE, HANDGUN};
     [SerializeField] protected WeaponType weaponType;
     [SerializeField] protected int weaponRange;
 
