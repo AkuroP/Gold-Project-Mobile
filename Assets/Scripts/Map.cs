@@ -6,7 +6,7 @@ public class Map : MonoBehaviour
 {
     public GameObject tilePrefab;
     public GameObject player;
-
+    public MapBuilder mapB;
     
 
     [Header("Map Size")]
@@ -30,18 +30,24 @@ public class Map : MonoBehaviour
         //generate map
         //i --> vertical axe
         //j --> horizontal axe
+
+        //reference de construction
+        MapReference mapRef = mapB.refMap[1];
+
         int tileIndex = 0;
-        for (int i = 0; i < mapHeight; i++)
+        for (int i = 0; i < mapRef.mapHeight; i++)
         {
-            for (int j = 0; j < mapWidth; j++)
+            for (int j = 0; j < mapRef.mapHeight; j++)
             {
-                Tile newTile = new Tile(tileIndex, j + 1, i + 1, tilePrefab);
+                bool _isReachable = mapRef.mapTiles[tileIndex].isReachable;
+                //bool _hasEntity = mapRef.mapTiles[tileIndex].hasEntity;
+
+                Tile newTile = new Tile(tileIndex, j + 1, i + 1, tilePrefab, false, _isReachable);
 
                 tilesList.Add(newTile);
                 tileIndex++;
             }
         }
-
         
 
         //link tiles and instantiate map
@@ -85,6 +91,8 @@ public class Map : MonoBehaviour
             newTileGO.GetComponent<TileBehaviour>().tileIndex = oneTile.tileIndex;
 
             oneTile.tileGO = newTileGO;
+
+            ChangeStyle(oneTile);
         }
 
         //place player
@@ -173,6 +181,17 @@ public class Map : MonoBehaviour
         else
         {
             Debug.Log("il n'y a pas de case");
+        }
+    }
+
+    private void ChangeStyle(Tile tile)
+    {
+        if (tile != null)
+        {
+            if (!tile.isReachable)
+            {
+                tile.tileGO.GetComponent<SpriteRenderer>().material.color = Color.black;
+            }
         }
     }
 }

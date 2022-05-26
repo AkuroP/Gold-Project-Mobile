@@ -5,7 +5,16 @@ using UnityEngine;
 public class MapBuilder : MonoBehaviour
 {
     [Header("Map Models")]
-    public List<Map> refMap = new List<Map>();
+    public List<MapReference> refMap = new List<MapReference>();
 
 
+}
+
+[System.Serializable]
+public class MapReference
+{
+    public int mapWidth, mapHeight;
+
+    [SerializeField]
+    public List<TileSettings> mapTiles;
 }

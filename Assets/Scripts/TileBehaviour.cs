@@ -19,11 +19,6 @@ public class TileBehaviour : MonoBehaviour
         
     }
 
-    public Vector3 GetPosition()
-    {
-        return transform.position;
-    }
-
     void OnMouseDown()
     {
         Debug.Log(tileIndex);
@@ -43,14 +38,24 @@ public class Tile
     [SerializeField]
     public Tile topTile, rightTile, bottomTile, leftTile;
 
-    public Tile(int _tileIndex, int _tileX, int _tileY, GameObject _tileGO)
+    public Tile(int _tileIndex, int _tileX, int _tileY, GameObject _tileGO, bool _hasEntity, bool _isReachable)
     {
         tileIndex = _tileIndex;
         tileX = _tileX;
         tileY = _tileY;
 
+        isReachable = _isReachable;
+        hasEntity = _hasEntity;
+
         tileGO = _tileGO;
     }
-
-    
 }
+
+[System.Serializable]
+public class TileSettings
+{
+    public bool isReachable = true;
+    public Sprite tileSprite;
+    public Color spriteColor;
+}
+
