@@ -38,9 +38,6 @@ public class PlayerBehaviour : MonoBehaviour
 
     public void MovePlayer(Vector3 _targetPosition)
     {
-        //Debug.Log("current pos:" + transform.position);
-        //Debug.Log("next pos: " + targetPosition);
-
         currentPosition = transform.position;
         targetPosition = _targetPosition;
 

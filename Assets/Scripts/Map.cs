@@ -89,7 +89,7 @@ public class Map : MonoBehaviour
 
         //place player
         Vector3 spawnTilePos = tilesList[5].tileGO.transform.position;
-        player.transform.position = spawnTilePos;
+        player.transform.position = spawnTilePos - new Vector3(0, 0, 1);
 
         playerB.currentTile = tilesList[5];
     }
@@ -162,7 +162,7 @@ public class Map : MonoBehaviour
             {
                 Debug.Log("case accessible"); 
 
-                playerB.MovePlayer(nextTile.tileGO.transform.position);
+                playerB.MovePlayer(nextTile.tileGO.transform.position - new Vector3(0, 0, 1));
                 playerB.currentTile = nextTile;
             }
             else
