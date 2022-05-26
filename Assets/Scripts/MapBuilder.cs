@@ -9,6 +9,9 @@ public class MapBuilder : MonoBehaviour
     private PlayerBehaviour pB;
     public GameObject tilePrefab;
 
+    [Header("==== Map References ====")]
+    public List<MapSettings> mapSettings = new List<MapSettings>();
+
     [Header("==== Maps ====")]
     public Transform mapOrigin;
     public Map currentMap;
@@ -25,7 +28,7 @@ public class MapBuilder : MonoBehaviour
 
     public Map CreateMap()
     {
-        return new Map(7, 7, player, mapOrigin.position);
+        return new Map(mapSettings[1], player, mapOrigin.position);
     }
 
     public void InitializeMap(Map map)
@@ -35,8 +38,9 @@ public class MapBuilder : MonoBehaviour
         {
             Tile tile = map.tilesList[i];
 
-            //Debug.Log(tile.tileIndex);
             GameObject newTileGO = Instantiate(tilePrefab, map.mapOrigin + new Vector3(tile.tileX, tile.tileY, 0), Quaternion.identity);
+            newTileGO.GetComponent<SpriteRenderer>().color = tile.tileColor;
+
             tile.tileGO = newTileGO;
         }
 
@@ -100,5 +104,15 @@ public class MapBuilder : MonoBehaviour
 public class MapSettings
 {
     public int mapWidth, mapHeight;
-    
+    [SerializeField]
+    public List<TileSettings> tileSettings = new List<TileSettings>();
 }
+
+[System.Serializable]
+public class TileSettings
+{
+    public bool isReachable;
+    public Color tileColor = Color.red;
+    public Sprite tileSprite;
+}
+

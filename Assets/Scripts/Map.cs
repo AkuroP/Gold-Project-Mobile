@@ -21,33 +21,12 @@ public class Map
     public List<Tile> tilesList = new List<Tile>();
     public int playerSpawnIndex = 0;
 
-    
-    public Map(MapSettings _mapSettings)
+
+    public Map(MapSettings _mapSettings, GameObject _player, Vector3 _mapOrigin)
     {
         //map size
         mapWidth = _mapSettings.mapWidth;
         mapHeight = _mapSettings.mapHeight;
-        numberOfTiles = mapWidth * mapHeight;
-
-        //create map tiles following reference map
-        int tileIndex = 0;
-        for (int i = 0; i < mapHeight; i++)
-        {
-            for (int j = 0; j < mapHeight; j++)
-            {
-                Tile newTile = new Tile(tileIndex, j + 1, i + 1);
-
-                tilesList.Add(newTile);
-                tileIndex++;
-            }
-        }
-    }
-
-    public Map(int _mapWidth, int _mapHeight, GameObject _player, Vector3 _mapOrigin)
-    {
-        //map size
-        mapWidth = _mapWidth;
-        mapHeight = _mapHeight;
         numberOfTiles = mapWidth * mapHeight;
         mapOrigin = _mapOrigin;
 
@@ -60,7 +39,12 @@ public class Map
         {
             for (int j = 0; j < mapHeight; j++)
             {
-                Tile newTile = new Tile(tileIndex, j + 1, i + 1);
+                //get settings for this tile
+                TileSettings newTileSettings = _mapSettings.tileSettings[tileIndex];
+
+                //Instantiate the tile
+                Tile newTile = new Tile(tileIndex, j + 1, i + 1, newTileSettings.isReachable, newTileSettings.tileColor);
+                
 
                 tilesList.Add(newTile);
                 tileIndex++;
@@ -140,18 +124,18 @@ public class Map
             //is the tile accessible and empty
             if (!nextTile.hasEntity && nextTile.isReachable)
             {
-                Debug.Log("case accessible");
+                //Debug.Log("case accessible");
                 return true;
             }
             else
             {
-                Debug.Log("case inaccessible");
+                //Debug.Log("case inaccessible");
                 return false;
             }
         }
         else
         {
-            Debug.Log("il n'y a pas de case");
+            //Debug.Log("il n'y a pas de case");
             return false;
         }
 
