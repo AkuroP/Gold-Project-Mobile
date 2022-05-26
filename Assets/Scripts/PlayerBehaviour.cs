@@ -7,6 +7,7 @@ public class PlayerBehaviour : MonoBehaviour
     public bool canMove = true;
     public bool moveInProgress = false;
 
+    public Map currentMap;
     public Tile currentTile;
     public Vector3 targetPosition, currentPosition;
 
@@ -22,9 +23,12 @@ public class PlayerBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       
+
+        //move process
         if (moveInProgress && !canMove && timeElapsed < moveDuration)
         {
-            transform.position = Vector3.Lerp(currentPosition, targetPosition, timeElapsed / moveDuration);
+            transform.position = Vector3.Lerp(currentPosition, targetPosition, timeElapsed / moveDuration) - new Vector3(0, 0, 1);
             timeElapsed += Time.deltaTime;
         }
         else
@@ -33,14 +37,10 @@ public class PlayerBehaviour : MonoBehaviour
             canMove = true;
             timeElapsed = 0;
         }
-
     }
 
     public void MovePlayer(Vector3 _targetPosition)
     {
-        //Debug.Log("current pos:" + transform.position);
-        //Debug.Log("next pos: " + targetPosition);
-
         currentPosition = transform.position;
         targetPosition = _targetPosition;
 

@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.20754719, g: 0.09280883, b: 0.09280883, a: 1}
+  m_Color: {r: 0.2240805, g: 0.6886792, b: 0.08056244, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -97,3 +97,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49435e85a7a42644b9c1a5b62f9f8a24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canMove: 1
+  moveInProgress: 0
+  currentTile:
+    tileIndex: 0
+    tileX: 0
+    tileY: 0
+    tileGO: {fileID: 0}
+    hasEntity: 0
+    isReachable: 0
+  targetPosition: {x: 0, y: 0, z: 0}
+  currentPosition: {x: 0, y: 0, z: 0}
+  moveDuration: 0

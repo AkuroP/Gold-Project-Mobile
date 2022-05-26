@@ -2,49 +2,56 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Map : MonoBehaviour
+[System.Serializable]
+public class Map
 {
-    public GameObject tilePrefab;
+    [Header("==== Map Entities ====")]
     public GameObject player;
-
-    
-
-    [Header("Map Size")]
-    public int mapHeight;
-    public int mapWidth;
-
-    [Header("Tiles")]
     [SerializeField]
-    public List<Sprite> tileSprites;
+    public List<string> entities = new List<string>();
 
+    [Header("==== Map Size ====")]
+    public Vector3 mapOrigin;
+    public int mapHeight = 5;
+    public int mapWidth = 5;
+    private int numberOfTiles = 25;
+
+    [Header("==== Tiles ====")]
     [SerializeField]
     public List<Tile> tilesList = new List<Tile>();
+    public int playerSpawnIndex = 0;
 
-    public PlayerBehaviour playerB; 
 
-    // Start is called before the first frame update
-    void Start()
+    public Map(MapSettings _mapSettings, GameObject _player, Vector3 _mapOrigin)
     {
-        playerB = player.GetComponent<PlayerBehaviour>();
+        //map size
+        mapWidth = _mapSettings.mapWidth;
+        mapHeight = _mapSettings.mapHeight;
+        numberOfTiles = mapWidth * mapHeight;
+        mapOrigin = _mapOrigin;
 
-        //generate map
-        //i --> vertical axe
-        //j --> horizontal axe
+        //player
+        player = _player;
+
+        //create map tiles following reference map
         int tileIndex = 0;
         for (int i = 0; i < mapHeight; i++)
         {
-            for (int j = 0; j < mapWidth; j++)
+            for (int j = 0; j < mapHeight; j++)
             {
-                Tile newTile = new Tile(tileIndex, j + 1, i + 1, tilePrefab);
+                //get settings for this tile
+                TileSettings newTileSettings = _mapSettings.tileSettings[tileIndex];
+
+                //Instantiate the tile
+                Tile newTile = new Tile(tileIndex, j + 1, i + 1, newTileSettings.isReachable, newTileSettings.tileColor);
+                
 
                 tilesList.Add(newTile);
                 tileIndex++;
             }
         }
 
-        
-
-        //link tiles and instantiate map
+        //link tiles together
         for (int i = 0; i < tilesList.Count; i++)
         {
             Tile tempTT, tempRT, tempBT, tempLT;
@@ -54,13 +61,13 @@ public class Map : MonoBehaviour
             tempLT = null;
 
             Tile oneTile = tilesList[i];
-           
-            if(oneTile.tileX > 1)
+
+            if (oneTile.tileX > 1)
             {
                 tempLT = tilesList[i - 1];
             }
 
-            if(oneTile.tileX < mapWidth)
+            if (oneTile.tileX < mapWidth)
             {
                 tempRT = tilesList[i + 1];
             }
@@ -79,100 +86,71 @@ public class Map : MonoBehaviour
             oneTile.rightTile = tempRT;
             oneTile.bottomTile = tempBT;
             oneTile.leftTile = tempLT;
-
-            GameObject newTileGO = Instantiate(oneTile.tileGO, transform.position + new Vector3(oneTile.tileX - 1, oneTile.tileY - 1, 0), Quaternion.identity);
-            newTileGO.AddComponent<TileBehaviour>();
-            newTileGO.GetComponent<TileBehaviour>().tileIndex = oneTile.tileIndex;
-
-            oneTile.tileGO = newTileGO;
-        }
-
-        //place player
-        Vector3 spawnTilePos = tilesList[5].tileGO.transform.position;
-        player.transform.position = spawnTilePos;
-
-        playerB.currentTile = tilesList[5];
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (playerB.canMove)
-        {
-            //up
-            if (Input.GetKeyDown(KeyCode.Z))
-            {
-                Tile nextTile = FindTopTile(playerB.currentTile);
-
-                CheckMove(nextTile);
-            }   
-            //up
-            else if (Input.GetKeyDown(KeyCode.D))
-            {
-                Tile nextTile = FindRightTile(playerB.currentTile);
-
-                CheckMove(nextTile);
-            }
-            //up
-            else if (Input.GetKeyDown(KeyCode.S))
-            {
-                Tile nextTile = FindBottomTile(playerB.currentTile);
-
-                CheckMove(nextTile);
-            }
-            //up
-            else if (Input.GetKeyDown(KeyCode.Q))
-            {
-                Tile nextTile = FindLeftTile(playerB.currentTile);
-
-                CheckMove(nextTile);
-            }
         }
     }
 
-    private Tile FindTopTile(Tile currentTile)
+
+    public void SpawnEntities()
     {
-            return currentTile.topTile;
+        player.transform.position = tilesList[playerSpawnIndex].tileGO.transform.position - new Vector3(0, 0, 1);
+        player.GetComponent<PlayerBehaviour>().currentTile = tilesList[playerSpawnIndex];
     }
 
-    private Tile FindBottomTile(Tile currentTile)
+    public Tile FindTopTile(Tile currentTile)
     {
-            return currentTile.bottomTile;
+        return currentTile.topTile;
     }
 
-    private Tile FindRightTile(Tile currentTile)
+    public Tile FindBottomTile(Tile currentTile)
     {
-            return currentTile.rightTile;
+        return currentTile.bottomTile;
     }
 
-    private Tile FindLeftTile(Tile currentTile)
+    public Tile FindRightTile(Tile currentTile)
     {
-            return currentTile.leftTile;
+        return currentTile.rightTile;
     }
 
-    private void CheckMove(Tile nextTile)
+    public Tile FindLeftTile(Tile currentTile)
+    {
+        return currentTile.leftTile;
+    }
+
+    public bool CheckMove(Tile nextTile)
     {
         //is there a tile in the direction
         if (nextTile != null)
         {
-            Debug.Log("il y a une case");
-            
             //is the tile accessible and empty
-            if(!nextTile.hasEntity && nextTile.isReachable)
+            if (!nextTile.hasEntity && nextTile.isReachable)
             {
-                Debug.Log("case accessible"); 
-
-                playerB.MovePlayer(nextTile.tileGO.transform.position);
-                playerB.currentTile = nextTile;
+                //Debug.Log("case accessible");
+                return true;
             }
             else
             {
-                Debug.Log("case inaccessible");
+                //Debug.Log("case inaccessible");
+                return false;
             }
         }
         else
         {
-            Debug.Log("il n'y a pas de case");
+            //Debug.Log("il n'y a pas de case");
+            return false;
         }
+
     }
+
+    
+
+    /*private void ChangeStyle(Tile tile)
+    {
+        if (tile != null)
+        {
+            if (!tile.isReachable)
+            {
+                tile.tileGO.GetComponent<SpriteRenderer>().material.color = Color.black;
+            }
+        }
+    }*/
 }

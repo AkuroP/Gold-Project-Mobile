@@ -207,12 +207,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &912360822 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3349293145593528495, guid: 96289d04b7d0bae42af623fb924f841a, type: 3}
-  m_PrefabInstance: {fileID: 2132027979}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &980708240
+--- !u!1 &788822079
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -220,48 +215,143 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 980708242}
-  - component: {fileID: 980708241}
+  - component: {fileID: 788822080}
   m_Layer: 0
-  m_Name: Map
+  m_Name: MapOrigin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &980708241
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 980708240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f827840be9c49164f8196165c8ba71c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tilePrefab: {fileID: 8972557629110569728, guid: ae06a887b4a8c474a8723e4a2ca39a41, type: 3}
-  player: {fileID: 912360822}
-  mapHeight: 3
-  mapWidth: 3
-  tileSprites: []
-  tilesList: []
-  playerB: {fileID: 0}
---- !u!4 &980708242
+--- !u!4 &788822080
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 980708240}
+  m_GameObject: {fileID: 788822079}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.53, y: -3.4, z: 0}
+  m_LocalPosition: {x: -6.38, y: -3.59, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &912360822 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3349293145593528495, guid: 96289d04b7d0bae42af623fb924f841a, type: 3}
+  m_PrefabInstance: {fileID: 2132027979}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1810435512
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1810435514}
+  - component: {fileID: 1810435513}
+  m_Layer: 0
+  m_Name: MapBuilder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1810435513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1810435512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae3cf7420b8fd6e428044fe2fedb4732, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 912360822}
+  tilePrefab: {fileID: 8972557629110569728, guid: ae06a887b4a8c474a8723e4a2ca39a41, type: 3}
+  mapSettings:
+  - mapWidth: 0
+    mapHeight: 0
+    tileSettings: []
+  - mapWidth: 4
+    mapHeight: 4
+    tileSettings:
+    - isReachable: 1
+      tileColor: {r: 1, g: 1, b: 1, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      tileColor: {r: 1, g: 1, b: 1, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      tileColor: {r: 1, g: 1, b: 1, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      tileColor: {r: 1, g: 1, b: 1, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      tileColor: {r: 1, g: 1, b: 1, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      tileColor: {r: 1, g: 1, b: 1, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 0
+      tileColor: {r: 0, g: 0, b: 0, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      tileColor: {r: 1, g: 1, b: 1, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 0
+      tileColor: {r: 0, g: 0, b: 0, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 0
+      tileColor: {r: 0, g: 0, b: 0, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 0
+      tileColor: {r: 0, g: 0, b: 0, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      tileColor: {r: 1, g: 1, b: 1, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      tileColor: {r: 1, g: 1, b: 1, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      tileColor: {r: 1, g: 1, b: 1, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      tileColor: {r: 1, g: 1, b: 1, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      tileColor: {r: 1, g: 1, b: 1, a: 1}
+      tileSprite: {fileID: 0}
+  mapOrigin: {fileID: 788822080}
+  currentMap:
+    player: {fileID: 0}
+    entities: []
+    mapOrigin: {x: 0, y: 0, z: 0}
+    mapHeight: 0
+    mapWidth: 0
+    tilesList: []
+    playerSpawnIndex: 0
+--- !u!4 &1810435514
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1810435512}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.030267507, y: 0.55199015, z: 0.16393656}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2132027979
 PrefabInstance:
@@ -272,7 +362,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1958096826157051963, guid: 96289d04b7d0bae42af623fb924f841a, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1958096826157051963, guid: 96289d04b7d0bae42af623fb924f841a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -284,7 +374,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1958096826157051963, guid: 96289d04b7d0bae42af623fb924f841a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 1958096826157051963, guid: 96289d04b7d0bae42af623fb924f841a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -313,6 +403,10 @@ PrefabInstance:
     - target: {fileID: 1958096826157051963, guid: 96289d04b7d0bae42af623fb924f841a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2887634884794499573, guid: 96289d04b7d0bae42af623fb924f841a, type: 3}
+      propertyPath: moveDuration
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 3349293145593528495, guid: 96289d04b7d0bae42af623fb924f841a, type: 3}
       propertyPath: m_Name
