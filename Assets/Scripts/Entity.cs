@@ -43,14 +43,8 @@ public class Entity : MonoBehaviour
         
     }
 
-    //virtual attack function (ennemy)
-    protected virtual void Attack()
-    {
-
-    }
-
-    //virtual attack function (player)
-    protected virtual void Attack(WeaponType weapon, int range, int damage, WeaponEffect effect, int cout)
+    //virtual attack function
+    public virtual void Attack()
     {
 
     }

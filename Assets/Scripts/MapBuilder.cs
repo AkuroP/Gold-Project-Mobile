@@ -54,40 +54,8 @@ public class MapBuilder : MonoBehaviour
         map.SpawnEntities();
     }
 
-    void Update()
-    {
-        //ask for top
-        if(Input.GetMouseButtonDown(0) && enableMove)
-        {
-            Vector2 mouseDir = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - player.transform.position);
-            //ask for top
-            if (mouseDir.y - player.transform.position.y > limitBtwRightLeftAndTopBot)
-            {
-                player.GetComponent<Player>().direction = Entity.Direction.UP;
-            }
-            //ask for right
-            else if (mouseDir.x - player.transform.position.x > 0f && mouseDir.y - player.transform.position.y <= limitBtwRightLeftAndTopBot && mouseDir.y - player.transform.position.y >= -limitBtwRightLeftAndTopBot)
-            {
-                player.GetComponent<Player>().direction = Entity.Direction.RIGHT;
-            }
-            //ask for bottom
-            else if (mouseDir.y - player.transform.position.y < -limitBtwRightLeftAndTopBot)
-            {
-                player.GetComponent<Player>().direction = Entity.Direction.BOTTOM;
-            }
-            //ask for left
-            else if (mouseDir.x - player.transform.position.x < 0f && mouseDir.y - player.transform.position.y <= limitBtwRightLeftAndTopBot && mouseDir.y - player.transform.position.y >= -limitBtwRightLeftAndTopBot)
-            {
-                player.GetComponent<Player>().direction = Entity.Direction.LEFT;
-            }
-            MovePlayer();
-            
-        }
-    }
-
     public void MovePlayer()
     {
-        Debug.Log(player.GetComponent<Player>().direction);
         switch (player.GetComponent<Player>().direction)
         {
             case Entity.Direction.UP:
@@ -124,19 +92,6 @@ public class MapBuilder : MonoBehaviour
                 break;
         }
         enableMove = false;
-    }
-    public void MoveButton()
-    {
-        if(!enableMove)
-        {
-            enableMove = true;
-            Debug.Log("SELECTING MOVING");
-        }
-        else
-        {
-            enableMove = false;
-            Debug.Log("DESELECTING MOVING");
-        }
     }
 }
 

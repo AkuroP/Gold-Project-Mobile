@@ -22,18 +22,22 @@ public class Player : Entity
     {
         if(Input.GetKeyDown(KeyCode.A))
         {
-            Attack(weaponType, weaponRange, weaponDamage, weaponEffect, attackCost);
+            Attack();
         }
     }
 
-    protected override void Attack(WeaponType weapon, int range, int damage, WeaponEffect effect, int cout)
+    public override void Attack()
     {
-        numEssence -= cout;
-        List<Enemy> ennemiesInRange = GetEnnemiesInRange(weaponRange);
-        for(int i = 0 ; i < ennemiesInRange.Count - 1 ; i++)
+        numEssence -= attackCost;
+        List<Enemy> enemiesInRange = new List<Enemy>();
+        enemiesInRange = GetEnnemiesInRange(weaponRange);
+        /*if(enemiesInRange.Count > 0)
         {
-            ennemiesInRange[i].Damage(weaponDamage);
-        }
+            for (int i = 0; i < enemiesInRange.Count - 1; i++)
+            {
+                enemiesInRange[i].Damage(weaponDamage);
+            }
+        }*/
     }
 
     private List<Enemy> GetEnnemiesInRange(int range)

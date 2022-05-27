@@ -304,7 +304,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 105229316}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1845299518}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: Attack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &105229316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -343,6 +355,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 105229312}
   m_CullTransparentMesh: 1
+--- !u!1 &152527107
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 152527109}
+  - component: {fileID: 152527110}
+  m_Layer: 0
+  m_Name: SwipeManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &152527109
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 152527107}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &152527110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 152527107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77771ebcab147394f9eeab1140a10b5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1845299518}
+  distanceToDetectSwipe: 100
 --- !u!114 &260744379 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
@@ -537,6 +595,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1893107155458283563, guid: 96289d04b7d0bae42af623fb924f841a, type: 3}
   m_PrefabInstance: {fileID: 2132027979}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1845299518 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1893107155458283567, guid: 96289d04b7d0bae42af623fb924f841a, type: 3}
+  m_PrefabInstance: {fileID: 2132027979}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1845299516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21d8fc2439ac33340bbd91fd8ce46460, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1870479586
 GameObject:
   m_ObjectHideFlags: 0
@@ -679,7 +748,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 260744379}
           m_TargetAssemblyTypeName: MapBuilder, Assembly-CSharp
-          m_MethodName: MoveButton
+          m_MethodName: MovePlayer
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -878,6 +947,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1893107155458283566, guid: 96289d04b7d0bae42af623fb924f841a, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1958096826157051963, guid: 96289d04b7d0bae42af623fb924f841a, type: 3}
       propertyPath: m_RootOrder
       value: 1

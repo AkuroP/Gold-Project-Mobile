@@ -17,7 +17,7 @@ public class Enemy : Entity
     }
 
 
-    protected override void Attack()
+    public override void Attack()
     {
         
     }
