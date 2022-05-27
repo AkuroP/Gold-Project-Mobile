@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
         int index = 1;
         while (index < enemies.Length)
         {
-            if (enemies[index].GetComponent<Enemy>().prio > enemies[index - 1].GetComponent<Enemy>().prio)
+            if (enemies[index].GetComponent<Enemy>().prio < enemies[index - 1].GetComponent<Enemy>().prio)
             {
                 GameObject temp = enemies[index];
                 enemies[index] = enemies[index - 1];

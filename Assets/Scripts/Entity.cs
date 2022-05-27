@@ -18,8 +18,8 @@ public class Entity : MonoBehaviour
     public int mobilityY;
 
     //directions enum and direction of the entity
-    protected enum Direction {UP, RIGHT, BOTTOM, LEFT};
-    [SerializeField] protected Direction direction;
+    public enum Direction {UP, RIGHT, BOTTOM, LEFT};
+    public Direction direction;
 
     //weapons enum and weapon equiped by the entity
     protected enum WeaponType {DAGGER, GRIMOIRE, HANDGUN};
