@@ -28,6 +28,7 @@ public class SwipeDetection : MonoBehaviour
 
     private void Start()
     {
+
         mapBuilder = GameObject.FindWithTag("MapBuilder").GetComponent<MapBuilder>();
     }
 
@@ -79,15 +80,15 @@ public class SwipeDetection : MonoBehaviour
         if (swipeDone == true)
         {
             swipeDone = false;
-            if (player.GetComponent<Player>().attackNext == true)
+            if (player.attackNext == true)
             {
-                player.GetComponent<Player>().Attack();
-                player.GetComponent<Player>().attackNext = false;
+                player.Attack();
+                player.attackNext = false;
             }
             else
             {
-                mapBuilder.MovePlayer();
-                player.GetComponent<Player>().moveNext = false;
+                player.FindNextTile();
+                player.moveNext = false;
             }
         }
     }

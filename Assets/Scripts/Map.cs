@@ -6,12 +6,12 @@ using UnityEngine;
 public class Map
 {
     [Header("==== Map Entities ====")]
-    public GameObject player;
+    public Player player;
     [SerializeField]
-    public List<string> entities = new List<string>();
+    public List<Entity> entities = new List<Entity>();
 
     [Header("==== Map Size ====")]
-    public Vector3 mapOrigin;
+    public GameObject mapOrigin;
     public int mapHeight = 5;
     public int mapWidth = 5;
     private int numberOfTiles = 25;
@@ -19,16 +19,20 @@ public class Map
     [Header("==== Tiles ====")]
     [SerializeField]
     public List<Tile> tilesList = new List<Tile>();
-    public int playerSpawnIndex = 0;
+    [SerializeField]
+    private List<Tile> enemySpawnTiles = new List<Tile>();
+    public int entranceTileIndex, exitTileIndex;
+    
 
 
-    public Map(MapSettings _mapSettings, GameObject _player, Vector3 _mapOrigin)
+    public Map(MapSettings _mapSettings, Player _player, GameObject _mapOrigin)
     {
         //map size
         mapWidth = _mapSettings.mapWidth;
         mapHeight = _mapSettings.mapHeight;
         numberOfTiles = mapWidth * mapHeight;
         mapOrigin = _mapOrigin;
+        entranceTileIndex = _mapSettings.entranceTileIndex;
 
         //player
         player = _player;
@@ -43,7 +47,11 @@ public class Map
                 TileSettings newTileSettings = _mapSettings.tileSettings[tileIndex];
 
                 //Instantiate the tile
-                Tile newTile = new Tile(tileIndex, j + 1, i + 1, newTileSettings.isReachable, newTileSettings.tileColor);
+                Tile newTile = new Tile(tileIndex, j + 1, i + 1, newTileSettings.isReachable, newTileSettings.isEnemySpawn, newTileSettings.tileColor);
+                
+                if(newTileSettings.isEnemySpawn)
+                    enemySpawnTiles.Add(newTile);
+
                 
 
                 tilesList.Add(newTile);
@@ -92,9 +100,18 @@ public class Map
 
     public void SpawnEntities()
     {
-        player.transform.position = tilesList[playerSpawnIndex].tileGO.transform.position - new Vector3(0, 0, 1);
-        player.GetComponent<PlayerBehaviour>().currentTile = tilesList[playerSpawnIndex];
+        //spawn player
+        player.gameObject.transform.position = tilesList[entranceTileIndex].tileGO.transform.position - new Vector3(0, 0, 1);
+        player.currentTile = tilesList[entranceTileIndex];
+
+        //spawn ennemies
+        foreach(Tile tile in enemySpawnTiles)
+        {
+            Enemy newEnemy = GameObject.Instantiate(Resources.Load("Prefabs/Enemy"), tile.tileGO.transform.position, Quaternion.identity) as Enemy;
+            entities.Add(newEnemy);
+        }
     }
+
 
     public Tile FindTopTile(Tile currentTile)
     {
