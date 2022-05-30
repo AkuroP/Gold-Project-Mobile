@@ -6,6 +6,6 @@ public class Fade : MonoBehaviour
 {
     public void DestroyObject()
     {
-        Destroy(this.gameObject);
+        Destroy(this.transform.parent.gameObject);
     }
 }
