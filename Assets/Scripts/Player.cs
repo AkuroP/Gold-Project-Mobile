@@ -9,6 +9,9 @@ public class Player : Entity
     private int numEssence = 100;
     private int attackCost = 2;
 
+    public bool attackNext = false;
+    public bool moveNext = false;
+
     [SerializeField] private int weaponDamage;
 
     // Start is called before the first frame update
@@ -52,28 +55,28 @@ public class Player : Entity
                         if(this.GetComponent<PlayerBehaviour>().currentTile.topTile != null && this.GetComponent<PlayerBehaviour>().currentTile.topTile.isReachable == true)
                         {
                             Tile topTile = this.GetComponent<PlayerBehaviour>().currentTile.topTile;
-                            StartCoroutine(DebugAttack(topTile));
+                            StartCoroutine(GetComponent<PlayerBehaviour>().DebugAttack(topTile));
                         }
                         break;
                     case Direction.RIGHT:
                         if (this.GetComponent<PlayerBehaviour>().currentTile.rightTile != null && this.GetComponent<PlayerBehaviour>().currentTile.rightTile.isReachable == true)
                         {
                             Tile rightTile = this.GetComponent<PlayerBehaviour>().currentTile.rightTile;
-                            StartCoroutine(DebugAttack(rightTile));
+                            StartCoroutine(GetComponent<PlayerBehaviour>().DebugAttack(rightTile));
                         }       
                         break;
                     case Direction.BOTTOM:
                         if (this.GetComponent<PlayerBehaviour>().currentTile.bottomTile != null && this.GetComponent<PlayerBehaviour>().currentTile.bottomTile.isReachable == true)
                         {
                             Tile bottomTile = this.GetComponent<PlayerBehaviour>().currentTile.bottomTile;
-                            StartCoroutine(DebugAttack(bottomTile));
+                            StartCoroutine(GetComponent<PlayerBehaviour>().DebugAttack(bottomTile));
                         }
                         break;
                     case Direction.LEFT:
                         if (this.GetComponent<PlayerBehaviour>().currentTile.leftTile != null && this.GetComponent<PlayerBehaviour>().currentTile.leftTile.isReachable == true)
                         {
                             Tile leftTile = this.GetComponent<PlayerBehaviour>().currentTile.leftTile;
-                            StartCoroutine(DebugAttack(leftTile));
+                            StartCoroutine(GetComponent<PlayerBehaviour>().DebugAttack(leftTile));
                         }
                         break;
                 }
@@ -89,14 +92,14 @@ public class Player : Entity
                             if(topTile.leftTile != null && topTile.leftTile.isReachable == true)
                             {
                                 Tile topLeftTile = topTile.leftTile;
-                                StartCoroutine(DebugAttack(topLeftTile));
+                                StartCoroutine(GetComponent<PlayerBehaviour>().DebugAttack(topLeftTile));
                             }
                             if (topTile.rightTile != null && topTile.rightTile.isReachable == true)
                             {
                                 Tile topRightTile = topTile.rightTile;
-                                StartCoroutine(DebugAttack(topRightTile));
+                                StartCoroutine(GetComponent<PlayerBehaviour>().DebugAttack(topRightTile));
                             }
-                            StartCoroutine(DebugAttack(topTile));
+                            StartCoroutine(GetComponent<PlayerBehaviour>().DebugAttack(topTile));
                         }
                         break;
                     case Direction.RIGHT:
@@ -106,14 +109,14 @@ public class Player : Entity
                             if (rightTile.topTile != null && rightTile.topTile.isReachable == true)
                             {
                                 Tile rightUpTile = rightTile.topTile;
-                                StartCoroutine(DebugAttack(rightUpTile));
+                                StartCoroutine(GetComponent<PlayerBehaviour>().DebugAttack(rightUpTile));
                             }
                             if (rightTile.bottomTile != null && rightTile.bottomTile.isReachable == true)
                             {
                                 Tile rightBottomTile = rightTile.bottomTile;
-                                StartCoroutine(DebugAttack(rightBottomTile));
+                                StartCoroutine(GetComponent<PlayerBehaviour>().DebugAttack(rightBottomTile));
                             }
-                            StartCoroutine(DebugAttack(rightTile));
+                            StartCoroutine(GetComponent<PlayerBehaviour>().DebugAttack(rightTile));
                         }
                         break;
                     case Direction.BOTTOM:
@@ -123,14 +126,14 @@ public class Player : Entity
                             if (bottomTile.leftTile != null && bottomTile.leftTile.isReachable == true)
                             {
                                 Tile bottomLeftTile = bottomTile.leftTile;
-                                StartCoroutine(DebugAttack(bottomLeftTile));
+                                StartCoroutine(GetComponent<PlayerBehaviour>().DebugAttack(bottomLeftTile));
                             }
                             if (bottomTile.rightTile != null && bottomTile.rightTile.isReachable == true)
                             {
                                 Tile bottomRightTile = bottomTile.rightTile;
-                                StartCoroutine(DebugAttack(bottomRightTile));
+                                StartCoroutine(GetComponent<PlayerBehaviour>().DebugAttack(bottomRightTile));
                             }
-                            StartCoroutine(DebugAttack(bottomTile));
+                            StartCoroutine(GetComponent<PlayerBehaviour>().DebugAttack(bottomTile));
                         }
                         break;
                     case Direction.LEFT:
@@ -140,14 +143,14 @@ public class Player : Entity
                             if (leftTile.topTile != null && leftTile.topTile.isReachable == true)
                             {
                                 Tile leftUpTile = leftTile.topTile;
-                                StartCoroutine(DebugAttack(leftUpTile));
+                                StartCoroutine(GetComponent<PlayerBehaviour>().DebugAttack(leftUpTile));
                             }
                             if (leftTile.bottomTile != null && leftTile.bottomTile.isReachable == true)
                             {
                                 Tile leftBottomTile = leftTile.bottomTile;
-                                StartCoroutine(DebugAttack(leftBottomTile));
+                                StartCoroutine(GetComponent<PlayerBehaviour>().DebugAttack(leftBottomTile));
                             }
-                            StartCoroutine(DebugAttack(leftTile));
+                            StartCoroutine(GetComponent<PlayerBehaviour>().DebugAttack(leftTile));
                         }
                         break;
                 }
@@ -162,13 +165,13 @@ public class Player : Entity
                         if (this.GetComponent<PlayerBehaviour>().currentTile.topTile != null && this.GetComponent<PlayerBehaviour>().currentTile.topTile.isReachable == true)
                         {
                             lastTile = this.GetComponent<PlayerBehaviour>().currentTile.topTile;
-                            StartCoroutine(DebugAttack(lastTile));
+                            StartCoroutine(GetComponent<PlayerBehaviour>().DebugAttack(lastTile));
                             for (int i = 0; i < 3 + range; i++)
                             {
                                 if (hit == false)
                                 {
                                     lastTile = lastTile.topTile;
-                                    StartCoroutine(DebugAttack(lastTile));
+                                    StartCoroutine(GetComponent<PlayerBehaviour>().DebugAttack(lastTile));
                                     if (lastTile.isReachable == false)
                                     {
                                         hit = true;
@@ -181,13 +184,13 @@ public class Player : Entity
                         if (this.GetComponent<PlayerBehaviour>().currentTile.rightTile != null && this.GetComponent<PlayerBehaviour>().currentTile.rightTile.isReachable == true)
                         {
                             lastTile = this.GetComponent<PlayerBehaviour>().currentTile.rightTile;
-                            StartCoroutine(DebugAttack(lastTile));
+                            StartCoroutine(GetComponent<PlayerBehaviour>().DebugAttack(lastTile));
                             for (int i = 0; i < 3 + range; i++)
                             {
                                 if (hit == false)
                                 {
                                     lastTile = lastTile.rightTile;
-                                    StartCoroutine(DebugAttack(lastTile));
+                                    StartCoroutine(GetComponent<PlayerBehaviour>().DebugAttack(lastTile));
                                     if (lastTile.isReachable == false)
                                     {
                                         hit = true;
@@ -200,13 +203,13 @@ public class Player : Entity
                         if (this.GetComponent<PlayerBehaviour>().currentTile.bottomTile != null && this.GetComponent<PlayerBehaviour>().currentTile.bottomTile.isReachable == true)
                         {
                             lastTile = this.GetComponent<PlayerBehaviour>().currentTile.bottomTile;
-                            StartCoroutine(DebugAttack(lastTile));
+                            StartCoroutine(GetComponent<PlayerBehaviour>().DebugAttack(lastTile));
                             for (int i = 0; i < 3 + range; i++)
                             {
                                 if (hit == false)
                                 {
                                     lastTile = lastTile.bottomTile;
-                                    StartCoroutine(DebugAttack(lastTile));
+                                    StartCoroutine(GetComponent<PlayerBehaviour>().DebugAttack(lastTile));
                                     if (lastTile.isReachable == false)
                                     {
                                         hit = true;
@@ -219,13 +222,13 @@ public class Player : Entity
                         if (this.GetComponent<PlayerBehaviour>().currentTile.leftTile != null && this.GetComponent<PlayerBehaviour>().currentTile.leftTile.isReachable == true)
                         {
                             lastTile = this.GetComponent<PlayerBehaviour>().currentTile.leftTile;
-                            StartCoroutine(DebugAttack(lastTile));
+                            StartCoroutine(GetComponent<PlayerBehaviour>().DebugAttack(lastTile));
                             for (int i = 1; i < 3 + range; i++)
                             {
                                 if (hit == false)
                                 {
                                     lastTile = lastTile.leftTile;
-                                    StartCoroutine(DebugAttack(lastTile));
+                                    StartCoroutine(GetComponent<PlayerBehaviour>().DebugAttack(lastTile));
                                     if (lastTile.isReachable == false)
                                     {
                                         hit = true;
@@ -241,6 +244,18 @@ public class Player : Entity
         return null;
     }
 
+    public void AttackButton()
+    {
+        if(!attackNext)
+        {
+            attackNext = true;
+        }
+        else
+        {
+            attackNext = false;
+        }
+    }
+
     //function to take damage / die
     public override void Damage(int damage)
     {
@@ -249,14 +264,5 @@ public class Player : Entity
         {
             SceneManager.LoadScene("GameOverScene");
         }
-    }
-
-    //draw attack zone
-    private IEnumerator DebugAttack(Tile tile)
-    {
-        Color oldColor = tile.tileColor;
-        tile.tileGO.GetComponent<SpriteRenderer>().color = new Color(1f, 0f, 0f, 1f);
-        yield return new WaitForSeconds(0.5f);
-        tile.tileGO.GetComponent<SpriteRenderer>().color = oldColor;
     }
 }
