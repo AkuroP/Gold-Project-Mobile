@@ -5,7 +5,7 @@ using UnityEngine;
 public class MapBuilder : MonoBehaviour
 {
     [Header("==== Map Elements ====")]
-    public GameObject player;
+    public Player player;
     private PlayerBehaviour pB;
     public GameObject tilePrefab;
 
@@ -13,7 +13,7 @@ public class MapBuilder : MonoBehaviour
     public List<MapSettings> mapSettings = new List<MapSettings>();
 
     [Header("==== Maps ====")]
-    public Transform mapOrigin;
+    public GameObject mapOrigin;
     public Map currentMap;
 
     [Header("==== UI Button ====")]
@@ -24,8 +24,6 @@ public class MapBuilder : MonoBehaviour
 
     void Start()
     {
-        pB = player.GetComponent<PlayerBehaviour>();
-
         //Create a map
         currentMap = CreateMap();
         InitializeMap(currentMap);
@@ -34,7 +32,7 @@ public class MapBuilder : MonoBehaviour
 
     public Map CreateMap()
     {
-        return new Map(mapSettings[1], player, mapOrigin.position);
+        return new Map(mapSettings[1], player, mapOrigin);
     }
 
     public void InitializeMap(Map map)
@@ -44,7 +42,7 @@ public class MapBuilder : MonoBehaviour
         {
             Tile tile = map.tilesList[i];
 
-            GameObject newTileGO = Instantiate(tilePrefab, map.mapOrigin + new Vector3(tile.tileX, tile.tileY, 0), Quaternion.identity);
+            GameObject newTileGO = Instantiate(tilePrefab, map.mapOrigin.transform.position + new Vector3(tile.tileX, tile.tileY, 0), Quaternion.identity, map.mapOrigin.transform);
             newTileGO.GetComponent<SpriteRenderer>().color = tile.tileColor;
 
             tile.tileGO = newTileGO;
@@ -54,45 +52,7 @@ public class MapBuilder : MonoBehaviour
         map.SpawnEntities();
     }
 
-    public void MovePlayer()
-    {
-        switch (player.GetComponent<Player>().direction)
-        {
-            case Entity.Direction.UP:
-                Tile topTile = currentMap.FindTopTile(pB.currentTile);
-                if (currentMap.CheckMove(topTile))
-                {
-                    pB.MovePlayer(topTile.tileGO.transform.position);
-                    pB.currentTile = topTile;
-                }
-                break;
-            case Entity.Direction.RIGHT:
-                Tile rightTile = currentMap.FindRightTile(pB.currentTile);
-                if (currentMap.CheckMove(rightTile))
-                {
-                    pB.MovePlayer(rightTile.tileGO.transform.position);
-                    pB.currentTile = rightTile;
-                }
-                break;
-            case Entity.Direction.BOTTOM:
-                Tile bottomTile = currentMap.FindBottomTile(pB.currentTile);
-                if (currentMap.CheckMove(bottomTile))
-                {
-                    pB.MovePlayer(bottomTile.tileGO.transform.position);
-                    pB.currentTile = bottomTile;
-                }
-                break;
-            case Entity.Direction.LEFT:
-                Tile leftTile = currentMap.FindLeftTile(pB.currentTile);
-                if (currentMap.CheckMove(leftTile))
-                {
-                    pB.MovePlayer(leftTile.tileGO.transform.position);
-                    pB.currentTile = leftTile;
-                }
-                break;
-        }
-        enableMove = false;
-    }
+    
 }
 
 
@@ -100,6 +60,7 @@ public class MapBuilder : MonoBehaviour
 public class MapSettings
 {
     public int mapWidth, mapHeight;
+    public int entranceTileIndex, exitTileIndex;
     [SerializeField]
     public List<TileSettings> tileSettings = new List<TileSettings>();
 }
@@ -108,6 +69,7 @@ public class MapSettings
 public class TileSettings
 {
     public bool isReachable;
+    public bool isEnemySpawn;
     public Color tileColor = Color.red;
     public Sprite tileSprite;
 }
