@@ -307,7 +307,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1845299518}
         m_TargetAssemblyTypeName: Player, Assembly-CSharp
-        m_MethodName: Attack
+        m_MethodName: AttackButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -401,17 +401,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1845299518}
   distanceToDetectSwipe: 100
---- !u!114 &260744379 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
-  m_PrefabInstance: {fileID: 5509594954600616930}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae3cf7420b8fd6e428044fe2fedb4732, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  swipeAllowed: 0
 --- !u!1 &673502440
 GameObject:
   m_ObjectHideFlags: 0
@@ -746,9 +736,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 260744379}
-          m_TargetAssemblyTypeName: MapBuilder, Assembly-CSharp
-          m_MethodName: MovePlayer
+        - m_Target: {fileID: 1845299518}
+          m_TargetAssemblyTypeName: Player, Assembly-CSharp
+          m_MethodName: MoveButton
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -1068,9 +1058,5 @@ PrefabInstance:
       propertyPath: mapOrigin
       value: 
       objectReference: {fileID: 788822080}
-    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
-      propertyPath: limitBtwRightLeftAndTopBot
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}

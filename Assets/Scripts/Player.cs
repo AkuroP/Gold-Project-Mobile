@@ -9,6 +9,9 @@ public class Player : Entity
     private int numEssence = 100;
     private int attackCost = 2;
 
+    public bool attackNext = false;
+    public bool moveNext = false;
+
     [SerializeField] private int weaponDamage;
 
     // Start is called before the first frame update
@@ -239,6 +242,18 @@ public class Player : Entity
                 return ennemiesInRange;
         }
         return null;
+    }
+
+    public void AttackButton()
+    {
+        attackNext = true;
+        SwipeDetection.instanceSD.swipeAllowed = true;
+    }
+
+    public void MoveButton()
+    {
+        moveNext = true;
+        SwipeDetection.instanceSD.swipeAllowed = true;
     }
 
     //function to take damage / die
