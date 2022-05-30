@@ -1339,6 +1339,8 @@ MonoBehaviour:
   weaponUp: {fileID: 440559662}
   weaponUpPrice: {fileID: 263639577}
   itemPrice: 40
+  isMaxed: 0
+  maxUpgrade: 2
 --- !u!1 &2022398573
 GameObject:
   m_ObjectHideFlags: 0

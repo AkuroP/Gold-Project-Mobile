@@ -11,13 +11,13 @@ public class Item : MonoBehaviour
 
     public int itemPrice;
     private Player player;
+    [SerializeField] private bool isMaxed;
+    [SerializeField] private int maxUpgrade = 2;
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindWithTag("Player").GetComponent<Player>();
-        weaponName.text = player.weapon.typeOfWeapon.ToString();
-        weaponUp.text = "Level " + (player.weapon.weaponLevel + 1).ToString();
-        weaponUpPrice.text = itemPrice.ToString() + " essences";
+        UpdateWeapon();   
     }
 
     // Update is called once per frame
@@ -28,15 +28,38 @@ public class Item : MonoBehaviour
 
     public void BuyItem()
     {
-        if(GameObject.Find("Canvas").GetComponent<Shop>().gold >= this.itemPrice)
+        if(!isMaxed)
         {
-            Debug.Log("ITEM BUYED");
-            GameObject.Find("Canvas").GetComponent<Shop>().gold -= this.itemPrice;
-            Destroy(this.gameObject);
+            if(GameObject.Find("Canvas").GetComponent<Shop>().gold >= this.itemPrice)
+            {
+                Debug.Log("ITEM BUYED");
+                GameObject.Find("Canvas").GetComponent<Shop>().gold -= this.itemPrice;
+                Destroy(this.gameObject);
+            }
+            else
+            {
+                Debug.Log("CAN'T BUY ITEM");
+            }
         }
         else
         {
-            Debug.Log("CAN'T BUY ITEM");
+            Debug.Log("ITEM MAX UPGRADED");
+        }
+    }
+
+    private void UpdateWeapon()
+    {
+        weaponName.text = player.weapon.typeOfWeapon.ToString();
+        weaponUpPrice.text = itemPrice.ToString() + " essences";
+        if(player.weapon.weaponLevel < maxUpgrade)
+        {
+            weaponUp.text = "Level " + (player.weapon.weaponLevel + 1).ToString();
+            this.isMaxed = false;
+        }
+        else
+        {
+            weaponUp.text = "MAXED";
+            this.isMaxed = true;
         }
     }
 }
