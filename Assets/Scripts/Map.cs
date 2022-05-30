@@ -101,12 +101,18 @@ public class Map : MonoBehaviour
         //instantiate and spawn player
         player = GameObject.FindWithTag("Player").GetComponent<Player>();
         player.gameObject.transform.position = tilesList[entranceTileIndex].transform.position - new Vector3(0, 0, 1);
+        //assign map and current tile
+        player.currentMap = GetComponent<Map>();
         player.currentTile = tilesList[entranceTileIndex];
 
         //instantiate and spawn ennemies
         foreach(Tile tile in enemySpawnTiles)
         {
             GameObject newEnemy = GameObject.Instantiate(Resources.Load("Prefabs/Enemy"), tile.transform.position, Quaternion.identity) as GameObject;
+            //assign map and current tile
+            newEnemy.GetComponent<Enemy>().currentMap = GetComponent<Map>();
+            newEnemy.GetComponent<Enemy>().currentTile = tile;
+
             entities.Add(newEnemy.GetComponent<Enemy>());
         }
     }

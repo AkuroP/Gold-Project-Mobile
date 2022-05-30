@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SwipeDetection : MonoBehaviour
 {
-    public Player player;
+    private Player player;
 
     private Vector2 startPos;
 
@@ -28,7 +28,7 @@ public class SwipeDetection : MonoBehaviour
 
     private void Start()
     {
-
+        player = GameObject.FindWithTag("Player").GetComponent<Player>();
         mapBuilder = GameObject.FindWithTag("MapBuilder").GetComponent<MapBuilder>();
     }
 

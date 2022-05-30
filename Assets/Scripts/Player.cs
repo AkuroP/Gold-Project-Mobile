@@ -60,7 +60,7 @@ public class Player : Entity
                 Tile topTile = currentMap.FindTopTile(currentTile);
                 if (currentMap.CheckMove(topTile))
                 {
-                    MovePlayer(topTile.tileGO.transform.position);
+                    MovePlayer(topTile.transform.position);
                     currentTile = topTile;
                 }
                 break;
@@ -68,7 +68,7 @@ public class Player : Entity
                 Tile rightTile = currentMap.FindRightTile(currentTile);
                 if (currentMap.CheckMove(rightTile))
                 {
-                    MovePlayer(rightTile.tileGO.transform.position);
+                    MovePlayer(rightTile.transform.position);
                     currentTile = rightTile;
                 }
                 break;
@@ -76,7 +76,7 @@ public class Player : Entity
                 Tile bottomTile = currentMap.FindBottomTile(currentTile);
                 if (currentMap.CheckMove(bottomTile))
                 {
-                    MovePlayer(bottomTile.tileGO.transform.position);
+                    MovePlayer(bottomTile.transform.position);
                     currentTile = bottomTile;
                 }
                 break;
@@ -84,7 +84,7 @@ public class Player : Entity
                 Tile leftTile = currentMap.FindLeftTile(currentTile);
                 if (currentMap.CheckMove(leftTile))
                 {
-                    MovePlayer(leftTile.tileGO.transform.position);
+                    MovePlayer(leftTile.transform.position);
                     currentTile = leftTile;
                 }
                 break;
