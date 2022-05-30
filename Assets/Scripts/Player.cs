@@ -9,8 +9,7 @@ public class Player : Entity
     public bool canMove = true;
     public bool moveInProgress = false;
 
-    public Map currentMap;
-    public Tile currentTile;
+
     public Vector3 targetPosition, currentPosition;
 
     private float timeElapsed;

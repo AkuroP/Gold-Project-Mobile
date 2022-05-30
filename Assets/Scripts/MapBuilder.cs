@@ -4,17 +4,8 @@ using UnityEngine;
 
 public class MapBuilder : MonoBehaviour
 {
-    [Header("==== Map Elements ====")]
-    public Player player;
-    private PlayerBehaviour pB;
-    public GameObject tilePrefab;
-
     [Header("==== Map References ====")]
     public List<MapSettings> mapSettings = new List<MapSettings>();
-
-    [Header("==== Maps ====")]
-    public GameObject mapOrigin;
-    public Map currentMap;
 
     [Header("==== UI Button ====")]
     public bool enableMove;
@@ -25,31 +16,14 @@ public class MapBuilder : MonoBehaviour
     void Start()
     {
         //Create a map
-        currentMap = CreateMap();
-        InitializeMap(currentMap);
-
+        Map currentMap = CreateMap();
+        currentMap.Init(mapSettings[1]);
     }
 
     public Map CreateMap()
     {
-        return new Map(mapSettings[1], player, mapOrigin);
-    }
-
-    public void InitializeMap(Map map)
-    {
-        //instantiate tiles
-        for (int i = 0; i < map.tilesList.Count; i++)
-        {
-            Tile tile = map.tilesList[i];
-
-            GameObject newTileGO = Instantiate(tilePrefab, map.mapOrigin.transform.position + new Vector3(tile.tileX, tile.tileY, 0), Quaternion.identity, map.mapOrigin.transform);
-            newTileGO.GetComponent<SpriteRenderer>().color = tile.tileColor;
-
-            tile.tileGO = newTileGO;
-        }
-
-        //spawn all entities
-        map.SpawnEntities();
+        GameObject currentMapInstance = Instantiate(Resources.Load("Prefabs/MapHolder"), new Vector3(-2, -2, 0), Quaternion.identity) as GameObject;
+        return currentMapInstance.GetComponent<Map>();
     }
 
     
@@ -69,8 +43,11 @@ public class MapSettings
 public class TileSettings
 {
     public bool isReachable;
+    public bool isHole;
+    public bool isWall;
     public bool isEnemySpawn;
-    public Color tileColor = Color.red;
+
+    public Color tileColor;
     public Sprite tileSprite;
 }
 

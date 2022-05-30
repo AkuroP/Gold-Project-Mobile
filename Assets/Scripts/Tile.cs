@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class Tile
+public class Tile : MonoBehaviour
 {
     public int tileIndex;
     public int tileX, tileY;
@@ -12,22 +12,38 @@ public class Tile
 
     public Color tileColor;
 
-    public bool hasEntity = false;
     public bool isReachable = true;
+    public bool hasEntity = false;
+    public bool isWall = true;
+    public bool isHole = true;
     public bool isEnemySpawn = false;
 
     [SerializeField]
     public Tile topTile, rightTile, bottomTile, leftTile;
 
-    public Tile(int _tileIndex, int _tileX, int _tileY, bool _isReachable, bool _isEnemySpawn, Color _tileColor)
+    public void Init(int _tileIndex, int _tileX, int _tileY, bool _isReachable, bool _isWall, bool _isHole, bool _isEnemySpawn, Color _tileColor)
     {
         tileIndex = _tileIndex;
         tileX = _tileX;
         tileY = _tileY;
 
         isReachable = _isReachable;
+        isWall = _isWall;
+        isHole = _isHole;
         isEnemySpawn = _isEnemySpawn;
+
         tileColor = _tileColor;
+
+        //place self relatively to its parent
+        transform.position = transform.parent.transform.position + new Vector3(tileX, tileY, 0);
+
+        ChangeVisual();
     }
+
+    public void ChangeVisual()
+    {
+        this.gameObject.GetComponent<SpriteRenderer>().color = tileColor;
+    }
+
 }
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class Map
+public class Map : MonoBehaviour
 {
     [Header("==== Map Entities ====")]
     public Player player;
@@ -24,37 +24,33 @@ public class Map
     public int entranceTileIndex, exitTileIndex;
     
 
-
-    public Map(MapSettings _mapSettings, Player _player, GameObject _mapOrigin)
+    public void Init(MapSettings _mapSettings)
     {
-        //map size
-        mapWidth = _mapSettings.mapWidth;
+        mapOrigin = this.gameObject;
+
         mapHeight = _mapSettings.mapHeight;
+        mapWidth = _mapSettings.mapWidth;
         numberOfTiles = mapWidth * mapHeight;
-        mapOrigin = _mapOrigin;
+
         entranceTileIndex = _mapSettings.entranceTileIndex;
+        exitTileIndex = _mapSettings.exitTileIndex;
 
-        //player
-        player = _player;
-
-        //create map tiles following reference map
         int tileIndex = 0;
         for (int i = 0; i < mapHeight; i++)
         {
-            for (int j = 0; j < mapHeight; j++)
+            for (int j = 0; j < mapWidth; j++)
             {
                 //get settings for this tile
                 TileSettings newTileSettings = _mapSettings.tileSettings[tileIndex];
 
-                //Instantiate the tile
-                Tile newTile = new Tile(tileIndex, j + 1, i + 1, newTileSettings.isReachable, newTileSettings.isEnemySpawn, newTileSettings.tileColor);
-                
+                //instantiate and initialize tile
+                GameObject newTileInstance = Instantiate(Resources.Load("Prefabs/Tile"), mapOrigin.transform.position, Quaternion.identity, this.gameObject.transform) as GameObject;
+                newTileInstance.GetComponent<Tile>().Init(tileIndex, j + 1, i + 1, newTileSettings.isReachable, newTileSettings.isWall, newTileSettings.isHole, newTileSettings.isEnemySpawn, newTileSettings.tileColor);
+
                 if(newTileSettings.isEnemySpawn)
-                    enemySpawnTiles.Add(newTile);
+                    enemySpawnTiles.Add(newTileInstance.GetComponent<Tile>());
 
-                
-
-                tilesList.Add(newTile);
+                tilesList.Add(newTileInstance.GetComponent<Tile>());
                 tileIndex++;
             }
         }
@@ -95,20 +91,23 @@ public class Map
             oneTile.bottomTile = tempBT;
             oneTile.leftTile = tempLT;
         }
+
+        SpawnEntities();
     }
 
 
     public void SpawnEntities()
     {
-        //spawn player
-        player.gameObject.transform.position = tilesList[entranceTileIndex].tileGO.transform.position - new Vector3(0, 0, 1);
+        //instantiate and spawn player
+        player = GameObject.FindWithTag("Player").GetComponent<Player>();
+        player.gameObject.transform.position = tilesList[entranceTileIndex].transform.position - new Vector3(0, 0, 1);
         player.currentTile = tilesList[entranceTileIndex];
 
-        //spawn ennemies
+        //instantiate and spawn ennemies
         foreach(Tile tile in enemySpawnTiles)
         {
-            Enemy newEnemy = GameObject.Instantiate(Resources.Load("Prefabs/Enemy"), tile.tileGO.transform.position, Quaternion.identity) as Enemy;
-            entities.Add(newEnemy);
+            GameObject newEnemy = GameObject.Instantiate(Resources.Load("Prefabs/Enemy"), tile.transform.position, Quaternion.identity) as GameObject;
+            entities.Add(newEnemy.GetComponent<Enemy>());
         }
     }
 
@@ -157,17 +156,4 @@ public class Map
         }
 
     }
-
-    
-
-    /*private void ChangeStyle(Tile tile)
-    {
-        if (tile != null)
-        {
-            if (!tile.isReachable)
-            {
-                tile.tileGO.GetComponent<SpriteRenderer>().material.color = Color.black;
-            }
-        }
-    }*/
 }

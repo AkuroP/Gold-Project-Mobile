@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
-    [Header("Stat")]
+    [Header("==== Map Informations ====")]
+    public Map currentMap;
+    public Tile currentTile;
+
+    [Header("==== Stat ====")]
     //hp for enemy, turn left for player
     public int maxHP;
     protected int hp;
     //priority of entity (player always first)
     public int prio;
-    [Header("Movement")]
+    [Header("==== Movement ====")]
     //mobility of entity per turn
     public int maxMobility;
     //movement of entity in X and Y
