@@ -14,6 +14,9 @@ public class GameManager : MonoBehaviour
     }
     public Turn whatTurn;
 
+    public int score;
+    public int actualDangerousness;
+
     private void Awake()
     {
         if (instanceGM != null)
