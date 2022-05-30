@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5509594956100542043}
   m_Layer: 0
   m_Name: MapBuilder
-  m_TagString: Untagged
+  m_TagString: MapBuilder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -110,3 +110,6 @@ MonoBehaviour:
     mapWidth: 0
     tilesList: []
     playerSpawnIndex: 0
+  enableMove: 0
+  enableAttack: 0
+  limitBtwRightLeftAndTopBot: 2
