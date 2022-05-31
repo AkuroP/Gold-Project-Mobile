@@ -24,6 +24,8 @@ public class Player : Entity
 
     [SerializeField] private int weaponDamage;
 
+    public Weapon weapon;
+
     // Start is called before the first frame update
     void Start()
     {
