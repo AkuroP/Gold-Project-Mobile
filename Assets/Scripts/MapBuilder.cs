@@ -13,6 +13,17 @@ public class MapBuilder : MonoBehaviour
 
     public float limitBtwRightLeftAndTopBot;
 
+    public static MapBuilder instanceMB;
+
+    private void Awake()
+    {
+        if (instanceMB != null)
+        {
+            Destroy(instanceMB);
+        }
+        instanceMB = this;
+    }
+
     void Start()
     {
         //Create a map
