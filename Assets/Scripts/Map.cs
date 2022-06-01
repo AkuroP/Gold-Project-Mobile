@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class Map
+public class Map : MonoBehaviour
 {
     [Header("==== Map Entities ====")]
-    public GameObject player;
+    public Player player;
     [SerializeField]
-    public List<string> entities = new List<string>();
+    public List<Entity> entities = new List<Entity>();
 
     [Header("==== Map Size ====")]
-    public Vector3 mapOrigin;
+    public GameObject mapOrigin;
     public int mapHeight = 5;
     public int mapWidth = 5;
     private int numberOfTiles = 25;
@@ -19,34 +19,38 @@ public class Map
     [Header("==== Tiles ====")]
     [SerializeField]
     public List<Tile> tilesList = new List<Tile>();
-    public int playerSpawnIndex = 0;
+    [SerializeField]
+    private List<Tile> enemySpawnTiles = new List<Tile>();
+    public int entranceTileIndex, exitTileIndex;
+    
 
-
-    public Map(MapSettings _mapSettings, GameObject _player, Vector3 _mapOrigin)
+    public void Init(MapSettings _mapSettings)
     {
-        //map size
-        mapWidth = _mapSettings.mapWidth;
+        mapOrigin = this.gameObject;
+
         mapHeight = _mapSettings.mapHeight;
+        mapWidth = _mapSettings.mapWidth;
         numberOfTiles = mapWidth * mapHeight;
-        mapOrigin = _mapOrigin;
 
-        //player
-        player = _player;
+        entranceTileIndex = _mapSettings.entranceTileIndex;
+        exitTileIndex = _mapSettings.exitTileIndex;
 
-        //create map tiles following reference map
         int tileIndex = 0;
         for (int i = 0; i < mapHeight; i++)
         {
-            for (int j = 0; j < mapHeight; j++)
+            for (int j = 0; j < mapWidth; j++)
             {
                 //get settings for this tile
                 TileSettings newTileSettings = _mapSettings.tileSettings[tileIndex];
 
-                //Instantiate the tile
-                Tile newTile = new Tile(tileIndex, j + 1, i + 1, newTileSettings.isReachable, newTileSettings.tileColor);
-                
+                //instantiate and initialize tile
+                GameObject newTileInstance = Instantiate(Resources.Load("Prefabs/Tile"), mapOrigin.transform.position, Quaternion.identity, this.gameObject.transform) as GameObject;
+                newTileInstance.GetComponent<Tile>().Init(tileIndex, j + 1, i + 1, newTileSettings.isReachable, newTileSettings.isWall, newTileSettings.isHole, newTileSettings.isEnemySpawn, newTileSettings.tileColor);
 
-                tilesList.Add(newTile);
+                if(newTileSettings.isEnemySpawn)
+                    enemySpawnTiles.Add(newTileInstance.GetComponent<Tile>());
+
+                tilesList.Add(newTileInstance.GetComponent<Tile>());
                 tileIndex++;
             }
         }
@@ -87,14 +91,32 @@ public class Map
             oneTile.bottomTile = tempBT;
             oneTile.leftTile = tempLT;
         }
+
+        SpawnEntities();
     }
 
 
     public void SpawnEntities()
     {
-        player.transform.position = tilesList[playerSpawnIndex].tileGO.transform.position - new Vector3(0, 0, 1);
-        player.GetComponent<PlayerBehaviour>().currentTile = tilesList[playerSpawnIndex];
+        //instantiate and spawn player
+        player = GameObject.FindWithTag("Player").GetComponent<Player>();
+        player.gameObject.transform.position = tilesList[entranceTileIndex].transform.position - new Vector3(0, 0, 1);
+        //assign map and current tile
+        player.currentMap = GetComponent<Map>();
+        player.currentTile = tilesList[entranceTileIndex];
+
+        //instantiate and spawn ennemies
+        foreach(Tile tile in enemySpawnTiles)
+        {
+            GameObject newEnemy = GameObject.Instantiate(Resources.Load("Prefabs/Enemy"), tile.transform.position, Quaternion.identity) as GameObject;
+            //assign map and current tile
+            newEnemy.GetComponent<Enemy>().currentMap = GetComponent<Map>();
+            newEnemy.GetComponent<Enemy>().currentTile = tile;
+
+            entities.Add(newEnemy.GetComponent<Enemy>());
+        }
     }
+
 
     public Tile FindTopTile(Tile currentTile)
     {
@@ -140,17 +162,4 @@ public class Map
         }
 
     }
-
-    
-
-    /*private void ChangeStyle(Tile tile)
-    {
-        if (tile != null)
-        {
-            if (!tile.isReachable)
-            {
-                tile.tileGO.GetComponent<SpriteRenderer>().material.color = Color.black;
-            }
-        }
-    }*/
 }

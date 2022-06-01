@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6993429039082870997}
   - component: {fileID: 6907831425354260389}
   - component: {fileID: 4815562101637283807}
+  - component: {fileID: 4784044326415559397}
   m_Layer: 0
   m_Name: Tile
   m_TagString: Untagged
@@ -111,3 +112,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &4784044326415559397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8972557629110569728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ae45e7123afe8c4ab996f6983c64a01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tileIndex: 0
+  tileX: 0
+  tileY: 0
+  tileGO: {fileID: 0}
+  tileColor: {r: 0, g: 0, b: 0, a: 0}
+  hasEntity: 0
+  isReachable: 0
+  isEnemySpawn: 0
+  topTile: {fileID: 0}
+  rightTile: {fileID: 0}
+  bottomTile: {fileID: 0}
+  leftTile: {fileID: 0}

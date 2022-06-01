@@ -17,7 +17,7 @@ public class PlayerBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentPosition = transform.position;
+        
     }
 
     // Update is called once per frame
@@ -46,5 +46,14 @@ public class PlayerBehaviour : MonoBehaviour
 
         moveInProgress = true;
         canMove = false;
+    }
+
+    //draw attack zone
+    public IEnumerator DebugAttack(Tile tile)
+    {
+        Color oldColor = tile.tileColor;
+        tile.tileGO.GetComponent<SpriteRenderer>().color = new Color(1f, 0f, 0f, 1f);
+        yield return new WaitForSeconds(0.5f);
+        tile.tileGO.GetComponent<SpriteRenderer>().color = oldColor;
     }
 }
