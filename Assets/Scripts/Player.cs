@@ -10,7 +10,7 @@ public class Player : Entity
     public bool moveInProgress = false;
 
 
-    public Vector3 targetPosition, currentPosition;
+
 
     private float timeElapsed;
     public float moveDuration;
@@ -54,52 +54,10 @@ public class Player : Entity
         }
     }
 
-    public void FindNextTile()
+    
+    public override void Move(Tile _targetTile)
     {
-        switch (direction)
-        {
-            case Entity.Direction.UP:
-                Tile topTile = currentMap.FindTopTile(currentTile);
-                if (currentMap.CheckMove(topTile))
-                {
-                    MovePlayer(topTile);
-                }
-                break;
-            case Entity.Direction.RIGHT:
-                Tile rightTile = currentMap.FindRightTile(currentTile);
-                if (currentMap.CheckMove(rightTile))
-                {
-                    MovePlayer(rightTile);
-                }
-                break;
-            case Entity.Direction.BOTTOM:
-                Tile bottomTile = currentMap.FindBottomTile(currentTile);
-                if (currentMap.CheckMove(bottomTile))
-                {
-                    MovePlayer(bottomTile);
-                }
-                break;
-            case Entity.Direction.LEFT:
-                Tile leftTile = currentMap.FindLeftTile(currentTile);
-                if (currentMap.CheckMove(leftTile))
-                {
-                    MovePlayer(leftTile);
-                }
-                break;
-        }
-        //enableMove = false;
-    }
-
-    public void MovePlayer(Tile _targetTile)
-    {
-        currentPosition = transform.position;
-        targetPosition = _targetTile.transform.position;
-
-        if(!_targetTile.isHole)
-        {
-            currentTile = _targetTile;
-        }
-
+        base.Move(_targetTile);
         moveInProgress = true;
         canMove = false;
     }

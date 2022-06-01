@@ -35,6 +35,8 @@ public class Entity : MonoBehaviour
     [SerializeField] protected WeaponEffect weaponEffect;
     [SerializeField] protected WeaponEffect effectOnEntity;
 
+    public Vector3 targetPosition, currentPosition;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -58,4 +60,52 @@ public class Entity : MonoBehaviour
     {
 
     }
+
+    public virtual void Move(Tile _targetTile)
+    {
+        currentPosition = transform.position;
+        targetPosition = _targetTile.transform.position;
+
+        if(!_targetTile.isHole)
+        {
+            currentTile = _targetTile;
+        }
+    }
+
+    public virtual void FindNextTile()
+    {
+        switch (direction)
+        {
+            case Entity.Direction.UP:
+                Tile topTile = currentMap.FindTopTile(currentTile);
+                if (currentMap.CheckMove(topTile))
+                {
+                    Move(topTile);
+                }
+                break;
+            case Entity.Direction.RIGHT:
+                Tile rightTile = currentMap.FindRightTile(currentTile);
+                if (currentMap.CheckMove(rightTile))
+                {
+                    Move(rightTile);
+                }
+                break;
+            case Entity.Direction.BOTTOM:
+                Tile bottomTile = currentMap.FindBottomTile(currentTile);
+                if (currentMap.CheckMove(bottomTile))
+                {
+                    Move(bottomTile);
+                }
+                break;
+            case Entity.Direction.LEFT:
+                Tile leftTile = currentMap.FindLeftTile(currentTile);
+                if (currentMap.CheckMove(leftTile))
+                {
+                    Move(leftTile);
+                }
+                break;
+        }
+        //enableMove = false;
+    }
+
 }

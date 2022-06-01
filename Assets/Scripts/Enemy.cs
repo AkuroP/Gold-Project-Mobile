@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Enemy : Entity
 {
+    public float enemyRange;
+    public Player player;
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = GameObject.FindWithTag("Player").GetComponent<Player>();
     }
 
     // Update is called once per frame
@@ -58,5 +60,21 @@ public class Enemy : Entity
         {
             Destroy(this);
         }
+    }
+
+    public virtual void EnemyBehaviour()
+    {
+        if(Vector3.Distance(this.transform.position, player.transform.position) > enemyRange)
+        {
+            this.EnemyMove();
+        }
+        else
+        {
+            this.Attack();
+        }
+    }
+    public virtual void EnemyMove()
+    {
+
     }
 }
