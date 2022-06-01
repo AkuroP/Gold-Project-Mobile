@@ -24,14 +24,14 @@ public class GameManager : MonoBehaviour
     }
 
     private GameObject player;
-    [SerializeField] private GameObject[] enemiesPlaying;
+    public List<GameObject> enemiesPlaying;
+    public int allEnemiesActionFinished;
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindWithTag("Player");
         whatTurn = Turn.PLAYERTURN;
-        enemiesPlaying = GameObject.FindGameObjectsWithTag("Enemy");
         enemiesPlaying = TriGnome(enemiesPlaying);
     }
 
@@ -41,10 +41,10 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public static GameObject[] TriGnome(GameObject[] enemies)
+    public static List<GameObject> TriGnome(List<GameObject> enemies)
     {
         int index = 1;
-        while (index < enemies.Length)
+        while (index < enemies.Count)
         {
             if (enemies[index].GetComponent<Enemy>().prio < enemies[index - 1].GetComponent<Enemy>().prio)
             {
@@ -59,5 +59,25 @@ public class GameManager : MonoBehaviour
             else { index++; }
         }
         return enemies;
+    }
+
+    public void ChangeTurn()
+    {
+        if(whatTurn == Turn.PLAYERTURN)
+        {
+            //ENEMY TURN
+            whatTurn = Turn.ENEMYTURN;
+            for(int i = 0; i < enemiesPlaying.Count; i++)
+            {
+                enemiesPlaying[i].GetComponent<Enemy>().EnemyBehaviour();
+            }
+            Debug.Log("RETURN PLAYER TURN");
+            whatTurn = Turn.PLAYERTURN;
+        }
+        else if(whatTurn == Turn.ENEMYTURN)
+        {
+            //PLAYER TURN
+            whatTurn = Turn.PLAYERTURN;
+        }
     }
 }

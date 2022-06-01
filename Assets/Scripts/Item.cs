@@ -34,6 +34,7 @@ public class Item : MonoBehaviour
             {
                 Debug.Log("ITEM BUYED");
                 GameObject.Find("Canvas").GetComponent<Shop>().gold -= this.itemPrice;
+                player.weapon.weaponLevel += 1;
                 Destroy(this.gameObject);
             }
             else
