@@ -2,6 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum Direction
+{ 
+    UP, 
+    RIGHT, 
+    BOTTOM, 
+    LEFT 
+}
+
 public class Entity : MonoBehaviour
 {
     [Header("==== Map Informations ====")]
@@ -22,16 +30,14 @@ public class Entity : MonoBehaviour
     public int mobilityY;
 
     //directions enum and direction of the entity
-    public enum Direction {UP, RIGHT, BOTTOM, LEFT};
+
     public Direction direction;
 
     //weapons enum and weapon equiped by the entity
-    protected enum WeaponType {DAGGER, GRIMOIRE, HANDGUN};
     [SerializeField] protected WeaponType weaponType;
     [SerializeField] protected int weaponRange;
 
     //effects enum, effects on the weapon, effects on the entity
-    protected enum WeaponEffect {NONE, BURN, FREEZE};
     [SerializeField] protected WeaponEffect weaponEffect;
     [SerializeField] protected WeaponEffect effectOnEntity;
 
@@ -54,7 +60,7 @@ public class Entity : MonoBehaviour
     }
 
     //function to take damage / die
-    public virtual void Damage(int damage)
+    public virtual void DamageSelf(int damage)
     {
 
     }

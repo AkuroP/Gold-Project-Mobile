@@ -104,6 +104,7 @@ public class Map : MonoBehaviour
         //assign map and current tile
         player.currentMap = GetComponent<Map>();
         player.currentTile = tilesList[entranceTileIndex];
+        tilesList[entranceTileIndex].entityOnTile = player;
 
         //instantiate and spawn ennemies
         foreach(Tile tile in enemySpawnTiles)
@@ -112,6 +113,7 @@ public class Map : MonoBehaviour
             //assign map and current tile
             newEnemy.GetComponent<Enemy>().currentMap = GetComponent<Map>();
             newEnemy.GetComponent<Enemy>().currentTile = tile;
+            tile.entityOnTile = newEnemy.GetComponent<Enemy>();
 
             entities.Add(newEnemy.GetComponent<Enemy>());
         }
@@ -144,7 +146,7 @@ public class Map : MonoBehaviour
         if (nextTile != null)
         {
             //is the tile accessible and empty
-            if (!nextTile.hasEntity && nextTile.isReachable)
+            if (nextTile.entityOnTile == null && nextTile.isReachable)
             {
                 //Debug.Log("case accessible");
                 return true;

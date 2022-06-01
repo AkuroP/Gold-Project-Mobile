@@ -51,12 +51,12 @@ public class Enemy : Entity
     }
 
     //function to take damage / die
-    public override void Damage(int damage)
+    public override void DamageSelf(int damage)
     {
         hp -= damage;
         if (hp <= 0)
         {
-            Destroy(this);
+            Destroy(this.gameObject);
         }
     }
 }
