@@ -51,54 +51,7 @@ public class Weapon
         }
     }
 
-    public List<AttackTileSettings> ConvertPattern(List<AttackTileSettings> upDirectionATS, Direction entityDirection)
-    {
-        List<AttackTileSettings> newATS = new List<AttackTileSettings>();
-
-        switch (entityDirection)
-        {
-            case Direction.UP:
-                newATS = upDirectionATS;
-                break;
-
-            case Direction.BOTTOM:
-                foreach(AttackTileSettings ats in upDirectionATS)
-                {
-                    int newOrder = ats.order;
-                    int newOffsetX = -1 * ats.offsetX;
-                    int newOffsetY = -1 * ats.offsetY;
-
-                    newATS.Add(new AttackTileSettings(newOrder, newOffsetX, newOffsetY));
-                }
-                break;
-
-            case Direction.LEFT:
-                foreach (AttackTileSettings ats in upDirectionATS)
-                {
-                    int newOrder = ats.order;
-                    int temp = ats.offsetX;
-                    int newOffsetX = ats.offsetY;
-                    int newOffsetY = -1 * temp;
-
-                    newATS.Add(new AttackTileSettings(newOrder, newOffsetX, newOffsetY));
-                }
-                break;
-
-            case Direction.RIGHT:
-                foreach (AttackTileSettings ats in upDirectionATS)
-                {
-                    int newOrder = ats.order;
-                    int temp = ats.offsetX;
-                    int newOffsetX = -1 * ats.offsetY;
-                    int newOffsetY = temp;
-
-                    newATS.Add(new AttackTileSettings(newOrder, newOffsetX, newOffsetY));
-                }
-                break;
-        }
-
-        return newATS;
-    }
+    
 
 
     public void ApplyEffect()

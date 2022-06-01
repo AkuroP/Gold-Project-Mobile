@@ -680,6 +680,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1893107155458283567, guid: 96289d04b7d0bae42af623fb924f841a, type: 3}
+      propertyPath: maxHP
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1893107155458283567, guid: 96289d04b7d0bae42af623fb924f841a, type: 3}
       propertyPath: moveDuration
       value: 0.25
       objectReference: {fileID: 0}
@@ -809,8 +813,28 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1845299516}
     - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].mapWidth
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].mapHeight
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
       propertyPath: mapSettings.Array.data[1].exitTileIndex
       value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].exitTileIndex
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.size
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
       propertyPath: mapSettings.Array.data[1].tileSettings.Array.data[0].isHole
@@ -833,6 +857,30 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[1].isHole
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[1].isWall
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[3].isHole
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[4].isWall
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[5].isWall
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[7].isHole
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
       propertyPath: mapSettings.Array.data[1].tileSettings.Array.data[11].isHole
       value: 1
       objectReference: {fileID: 0}
@@ -843,6 +891,10 @@ PrefabInstance:
     - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
       propertyPath: mapSettings.Array.data[1].tileSettings.Array.data[13].isHole
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[11].isHole
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
       propertyPath: mapSettings.Array.data[1].tileSettings.Array.data[3].tileColor.b
@@ -949,6 +1001,174 @@ PrefabInstance:
       value: 0.9716981
       objectReference: {fileID: 0}
     - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[0].isReachable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[0].tileColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[0].tileColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[0].tileColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[0].tileColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[1].isReachable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[1].tileColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[1].tileColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[1].tileColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[1].tileColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[2].isReachable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[2].tileColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[2].tileColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[2].tileColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[2].tileColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[3].isReachable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[3].tileColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[4].tileColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[4].tileColor.b
+      value: 0.31974086
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[4].tileColor.g
+      value: 0.05345317
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[4].tileColor.r
+      value: 0.3679245
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[5].tileColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[5].tileColor.b
+      value: 0.32156864
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[5].tileColor.g
+      value: 0.054901965
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[5].tileColor.r
+      value: 0.36862746
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[6].isReachable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[6].tileColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[6].tileColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[6].tileColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[6].tileColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[7].isReachable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[7].tileColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[8].isReachable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[8].tileColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[8].tileColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[8].tileColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[8].tileColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[9].isReachable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[9].tileColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[9].tileColor.b
+      value: 0.32451043
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[9].tileColor.g
+      value: 0.6410363
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[9].tileColor.r
+      value: 0.9716981
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
       propertyPath: mapSettings.Array.data[1].tileSettings.Array.data[10].isReachable
       value: 1
       objectReference: {fileID: 0}
@@ -1005,7 +1225,127 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[10].isReachable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[10].tileColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[10].tileColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[10].tileColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[10].tileColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[11].isReachable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[11].tileColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[12].isReachable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[12].tileColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[12].tileColor.b
+      value: 0.6802821
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[12].tileColor.g
+      value: 0.9056604
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[12].tileColor.r
+      value: 0.53314346
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[13].isReachable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[13].tileColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[13].tileColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[13].tileColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[13].tileColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[14].isReachable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[14].tileColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[14].tileColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[14].tileColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[14].tileColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[15].isReachable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[15].tileColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[15].tileColor.b
+      value: 0.3254902
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[15].tileColor.g
+      value: 0.6392157
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[15].tileColor.r
+      value: 0.972549
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[1].isEnemySpawn
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[9].isEnemySpawn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
       propertyPath: mapSettings.Array.data[1].tileSettings.Array.data[15].isEnemySpawn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[2].tileSettings.Array.data[15].isEnemySpawn
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

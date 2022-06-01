@@ -79,7 +79,7 @@ public class SwipeDetection : MonoBehaviour
             swipeDone = false;
             if (player.attackNext == true)
             {
-                player.Attack();
+                player.StartAttack();
                 player.attackNext = false;
             }
             else

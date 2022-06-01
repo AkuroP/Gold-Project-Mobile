@@ -73,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -97,7 +97,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e37614920161db4c9a2eca561f6236c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentMap: {fileID: 0}
+  currentTile: {fileID: 0}
   maxHP: 1
+  hp: 0
   prio: 0
   maxMobility: 0
   mobilityX: 0
@@ -107,3 +110,5 @@ MonoBehaviour:
   weaponRange: 0
   weaponEffect: 0
   effectOnEntity: 0
+  upDirectionATS: []
+  enemyDamage: 0

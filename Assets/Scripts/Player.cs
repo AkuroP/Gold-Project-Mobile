@@ -31,14 +31,20 @@ public class Player : Entity
     {
         currentPosition = transform.position;
         weapon = new Weapon(WeaponType.DAGGER);
+        hp = maxHP;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.A))
+        if (hp <= 0)
         {
-            Attack();
+            Destroy(this.gameObject);
+        }
+
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            StartAttack();
         }
 
         //move process
@@ -107,80 +113,29 @@ public class Player : Entity
         canMove = false;
     }
 
-    //draw attack zone
-    public IEnumerator DrawAttack(Tile tile)
-    {
-        Color oldColor = tile.tileColor;
-        tile.GetComponent<SpriteRenderer>().color = new Color(1f, 0f, 0f, 1f);
-        yield return new WaitForSeconds(0.5f);
-        tile.GetComponent<SpriteRenderer>().color = oldColor;
-    }
+    
 
-    public override void Attack()
+    public override void StartAttack()
     {
         numEssence -= attackCost;
 
-        List<AttackTileSettings> attackPattern = weapon.ConvertPattern(weapon.upDirectionATS, direction);
+        List<AttackTileSettings> attackPattern = ConvertPattern(weapon.upDirectionATS, direction);
 
         List<Entity> enemiesInRange = new List<Entity>();
-        enemiesInRange = GetEnnemiesInRange(attackPattern);
+
+        enemiesInRange = GetEntityInRange(attackPattern);
 
         if (enemiesInRange != null && enemiesInRange.Count > 0)
         {
             for (int i = 0; i < enemiesInRange.Count; i++)
             {
-                enemiesInRange[i].DamageSelf(weapon.weaponDamage);
+                if (enemiesInRange[i] is Enemy)
+                    Damage(weapon.weaponDamage, enemiesInRange[i]);
             }
         }
     }
 
-    public List<Entity> GetEnnemiesInRange(List<AttackTileSettings> ats)
-    {
-        List<Entity> ennemiesInPattern = new List<Entity>();
-
-        foreach(AttackTileSettings oneATS in ats)
-        {
-            Tile attackedTile = currentTile;
-
-            for(int i = 0; i < Mathf.Abs(oneATS.offsetX); i++)
-            {
-                if(oneATS.offsetX > 0)
-                    attackedTile = currentMap.FindLeftTile(attackedTile);
-                else if(oneATS.offsetX < 0)
-                    attackedTile = currentMap.FindRightTile(attackedTile);
-            }
-
-            for (int i = 0; i < Mathf.Abs(oneATS.offsetY); i++)
-            {
-                if (oneATS.offsetY > 0)
-                    attackedTile = currentMap.FindTopTile(attackedTile);
-                else if (oneATS.offsetY < 0)
-                    attackedTile = currentMap.FindBottomTile(attackedTile);
-            }
-
-            if (attackedTile != null)
-            {
-                //stop attack when a wall is reached
-                if (attackedTile.isWall)
-                {
-                    return ennemiesInPattern;
-                }
-
-                StartCoroutine(DrawAttack(attackedTile));
-                if (attackedTile.entityOnTile)
-                {
-                    ennemiesInPattern.Add(attackedTile.entityOnTile);
-                }
-
-                return ennemiesInPattern;
-                
-            }
-        }
-
-
-
-        return null; 
-    }
+    
 
     
 
@@ -197,13 +152,8 @@ public class Player : Entity
     }
 
     //function to take damage / die
-    public override void DamageSelf(int damage)
+/*    public override void DamageSelf(int damage)
     {
-        hp -= damage;
-
-        if (hp <= 0)
-        {
-            SceneManager.LoadScene("GameOverScene");
-        }
-    }
+        
+    }*/
 }

@@ -73,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0.22352941, g: 0.6901961, b: 0.08235294, a: 1}
   m_FlipX: 0
@@ -97,7 +97,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21d8fc2439ac33340bbd91fd8ce46460, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentMap: {fileID: 0}
+  currentTile: {fileID: 0}
   maxHP: 0
+  hp: 0
   prio: 0
   maxMobility: 0
   mobilityX: 0
@@ -109,25 +112,14 @@ MonoBehaviour:
   effectOnEntity: 0
   canMove: 1
   moveInProgress: 0
-  currentMap:
-    player: {fileID: 0}
-    entities: []
-    mapOrigin: {x: 0, y: 0, z: 0}
-    mapHeight: 0
-    mapWidth: 0
-    tilesList: []
-    playerSpawnIndex: 0
-  currentTile:
-    tileIndex: 0
-    tileX: 0
-    tileY: 0
-    tileGO: {fileID: 0}
-    tileColor: {r: 0, g: 0, b: 0, a: 0}
-    hasEntity: 0
-    isReachable: 0
   targetPosition: {x: 0, y: 0, z: 0}
   currentPosition: {x: 0, y: 0, z: 0}
   moveDuration: 0
   attackNext: 0
   moveNext: 0
   weaponDamage: 0
+  weapon:
+    typeOfWeapon: 0
+    weaponLevel: 0
+    weaponDamage: 0
+    upDirectionATS: []
