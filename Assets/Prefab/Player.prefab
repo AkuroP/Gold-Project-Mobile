@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 1893107155458283565}
   - component: {fileID: 1893107155458283567}
   - component: {fileID: 1893107155458283552}
+  - component: {fileID: 1845299522}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -108,6 +109,9 @@ MonoBehaviour:
   weaponRange: 0
   weaponEffect: 0
   effectOnEntity: 0
+  numEssence: 100
+  attackNext: 0
+  moveNext: 0
   weaponDamage: 0
 --- !u!114 &1893107155458283552
 MonoBehaviour:
@@ -142,3 +146,29 @@ MonoBehaviour:
   targetPosition: {x: 0, y: 0, z: 0}
   currentPosition: {x: 0, y: 0, z: 0}
   moveDuration: 0.25
+--- !u!114 &1845299522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1893107155458283563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c27acbff30d7144298bc870cdb4aa0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items:
+  - itemName: 
+    itemDangerousness: 0
+    itemCost: 0
+    itemSprite: {fileID: 0}
+  - itemName: 
+    itemDangerousness: 0
+    itemCost: 0
+    itemSprite: {fileID: 0}
+  - itemName: 
+    itemDangerousness: 0
+    itemCost: 0
+    itemSprite: {fileID: 0}
+  maxItemNumber: 3

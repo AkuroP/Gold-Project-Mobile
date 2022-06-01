@@ -1,0 +1,122 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5128081185710407048
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5128081185710407095}
+  - component: {fileID: 5128081185710407094}
+  m_Layer: 0
+  m_Name: Shop
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5128081185710407095
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5128081185710407048}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.33274725, y: -1.0056953, z: -14.270357}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5128081185710407094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5128081185710407048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 991f6a0d1a8092249b4564cbe7b263c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heartRegeneration:
+    itemName: Heart Regeneration
+    itemDangerousness: 1
+    itemCost: 0
+    itemSprite: {fileID: 21300000, guid: b0dfe387a8b6d204f849e6cb3db31138, type: 3}
+  bonusHeart:
+    itemName: Bonus Heart
+    itemDangerousness: 2
+    itemCost: 0
+    itemSprite: {fileID: 21300000, guid: cc14d02e6298597498b4f2727d185d71, type: 3}
+  lifeRegeneration:
+    itemName: Life Regeneration
+    itemDangerousness: 4
+    itemCost: 0
+    itemSprite: {fileID: 0}
+  wornSpeedBoots:
+    itemName: Worn Speed Boots
+    itemDangerousness: 1
+    itemCost: 0
+    itemSprite: {fileID: 0}
+  trapProtector:
+    itemName: Trap Protector
+    itemDangerousness: 2
+    itemCost: 0
+    itemSprite: {fileID: 0}
+  speedBoots:
+    itemName: Speed Boots
+    itemDangerousness: 3
+    itemCost: 0
+    itemSprite: {fileID: 0}
+  counterRing:
+    itemName: Counter Ring
+    itemDangerousness: 1
+    itemCost: 0
+    itemSprite: {fileID: 0}
+  poisonFog:
+    itemName: Poison Fog
+    itemDangerousness: 2
+    itemCost: 0
+    itemSprite: {fileID: 0}
+  freezeTime:
+    itemName: Freeze Time
+    itemDangerousness: 3
+    itemCost: 0
+    itemSprite: {fileID: 0}
+  revivor:
+    itemName: Revivor
+    itemDangerousness: 4
+    itemCost: 0
+    itemSprite: {fileID: 0}
+  invicibility:
+    itemName: Invicibility
+    itemDangerousness: 5
+    itemCost: 0
+    itemSprite: {fileID: 0}
+  bossSlayer:
+    itemName: Boss Slayer
+    itemDangerousness: 1
+    itemCost: 0
+    itemSprite: {fileID: 0}
+  powerGloves:
+    itemName: Power Gloves
+    itemDangerousness: 2
+    itemCost: 0
+    itemSprite: {fileID: 0}
+  sideSlash:
+    itemName: Side Slash
+    itemDangerousness: 3
+    itemCost: 0
+    itemSprite: {fileID: 0}
+  shopButtons:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  Dmin: 0
+  Dmax: 0

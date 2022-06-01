@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class Player : Entity
 {
     //Number of essences (= points of action)
-    private int numEssence = 100;
+    public int numEssence = 100;
     private int attackCost = 2;
 
     public bool attackNext = false;

@@ -24,6 +24,12 @@ public class GameManager : MonoBehaviour
             Destroy(instanceGM);
         }
         instanceGM = this;
+
+        player = GameObject.FindWithTag("Player");
+        whatTurn = Turn.PLAYERTURN;
+        enemiesPlaying = GameObject.FindGameObjectsWithTag("Enemy");
+        enemiesPlaying = TriGnome(enemiesPlaying);
+        actualDangerousness = 1 + (score / 20);
     }
 
     private GameObject player;
@@ -32,10 +38,6 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindWithTag("Player");
-        whatTurn = Turn.PLAYERTURN;
-        enemiesPlaying = GameObject.FindGameObjectsWithTag("Enemy");
-        enemiesPlaying = TriGnome(enemiesPlaying);
     }
 
     // Update is called once per frame
