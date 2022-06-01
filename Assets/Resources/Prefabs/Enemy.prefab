@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2770681359531730077}
   - component: {fileID: 2770681359531730066}
-  - component: {fileID: 2770681359531730067}
   - component: {fileID: 8255416981290432519}
   m_Layer: 0
   m_Name: Enemy
@@ -86,34 +85,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2770681359531730067
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2770681359531730064}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e37614920161db4c9a2eca561f6236c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentMap: {fileID: 0}
-  currentTile: {fileID: 0}
-  maxHP: 1
-  prio: 0
-  maxMobility: 0
-  mobilityX: 0
-  mobilityY: 0
-  direction: 0
-  weaponType: 0
-  weaponRange: 0
-  weaponEffect: 0
-  effectOnEntity: 0
-  targetPosition: {x: 0, y: 0, z: 0}
-  currentPosition: {x: 0, y: 0, z: 0}
-  enemyRange: 0
-  player: {fileID: 0}
 --- !u!114 &8255416981290432519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,15 +101,20 @@ MonoBehaviour:
   currentTile: {fileID: 0}
   maxHP: 1
   prio: 0
-  maxMobility: 0
+  maxMobility: 2
   mobilityX: 0
   mobilityY: 0
   direction: 0
   weaponType: 0
-  weaponRange: 0
+  weaponRange: 1
   weaponEffect: 0
   effectOnEntity: 0
   targetPosition: {x: 0, y: 0, z: 0}
   currentPosition: {x: 0, y: 0, z: 0}
-  enemyRange: 0
+  canMove: 1
+  moveInProgress: 0
+  moveDuration: 0
+  hasMoved: 0
+  canAttack: 1
+  enemyRange: 1
   player: {fileID: 0}

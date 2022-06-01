@@ -7,7 +7,8 @@ public class Enemy3 : Enemy
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = GameObject.FindWithTag("Player").GetComponent<Player>();
+        GameManager.instanceGM.enemiesPlaying.Add(this.gameObject);
     }
 
     // Update is called once per frame

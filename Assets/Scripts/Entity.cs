@@ -43,6 +43,15 @@ public class Entity : MonoBehaviour
 
     public Vector3 targetPosition, currentPosition;
 
+    //player behaviour export 
+    public bool canMove = true;
+    public bool moveInProgress = false;
+
+    private float timeElapsed;
+    public float moveDuration;
+    public bool hasMoved = false;
+    public bool canAttack = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -52,13 +61,45 @@ public class Entity : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
+    }
+
+    public void MovingProcess()
+    {
+        //move process
+        if (moveInProgress && canMove && timeElapsed < moveDuration)
+        {
+            transform.position = Vector3.Lerp(currentPosition, targetPosition, timeElapsed / moveDuration) - new Vector3(0, 0, 1);
+            timeElapsed += Time.deltaTime;
+            hasMoved = true;
+            if(Vector3.Distance(this.transform.position, targetPosition) <= 1.1f)
+            {
+                canMove = false;
+            }
+        }
+        else
+        {
+            moveInProgress = false;
+            ResetAction();        
+            timeElapsed = 0;
+        }
+    }
+
+    public void ResetAction()
+    {
+        if(hasMoved && !canAttack)
+        {
+            canMove = true;
+            hasMoved = false;
+            canAttack = true;
+            GameManager.instanceGM.ChangeTurn();
+        }
     }
 
     //virtual attack function
     public virtual void Attack()
     {
-
+        
     }
 
     //function to take damage / die
@@ -71,6 +112,7 @@ public class Entity : MonoBehaviour
     {
         currentPosition = transform.position;
         targetPosition = _targetTile.transform.position;
+        moveInProgress = true;
 
         if(!_targetTile.isHole)
         {
@@ -82,32 +124,32 @@ public class Entity : MonoBehaviour
     {
         switch (direction)
         {
-            case Entity.Direction.UP:
+            case Direction.UP:
                 Tile topTile = currentMap.FindTopTile(currentTile);
                 if (currentMap.CheckMove(topTile))
                 {
-                    Move(topTile);
+                    this.Move(topTile);
                 }
                 break;
-            case Entity.Direction.RIGHT:
+            case Direction.RIGHT:
                 Tile rightTile = currentMap.FindRightTile(currentTile);
                 if (currentMap.CheckMove(rightTile))
                 {
-                    Move(rightTile);
+                    this.Move(rightTile);
                 }
                 break;
-            case Entity.Direction.BOTTOM:
+            case Direction.BOTTOM:
                 Tile bottomTile = currentMap.FindBottomTile(currentTile);
                 if (currentMap.CheckMove(bottomTile))
                 {
-                    Move(bottomTile);
+                    this.Move(bottomTile);
                 }
                 break;
-            case Entity.Direction.LEFT:
+            case Direction.LEFT:
                 Tile leftTile = currentMap.FindLeftTile(currentTile);
                 if (currentMap.CheckMove(leftTile))
                 {
-                    Move(leftTile);
+                    this.Move(leftTile);
                 }
                 break;
         }
