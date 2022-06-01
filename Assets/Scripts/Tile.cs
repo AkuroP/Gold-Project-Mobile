@@ -8,15 +8,14 @@ public class Tile : MonoBehaviour
     public int tileIndex;
     public int tileX, tileY;
 
-    public GameObject tileGO;
-
     public Color tileColor;
 
     public bool isReachable = true;
-    public bool hasEntity = false;
     public bool isWall = true;
     public bool isHole = true;
     public bool isEnemySpawn = false;
+
+    public Entity entityOnTile = null;
 
     [SerializeField]
     public Tile topTile, rightTile, bottomTile, leftTile;

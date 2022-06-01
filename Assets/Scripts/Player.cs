@@ -10,7 +10,7 @@ public class Player : Entity
     public bool moveInProgress = false;
 
 
-
+    public Vector3 targetPosition, currentPosition;
 
     private float timeElapsed;
     public float moveDuration;
@@ -30,6 +30,7 @@ public class Player : Entity
     void Start()
     {
         currentPosition = transform.position;
+        weapon = new Weapon(WeaponType.DAGGER);
     }
 
     // Update is called once per frame
@@ -54,237 +55,134 @@ public class Player : Entity
         }
     }
 
-    
-    public override void Move(Tile _targetTile)
+    public void FindNextTile()
     {
-        base.Move(_targetTile);
+        switch (direction)
+        {
+            case Direction.UP:
+                Tile topTile = currentMap.FindTopTile(currentTile);
+                if (currentMap.CheckMove(topTile))
+                {
+                    MovePlayer(ref topTile);
+                }
+                break;
+            case Direction.RIGHT:
+                Tile rightTile = currentMap.FindRightTile(currentTile);
+                if (currentMap.CheckMove(rightTile))
+                {
+                    MovePlayer(ref rightTile);
+                }
+                break;
+            case Direction.BOTTOM:
+                Tile bottomTile = currentMap.FindBottomTile(currentTile);
+                if (currentMap.CheckMove(bottomTile))
+                {
+                    MovePlayer(ref bottomTile);
+                }
+                break;
+            case Direction.LEFT:
+                Tile leftTile = currentMap.FindLeftTile(currentTile);
+                if (currentMap.CheckMove(leftTile))
+                {
+                    MovePlayer(ref leftTile);
+                }
+                break;
+        }
+        //enableMove = false;
+    }
+
+    public void MovePlayer(ref Tile _targetTile)
+    {
+        currentPosition = transform.position;
+        targetPosition = _targetTile.transform.position;
+
+        if(!_targetTile.isHole)
+        {
+            _targetTile.entityOnTile = currentTile.entityOnTile;
+            currentTile.entityOnTile = null;
+            currentTile = _targetTile;
+        }
+
         moveInProgress = true;
         canMove = false;
     }
 
     //draw attack zone
-    public IEnumerator DebugAttack(Tile tile)
+    public IEnumerator DrawAttack(Tile tile)
     {
         Color oldColor = tile.tileColor;
-        tile.tileGO.GetComponent<SpriteRenderer>().color = new Color(1f, 0f, 0f, 1f);
+        tile.GetComponent<SpriteRenderer>().color = new Color(1f, 0f, 0f, 1f);
         yield return new WaitForSeconds(0.5f);
-        tile.tileGO.GetComponent<SpriteRenderer>().color = oldColor;
+        tile.GetComponent<SpriteRenderer>().color = oldColor;
     }
 
     public override void Attack()
     {
         numEssence -= attackCost;
-        List<Enemy> enemiesInRange = new List<Enemy>();
-        enemiesInRange = GetEnnemiesInRange(weaponRange);
-        /*if(enemiesInRange.Count > 0)
+
+        List<AttackTileSettings> attackPattern = weapon.ConvertPattern(weapon.upDirectionATS, direction);
+
+        List<Entity> enemiesInRange = new List<Entity>();
+        enemiesInRange = GetEnnemiesInRange(attackPattern);
+
+        if (enemiesInRange != null && enemiesInRange.Count > 0)
         {
-            for (int i = 0; i < enemiesInRange.Count - 1; i++)
+            for (int i = 0; i < enemiesInRange.Count; i++)
             {
-                enemiesInRange[i].Damage(weaponDamage);
+                enemiesInRange[i].DamageSelf(weapon.weaponDamage);
             }
-        }*/
+        }
     }
 
-    private List<Enemy> GetEnnemiesInRange(int range)
+    public List<Entity> GetEnnemiesInRange(List<AttackTileSettings> ats)
     {
-        List<Enemy> ennemiesInRange;
-        switch (weaponType)
+        List<Entity> ennemiesInPattern = new List<Entity>();
+
+        foreach(AttackTileSettings oneATS in ats)
         {
-            case WeaponType.DAGGER:
-                switch (direction)
+            Tile attackedTile = currentTile;
+
+            for(int i = 0; i < Mathf.Abs(oneATS.offsetX); i++)
+            {
+                if(oneATS.offsetX > 0)
+                    attackedTile = currentMap.FindLeftTile(attackedTile);
+                else if(oneATS.offsetX < 0)
+                    attackedTile = currentMap.FindRightTile(attackedTile);
+            }
+
+            for (int i = 0; i < Mathf.Abs(oneATS.offsetY); i++)
+            {
+                if (oneATS.offsetY > 0)
+                    attackedTile = currentMap.FindTopTile(attackedTile);
+                else if (oneATS.offsetY < 0)
+                    attackedTile = currentMap.FindBottomTile(attackedTile);
+            }
+
+            if (attackedTile != null)
+            {
+                //stop attack when a wall is reached
+                if (attackedTile.isWall)
                 {
-                    case Direction.UP:
-                        if(currentTile.topTile != null && currentTile.topTile.isReachable == true)
-                        {
-                            Tile topTile = currentTile.topTile;
-                            StartCoroutine(DebugAttack(topTile));
-                        }
-                        break;
-                    case Direction.RIGHT:
-                        if (currentTile.rightTile != null && currentTile.rightTile.isReachable == true)
-                        {
-                            Tile rightTile = currentTile.rightTile;
-                            StartCoroutine(DebugAttack(rightTile));
-                        }       
-                        break;
-                    case Direction.BOTTOM:
-                        if (currentTile.bottomTile != null && currentTile.bottomTile.isReachable == true)
-                        {
-                            Tile bottomTile = currentTile.bottomTile;
-                            StartCoroutine(DebugAttack(bottomTile));
-                        }
-                        break;
-                    case Direction.LEFT:
-                        if (currentTile.leftTile != null && currentTile.leftTile.isReachable == true)
-                        {
-                            Tile leftTile = currentTile.leftTile;
-                            StartCoroutine(DebugAttack(leftTile));
-                        }
-                        break;
+                    return ennemiesInPattern;
                 }
-                ennemiesInRange = null;
-                return ennemiesInRange;
-            case WeaponType.GRIMOIRE:
-                switch (direction)
+
+                StartCoroutine(DrawAttack(attackedTile));
+                if (attackedTile.entityOnTile)
                 {
-                    case Direction.UP:
-                        if (currentTile.topTile != null)
-                        {
-                            Tile topTile = currentTile.topTile;
-                            if(topTile.leftTile != null && topTile.leftTile.isReachable == true)
-                            {
-                                Tile topLeftTile = topTile.leftTile;
-                                StartCoroutine(DebugAttack(topLeftTile));
-                            }
-                            if (topTile.rightTile != null && topTile.rightTile.isReachable == true)
-                            {
-                                Tile topRightTile = topTile.rightTile;
-                                StartCoroutine(DebugAttack(topRightTile));
-                            }
-                            StartCoroutine(DebugAttack(topTile));
-                        }
-                        break;
-                    case Direction.RIGHT:
-                        if (currentTile.rightTile != null)
-                        {
-                            Tile rightTile = currentTile.rightTile;
-                            if (rightTile.topTile != null && rightTile.topTile.isReachable == true)
-                            {
-                                Tile rightUpTile = rightTile.topTile;
-                                StartCoroutine(DebugAttack(rightUpTile));
-                            }
-                            if (rightTile.bottomTile != null && rightTile.bottomTile.isReachable == true)
-                            {
-                                Tile rightBottomTile = rightTile.bottomTile;
-                                StartCoroutine(DebugAttack(rightBottomTile));
-                            }
-                            StartCoroutine(DebugAttack(rightTile));
-                        }
-                        break;
-                    case Direction.BOTTOM:
-                        if (currentTile.bottomTile != null)
-                        {
-                            Tile bottomTile = currentTile.bottomTile;
-                            if (bottomTile.leftTile != null && bottomTile.leftTile.isReachable == true)
-                            {
-                                Tile bottomLeftTile = bottomTile.leftTile;
-                                StartCoroutine(DebugAttack(bottomLeftTile));
-                            }
-                            if (bottomTile.rightTile != null && bottomTile.rightTile.isReachable == true)
-                            {
-                                Tile bottomRightTile = bottomTile.rightTile;
-                                StartCoroutine(DebugAttack(bottomRightTile));
-                            }
-                            StartCoroutine(DebugAttack(bottomTile));
-                        }
-                        break;
-                    case Direction.LEFT:
-                        if (currentTile.leftTile != null)
-                        {
-                            Tile leftTile = currentTile.leftTile;
-                            if (leftTile.topTile != null && leftTile.topTile.isReachable == true)
-                            {
-                                Tile leftUpTile = leftTile.topTile;
-                                StartCoroutine(DebugAttack(leftUpTile));
-                            }
-                            if (leftTile.bottomTile != null && leftTile.bottomTile.isReachable == true)
-                            {
-                                Tile leftBottomTile = leftTile.bottomTile;
-                                StartCoroutine(DebugAttack(leftBottomTile));
-                            }
-                            StartCoroutine(DebugAttack(leftTile));
-                        }
-                        break;
+                    ennemiesInPattern.Add(attackedTile.entityOnTile);
                 }
-                ennemiesInRange = null;
-                return ennemiesInRange;
-            case WeaponType.HANDGUN:
-                bool hit = false;
-                Tile lastTile;
-                switch (direction)
-                {
-                    case Direction.UP:
-                        if (currentTile.topTile != null && currentTile.topTile.isReachable == true)
-                        {
-                            lastTile = currentTile.topTile;
-                            StartCoroutine(DebugAttack(lastTile));
-                            for (int i = 0; i < 3 + range; i++)
-                            {
-                                if (hit == false)
-                                {
-                                    lastTile = lastTile.topTile;
-                                    StartCoroutine(DebugAttack(lastTile));
-                                    if (lastTile.isReachable == false)
-                                    {
-                                        hit = true;
-                                    }
-                                }
-                            }
-                        }
-                        break;
-                    case Direction.RIGHT:
-                        if (currentTile.rightTile != null && currentTile.rightTile.isReachable == true)
-                        {
-                            lastTile = currentTile.rightTile;
-                            StartCoroutine(DebugAttack(lastTile));
-                            for (int i = 0; i < 3 + range; i++)
-                            {
-                                if (hit == false)
-                                {
-                                    lastTile = lastTile.rightTile;
-                                    StartCoroutine(DebugAttack(lastTile));
-                                    if (lastTile.isReachable == false)
-                                    {
-                                        hit = true;
-                                    }
-                                }
-                            }
-                        }
-                        break;
-                    case Direction.BOTTOM:
-                        if (currentTile.bottomTile != null && currentTile.bottomTile.isReachable == true)
-                        {
-                            lastTile = currentTile.bottomTile;
-                            StartCoroutine(DebugAttack(lastTile));
-                            for (int i = 0; i < 3 + range; i++)
-                            {
-                                if (hit == false)
-                                {
-                                    lastTile = lastTile.bottomTile;
-                                    StartCoroutine(DebugAttack(lastTile));
-                                    if (lastTile.isReachable == false)
-                                    {
-                                        hit = true;
-                                    }
-                                }
-                            }
-                        }
-                        break;
-                    case Direction.LEFT:
-                        if (currentTile.leftTile != null && currentTile.leftTile.isReachable == true)
-                        {
-                            lastTile = currentTile.leftTile;
-                            StartCoroutine(DebugAttack(lastTile));
-                            for (int i = 1; i < 3 + range; i++)
-                            {
-                                if (hit == false)
-                                {
-                                    lastTile = lastTile.leftTile;
-                                    StartCoroutine(DebugAttack(lastTile));
-                                    if (lastTile.isReachable == false)
-                                    {
-                                        hit = true;
-                                    }
-                                }
-                            }
-                        }
-                        break;
-                }
-                ennemiesInRange = null;
-                return ennemiesInRange;
+
+                return ennemiesInPattern;
+                
+            }
         }
-        return null;
+
+
+
+        return null; 
     }
+
+    
 
     public void AttackButton()
     {
@@ -299,9 +197,10 @@ public class Player : Entity
     }
 
     //function to take damage / die
-    public override void Damage(int damage)
+    public override void DamageSelf(int damage)
     {
         hp -= damage;
+
         if (hp <= 0)
         {
             SceneManager.LoadScene("GameOverScene");

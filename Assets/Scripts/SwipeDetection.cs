@@ -43,28 +43,28 @@ public class SwipeDetection : MonoBehaviour
             if (Input.mousePosition.y >= startPos.y + distanceToDetectSwipe)
             {
                 fingerDown = false;
-                player.direction = Entity.Direction.UP;
+                player.direction = Direction.UP;
                 swipeDone = true;
             }
             //swipe right
             else if (Input.mousePosition.x >= startPos.x + distanceToDetectSwipe)
             {
                 fingerDown = false;
-                player.direction = Entity.Direction.RIGHT;
+                player.direction = Direction.RIGHT;
                 swipeDone = true;
             }
             //swipe down
             else if (Input.mousePosition.y <= startPos.y - distanceToDetectSwipe)
             {
                 fingerDown = false;
-                player.direction = Entity.Direction.BOTTOM;
+                player.direction = Direction.BOTTOM;
                 swipeDone = true;
             }
             //swipe left
             else if (Input.mousePosition.x <= startPos.x - distanceToDetectSwipe)
             {
                 fingerDown = false;
-                player.direction = Entity.Direction.LEFT;
+                player.direction = Direction.LEFT;
                 swipeDone = true;
             }
         }
