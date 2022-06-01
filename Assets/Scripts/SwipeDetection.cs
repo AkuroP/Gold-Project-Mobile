@@ -13,8 +13,6 @@ public class SwipeDetection : MonoBehaviour
     private bool fingerDown;
     private bool swipeDone;
 
-    private MapBuilder mapBuilder;
-
     public static SwipeDetection instanceSD;
 
     private void Awake()
@@ -29,7 +27,6 @@ public class SwipeDetection : MonoBehaviour
     private void Start()
     {
         player = GameObject.FindWithTag("Player").GetComponent<Player>();
-        mapBuilder = GameObject.FindWithTag("MapBuilder").GetComponent<MapBuilder>();
     }
 
     void Update()
