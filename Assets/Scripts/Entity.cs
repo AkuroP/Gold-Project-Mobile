@@ -48,7 +48,7 @@ public class Entity : MonoBehaviour
     public bool canMove = true;
     public bool moveInProgress = false;
 
-    private float timeElapsed;
+    public float timeElapsed;
     public float moveDuration;
     public bool hasMoved = false;
     public bool canAttack = true;

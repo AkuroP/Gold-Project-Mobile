@@ -69,7 +69,7 @@ public class GameManager : MonoBehaviour
             whatTurn = Turn.ENEMYTURN;
             for(int i = 0; i < enemiesPlaying.Count; i++)
             {
-                enemiesPlaying[i].GetComponent<Enemy>().EnemyBehaviour();
+                enemiesPlaying[i].GetComponent<Enemy>();
             }
             Debug.Log("RETURN PLAYER TURN");
             whatTurn = Turn.PLAYERTURN;

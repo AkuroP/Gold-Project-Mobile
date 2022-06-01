@@ -6,14 +6,14 @@ using UnityEngine.SceneManagement;
 public class Player : Entity
 {
     //player behaviour export 
-    public bool canMove = true;
+/*    public bool canMove = true;
     public bool moveInProgress = false;
 
 
     public Vector3 targetPosition, currentPosition;
 
     private float timeElapsed;
-    public float moveDuration;
+    public float moveDuration;*/
 
     //Number of essences (= points of action)
     private int numEssence = 100;
