@@ -475,14 +475,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7682593073228913399, guid: 0bca2386c3020054c8cf2b7612ce1b03, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 46010651}
     - target: {fileID: 7682593074086453728, guid: 0bca2386c3020054c8cf2b7612ce1b03, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1889118212}
-    - target: {fileID: 7682593074086453728, guid: 0bca2386c3020054c8cf2b7612ce1b03, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: AttackButton
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0bca2386c3020054c8cf2b7612ce1b03, type: 3}
 --- !u!1001 &1889118211

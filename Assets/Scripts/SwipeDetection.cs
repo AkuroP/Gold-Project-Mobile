@@ -92,7 +92,7 @@ public class SwipeDetection : MonoBehaviour
                 doubleClickTimer = 0;
             }
             //Double click if new click arrives in less than "doubleclickinterval" seconds after the last click release
-            if(doubleClickTimerOn == true && doubleClickTimer < doubleClickInterval && player.attackNext == false && EventSystem.current.currentSelectedGameObject != UI.instanceUI.canvas.transform.Find("AttackButton").gameObject)
+            if(doubleClickTimerOn == true && doubleClickTimer < doubleClickInterval && player.attackNext == false && EventSystem.current.currentSelectedGameObject != UI.instanceUI.attackButton)
             {
                 Debug.Log("double click");
                 doubleClickTimer = 0f;
@@ -102,7 +102,7 @@ public class SwipeDetection : MonoBehaviour
             }
         }
 
-        if (fingerDown && Input.GetMouseButtonUp(0) && EventSystem.current.currentSelectedGameObject != UI.instanceUI.canvas.transform.Find("AttackButton").gameObject)
+        if (fingerDown && Input.GetMouseButtonUp(0) && EventSystem.current.currentSelectedGameObject != UI.instanceUI.attackButton)
         {
             fingerDown = false;
             doubleClickTimerOn = true;
