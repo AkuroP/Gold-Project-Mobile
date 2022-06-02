@@ -19,6 +19,8 @@ public class Enemy : Entity
     private Player player;
     public float enemyRange;
 
+    public bool checkEnemiesInRange = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,107 +36,159 @@ public class Enemy : Entity
     {
         if(myTurn)
         {
-            if(!hasMove && !hasAttack)
+            if(!checkEnemiesInRange)
             {
+                Direction dir = CheckAround(false);
                 
-                if(whatEnemy == EnemyType.ENEMY3)
+                if(dir != Direction.NONE)
                 {
-                    if(Vector3.Distance(this.transform.position, player.transform.position) > enemyRange)
+                    direction = dir;
+                    StartAttack();
+                }
+                else
+                {
+                    Tile nextTile = FindDirection();
+                    Debug.Log(nextTile);
+                    if(nextTile != null)
                     {
-                        if(!hasRandom)
+                        Move(nextTile);
+                        dir = CheckAround(true);
+                        if(dir != Direction.NONE)
                         {
-                            EnemyRandomMove();
-                            hasRandom = true;
+                            direction = dir;
+                            StartAttack();
                         }
                     }
                     else
                     {
-                        List<Entity> playerInRange = new List<Entity>();
-                        playerInRange = GetEntityInRange(upDirectionATS);
-                        if(playerInRange == null || playerInRange.Count <= 0)
-                        {
-                            float difX = Mathf.Abs(player.transform.position.x) - Mathf.Abs(this.transform.position.x);
-                            float difY = Mathf.Abs(player.transform.position.y) - Mathf.Abs(this.transform.position.y);
-                            //Debug.Log("DIF X : " + difX);
-                            //Debug.Log("DIF Y : " + difY);
-                            //chase player
-                            if(Mathf.Abs(difX) > Mathf.Abs(difY))
-                            {
-                                if(difX > 0)
-                                {
-                                    direction = Direction.RIGHT;
-                                }
-                                else
-                                {
-                                    direction = Direction.LEFT;
-                                }
-                            }
-                            else
-                            {
-                                if(difY > 0)
-                                {
-                                    direction = Direction.UP;
-                                }
-                                else
-                                {
-                                    direction = Direction.BOTTOM;
-                                }
-                            }
-                            FindNextTile();
-                        }
-                        else
-                        {
-                            Debug.Log(GetEntityInRange(upDirectionATS)[0].name);
-                            if(!moveInProgress && playerInRange.Count > 0)
-                            {
-                                StartAttack();
-                                hasAttack = true;
-                            }
-                        }
-                        
+                        //Debug.Log("PAS BOUGE");
                     }
                 }
+                hasMove = true;
+                hasAttack = true;
+                checkEnemiesInRange = false;
 
-                if (moveInProgress && !canMove && timeElapsed < moveDuration && !hasAttack)
-                {
-                    transform.position = Vector3.Lerp(currentPosition, targetPosition, timeElapsed / moveDuration) - new Vector3(0, 0, 1);
-                    timeElapsed += Time.deltaTime;
-                }
-                else
-                {
-                    moveInProgress = false;
-                    canMove = true;
-                    timeElapsed = 0;
-                    hasMove = true;
-                }
             }
-            else
-            {
-                GoNext();
-            }
+
+            
             Debug.Log("my turn: " + this.gameObject.name);
             //hasMove = true;
         }
+
+        //move process
+        if (moveInProgress && !canMove && timeElapsed < moveDuration)
+        {
+            Debug.Log("Move");
+            transform.position = Vector3.Lerp(currentPosition, targetPosition, timeElapsed / moveDuration) - new Vector3(0, 0, 1);
+            timeElapsed += Time.deltaTime;
+        }
+        else
+        {
+            moveInProgress = false;
+            canMove = true;
+            timeElapsed = 0;
+            
+        }
+        
+        //hp management
         if (hp <= 0)
         {
             Destroy(this.gameObject);
         }
-
-        if (myTurn && Input.GetKeyDown(KeyCode.Z) && !hasAttack)
-        {
-            StartAttack();
-            hasAttack = true;
-        }
     }
 
-    private void GoNext()
+    private Tile FindDirection()
     {
-        myTurn = false;
-        hasMove = false;
-        hasAttack = false;
-        hasRandom = false;
-        GameManager.instanceGM.StartCoroutine(GameManager.instanceGM.ChangeEntity());
+        List<Tile> tileAround = new List<Tile>();
+        
+        if(currentTile.topTile != null && currentTile.topTile.isReachable && !currentTile.topTile.isHole && currentTile.topTile.entityOnTile == null)
+        {
+            tileAround.Add(currentTile.topTile);
+        }
+        if(currentTile.rightTile != null && currentTile.rightTile.isReachable && !currentTile.rightTile.isHole && currentTile.rightTile.entityOnTile == null)
+        {
+            tileAround.Add(currentTile.rightTile);
+        }
+        if(currentTile.bottomTile != null && currentTile.bottomTile.isReachable && !currentTile.bottomTile.isHole && currentTile.bottomTile.entityOnTile == null)
+        {
+            tileAround.Add(currentTile.bottomTile);
+        }
+        if(currentTile.leftTile != null && currentTile.leftTile.isReachable && !currentTile.leftTile.isHole && currentTile.leftTile.entityOnTile == null)
+        {
+            tileAround.Add(currentTile.leftTile);
+        }
+        
+        Tile selectedTile = tileAround[Random.Range(0, tileAround.Count - 1)];
+        return selectedTile;
     }
+
+    private Direction CheckAround(bool _drawAttack)
+    {
+        checkEnemiesInRange = true;
+        List<Entity> newList = new List<Entity>();
+        
+        newList = GetEntityInRange(ConvertPattern(upDirectionATS, Direction.UP),_drawAttack);
+        for(int i = 0; i < newList.Count; i++)
+        {
+            if(newList[i] is Enemy)
+            {
+                newList.RemoveAt(i);
+                i--;
+            }
+        }
+        if(newList.Count > 0)
+        {
+            //Debug.Log("Enemy spotted UP");
+            return Direction.UP;
+        }
+
+        newList = GetEntityInRange(ConvertPattern(upDirectionATS, Direction.RIGHT), _drawAttack);
+        for(int i = 0; i < newList.Count; i++)
+        {
+            if(newList[i] is Enemy)
+            {
+                newList.RemoveAt(i);
+                i--;
+            }
+        }
+        if(newList.Count > 0)
+        {
+            //Debug.Log("Enemy spotted RIGHT");
+            return Direction.RIGHT;
+        }
+        
+       newList = GetEntityInRange(ConvertPattern(upDirectionATS, Direction.BOTTOM), _drawAttack);
+        for(int i = 0; i < newList.Count; i++)
+        {
+            if(newList[i] is Enemy)
+            {
+                newList.RemoveAt(i);
+                i--;
+            }
+        }
+        if(newList.Count > 0)
+        {
+            //Debug.Log("Enemy spotted BOTTOM");
+            return Direction.BOTTOM;
+        }
+
+        newList = GetEntityInRange(ConvertPattern(upDirectionATS, Direction.LEFT), _drawAttack);
+        for(int i = 0; i < newList.Count; i++)
+        {
+            if(newList[i] is Enemy)
+            {
+                newList.RemoveAt(i);
+                i--;
+            }
+        }
+        if(newList.Count > 0)
+        {
+            //Debug.Log("Enemy spotted LEFT");
+            return Direction.LEFT;
+        }
+        return Direction.NONE;
+    }
+
     private void InitAttackPattern()
     {
         upDirectionATS.Clear();
@@ -170,60 +224,6 @@ public class Enemy : Entity
         }
     }
 
-    public void ChasePlayer()
-    {
-
-    }
-    /*public void EnemyBehaviour()
-    {
-        switch(whatEnemy)
-        {
-            case EnemyType.ENEMY1 :
-            if(this.parity == 0)
-            {
-                this.parity = 1;
-            }
-            else if(this.parity == 1)
-            {
-                this.StartAttack();
-                this.parity = 0;
-            }
-            break;
-            case EnemyType.ENEMY2 :
-            if(this.parity == 0)
-            {
-                upDirectionATS.Clear();
-                //pattern 1
-                upDirectionATS.Add(new AttackTileSettings(1, 0, 1));
-                upDirectionATS.Add(new AttackTileSettings(1, -1, 0));
-                upDirectionATS.Add(new AttackTileSettings(1, -1, -1));
-                upDirectionATS.Add(new AttackTileSettings(1, 0, -1));
-                this.parity = 1;
-            }
-            else if(this.parity == 1)
-            {
-                upDirectionATS.Clear();
-                //pattern 2
-                upDirectionATS.Add(new AttackTileSettings(1, -1, 1));
-                upDirectionATS.Add(new AttackTileSettings(1, 1, 1));
-                upDirectionATS.Add(new AttackTileSettings(1, 1, 1));
-                upDirectionATS.Add(new AttackTileSettings(1, 1, -1));
-            }
-            this.StartAttack();
-            break;
-            case EnemyType.ENEMY3 :
-            if(Vector3.Distance(this.transform.position, player.transform.position) > enemyRange)
-            {
-                this.EnemyRandomMove();
-                canAttack = false;
-            }
-            else
-            {
-                this.StartAttack();
-            }   
-            break;
-        }
-    }*/
     public void EnemyRandomMove()
     {
         int randomMove = Random.Range(0, 4);
@@ -248,50 +248,10 @@ public class Enemy : Entity
         }
         
     }
-    public override void Move(Tile _targetTile)
-    {
-        if(!_targetTile.isWall)
-        {
-            base.Move(_targetTile);
-            canMove = false;
-        }
-        else
-        {
-            if(whatEnemy == EnemyType.ENEMY3)
-            {
-                EnemyRandomMove();
-            }
-            else
-            {
-                hasMove = true;
-            }
-        }
-    }
 
     public override void StartAttack()
     {
-        if(whatEnemy == EnemyType.ENEMY2)
-        {
-            if(this.parity == 0)
-            {
-                upDirectionATS.Clear();
-                //pattern 1
-                upDirectionATS.Add(new AttackTileSettings(1, 0, 1));
-                upDirectionATS.Add(new AttackTileSettings(1, -1, 0));
-                upDirectionATS.Add(new AttackTileSettings(1, -1, -1));
-                upDirectionATS.Add(new AttackTileSettings(1, 0, -1));
-                this.parity = 1;
-            }
-            else if(this.parity == 1)
-            {
-                upDirectionATS.Clear();
-                //pattern 2
-                upDirectionATS.Add(new AttackTileSettings(1, -1, 1));
-                upDirectionATS.Add(new AttackTileSettings(1, 1, 1));
-                upDirectionATS.Add(new AttackTileSettings(1, 1, 1));
-                upDirectionATS.Add(new AttackTileSettings(1, 1, -1));
-            }
-        }
+        
         List<AttackTileSettings> attackPattern = ConvertPattern(upDirectionATS, direction);
 
         List<Entity> enemiesInRange = new List<Entity>();
@@ -305,6 +265,9 @@ public class Enemy : Entity
                     Damage(enemyDamage, enemiesInRange[i]);
             }
         }
+
+        //for turn by turn
+        hasAttack = true;
     }
 
     //function to take damage / die

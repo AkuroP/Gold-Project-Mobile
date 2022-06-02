@@ -7,7 +7,8 @@ public enum Direction
     UP, 
     RIGHT, 
     BOTTOM, 
-    LEFT 
+    LEFT,
+    NONE
 }
 
 public class Entity : MonoBehaviour
@@ -104,7 +105,7 @@ public class Entity : MonoBehaviour
     }
 
     //find ennemies in attack range
-    public List<Entity> GetEntityInRange(List<AttackTileSettings> ats)
+    public List<Entity> GetEntityInRange(List<AttackTileSettings> ats, bool _drawAttack = false)
     {
         List<Entity> entityInPattern = new List<Entity>();
 
@@ -136,7 +137,9 @@ public class Entity : MonoBehaviour
                     return entityInPattern;
                 }
 
-                StartCoroutine(DrawAttack(attackedTile));
+                if(_drawAttack)
+                    StartCoroutine(DrawAttack(attackedTile));
+                
                 if (attackedTile.entityOnTile)
                 {
                     entityInPattern.Add(attackedTile.entityOnTile);
@@ -147,7 +150,7 @@ public class Entity : MonoBehaviour
             }
         }
 
-        return null;
+        return entityInPattern;
     }
 
     public List<AttackTileSettings> ConvertPattern(List<AttackTileSettings> upDirectionATS, Direction entityDirection)
@@ -209,12 +212,18 @@ public class Entity : MonoBehaviour
     {
         currentPosition = transform.position;
         targetPosition = _targetTile.transform.position;
-        moveInProgress = true;
+        
+        Debug.Log(currentPosition + " / " + targetPosition);
 
         if(!_targetTile.isHole)
         {
+            _targetTile.entityOnTile = currentTile.entityOnTile;
+            currentTile.entityOnTile = null;
             currentTile = _targetTile;
         }
+        
+        moveInProgress = true;
+        canMove = false;
     }
 
     public virtual void FindNextTile()

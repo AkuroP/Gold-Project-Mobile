@@ -139,7 +139,7 @@ public class Player : Entity
 
             List<Entity> enemiesInRange = new List<Entity>();
 
-            enemiesInRange = GetEntityInRange(attackPattern);
+            enemiesInRange = GetEntityInRange(attackPattern, true);
 
             if (enemiesInRange != null && enemiesInRange.Count > 0)
             {
