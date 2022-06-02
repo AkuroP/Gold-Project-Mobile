@@ -14,12 +14,13 @@ public class Enemy : Entity
         ENEMY3
     } 
     public EnemyType whatEnemy;
-    [SerializeField]private int parity = 0;
+    public int parity = 0;
 
-    private Player player;
+    public Player player;
     public float enemyRange;
 
     public bool checkEnemiesInRange = false;
+    public Direction dir;
 
     // Start is called before the first frame update
     void Start()
@@ -38,39 +39,8 @@ public class Enemy : Entity
         {
             if(!checkEnemiesInRange)
             {
-                Direction dir = CheckAround(false);
-                
-                if(dir != Direction.NONE)
-                {
-                    direction = dir;
-                    StartAttack();
-                }
-                else
-                {
-                    Tile nextTile = FindDirection();
-                    Debug.Log(nextTile);
-                    if(nextTile != null)
-                    {
-                        Move(nextTile);
-                        dir = CheckAround(true);
-                        if(dir != Direction.NONE)
-                        {
-                            direction = dir;
-                            StartAttack();
-                        }
-                    }
-                    else
-                    {
-                        //Debug.Log("PAS BOUGE");
-                    }
-                }
-                hasMove = true;
-                hasAttack = true;
-                checkEnemiesInRange = false;
-
+                StartTurn();    
             }
-
-            
             Debug.Log("my turn: " + this.gameObject.name);
             //hasMove = true;
         }
@@ -90,6 +60,45 @@ public class Enemy : Entity
             
         }
         
+        IsSelfDead();
+    }
+
+    public virtual void StartTurn()
+    {
+        dir = CheckAround(false);
+                    
+        if(dir != Direction.NONE)
+        {
+            direction = dir;
+            StartAttack();
+        }
+        else
+        {
+            Tile nextTile = FindDirection();
+            Debug.Log(nextTile);
+            if(nextTile != null)
+            {
+                Move(nextTile);
+                dir = CheckAround(true);
+                if(dir != Direction.NONE)
+                {
+                    direction = dir;
+                    StartAttack();
+                }
+            }
+            else
+            {
+                //Debug.Log("PAS BOUGE");
+            }
+            
+            hasMove = true;
+            hasAttack = true;
+            checkEnemiesInRange = false;
+        }
+    }
+
+    public void IsSelfDead()
+    {
         //hp management
         if (hp <= 0)
         {
@@ -122,7 +131,7 @@ public class Enemy : Entity
         return selectedTile;
     }
 
-    private Direction CheckAround(bool _drawAttack)
+    public Direction CheckAround(bool _drawAttack)
     {
         checkEnemiesInRange = true;
         List<Entity> newList = new List<Entity>();
@@ -189,7 +198,7 @@ public class Enemy : Entity
         return Direction.NONE;
     }
 
-    private void InitAttackPattern()
+    public void InitAttackPattern()
     {
         upDirectionATS.Clear();
         switch(whatEnemy)
@@ -202,8 +211,8 @@ public class Enemy : Entity
             {
                 //pattern 1
                 upDirectionATS.Add(new AttackTileSettings(1, 0, 1));
+                upDirectionATS.Add(new AttackTileSettings(1, 1, 0));
                 upDirectionATS.Add(new AttackTileSettings(1, -1, 0));
-                upDirectionATS.Add(new AttackTileSettings(1, -1, -1));
                 upDirectionATS.Add(new AttackTileSettings(1, 0, -1));
                 this.parity = 1;
             }
@@ -212,8 +221,8 @@ public class Enemy : Entity
                 //pattern 2
                 upDirectionATS.Add(new AttackTileSettings(1, -1, 1));
                 upDirectionATS.Add(new AttackTileSettings(1, 1, 1));
-                upDirectionATS.Add(new AttackTileSettings(1, 1, 1));
                 upDirectionATS.Add(new AttackTileSettings(1, 1, -1));
+                upDirectionATS.Add(new AttackTileSettings(1, -1, -1));
                 this.parity = 0;
             }
             break;
