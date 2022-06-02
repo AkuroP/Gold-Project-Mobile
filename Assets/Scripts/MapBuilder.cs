@@ -26,16 +26,13 @@ public class MapBuilder : MonoBehaviour
 
     void Start()
     {
-        //Create a map
-        Map currentMap = CreateMap();
-        currentMap.Init(mapSettings[1]);
-
-        GameObject.FindWithTag("GameManager").GetComponent<GameManager>().SetUpMapRound(currentMap);
+    
     }
 
     public Map CreateMap()
     {
         GameObject currentMapInstance = Instantiate(Resources.Load("Prefabs/MapHolder"), new Vector3(-2, -2, 0), Quaternion.identity) as GameObject;
+        currentMapInstance.GetComponent<Map>().Init(mapSettings[1]);
         return currentMapInstance.GetComponent<Map>();
     }
 

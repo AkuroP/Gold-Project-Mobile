@@ -5,15 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Player : Entity
 {
-    //player behaviour export 
-/*    public bool canMove = true;
-    public bool moveInProgress = false;
-
-
-    public Vector3 targetPosition, currentPosition;
-
-    private float timeElapsed;
-    public float moveDuration;*/
+    
 
     //Number of essences (= points of action)
     public int numEssence = 100;
@@ -29,6 +21,8 @@ public class Player : Entity
     // Start is called before the first frame update
     void Start()
     {
+        instanceGM = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
+
         currentPosition = transform.position;
         weapon = new Weapon(WeaponType.DAGGER);
         hp = maxHP;
@@ -38,10 +32,7 @@ public class Player : Entity
     void Update()
     {
         //turn management
-        if(myTurn)
-        {
-            Debug.Log("my turn: " + this.gameObject.name);
-        }
+
 
         //hp management
         if (hp <= 0)
@@ -68,6 +59,11 @@ public class Player : Entity
 
             
         }
+    }
+
+    public void ResetPosition()
+    {
+        this.gameObject.transform.position = currentTile.gameObject.transform.position;
     }
 
     public override void FindNextTile()
@@ -118,6 +114,12 @@ public class Player : Entity
             _targetTile.entityOnTile = currentTile.entityOnTile;
             currentTile.entityOnTile = null;
             currentTile = _targetTile;
+        }
+
+        if(_targetTile.tileIndex == currentMap.exitTileIndex)
+        {
+            Debug.Log("sortie");
+            instanceGM.NewMap();
         }
 
         moveInProgress = true;

@@ -10,6 +10,8 @@ public class Enemy : Entity
     // Start is called before the first frame update
     void Start()
     {
+        instanceGM = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
+
         upDirectionATS.Add(new AttackTileSettings(1, 0, 1));
         hp = maxHP;
         enemyDamage = 1;
@@ -21,7 +23,6 @@ public class Enemy : Entity
     {
         if(myTurn)
         {
-            Debug.Log("my turn: " + this.gameObject.name);
             hasMove = true;
         }
         if (hp <= 0)

@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instanceGM;
+    public MapBuilder instanceMB;
 
     //Turns enum and variable to know what turn it is
     public enum Turn
@@ -42,7 +43,24 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        instanceMB = GameObject.FindWithTag("MapBuilder").GetComponent<MapBuilder>();
+
+        NewMap();
+
         actualDangerousness = 1 + (score / 20);
+    }
+
+    public void NewMap()
+    {
+        if(currentMap != null)
+        {
+            Destroy(currentMap.gameObject);
+            currentMap = null;
+        }
+        currentMap = instanceMB.CreateMap();
+        SetUpMapRound(currentMap);
+
+        currentMap.player.ResetPosition();
     }
 
     public void SetUpMapRound(Map _currentMap)

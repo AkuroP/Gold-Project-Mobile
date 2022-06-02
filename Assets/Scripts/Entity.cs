@@ -12,6 +12,9 @@ public enum Direction
 
 public class Entity : MonoBehaviour
 {
+    //game manager 
+    public GameManager instanceGM;
+
     [Header("==== Map Informations ====")]
     public Map currentMap;
     public Tile currentTile;
