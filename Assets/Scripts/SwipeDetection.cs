@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class SwipeDetection : MonoBehaviour
 {
@@ -12,9 +13,9 @@ public class SwipeDetection : MonoBehaviour
 
     private bool fingerDown;
     private bool swipeDone;
-    private bool doubleClickTimerOn = false;
+    public bool doubleClickTimerOn = false;
 
-    private float doubleClickTimer = 0f;
+    public float doubleClickTimer = 0f;
     [SerializeField] private float doubleClickInterval = 0.5f;
 
     public static SwipeDetection instanceSD;
@@ -38,6 +39,11 @@ public class SwipeDetection : MonoBehaviour
         if(doubleClickTimerOn == true)
         {
             doubleClickTimer += Time.deltaTime;
+            if(doubleClickTimer > doubleClickInterval)
+            {
+                doubleClickTimer = 0f;
+                doubleClickTimerOn = false;
+            }
         }
 
         if (fingerDown == false && Input.GetMouseButtonDown(0))
@@ -85,7 +91,7 @@ public class SwipeDetection : MonoBehaviour
                 doubleClickTimer = 0;
             }
             //Double click if new click arrives in less than "doubleclickinterval" seconds after the last click release
-            if(doubleClickTimerOn == true && doubleClickTimer < doubleClickInterval)
+            if(doubleClickTimerOn == true && doubleClickTimer < doubleClickInterval && player.attackNext == false && EventSystem.current.currentSelectedGameObject != UI.instanceUI.canvas.transform.Find("AttackButton").gameObject)
             {
                 Debug.Log("double click");
                 doubleClickTimer = 0f;
@@ -95,9 +101,8 @@ public class SwipeDetection : MonoBehaviour
             }
         }
 
-        if (fingerDown && Input.GetMouseButtonUp(0))
+        if (fingerDown && Input.GetMouseButtonUp(0) && EventSystem.current.currentSelectedGameObject != UI.instanceUI.canvas.transform.Find("AttackButton").gameObject)
         {
-            Debug.Log("prout");
             fingerDown = false;
             doubleClickTimerOn = true;
             doubleClickTimer = 0f;

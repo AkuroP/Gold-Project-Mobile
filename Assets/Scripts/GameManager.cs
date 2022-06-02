@@ -103,6 +103,21 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void UpdateScore()
+    {
+        score++;
+        room++;
+        if(room % 11 == 0)
+        {
+            floor++;
+            room = 1;
+        }
+        if(score % 20 == 0)
+        {
+            actualDangerousness = 1 + (score / 20);
+        }
+    }
+
     public IEnumerator ChangeEntity()
     {
         //new entity play

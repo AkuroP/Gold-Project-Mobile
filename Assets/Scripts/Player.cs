@@ -58,6 +58,7 @@ public class Player : Entity
 
             if (currentTile.tileIndex == currentMap.exitTileIndex)
             {
+                GameManager.instanceGM.UpdateScore();
                 instanceGM.NewMap();
             }
         }

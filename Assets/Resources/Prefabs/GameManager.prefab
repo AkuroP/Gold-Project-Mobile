@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8856676842049075119}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: GameManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44,12 +44,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fff376cd98e8dd4cb16c3f574b88051, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  instanceMB: {fileID: 0}
   whatTurn: 0
   score: 0
   floor: 0
-  room: 0
-  actualDangerousness: 0
-  ShopPrefab: {fileID: 0}
-  enemiesPlaying: []
+  room: 1
+  actualDangerousness: 1
   shopUIprefab: {fileID: 2232992195658834521, guid: f2461036fbabd3a45b7d6111cd0115d7, type: 3}
   shopPrefab: {fileID: 5128081185710407048, guid: 361bff0af5cb8554781bae3c5f48edbc, type: 3}
+  enemiesPlaying: []
+  allEnemiesActionFinished: 0
+  currentMap: {fileID: 0}
+  allEntities: []
+  playingEntity: {fileID: 0}
+  indexPlayingEntity: 0
