@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1893107155458283563
+--- !u!1 &7817395000330428684
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1893107155458283566}
-  - component: {fileID: 1893107155458283565}
-  - component: {fileID: 1893107155458283567}
+  - component: {fileID: 7817395000330428681}
+  - component: {fileID: 7817395000330428682}
+  - component: {fileID: 7817395000330428680}
+  - component: {fileID: 8518943215265667630}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -18,13 +19,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1893107155458283566
+--- !u!4 &7817395000330428681
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1893107155458283563}
+  m_GameObject: {fileID: 7817395000330428684}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.53, y: -2.47, z: 0}
   m_LocalScale: {x: 0.8, y: 0.8, z: 1}
@@ -33,13 +34,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &1893107155458283565
+--- !u!212 &7817395000330428682
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1893107155458283563}
+  m_GameObject: {fileID: 7817395000330428684}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -85,22 +86,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1893107155458283567
+--- !u!114 &7817395000330428680
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1893107155458283563}
+  m_GameObject: {fileID: 7817395000330428684}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 21d8fc2439ac33340bbd91fd8ce46460, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   currentMap: {fileID: 0}
   currentTile: {fileID: 0}
-  maxHP: 0
-  hp: 0
+  maxHP: 3
+  hp: 3
   prio: 0
   maxMobility: 0
   mobilityX: 0
@@ -110,27 +111,15 @@ MonoBehaviour:
   weaponRange: 0
   weaponEffect: 0
   effectOnEntity: 0
-  numEssence: 100
-  attackNext: 0
-  moveNext: 0
-  weaponDamage: 0
---- !u!114 &1893107155458283552
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1893107155458283563}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49435e85a7a42644b9c1a5b62f9f8a24, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
-  canMove: 1
-  moveInProgress: 0
   targetPosition: {x: 0, y: 0, z: 0}
   currentPosition: {x: 0, y: 0, z: 0}
-  moveDuration: 0
+  canMove: 1
+  moveInProgress: 0
+  timeElapsed: 0
+  moveDuration: 0.25
+  hasMoved: 0
+  canAttack: 1
+  numEssence: 100
   attackNext: 0
   moveNext: 0
   weaponDamage: 0
@@ -139,3 +128,32 @@ MonoBehaviour:
     weaponLevel: 0
     weaponDamage: 0
     upDirectionATS: []
+--- !u!114 &8518943215265667630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7817395000330428684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c27acbff30d7144298bc870cdb4aa0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items:
+  - itemName: 
+    itemDangerousness: 0
+    itemCost: 0
+    itemSprite: {fileID: 0}
+    goesInInventory: 0
+  - itemName: 
+    itemDangerousness: 0
+    itemCost: 0
+    itemSprite: {fileID: 0}
+    goesInInventory: 0
+  - itemName: 
+    itemDangerousness: 0
+    itemCost: 0
+    itemSprite: {fileID: 0}
+    goesInInventory: 0
+  maxItemNumber: 3

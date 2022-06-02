@@ -19,10 +19,11 @@ public class GameManager : MonoBehaviour
     public int room;
     public int actualDangerousness;
 
-    private GameObject player;
-    [SerializeField] private GameObject[] enemiesPlaying;
     [SerializeField] private GameObject shopUIprefab;
     [SerializeField] private GameObject shopPrefab;
+
+    public List<GameObject> enemiesPlaying;
+    public int allEnemiesActionFinished;
 
     private void Awake()
     {
@@ -31,29 +32,14 @@ public class GameManager : MonoBehaviour
             Destroy(instanceGM);
         }
         instanceGM = this;
-
-    private GameObject player;
-    public List<GameObject> enemiesPlaying;
-    public int allEnemiesActionFinished;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        player = GameObject.FindWithTag("Player");
-        whatTurn = Turn.PLAYERTURN;
-        enemiesPlaying = TriGnome(enemiesPlaying);
-        actualDangerousness = 1 + (score / 20);
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        if (room == 5)
-        {
-            UI.instanceUI.shopUI = Instantiate(shopUIprefab, UI.instanceUI.canvas.transform);
-            Instantiate(shopPrefab);
-            UI.instanceUI.shopUI.SetActive(false);
-        }
+        whatTurn = Turn.PLAYERTURN;
+        enemiesPlaying = TriGnome(enemiesPlaying);
+        actualDangerousness = 1 + (score / 20);
     }
 
     // Update is called once per frame
