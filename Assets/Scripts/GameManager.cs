@@ -14,6 +14,17 @@ public class GameManager : MonoBehaviour
     }
     public Turn whatTurn;
 
+    public int score;
+    public int floor;
+    public int room;
+    public int actualDangerousness;
+
+    [SerializeField] private GameObject shopUIprefab;
+    [SerializeField] private GameObject shopPrefab;
+
+    public List<GameObject> enemiesPlaying;
+    public int allEnemiesActionFinished;
+
     private void Awake()
     {
         if (instanceGM != null)
@@ -35,9 +46,9 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindWithTag("Player");
         whatTurn = Turn.PLAYERTURN;
         enemiesPlaying = TriGnome(enemiesPlaying);
+        actualDangerousness = 1 + (score / 20);
     }
 
     public void SetUpMapRound(Map _currentMap)

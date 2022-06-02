@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum Direction
-{ 
-    UP, 
-    RIGHT, 
-    BOTTOM, 
-    LEFT 
+{
+    UP,
+    RIGHT,
+    BOTTOM,
+    LEFT
 }
 
 public class Entity : MonoBehaviour
@@ -19,8 +19,7 @@ public class Entity : MonoBehaviour
     [Header("==== Stat ====")]
     //hp for enemy, turn left for player
     public int maxHP;
-    [SerializeField]
-    protected int hp;
+    public int hp;
     //priority of entity (player always first)
     public int prio;
     [Header("==== Movement ====")]
@@ -44,7 +43,7 @@ public class Entity : MonoBehaviour
 
     public Vector3 targetPosition, currentPosition;
 
-    //player behaviour export 
+    //player behaviour export
     public bool canMove = true;
     public bool moveInProgress = false;
 
@@ -61,7 +60,7 @@ public class Entity : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
+
     }
 
     // Update is called once per frame
@@ -89,7 +88,7 @@ public class Entity : MonoBehaviour
     //virtual attack function
     public virtual void StartAttack()
     {
-        
+
     }
 
     //draw attack zone
