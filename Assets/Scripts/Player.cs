@@ -82,6 +82,7 @@ public class Player : Entity
                     if (currentMap.CheckMove(rightTile))
                     {
                         MovePlayer(ref rightTile);
+                        entitySr.flipX = true;
                     }
                     break;
                 case Direction.BOTTOM:
@@ -96,6 +97,7 @@ public class Player : Entity
                     if (currentMap.CheckMove(leftTile))
                     {
                         MovePlayer(ref leftTile);
+                        entitySr.flipX = false;
                     }
                     break;
             }

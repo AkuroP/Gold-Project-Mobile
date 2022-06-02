@@ -55,10 +55,12 @@ public class Entity : MonoBehaviour
     public bool canAttack = true;
 
     //turn by turn
-
     public bool myTurn = false;
     public bool hasMove = false;
     public bool hasAttack = false;
+
+    //Sprite and anims
+    [SerializeField] protected SpriteRenderer entitySr;
 
     // Start is called before the first frame update
     void Start()
@@ -233,6 +235,7 @@ public class Entity : MonoBehaviour
                 if (currentMap.CheckMove(rightTile))
                 {
                     this.Move(rightTile);
+                    entitySr.flipX = true;
                 }
                 break;
             case Direction.BOTTOM:
@@ -247,6 +250,7 @@ public class Entity : MonoBehaviour
                 if (currentMap.CheckMove(leftTile))
                 {
                     this.Move(leftTile);
+                    entitySr.flipX = false;
                 }
                 break;
         }
