@@ -34,10 +34,6 @@ public class GameManager : MonoBehaviour
         instanceGM = this;
     }
 
-    private GameObject player;
-    public List<Entity> enemiesPlaying;
-    public int allEnemiesActionFinished;
-
     public Map currentMap;
     public List<Entity> allEntities = new List<Entity>();
     public Entity playingEntity;
@@ -46,8 +42,6 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        whatTurn = Turn.PLAYERTURN;
-        enemiesPlaying = TriGnome(enemiesPlaying);
         actualDangerousness = 1 + (score / 20);
     }
 
