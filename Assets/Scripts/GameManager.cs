@@ -88,7 +88,7 @@ public class GameManager : MonoBehaviour
             indexPlayingEntity++;
         }
         playingEntity = allEntities[indexPlayingEntity];
-
+        Debug.Log(allEntities[indexPlayingEntity].name);
         yield return new WaitForSeconds(0.5f);
 
         playingEntity.myTurn = true;
