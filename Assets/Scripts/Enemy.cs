@@ -24,11 +24,7 @@ public class Enemy : Entity
         player = GameObject.FindWithTag("Player").GetComponent<Player>();
         hp = maxHP;
         enemyDamage = 1;
-<<<<<<< Updated upstream
         prio = Random.Range(1, 5);
-=======
-        InitAttackPattern();
->>>>>>> Stashed changes
     }
 
     // Update is called once per frame
@@ -46,12 +42,9 @@ public class Enemy : Entity
 
         if (myTurn && Input.GetKeyDown(KeyCode.Z) && !hasAttack)
         {
-<<<<<<< Updated upstream
             StartAttack();
             hasAttack = true;
-=======
             EnemyBehaviour();
->>>>>>> Stashed changes
         }
     }
 
