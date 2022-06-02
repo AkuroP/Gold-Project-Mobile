@@ -21,7 +21,7 @@ public class Entity : MonoBehaviour
     //hp for enemy, turn left for player
     public int maxHP;
     [SerializeField]
-    protected int hp;
+    public int hp;
     //priority of entity (player always first)
     public int prio;
     [Header("==== Movement ====")]
@@ -58,6 +58,9 @@ public class Entity : MonoBehaviour
     public bool myTurn = false;
     public bool hasMove = false;
     public bool hasAttack = false;
+
+    //Sprite and anims
+    [SerializeField] public SpriteRenderer entitySr;
 
     // Start is called before the first frame update
     void Start()
@@ -242,6 +245,7 @@ public class Entity : MonoBehaviour
                 if (currentMap.CheckMove(rightTile))
                 {
                     this.Move(rightTile);
+                    entitySr.flipX = true;
                 }
                 break;
             case Direction.BOTTOM:
@@ -256,6 +260,7 @@ public class Entity : MonoBehaviour
                 if (currentMap.CheckMove(leftTile))
                 {
                     this.Move(leftTile);
+                    entitySr.flipX = false;
                 }
                 break;
         }
