@@ -45,6 +45,9 @@ public class MapSettings
 {
     public int mapWidth, mapHeight;
     public int entranceTileIndex, exitTileIndex;
+
+    public string mapName;
+
     [SerializeField]
     public List<TileSettings> tileSettings = new List<TileSettings>();
 }
