@@ -31,8 +31,9 @@ public class MapBuilder : MonoBehaviour
 
     public Map CreateMap()
     {
-        GameObject currentMapInstance = Instantiate(Resources.Load("Prefabs/MapHolder"), new Vector3(-2, -2, 0), Quaternion.identity) as GameObject;
-        currentMapInstance.GetComponent<Map>().Init(mapSettings[1]);
+        int randomIndex = Random.Range(1, 4);
+        GameObject currentMapInstance = Instantiate(Resources.Load("Prefabs/MapHolder"), new Vector3(-4, -5.4f, 0), Quaternion.identity) as GameObject;
+        currentMapInstance.GetComponent<Map>().Init(mapSettings[randomIndex]);
         return currentMapInstance.GetComponent<Map>();
     }
 

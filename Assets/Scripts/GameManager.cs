@@ -91,6 +91,10 @@ public class GameManager : MonoBehaviour
                 playingEntity.myTurn = false;
                 playingEntity.hasMove = false;
                 playingEntity.hasAttack = false;
+                if(playingEntity.tag == "Player")
+                {
+                    SwipeDetection.instanceSD.blockInputs = true;
+                }
 
                 //next entity play
                 StartCoroutine(ChangeEntity());
@@ -142,8 +146,12 @@ public class GameManager : MonoBehaviour
         }
         playingEntity = allEntities[indexPlayingEntity];
         Debug.Log(allEntities[indexPlayingEntity].name);
-        yield return new WaitForSeconds(0.5f);
 
+        yield return new WaitForSeconds(0.5f);
+        if (playingEntity.tag == "Player")
+        {
+            SwipeDetection.instanceSD.blockInputs = false;
+        }
         playingEntity.myTurn = true;
     }
 
