@@ -11,7 +11,7 @@ public class SwipeDetection : MonoBehaviour
 
     public int distanceToDetectSwipe = 50;
 
-    private bool fingerDown;
+    [SerializeField] private bool fingerDown;
     private bool swipeDone;
     public bool doubleClickTimerOn = false;
     public bool blockInputs = false;
@@ -47,7 +47,7 @@ public class SwipeDetection : MonoBehaviour
             }
         }
 
-        if (fingerDown == false && Input.GetMouseButtonDown(0) && blockInputs == false)
+        if (fingerDown == false && Input.GetMouseButtonDown(0) && blockInputs == false && EventSystem.current.currentSelectedGameObject != UI.instanceUI.attackButton)
         {
             startPos = Input.mousePosition;
             fingerDown = true;
@@ -94,7 +94,6 @@ public class SwipeDetection : MonoBehaviour
             //Double click if new click arrives in less than "doubleclickinterval" seconds after the last click release
             if(doubleClickTimerOn == true && doubleClickTimer < doubleClickInterval && player.attackNext == false && EventSystem.current.currentSelectedGameObject != UI.instanceUI.attackButton)
             {
-                Debug.Log("double click");
                 doubleClickTimer = 0f;
                 doubleClickTimerOn = false;
                 player.hasMove = true;
@@ -114,6 +113,7 @@ public class SwipeDetection : MonoBehaviour
             swipeDone = false;
             if (player.attackNext == true)
             {
+                Debug.Log("Attack");
                 player.StartAttack();
                 player.attackNext = false;
             }
