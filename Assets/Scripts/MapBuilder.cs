@@ -32,7 +32,7 @@ public class MapBuilder : MonoBehaviour
     public Map CreateMap()
     {
         GameObject currentMapInstance = Instantiate(Resources.Load("Prefabs/MapHolder"), new Vector3(-2, -2, 0), Quaternion.identity) as GameObject;
-        currentMapInstance.GetComponent<Map>().Init(mapSettings[1]);
+        currentMapInstance.GetComponent<Map>().Init(mapSettings[14]);
         return currentMapInstance.GetComponent<Map>();
     }
 
