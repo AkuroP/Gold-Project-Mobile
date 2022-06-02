@@ -57,10 +57,9 @@ public class GameManager : MonoBehaviour
             Destroy(currentMap.gameObject);
             currentMap = null;
         }
+
         currentMap = instanceMB.CreateMap();
         SetUpMapRound(currentMap);
-
-        currentMap.player.ResetPosition();
     }
 
     public void SetUpMapRound(Map _currentMap)
@@ -73,7 +72,12 @@ public class GameManager : MonoBehaviour
 
         //player play first
         playingEntity = allEntities[0];
+
         playingEntity.myTurn = true;
+        playingEntity.hasMove = false;
+        playingEntity.hasAttack = false;
+
+        indexPlayingEntity = 0;
     }
 
     // Update is called once per frame

@@ -32,7 +32,10 @@ public class Player : Entity
     void Update()
     {
         //turn management
-
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            this.gameObject.transform.position = currentTile.gameObject.transform.position;
+        }
 
         //hp management
         if (hp <= 0)
@@ -40,10 +43,6 @@ public class Player : Entity
             Destroy(this.gameObject);
         }
 
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            StartAttack();
-        }
 
         //move process
         if (moveInProgress && !canMove && timeElapsed < moveDuration)
@@ -57,13 +56,11 @@ public class Player : Entity
             canMove = true;
             timeElapsed = 0;
 
-            
+            if (currentTile.tileIndex == currentMap.exitTileIndex)
+            {
+                instanceGM.NewMap();
+            }
         }
-    }
-
-    public void ResetPosition()
-    {
-        this.gameObject.transform.position = currentTile.gameObject.transform.position;
     }
 
     public override void FindNextTile()
@@ -114,12 +111,6 @@ public class Player : Entity
             _targetTile.entityOnTile = currentTile.entityOnTile;
             currentTile.entityOnTile = null;
             currentTile = _targetTile;
-        }
-
-        if(_targetTile.tileIndex == currentMap.exitTileIndex)
-        {
-            Debug.Log("sortie");
-            instanceGM.NewMap();
         }
 
         moveInProgress = true;
