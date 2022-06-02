@@ -15,7 +15,14 @@ public class GameManager : MonoBehaviour
     public Turn whatTurn;
 
     public int score;
+    public int floor;
+    public int room;
     public int actualDangerousness;
+
+    private GameObject player;
+    [SerializeField] private GameObject[] enemiesPlaying;
+    [SerializeField] private GameObject shopUIprefab;
+    [SerializeField] private GameObject shopPrefab;
 
     private void Awake()
     {
@@ -32,12 +39,15 @@ public class GameManager : MonoBehaviour
         actualDangerousness = 1 + (score / 20);
     }
 
-    private GameObject player;
-    [SerializeField] private GameObject[] enemiesPlaying;
-
     // Start is called before the first frame update
     void Start()
     {
+        if (room == 5)
+        {
+            UI.instanceUI.shopUI = Instantiate(shopUIprefab, UI.instanceUI.canvas.transform);
+            Instantiate(shopPrefab);
+            UI.instanceUI.shopUI.SetActive(false);
+        }
     }
 
     // Update is called once per frame

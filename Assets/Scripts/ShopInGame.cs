@@ -66,6 +66,11 @@ public class ShopInGame : MonoBehaviour
         allItems.Add(powerGloves);
         allItems.Add(sideSlash);
 
+        //Get all the GameObjects needed
+        shopButtons[0] = UI.instanceUI.shopUI.transform.Find("Item1Button").gameObject;
+        shopButtons[1] = UI.instanceUI.shopUI.transform.Find("Item2Button").gameObject;
+        shopButtons[2] = UI.instanceUI.shopUI.transform.Find("Item3Button").gameObject;
+
         //Calculate Dmax and Dmin values
         Dmax = GameManager.instanceGM.actualDangerousness;
         Dmax = Mathf.Clamp(Dmax, minDangerousness, maxDangerousness);
@@ -93,7 +98,7 @@ public class ShopInGame : MonoBehaviour
 
     private void ChooseShopItems()
     {
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < shopButtons.Length; i++)
         {
             switch (i)
             {

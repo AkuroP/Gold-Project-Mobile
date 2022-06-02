@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShopButton : MonoBehaviour
 {
@@ -16,14 +17,37 @@ public class ShopButton : MonoBehaviour
 
     public void ChooseItem()
     {
-        
-        for (int i = 0; i < Inventory.instanceInventory.maxItemNumber; i++)
+        if(player.numEssence > item.itemCost)
         {
-            if (Inventory.instanceInventory.items[i].itemName == "" && player.numEssence > item.itemCost && item.goesInInventory)
+            if(item.goesInInventory == false)
             {
-                player.numEssence -= item.itemCost;
-                Inventory.instanceInventory.items[i] = item;
-                break;
+                switch (item.itemName)
+                {
+                    case "Heart Regeneration":
+                        if(player.hp < player.maxHP)
+                        {
+                            player.hp++;
+                            this.GetComponent<Button>().interactable = false;
+                        }
+                        break;
+                    case "Bonus Heart":
+                        player.maxHP++;
+                        this.GetComponent<Button>().interactable = false;
+                        break;
+                }
+            }
+            else
+            {
+                for (int i = 0; i < Inventory.instanceInventory.maxItemNumber; i++)
+                {
+                    if (Inventory.instanceInventory.items[i].itemName == "" && item.goesInInventory)
+                    {
+                        player.numEssence -= item.itemCost;
+                        Inventory.instanceInventory.items[i] = item;
+                        this.GetComponent<Button>().interactable = false;
+                        break;
+                    }
+                }
             }
         }
     }
