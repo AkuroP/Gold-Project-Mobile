@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1893107155458283567}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -95,8 +95,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 21d8fc2439ac33340bbd91fd8ce46460, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   currentMap: {fileID: 0}
   currentTile: {fileID: 0}
   maxHP: 0
@@ -110,6 +110,22 @@ MonoBehaviour:
   weaponRange: 0
   weaponEffect: 0
   effectOnEntity: 0
+  numEssence: 100
+  attackNext: 0
+  moveNext: 0
+  weaponDamage: 0
+--- !u!114 &1893107155458283552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1893107155458283563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49435e85a7a42644b9c1a5b62f9f8a24, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
   canMove: 1
   moveInProgress: 0
   targetPosition: {x: 0, y: 0, z: 0}

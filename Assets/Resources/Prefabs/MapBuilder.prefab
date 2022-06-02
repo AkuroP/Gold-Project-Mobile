@@ -112,4 +112,4 @@ MonoBehaviour:
     playerSpawnIndex: 0
   enableMove: 0
   enableAttack: 0
-  limitBtwRightLeftAndTopBot: 2
+  limitBtwRightLeftAndTopBot: 0

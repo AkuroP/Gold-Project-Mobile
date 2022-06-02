@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Enemy
   - MapBuilder
+  - ShopSlot
+  - Canvas
+  - ShopInGame
   layers:
   - Default
   - TransparentFX

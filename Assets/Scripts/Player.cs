@@ -16,7 +16,7 @@ public class Player : Entity
     public float moveDuration;*/
 
     //Number of essences (= points of action)
-    private int numEssence = 100;
+    public int numEssence = 100;
     private int attackCost = 2;
 
     public bool attackNext = false;
