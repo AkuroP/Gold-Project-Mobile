@@ -103,10 +103,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void UpdateScore()
+    public void UpdateScoreAndMap()
     {
         score++;
         room++;
+
         if(room % 11 == 0)
         {
             floor++;
@@ -115,6 +116,16 @@ public class GameManager : MonoBehaviour
         if(score % 20 == 0)
         {
             actualDangerousness = 1 + (score / 20);
+        }
+
+        instanceGM.NewMap();
+
+        if (room == 6)
+        {
+            UI.instanceUI.shopUI = Instantiate(shopUIprefab, UI.instanceUI.canvas.transform);
+            Instantiate(shopPrefab);
+            UI.instanceUI.shopUI.SetActive(false);
+            UI.instanceUI.OpenShop();
         }
     }
 

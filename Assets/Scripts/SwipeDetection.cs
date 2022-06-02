@@ -14,6 +14,7 @@ public class SwipeDetection : MonoBehaviour
     private bool fingerDown;
     private bool swipeDone;
     public bool doubleClickTimerOn = false;
+    public bool blockInputs = false;
 
     public float doubleClickTimer = 0f;
     [SerializeField] private float doubleClickInterval = 0.5f;
@@ -46,7 +47,7 @@ public class SwipeDetection : MonoBehaviour
             }
         }
 
-        if (fingerDown == false && Input.GetMouseButtonDown(0))
+        if (fingerDown == false && Input.GetMouseButtonDown(0) && blockInputs == false)
         {
             startPos = Input.mousePosition;
             fingerDown = true;

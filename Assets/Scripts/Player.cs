@@ -9,7 +9,8 @@ public class Player : Entity
 
     //Number of essences (= points of action)
     public int numEssence = 100;
-    private int attackCost = 2;
+    [SerializeField] private int attackCost = 3;
+    [SerializeField] private int moveCost = 1;
 
     public bool attackNext = false;
     public bool moveNext = false;
@@ -58,8 +59,7 @@ public class Player : Entity
 
             if (currentTile.tileIndex == currentMap.exitTileIndex)
             {
-                GameManager.instanceGM.UpdateScore();
-                instanceGM.NewMap();
+                GameManager.instanceGM.UpdateScoreAndMap();
             }
         }
     }
@@ -104,6 +104,8 @@ public class Player : Entity
 
     public void MovePlayer(ref Tile _targetTile)
     {
+        numEssence -= moveCost;
+
         currentPosition = transform.position;
         targetPosition = _targetTile.transform.position;
 
