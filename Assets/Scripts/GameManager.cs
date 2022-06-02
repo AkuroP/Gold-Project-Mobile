@@ -24,8 +24,13 @@ public class GameManager : MonoBehaviour
     }
 
     private GameObject player;
-    public List<GameObject> enemiesPlaying;
+    public List<Entity> enemiesPlaying;
     public int allEnemiesActionFinished;
+
+    public Map currentMap;
+    public List<Entity> allEntities = new List<Entity>();
+    public Entity playingEntity;
+    public int indexPlayingEntity = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -35,22 +40,70 @@ public class GameManager : MonoBehaviour
         enemiesPlaying = TriGnome(enemiesPlaying);
     }
 
+    public void SetUpMapRound(Map _currentMap)
+    {
+        currentMap = _currentMap;
+
+        //set up all the entities with player in first
+        allEntities = TriGnome(_currentMap.entities);
+        allEntities.Insert(0, _currentMap.player);
+
+        //player play first
+        playingEntity = allEntities[0];
+        playingEntity.myTurn = true;
+    }
+
     // Update is called once per frame
     void Update()
     {
+        if(playingEntity != null)
+        {
+            if(playingEntity.hasMove && playingEntity.hasAttack)
+            {
+                //reset entity who has played
+                playingEntity.myTurn = false;
+                playingEntity.hasMove = false;
+                playingEntity.hasAttack = false;
 
+                //next entity play
+                StartCoroutine(ChangeEntity());
+            }
+        }
+        else
+        {
+            //next entity play
+            StartCoroutine(ChangeEntity());
+        }
     }
 
-    public static List<GameObject> TriGnome(List<GameObject> enemies)
+    public IEnumerator ChangeEntity()
+    {
+        //new entity play
+        if (indexPlayingEntity >= allEntities.Count - 1)
+        {
+            indexPlayingEntity = 0;
+        }
+        else
+        {
+            indexPlayingEntity++;
+        }
+        playingEntity = allEntities[indexPlayingEntity];
+
+        yield return new WaitForSeconds(0.5f);
+
+        playingEntity.myTurn = true;
+    }
+
+    public List<Entity> TriGnome(List<Entity> entities)
     {
         int index = 1;
-        while (index < enemies.Count)
+        while (index < entities.Count)
         {
-            if (enemies[index].GetComponent<Enemy>().prio < enemies[index - 1].GetComponent<Enemy>().prio)
+            if (entities[index].prio < entities[index - 1].prio)
             {
-                GameObject temp = enemies[index];
-                enemies[index] = enemies[index - 1];
-                enemies[index - 1] = temp;
+                Entity temp = entities[index];
+                entities[index] = entities[index - 1];
+                entities[index - 1] = temp;
                 if (index > 1)
                 {
                     index--;
@@ -58,10 +111,10 @@ public class GameManager : MonoBehaviour
             }
             else { index++; }
         }
-        return enemies;
+        return entities;
     }
 
-    public void ChangeTurn()
+    /*public void ChangeTurn()
     {
         if(whatTurn == Turn.PLAYERTURN)
         {
@@ -79,5 +132,5 @@ public class GameManager : MonoBehaviour
             //PLAYER TURN
             whatTurn = Turn.PLAYERTURN;
         }
-    }
+    }*/
 }

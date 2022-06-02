@@ -13,19 +13,26 @@ public class Enemy : Entity
         upDirectionATS.Add(new AttackTileSettings(1, 0, 1));
         hp = maxHP;
         enemyDamage = 1;
+        prio = Random.Range(1, 5);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(myTurn)
+        {
+            Debug.Log("my turn: " + this.gameObject.name);
+            hasMove = true;
+        }
         if (hp <= 0)
         {
             Destroy(this.gameObject);
         }
 
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (myTurn && Input.GetKeyDown(KeyCode.Z) && !hasAttack)
         {
             StartAttack();
+            hasAttack = true;
         }
     }
 

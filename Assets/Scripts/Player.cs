@@ -37,6 +37,13 @@ public class Player : Entity
     // Update is called once per frame
     void Update()
     {
+        //turn management
+        if(myTurn)
+        {
+            Debug.Log("my turn: " + this.gameObject.name);
+        }
+
+        //hp management
         if (hp <= 0)
         {
             Destroy(this.gameObject);
@@ -58,43 +65,47 @@ public class Player : Entity
             moveInProgress = false;
             canMove = true;
             timeElapsed = 0;
+
+            
         }
     }
 
-    public void FindNextTile()
+    public override void FindNextTile()
     {
-        switch (direction)
+       if(myTurn && !hasMove)
         {
-            case Direction.UP:
-                Tile topTile = currentMap.FindTopTile(currentTile);
-                if (currentMap.CheckMove(topTile))
-                {
-                    MovePlayer(ref topTile);
-                }
-                break;
-            case Direction.RIGHT:
-                Tile rightTile = currentMap.FindRightTile(currentTile);
-                if (currentMap.CheckMove(rightTile))
-                {
-                    MovePlayer(ref rightTile);
-                }
-                break;
-            case Direction.BOTTOM:
-                Tile bottomTile = currentMap.FindBottomTile(currentTile);
-                if (currentMap.CheckMove(bottomTile))
-                {
-                    MovePlayer(ref bottomTile);
-                }
-                break;
-            case Direction.LEFT:
-                Tile leftTile = currentMap.FindLeftTile(currentTile);
-                if (currentMap.CheckMove(leftTile))
-                {
-                    MovePlayer(ref leftTile);
-                }
-                break;
+            switch (direction)
+            {
+                case Direction.UP:
+                    Tile topTile = currentMap.FindTopTile(currentTile);
+                    if (currentMap.CheckMove(topTile))
+                    {
+                        MovePlayer(ref topTile);
+                    }
+                    break;
+                case Direction.RIGHT:
+                    Tile rightTile = currentMap.FindRightTile(currentTile);
+                    if (currentMap.CheckMove(rightTile))
+                    {
+                        MovePlayer(ref rightTile);
+                    }
+                    break;
+                case Direction.BOTTOM:
+                    Tile bottomTile = currentMap.FindBottomTile(currentTile);
+                    if (currentMap.CheckMove(bottomTile))
+                    {
+                        MovePlayer(ref bottomTile);
+                    }
+                    break;
+                case Direction.LEFT:
+                    Tile leftTile = currentMap.FindLeftTile(currentTile);
+                    if (currentMap.CheckMove(leftTile))
+                    {
+                        MovePlayer(ref leftTile);
+                    }
+                    break;
+            }
         }
-        //enableMove = false;
     }
 
     public void MovePlayer(ref Tile _targetTile)
@@ -111,27 +122,36 @@ public class Player : Entity
 
         moveInProgress = true;
         canMove = false;
+
+        //for turn by turn
+        hasMove = true;
     }
 
     
 
     public override void StartAttack()
     {
-        numEssence -= attackCost;
-
-        List<AttackTileSettings> attackPattern = ConvertPattern(weapon.upDirectionATS, direction);
-
-        List<Entity> enemiesInRange = new List<Entity>();
-
-        enemiesInRange = GetEntityInRange(attackPattern);
-
-        if (enemiesInRange != null && enemiesInRange.Count > 0)
+        if(myTurn && !hasAttack)
         {
-            for (int i = 0; i < enemiesInRange.Count; i++)
+            numEssence -= attackCost;
+
+            List<AttackTileSettings> attackPattern = ConvertPattern(weapon.upDirectionATS, direction);
+
+            List<Entity> enemiesInRange = new List<Entity>();
+
+            enemiesInRange = GetEntityInRange(attackPattern);
+
+            if (enemiesInRange != null && enemiesInRange.Count > 0)
             {
-                if (enemiesInRange[i] is Enemy)
-                    Damage(weapon.weaponDamage, enemiesInRange[i]);
+                for (int i = 0; i < enemiesInRange.Count; i++)
+                {
+                    if (enemiesInRange[i] is Enemy)
+                        Damage(weapon.weaponDamage, enemiesInRange[i]);
+                }
             }
+
+            //for turn by turn
+            hasAttack = true;
         }
     }
 

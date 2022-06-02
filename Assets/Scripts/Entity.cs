@@ -50,13 +50,18 @@ public class Entity : MonoBehaviour
 
     public float timeElapsed;
     public float moveDuration;
-    public bool hasMoved = false;
     public bool canAttack = true;
+
+    //turn by turn
+
+    public bool myTurn = false;
+    public bool hasMove = false;
+    public bool hasAttack = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+       
     }
 
     // Update is called once per frame
@@ -72,28 +77,12 @@ public class Entity : MonoBehaviour
         {
             transform.position = Vector3.Lerp(currentPosition, targetPosition, timeElapsed / moveDuration) - new Vector3(0, 0, 1);
             timeElapsed += Time.deltaTime;
-            hasMoved = true;
-            if(Vector3.Distance(this.transform.position, targetPosition) <= 1.1f)
-            {
-                canMove = false;
-            }
+            canMove = false;
         }
         else
         {
             moveInProgress = false;
-            ResetAction();        
             timeElapsed = 0;
-        }
-    }
-
-    public void ResetAction()
-    {
-        if(hasMoved && !canAttack)
-        {
-            canMove = true;
-            hasMoved = false;
-            canAttack = true;
-            GameManager.instanceGM.ChangeTurn();
         }
     }
 

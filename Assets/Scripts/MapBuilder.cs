@@ -29,6 +29,8 @@ public class MapBuilder : MonoBehaviour
         //Create a map
         Map currentMap = CreateMap();
         currentMap.Init(mapSettings[1]);
+
+        GameObject.FindWithTag("GameManager").GetComponent<GameManager>().SetUpMapRound(currentMap);
     }
 
     public Map CreateMap()
