@@ -110,5 +110,18 @@ MonoBehaviour:
   weaponRange: 0
   weaponEffect: 0
   effectOnEntity: 0
+  targetPosition: {x: 1, y: 1, z: 1}
+  currentPosition: {x: 0, y: 0, z: 0}
+  canMove: 1
+  moveInProgress: 0
+  timeElapsed: 0
+  moveDuration: 0.25
+  canAttack: 1
+  myTurn: 0
+  hasMove: 0
+  hasAttack: 0
   upDirectionATS: []
   enemyDamage: 0
+  whatEnemy: 2
+  parity: 0
+  enemyRange: 2

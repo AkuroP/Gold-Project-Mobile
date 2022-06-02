@@ -6,9 +6,6 @@ TagManager:
   tags:
   - Enemy
   - MapBuilder
-  - ShopSlot
-  - Canvas
-  - ShopInGame
   - GameManager
   layers:
   - Default

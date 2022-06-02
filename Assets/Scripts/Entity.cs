@@ -3,18 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum Direction
-{
-    UP,
-    RIGHT,
-    BOTTOM,
-    LEFT
+{ 
+    UP, 
+    RIGHT, 
+    BOTTOM, 
+    LEFT,
+    NONE
 }
 
 public class Entity : MonoBehaviour
 {
-    //game manager 
-    public GameManager instanceGM;
-
     [Header("==== Map Informations ====")]
     public Map currentMap;
     public Tile currentTile;
@@ -22,7 +20,8 @@ public class Entity : MonoBehaviour
     [Header("==== Stat ====")]
     //hp for enemy, turn left for player
     public int maxHP;
-    public int hp;
+    [SerializeField]
+    protected int hp;
     //priority of entity (player always first)
     public int prio;
     [Header("==== Movement ====")]
@@ -46,7 +45,7 @@ public class Entity : MonoBehaviour
 
     public Vector3 targetPosition, currentPosition;
 
-    //player behaviour export
+    //player behaviour export 
     public bool canMove = true;
     public bool moveInProgress = false;
 
@@ -55,17 +54,15 @@ public class Entity : MonoBehaviour
     public bool canAttack = true;
 
     //turn by turn
+
     public bool myTurn = false;
     public bool hasMove = false;
     public bool hasAttack = false;
 
-    //Sprite and anims
-    [SerializeField] protected SpriteRenderer entitySr;
-
     // Start is called before the first frame update
     void Start()
     {
-
+       
     }
 
     // Update is called once per frame
@@ -77,23 +74,25 @@ public class Entity : MonoBehaviour
     public void MovingProcess()
     {
         //move process
-        if (moveInProgress && canMove && timeElapsed < moveDuration)
+        if (moveInProgress && !canMove && timeElapsed < moveDuration)
         {
             transform.position = Vector3.Lerp(currentPosition, targetPosition, timeElapsed / moveDuration) - new Vector3(0, 0, 1);
             timeElapsed += Time.deltaTime;
-            canMove = false;
         }
         else
         {
             moveInProgress = false;
+            canMove = true;
             timeElapsed = 0;
+            hasMove = true;
+            
         }
     }
 
     //virtual attack function
     public virtual void StartAttack()
     {
-
+        
     }
 
     //draw attack zone
@@ -106,7 +105,7 @@ public class Entity : MonoBehaviour
     }
 
     //find ennemies in attack range
-    public List<Entity> GetEntityInRange(List<AttackTileSettings> ats)
+    public List<Entity> GetEntityInRange(List<AttackTileSettings> ats, bool _drawAttack = false)
     {
         List<Entity> entityInPattern = new List<Entity>();
 
@@ -138,7 +137,9 @@ public class Entity : MonoBehaviour
                     return entityInPattern;
                 }
 
-                StartCoroutine(DrawAttack(attackedTile));
+                if(_drawAttack)
+                    StartCoroutine(DrawAttack(attackedTile));
+                
                 if (attackedTile.entityOnTile)
                 {
                     entityInPattern.Add(attackedTile.entityOnTile);
@@ -149,7 +150,7 @@ public class Entity : MonoBehaviour
             }
         }
 
-        return null;
+        return entityInPattern;
     }
 
     public List<AttackTileSettings> ConvertPattern(List<AttackTileSettings> upDirectionATS, Direction entityDirection)
@@ -211,12 +212,18 @@ public class Entity : MonoBehaviour
     {
         currentPosition = transform.position;
         targetPosition = _targetTile.transform.position;
-        moveInProgress = true;
+        
+        Debug.Log(currentPosition + " / " + targetPosition);
 
         if(!_targetTile.isHole)
         {
+            _targetTile.entityOnTile = currentTile.entityOnTile;
+            currentTile.entityOnTile = null;
             currentTile = _targetTile;
         }
+        
+        moveInProgress = true;
+        canMove = false;
     }
 
     public virtual void FindNextTile()
@@ -235,7 +242,6 @@ public class Entity : MonoBehaviour
                 if (currentMap.CheckMove(rightTile))
                 {
                     this.Move(rightTile);
-                    entitySr.flipX = true;
                 }
                 break;
             case Direction.BOTTOM:
@@ -250,7 +256,6 @@ public class Entity : MonoBehaviour
                 if (currentMap.CheckMove(leftTile))
                 {
                     this.Move(leftTile);
-                    entitySr.flipX = false;
                 }
                 break;
         }
