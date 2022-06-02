@@ -103,6 +103,7 @@ public class Enemy : Entity
         if (hp <= 0)
         {
             Destroy(this.gameObject);
+            player.numEssence += 5;
         }
     }
 

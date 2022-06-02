@@ -119,6 +119,11 @@ public class Player : Entity
             currentTile.entityOnTile = null;
             currentTile = _targetTile;
         }
+        else
+        {
+            hp--;
+            StartCoroutine(Hole());
+        }
 
         moveInProgress = true;
         canMove = false;
@@ -127,7 +132,11 @@ public class Player : Entity
         hasMove = true;
     }
 
-    
+    private IEnumerator Hole()
+    {
+        yield return new WaitForSeconds(0.5f);
+        this.gameObject.transform.position = currentTile.gameObject.transform.position;
+    }
 
     public override void StartAttack()
     {
