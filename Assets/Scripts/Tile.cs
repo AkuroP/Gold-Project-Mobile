@@ -37,7 +37,9 @@ public class Tile : MonoBehaviour
         tileColor = _tileColor;
 
         //place self relatively to its parent
-        transform.position = transform.parent.transform.position + new Vector3(tileX, tileY, 0);
+        float floatMapWidth = transform.parent.GetComponent<Map>().mapWidth / 2f;
+        float floatMapHeight = transform.parent.GetComponent<Map>().mapHeight / 2f;
+        transform.position = transform.parent.transform.position + new Vector3(((float)tileX - floatMapWidth) - .5f, (float)tileY - floatMapHeight - 0.5f, 0);
 
         ChangeVisual();
     }
