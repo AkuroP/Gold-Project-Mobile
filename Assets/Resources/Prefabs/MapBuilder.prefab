@@ -1408,7 +1408,7 @@ MonoBehaviour:
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
   - mapWidth: 7
-    mapHeight: 7
+    mapHeight: 10
     entranceTileIndex: 10
     exitTileIndex: 66
     mapName: LVL_4
@@ -2463,19 +2463,19 @@ MonoBehaviour:
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
-    - isReachable: 1
+    - isReachable: 0
       isHole: 1
       isWall: 0
       isEnemySpawn: 0
       tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
       tileSprite: {fileID: 0}
-    - isReachable: 1
+    - isReachable: 0
       isHole: 1
       isWall: 0
       isEnemySpawn: 0
       tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
       tileSprite: {fileID: 0}
-    - isReachable: 1
+    - isReachable: 0
       isHole: 0
       isWall: 0
       isEnemySpawn: 0
@@ -2589,19 +2589,19 @@ MonoBehaviour:
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
-    - isReachable: 1
+    - isReachable: 0
       isHole: 1
       isWall: 0
       isEnemySpawn: 0
       tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
       tileSprite: {fileID: 0}
-    - isReachable: 1
+    - isReachable: 0
       isHole: 1
       isWall: 0
       isEnemySpawn: 0
       tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
       tileSprite: {fileID: 0}
-    - isReachable: 1
+    - isReachable: 0
       isHole: 1
       isWall: 0
       isEnemySpawn: 0
