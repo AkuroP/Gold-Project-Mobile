@@ -61,6 +61,13 @@ public class Player : Entity
             canMove = true;
             timeElapsed = 0;
 
+            if (currentTile.isPike && !isOnThePike)
+            {
+                this.hp--;
+                currentTile.GetComponent<SpriteRenderer>().color = new Color(0.5f, 0.5f, 0.5f, 1f);
+                isOnThePike = true;
+            }
+
             if (currentTile.tileIndex == currentMap.exitTileIndex && changingRoom == false)
             {
                 changingRoom = true;
@@ -111,42 +118,6 @@ public class Player : Entity
                     break;
             }
         }
-    }
-
-    public void MovePlayer(ref Tile _targetTile)
-    {
-
-        currentPosition = transform.position;
-        targetPosition = _targetTile.transform.position;
-        
-        if (currentTile.isHole == true && currentTile.isOpen == false)
-        {
-            currentTile.isOpen = true;
-        }
-
-        if (!_targetTile.isHole)
-        {
-            _targetTile.entityOnTile = currentTile.entityOnTile;
-            currentTile.entityOnTile = null;
-            currentTile = _targetTile;
-        }
-        else if(!_targetTile.isOpen)
-        {
-            _targetTile.entityOnTile = currentTile.entityOnTile;
-            currentTile.entityOnTile = null;
-            currentTile = _targetTile;
-        }
-        else
-        {
-            hp--;
-            StartCoroutine(Hole());
-        }
-
-        moveInProgress = true;
-        canMove = false;
-
-        //for turn by turn
-        hasMove = true;
     }
 
     public override void StartAttack(List<AttackTileSettings> _upDirectionATS)

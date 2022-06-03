@@ -60,6 +60,7 @@ public class Entity : MonoBehaviour
     public bool hasMove = false;
     public bool hasAttack = false;
     public bool hasPlay = false;
+    protected bool isOnThePike = false;
 
     //Sprite and anims
     [SerializeField] public SpriteRenderer entitySr;
@@ -91,7 +92,13 @@ public class Entity : MonoBehaviour
             canMove = true;
             timeElapsed = 0;
             hasMove = true;
-            
+
+            if (currentTile.isPike && !isOnThePike)
+            {
+                this.hp--;
+                currentTile.GetComponent<SpriteRenderer>().color = new Color(0.5f, 0.5f, 0.5f, 1f);
+                isOnThePike = true;
+            }
         }
     }
 
@@ -240,6 +247,11 @@ public class Entity : MonoBehaviour
             currentTile.entityOnTile = null;
             currentTile.GetComponent<SpriteRenderer>().color = new Color(0.07f, 0.2f, 0.5f, 1f);
         }
+        if (currentTile.isPike == true)
+        {
+            currentTile.GetComponent<SpriteRenderer>().color = new Color(0.8f, 0.8f, 0.8f, 1f);
+            isOnThePike = false;
+        }
 
         if (!_targetTile.isHole)
         {
@@ -248,7 +260,7 @@ public class Entity : MonoBehaviour
             currentTile = _targetTile;
             lastNotHoleTile = currentTile;
         }
-        else if (!_targetTile.isOpen)
+        else if (_targetTile.isHole && !_targetTile.isOpen)
         {
             _targetTile.entityOnTile = currentTile.entityOnTile;
             currentTile.entityOnTile = null;
