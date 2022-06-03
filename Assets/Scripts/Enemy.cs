@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Enemy : Entity
 {
-    public List<AttackTileSettings> upDirectionATS = new List<AttackTileSettings>();
     public int enemyDamage;
     private bool hasRandom;
     public enum EnemyType
@@ -14,7 +13,8 @@ public class Enemy : Entity
         ENEMY3
     } 
     public EnemyType whatEnemy;
-    public int parity = 0;
+    public int maxCD;
+    public int cd;
 
     public Player player;
     public float enemyRange;
@@ -22,87 +22,30 @@ public class Enemy : Entity
     public bool checkEnemiesInRange = false;
     public Direction dir;
 
+    public bool isInitialize = false;
+
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindWithTag("Player").GetComponent<Player>();
-        hp = maxHP;
-        enemyDamage = 1;
-        prio = Random.Range(1, 5);
-        InitAttackPattern();
+
+    }
+
+    public virtual void Init()
+    {
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(myTurn)
-        {
-            if(!checkEnemiesInRange)
-            {
-                StartTurn();    
-            }
-            Debug.Log("my turn: " + this.gameObject.name);
-            //hasMove = true;
-        }
-
-        //move process
-        if (moveInProgress && !canMove && timeElapsed < moveDuration)
-        {
-            Debug.Log("Move");
-            transform.position = Vector3.Lerp(currentPosition, targetPosition, timeElapsed / moveDuration) - new Vector3(0, 0, 1);
-            timeElapsed += Time.deltaTime;
-            if(currentPosition.x > targetPosition.x)
-            {
-                entitySr.flipX = false;
-            }
-            else
-            {
-                entitySr.flipX = true;
-            }
-        }
-        else
-        {
-            moveInProgress = false;
-            canMove = true;
-            timeElapsed = 0;
-            
-        }
         
-        IsSelfDead();
     }
+
+    
 
     public virtual void StartTurn()
     {
-        dir = CheckAround(false);
-                    
-        if(dir != Direction.NONE)
-        {
-            direction = dir;
-            StartAttack();
-        }
-        else
-        {
-            Tile nextTile = FindDirection();
-            Debug.Log(nextTile);
-            if(nextTile != null)
-            {
-                Move(nextTile);
-                dir = CheckAround(true);
-                if(dir != Direction.NONE)
-                {
-                    direction = dir;
-                    StartAttack();
-                }
-            }
-            else
-            {
-                //Debug.Log("PAS BOUGE");
-            }
-            
-            hasMove = true;
-            hasAttack = true;
-            checkEnemiesInRange = false;
-        }
+        Debug.Log("START TURN");
     }
 
     public void IsSelfDead()
@@ -140,12 +83,12 @@ public class Enemy : Entity
         return selectedTile;
     }
 
-    public Direction CheckAround(bool _drawAttack)
+    public Direction CheckAround(List<AttackTileSettings> _upDirectionATS, bool _drawAttack)
     {
         checkEnemiesInRange = true;
         List<Entity> newList = new List<Entity>();
         
-        newList = GetEntityInRange(ConvertPattern(upDirectionATS, Direction.UP),_drawAttack);
+        newList = GetEntityInRange(ConvertPattern(_upDirectionATS, Direction.UP),_drawAttack);
         for(int i = 0; i < newList.Count; i++)
         {
             if(newList[i] is Enemy)
@@ -160,7 +103,7 @@ public class Enemy : Entity
             return Direction.UP;
         }
 
-        newList = GetEntityInRange(ConvertPattern(upDirectionATS, Direction.RIGHT), _drawAttack);
+        newList = GetEntityInRange(ConvertPattern(_upDirectionATS, Direction.RIGHT), _drawAttack);
         for(int i = 0; i < newList.Count; i++)
         {
             if(newList[i] is Enemy)
@@ -175,7 +118,7 @@ public class Enemy : Entity
             return Direction.RIGHT;
         }
         
-       newList = GetEntityInRange(ConvertPattern(upDirectionATS, Direction.BOTTOM), _drawAttack);
+       newList = GetEntityInRange(ConvertPattern(_upDirectionATS, Direction.BOTTOM), _drawAttack);
         for(int i = 0; i < newList.Count; i++)
         {
             if(newList[i] is Enemy)
@@ -190,7 +133,7 @@ public class Enemy : Entity
             return Direction.BOTTOM;
         }
 
-        newList = GetEntityInRange(ConvertPattern(upDirectionATS, Direction.LEFT), _drawAttack);
+        newList = GetEntityInRange(ConvertPattern(_upDirectionATS, Direction.LEFT), _drawAttack);
         for(int i = 0; i < newList.Count; i++)
         {
             if(newList[i] is Enemy)
@@ -207,31 +150,24 @@ public class Enemy : Entity
         return Direction.NONE;
     }
 
-    public void InitAttackPattern()
+    /*public void InitAttackPattern()
     {
         upDirectionATS.Clear();
         switch(whatEnemy)
         {
             case EnemyType.ENEMY1 :
-                upDirectionATS.Add(new AttackTileSettings(1, 0, 1));
+                
             break;
             case EnemyType.ENEMY2 :
             if(this.parity == 0)
             {
                 //pattern 1
-                upDirectionATS.Add(new AttackTileSettings(1, 0, 1));
-                upDirectionATS.Add(new AttackTileSettings(1, 1, 0));
-                upDirectionATS.Add(new AttackTileSettings(1, -1, 0));
-                upDirectionATS.Add(new AttackTileSettings(1, 0, -1));
+                
                 this.parity = 1;
             }
             else if(this.parity == 1)
             {
-                //pattern 2
-                upDirectionATS.Add(new AttackTileSettings(1, -1, 1));
-                upDirectionATS.Add(new AttackTileSettings(1, 1, 1));
-                upDirectionATS.Add(new AttackTileSettings(1, 1, -1));
-                upDirectionATS.Add(new AttackTileSettings(1, -1, -1));
+                
                 this.parity = 0;
             }
             break;
@@ -240,7 +176,7 @@ public class Enemy : Entity
             break;
             
         }
-    }
+    }*/
 
     public void EnemyRandomMove()
     {
@@ -267,10 +203,10 @@ public class Enemy : Entity
         
     }
 
-    public override void StartAttack()
+    public override void StartAttack(List<AttackTileSettings> _upDirectionATS)
     {
         
-        List<AttackTileSettings> attackPattern = ConvertPattern(upDirectionATS, direction);
+        List<AttackTileSettings> attackPattern = ConvertPattern(_upDirectionATS, direction);
 
         List<Entity> enemiesInRange = new List<Entity>();
         enemiesInRange = GetEntityInRange(attackPattern);

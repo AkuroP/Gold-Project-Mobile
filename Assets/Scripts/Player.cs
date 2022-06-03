@@ -141,13 +141,13 @@ public class Player : Entity
         this.gameObject.transform.position = currentTile.gameObject.transform.position;
     }
 
-    public override void StartAttack()
+    public override void StartAttack(List<AttackTileSettings> _upDirectionATS)
     {
         if(myTurn && !hasAttack)
         {
             numEssence -= attackCost;
 
-            List<AttackTileSettings> attackPattern = ConvertPattern(weapon.upDirectionATS, direction);
+            List<AttackTileSettings> attackPattern = ConvertPattern(_upDirectionATS, direction);
 
             List<Entity> enemiesInRange = new List<Entity>();
 

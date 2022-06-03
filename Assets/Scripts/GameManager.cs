@@ -85,12 +85,13 @@ public class GameManager : MonoBehaviour
     {
         if(playingEntity != null)
         {
-            if(playingEntity.hasMove && playingEntity.hasAttack)
+            if(playingEntity.hasMove && playingEntity.hasAttack || playingEntity.hasPlay)
             {
                 //reset entity who has played
                 playingEntity.myTurn = false;
                 playingEntity.hasMove = false;
                 playingEntity.hasAttack = false;
+                playingEntity.hasPlay = false;
                 if(playingEntity.tag == "Player")
                 {
                     SwipeDetection.instanceSD.blockInputs = true;
@@ -145,7 +146,7 @@ public class GameManager : MonoBehaviour
             indexPlayingEntity++;
         }
         playingEntity = allEntities[indexPlayingEntity];
-        Debug.Log(allEntities[indexPlayingEntity].name);
+        //Debug.Log(allEntities[indexPlayingEntity].name);
 
         yield return new WaitForSeconds(0.5f);
         if (playingEntity.tag == "Player")

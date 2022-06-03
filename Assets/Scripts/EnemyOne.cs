@@ -4,14 +4,32 @@ using UnityEngine;
 
 public class EnemyOne : Enemy
 {
+    public List<AttackTileSettings> upDirectionATS = new List<AttackTileSettings>();
     // Start is called before the first frame update
     void Start()
     {
+        
+    }
+
+    public override void Init()
+    {
         player = GameObject.FindWithTag("Player").GetComponent<Player>();
+        maxHP = 1;
         hp = maxHP;
         enemyDamage = 1;
-        prio = Random.Range(1, 5);
-        InitAttackPattern();
+        prio = 1;
+        //InitAttackPattern();
+        maxCD = 1;
+        cd = 0;
+
+        AssignPattern();
+
+        isInitialize = true;
+    }
+
+    private void AssignPattern()
+    {
+        upDirectionATS.Add(new AttackTileSettings(1, 0, 1));
     }
 
     // Update is called once per frame
@@ -19,32 +37,57 @@ public class EnemyOne : Enemy
     {
         if(myTurn)
         {
-            AttackParity();
-        }
-    }
-
-    private void AttackParity()
-    {
-        if(parity == 0)
-        {
-            parity = 1;
-            Debug.Log("CHARGING");
-            hasAttack = true;
-            hasMove = true;
-        }
-        else if(parity == 1)
-        {
-            Direction dir = CheckAround(true);
-            if(dir != Direction.NONE)
+            if(cd > 0)
             {
-                this.direction = dir;
-                StartAttack();
+                cd--;
             }
-            Debug.Log("ATTACK !");
-            hasMove = true;
-            hasAttack = true;
-            parity = 0;
+            else
+            {
+                StartTurn();
+                cd = maxCD;
+            }
+            hasPlay = true;
+        }
+
+        //move process
+        if (moveInProgress && !canMove && timeElapsed < moveDuration)
+        {
+            Debug.Log("Move");
+            transform.position = Vector3.Lerp(currentPosition, targetPosition, timeElapsed / moveDuration) - new Vector3(0, 0, 1);
+            timeElapsed += Time.deltaTime;
+        }
+        else
+        {
+            moveInProgress = false;
+            canMove = true;
+            timeElapsed = 0;
+            
         }
         
+        if(isInitialize)
+            IsSelfDead();
     }
+
+    public override void StartTurn()
+    {
+        dir = CheckAround(upDirectionATS, true);
+                    
+        if(dir != Direction.NONE)
+        {
+            direction = dir;
+            StartAttack(upDirectionATS);
+        }
+        else
+        {
+            int random = Random.Range(0,4);
+            direction = (Direction)random;
+            StartAttack(upDirectionATS);
+        }
+            
+    }
+    
 }
+
+    
+
+

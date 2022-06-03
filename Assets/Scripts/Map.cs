@@ -111,8 +111,29 @@ public class Map : MonoBehaviour
         foreach(Tile tile in enemySpawnTiles)
         {
             GameObject newEnemy = GameObject.Instantiate(Resources.Load("Prefabs/Enemy"), tile.transform.position, Quaternion.identity, this.gameObject.transform) as GameObject;
-            //assign map and current tile
-            newEnemy.GetComponent<Enemy>().currentMap = GetComponent<Map>();
+            int random = Random.Range(0,2);
+            //Debug.Log("RANDOM : " + random);
+            switch(random)
+            {
+                case 0:
+                    newEnemy.AddComponent<EnemyOne>();
+                    newEnemy.GetComponent<EnemyOne>().Init();
+                    newEnemy.GetComponent<EnemyOne>().currentMap = GetComponent<Map>();
+                break;
+
+                case 1:
+                    newEnemy.AddComponent<EnemyTwo>();
+                    newEnemy.GetComponent<EnemyTwo>().Init();
+                    newEnemy.GetComponent<EnemyTwo>().currentMap = GetComponent<Map>();
+                break;
+
+                default:
+                    newEnemy.AddComponent<EnemyTwo>();
+                    newEnemy.GetComponent<EnemyTwo>().Init();
+                    newEnemy.GetComponent<EnemyTwo>().currentMap = GetComponent<Map>();
+                break;
+            }
+            
             newEnemy.GetComponent<Enemy>().currentTile = tile;
             tile.entityOnTile = newEnemy.GetComponent<Enemy>();
 

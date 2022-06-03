@@ -58,9 +58,11 @@ public class Entity : MonoBehaviour
     public bool myTurn = false;
     public bool hasMove = false;
     public bool hasAttack = false;
+    public bool hasPlay = false;
 
     //Sprite and anims
     [SerializeField] public SpriteRenderer entitySr;
+
 
     // Start is called before the first frame update
     void Start()
@@ -93,7 +95,7 @@ public class Entity : MonoBehaviour
     }
 
     //virtual attack function
-    public virtual void StartAttack()
+    public virtual void StartAttack(List<AttackTileSettings> _upDirectionATS)
     {
         
     }
