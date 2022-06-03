@@ -220,8 +220,6 @@ public class Enemy : Entity
             }
         }
 
-        //for turn by turn
-        hasAttack = true;
     }
 
     //function to take damage / die

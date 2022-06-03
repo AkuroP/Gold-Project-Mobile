@@ -162,6 +162,50 @@ public class Map : MonoBehaviour
         return currentTile.leftTile;
     }
 
+    public Tile FindLeftTopTile(Tile currentTile)
+    {
+        if(currentTile.tileX == 1 || currentTile.tileY == mapHeight)
+            return null;
+        else
+        {
+            int index = currentTile.tileIndex + mapWidth - 1;
+            return tilesList[index];
+        }
+    }
+
+    public Tile FindRightTopTile(Tile currentTile)
+    {
+        if(currentTile.tileX == mapWidth || currentTile.tileY == mapHeight)
+            return null;
+        else
+        {
+            int index = currentTile.tileIndex + mapWidth + 1;
+            return tilesList[index];
+        }
+    }
+
+    public Tile FindLeftBottomTile(Tile currentTile)
+    {
+        if(currentTile.tileX == 1 || currentTile.tileY == 1)
+            return null;
+        else
+        {
+            int index = currentTile.tileIndex - mapWidth - 1;
+            return tilesList[index];
+        }
+    }
+
+    public Tile FindRightBottomTile(Tile currentTile)
+    {
+        if(currentTile.tileX == mapWidth || currentTile.tileY == 1)
+            return null;
+        else
+        {
+            int index = currentTile.tileIndex - mapWidth + 1;
+            return tilesList[index];
+        }
+    }
+
     public bool CheckMove(Tile nextTile)
     {
         //is there a tile in the direction

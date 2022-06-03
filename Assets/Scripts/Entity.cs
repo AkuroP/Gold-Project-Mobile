@@ -117,21 +117,34 @@ public class Entity : MonoBehaviour
         foreach (AttackTileSettings oneATS in ats)
         {
             Tile attackedTile = currentTile;
-
-            for (int i = 0; i < Mathf.Abs(oneATS.offsetX); i++)
+            if(Mathf.Abs(oneATS.offsetX) == Mathf.Abs(oneATS.offsetY))
             {
-                if (oneATS.offsetX > 0)
-                    attackedTile = currentMap.FindLeftTile(attackedTile);
-                else if (oneATS.offsetX < 0)
-                    attackedTile = currentMap.FindRightTile(attackedTile);
+                if(oneATS.offsetX > 0 && oneATS.offsetY > 0)
+                    attackedTile = currentMap.FindRightTopTile(attackedTile);
+                else if(oneATS.offsetX > 0 && oneATS.offsetY < 0)
+                    attackedTile = currentMap.FindRightBottomTile(attackedTile);
+                else if(oneATS.offsetX < 0 && oneATS.offsetY > 0)
+                    attackedTile = currentMap.FindLeftTopTile(attackedTile);
+                else if(oneATS.offsetX < 0 && oneATS.offsetY < 0)
+                    attackedTile = currentMap.FindLeftBottomTile(attackedTile);
             }
-
-            for (int i = 0; i < Mathf.Abs(oneATS.offsetY); i++)
+            else
             {
-                if (oneATS.offsetY > 0)
-                    attackedTile = currentMap.FindTopTile(attackedTile);
-                else if (oneATS.offsetY < 0)
-                    attackedTile = currentMap.FindBottomTile(attackedTile);
+                for (int i = 0; i < Mathf.Abs(oneATS.offsetX); i++)
+                {
+                    if (oneATS.offsetX > 0)
+                        attackedTile = currentMap.FindLeftTile(attackedTile);
+                    else if (oneATS.offsetX < 0)
+                        attackedTile = currentMap.FindRightTile(attackedTile);
+                }
+
+                for (int i = 0; i < Mathf.Abs(oneATS.offsetY); i++)
+                {
+                    if (oneATS.offsetY > 0)
+                        attackedTile = currentMap.FindTopTile(attackedTile);
+                    else if (oneATS.offsetY < 0)
+                        attackedTile = currentMap.FindBottomTile(attackedTile);
+                }
             }
 
             if (attackedTile != null)
@@ -268,5 +281,6 @@ public class Entity : MonoBehaviour
         }
         //enableMove = false;
     }
+
 
 }
