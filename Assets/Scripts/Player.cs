@@ -45,6 +45,7 @@ public class Player : Entity
         if (hp <= 0)
         {
             Destroy(this.gameObject);
+            SceneManager.LoadScene("MainMenu");
         }
 
 

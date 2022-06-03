@@ -307,8 +307,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -150}
-  m_SizeDelta: {x: 500, y: 150}
+  m_AnchoredPosition: {x: 0, y: -200}
+  m_SizeDelta: {x: 800, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &326348045
 MonoBehaviour:
@@ -354,7 +354,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1110650666}
+      - m_Target: {fileID: 1110650667}
         m_TargetAssemblyTypeName: UI, Assembly-CSharp
         m_MethodName: OpenOptions
         m_Mode: 1
@@ -441,8 +441,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 150}
-  m_SizeDelta: {x: 500, y: 150}
+  m_AnchoredPosition: {x: 0, y: 200}
+  m_SizeDelta: {x: 800, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &595093381
 MonoBehaviour:
@@ -488,7 +488,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1110650666}
+      - m_Target: {fileID: 1110650667}
         m_TargetAssemblyTypeName: UI, Assembly-CSharp
         m_MethodName: StartGame
         m_Mode: 1
@@ -631,6 +631,7 @@ GameObject:
   - component: {fileID: 1110650663}
   - component: {fileID: 1110650662}
   - component: {fileID: 1110650666}
+  - component: {fileID: 1110650667}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -672,7 +673,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0.5
+  m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -736,6 +737,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   optionsMenu: {fileID: 1519210528}
+--- !u!114 &1110650667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1110650661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f422cebb783fe9b40b38775f4ca388b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 0}
+  shopUI: {fileID: 0}
+  optionsMenu: {fileID: 1519210528}
+  shopPrefab: {fileID: 0}
+  shopUIPrefab: {fileID: 0}
+  essencesText: {fileID: 0}
+  lifeText: {fileID: 0}
+  slot1: {fileID: 0}
+  slot2: {fileID: 0}
+  slot3: {fileID: 0}
+  floorText: {fileID: 0}
+  roomText: {fileID: 0}
+  attackButton: {fileID: 0}
+  fadePrefab: {fileID: 0}
 --- !u!1 &1139813000
 GameObject:
   m_ObjectHideFlags: 0
@@ -820,7 +847,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1110650666}
+      - m_Target: {fileID: 1110650667}
         m_TargetAssemblyTypeName: UI, Assembly-CSharp
         m_MethodName: CloseOptions
         m_Mode: 1

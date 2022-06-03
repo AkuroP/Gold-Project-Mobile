@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UI : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class UI : MonoBehaviour
     public GameObject canvas;
     public GameObject shopUI;
     private Player player;
+
+    //Main menu
+    public GameObject optionsMenu;
 
     //Shop prefabs
     [SerializeField] GameObject shopPrefab;
@@ -76,4 +80,20 @@ public class UI : MonoBehaviour
     {
         Instantiate(fadePrefab);
     }
+
+    public void StartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void OpenOptions()
+    {
+        optionsMenu.SetActive(true);
+    }
+
+    public void CloseOptions()
+    {
+        optionsMenu.SetActive(false);
+    }
 }
+
