@@ -60,6 +60,7 @@ public class TileSettings
     public bool isReachable;
     public bool isHole;
     public bool isWall;
+    public bool isPike;
     public bool isEnemySpawn;
 
     public Color tileColor;

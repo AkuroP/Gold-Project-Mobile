@@ -13,6 +13,8 @@ public class Tile : MonoBehaviour
     public bool isReachable = true;
     public bool isWall = true;
     public bool isHole = true;
+    public bool isOpen = false;
+    public bool isPike = true;
     public bool isEnemySpawn = false;
 
     public Entity entityOnTile = null;
@@ -20,7 +22,7 @@ public class Tile : MonoBehaviour
     [SerializeField]
     public Tile topTile, rightTile, bottomTile, leftTile;
 
-    public void Init(int _tileIndex, int _tileX, int _tileY, bool _isReachable, bool _isWall, bool _isHole, bool _isEnemySpawn, Color _tileColor)
+    public void Init(int _tileIndex, int _tileX, int _tileY, bool _isReachable, bool _isWall, bool _isHole, bool _isPike, bool _isEnemySpawn, Color _tileColor)
     {
         tileIndex = _tileIndex;
         tileX = _tileX;
@@ -29,6 +31,7 @@ public class Tile : MonoBehaviour
         isReachable = _isReachable;
         isWall = _isWall;
         isHole = _isHole;
+        isPike = _isPike;
         isEnemySpawn = _isEnemySpawn;
 
         tileColor = _tileColor;

@@ -16,6 +16,7 @@ public class Entity : MonoBehaviour
     [Header("==== Map Informations ====")]
     public Map currentMap;
     public Tile currentTile;
+    public Tile lastNotHoleTile;
 
     [Header("==== Stat ====")]
     //hp for enemy, turn left for player
@@ -233,14 +234,34 @@ public class Entity : MonoBehaviour
         
         Debug.Log(currentPosition + " / " + targetPosition);
 
-        if(!_targetTile.isHole)
+        if (currentTile.isHole == true && currentTile.isOpen == false)
+        {
+            currentTile.isOpen = true;
+            currentTile.entityOnTile = null;
+            currentTile.GetComponent<SpriteRenderer>().color = new Color(0.07f, 0.2f, 0.5f, 1f);
+        }
+
+        if (!_targetTile.isHole)
+        {
+            _targetTile.entityOnTile = currentTile.entityOnTile;
+            currentTile.entityOnTile = null;
+            currentTile = _targetTile;
+            lastNotHoleTile = currentTile;
+        }
+        else if (!_targetTile.isOpen)
         {
             _targetTile.entityOnTile = currentTile.entityOnTile;
             currentTile.entityOnTile = null;
             currentTile = _targetTile;
         }
-        
+        else
+        {
+            hp--;
+            StartCoroutine(Hole());
+        }
+
         moveInProgress = true;
+        hasMove = true;
         canMove = false;
     }
 
@@ -282,5 +303,11 @@ public class Entity : MonoBehaviour
         //enableMove = false;
     }
 
+    protected IEnumerator Hole()
+    {
+        yield return new WaitForSeconds(0.5f);
+        currentTile = lastNotHoleTile;
+        this.gameObject.transform.position = currentTile.gameObject.transform.position;
+    }
 
 }

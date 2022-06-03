@@ -45,7 +45,7 @@ public class Map : MonoBehaviour
 
                 //instantiate and initialize tile
                 GameObject newTileInstance = Instantiate(Resources.Load("Prefabs/Tile"), mapOrigin.transform.position, Quaternion.identity, this.gameObject.transform) as GameObject;
-                newTileInstance.GetComponent<Tile>().Init(tileIndex, j + 1, i + 1, newTileSettings.isReachable, newTileSettings.isWall, newTileSettings.isHole, newTileSettings.isEnemySpawn, newTileSettings.tileColor);
+                newTileInstance.GetComponent<Tile>().Init(tileIndex, j + 1, i + 1, newTileSettings.isReachable, newTileSettings.isWall, newTileSettings.isHole, newTileSettings.isPike, newTileSettings.isEnemySpawn, newTileSettings.tileColor);
 
                 if(newTileSettings.isEnemySpawn)
                     enemySpawnTiles.Add(newTileInstance.GetComponent<Tile>());

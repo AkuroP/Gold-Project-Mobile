@@ -79,30 +79,34 @@ public class Player : Entity
                     Tile topTile = currentMap.FindTopTile(currentTile);
                     if (currentMap.CheckMove(topTile))
                     {
-                        MovePlayer(ref topTile);
+                        Move(topTile);
+                        numEssence -= moveCost;
                     }
                     break;
                 case Direction.RIGHT:
                     Tile rightTile = currentMap.FindRightTile(currentTile);
                     if (currentMap.CheckMove(rightTile))
                     {
-                        MovePlayer(ref rightTile);
+                        Move(rightTile);
                         entitySr.flipX = true;
+                        numEssence -= moveCost;
                     }
                     break;
                 case Direction.BOTTOM:
                     Tile bottomTile = currentMap.FindBottomTile(currentTile);
                     if (currentMap.CheckMove(bottomTile))
                     {
-                        MovePlayer(ref bottomTile);
+                        Move(bottomTile);
+                        numEssence -= moveCost;
                     }
                     break;
                 case Direction.LEFT:
                     Tile leftTile = currentMap.FindLeftTile(currentTile);
                     if (currentMap.CheckMove(leftTile))
                     {
-                        MovePlayer(ref leftTile);
+                        Move(leftTile);
                         entitySr.flipX = false;
+                        numEssence -= moveCost;
                     }
                     break;
             }
@@ -111,12 +115,22 @@ public class Player : Entity
 
     public void MovePlayer(ref Tile _targetTile)
     {
-        numEssence -= moveCost;
 
         currentPosition = transform.position;
         targetPosition = _targetTile.transform.position;
+        
+        if (currentTile.isHole == true && currentTile.isOpen == false)
+        {
+            currentTile.isOpen = true;
+        }
 
-        if(!_targetTile.isHole)
+        if (!_targetTile.isHole)
+        {
+            _targetTile.entityOnTile = currentTile.entityOnTile;
+            currentTile.entityOnTile = null;
+            currentTile = _targetTile;
+        }
+        else if(!_targetTile.isOpen)
         {
             _targetTile.entityOnTile = currentTile.entityOnTile;
             currentTile.entityOnTile = null;
@@ -133,12 +147,6 @@ public class Player : Entity
 
         //for turn by turn
         hasMove = true;
-    }
-
-    private IEnumerator Hole()
-    {
-        yield return new WaitForSeconds(0.5f);
-        this.gameObject.transform.position = currentTile.gameObject.transform.position;
     }
 
     public override void StartAttack(List<AttackTileSettings> _upDirectionATS)

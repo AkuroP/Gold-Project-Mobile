@@ -60,96 +60,112 @@ MonoBehaviour:
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 1
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0.3679245, g: 0.05345317, b: 0.31974086, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0.36862746, g: 0.054901965, b: 0.32156864, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 1
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 1
       tileColor: {r: 0.9716981, g: 0.6410363, b: 0.32451043, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 1
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0.53314346, g: 0.9056604, b: 0.6802821, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 1
       tileColor: {r: 0.972549, g: 0.6392157, b: 0.3254902, a: 1}
       tileSprite: {fileID: 0}
@@ -162,96 +178,112 @@ MonoBehaviour:
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 1
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0.3679245, g: 0.05345317, b: 0.31974086, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0.36862746, g: 0.054901965, b: 0.32156864, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 1
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 1
       tileColor: {r: 0.9716981, g: 0.6410363, b: 0.32451043, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 1
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0.53314346, g: 0.9056604, b: 0.6802821, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 1
       tileColor: {r: 0.972549, g: 0.6392157, b: 0.3254902, a: 1}
       tileSprite: {fileID: 0}
@@ -264,420 +296,490 @@ MonoBehaviour:
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 1
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0.0779192, g: 0.37930542, b: 0.9716981, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 1
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 1
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 1
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0.9022237, g: 0.9245283, b: 0.10902455, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
@@ -690,420 +792,490 @@ MonoBehaviour:
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 1
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 1
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0.9019608, g: 0.9254902, b: 0.10980392, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
@@ -1116,294 +1288,343 @@ MonoBehaviour:
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 1
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0.9019608, g: 0.9254902, b: 0.10980392, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 1
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
@@ -1416,420 +1637,490 @@ MonoBehaviour:
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
-      isEnemySpawn: 0
-      tileColor: {r: 1, g: 1, b: 1, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 0
-      isHole: 0
-      isWall: 1
-      isEnemySpawn: 0
-      tileColor: {r: 0, g: 0, b: 0, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 0
-      isHole: 0
-      isWall: 1
-      isEnemySpawn: 0
-      tileColor: {r: 0, g: 0, b: 0, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 0
-      isHole: 0
-      isWall: 1
-      isEnemySpawn: 0
-      tileColor: {r: 0, g: 0, b: 0, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 1
-      isHole: 0
-      isWall: 0
-      isEnemySpawn: 0
-      tileColor: {r: 1, g: 1, b: 1, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 1
-      isHole: 0
-      isWall: 0
-      isEnemySpawn: 0
-      tileColor: {r: 1, g: 1, b: 1, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 1
-      isHole: 0
-      isWall: 0
-      isEnemySpawn: 0
-      tileColor: {r: 1, g: 1, b: 1, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 1
-      isHole: 0
-      isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 1, g: 1, b: 1, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      isHole: 0
+      isWall: 0
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 1, g: 1, b: 1, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      isHole: 0
+      isWall: 0
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 1, g: 1, b: 1, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 0
+      isHole: 0
+      isWall: 1
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 0, g: 0, b: 0, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 0
+      isHole: 0
+      isWall: 1
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 0, g: 0, b: 0, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 0
+      isHole: 0
+      isWall: 1
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 0, g: 0, b: 0, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      isHole: 0
+      isWall: 0
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 1, g: 1, b: 1, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      isHole: 0
+      isWall: 0
+      isPike: 0
       isEnemySpawn: 1
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 1
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0.9019608, g: 0.9254902, b: 0.10980392, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
@@ -1842,180 +2133,210 @@ MonoBehaviour:
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 1
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 1
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0.9019608, g: 0.9254902, b: 0.10980392, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
@@ -2028,294 +2349,343 @@ MonoBehaviour:
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 1
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 1
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 1
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 1
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 1
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0.9019608, g: 0.9254902, b: 0.10980392, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
@@ -2328,336 +2698,392 @@ MonoBehaviour:
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 1
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 1
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
-    - isReachable: 0
+    - isReachable: 1
       isHole: 1
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
       tileSprite: {fileID: 0}
-    - isReachable: 0
+    - isReachable: 1
       isHole: 1
       isWall: 0
-      isEnemySpawn: 0
-      tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 0
-      isHole: 0
-      isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
+      isHole: 1
+      isWall: 0
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 1
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0.9019608, g: 0.9254902, b: 0.10980392, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 1
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
-    - isReachable: 0
+    - isReachable: 1
       isHole: 1
       isWall: 0
-      isEnemySpawn: 0
-      tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 0
-      isHole: 1
-      isWall: 0
-      isEnemySpawn: 0
-      tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 0
-      isHole: 1
-      isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
+      isHole: 1
+      isWall: 0
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      isHole: 1
+      isWall: 0
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
@@ -2670,420 +3096,490 @@ MonoBehaviour:
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
-      isEnemySpawn: 0
-      tileColor: {r: 1, g: 1, b: 1, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 1
-      isHole: 1
-      isWall: 0
-      isEnemySpawn: 0
-      tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 1
-      isHole: 0
-      isWall: 0
-      isEnemySpawn: 0
-      tileColor: {r: 1, g: 1, b: 1, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 1
-      isHole: 0
-      isWall: 0
-      isEnemySpawn: 0
-      tileColor: {r: 1, g: 1, b: 1, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 1
-      isHole: 0
-      isWall: 0
-      isEnemySpawn: 0
-      tileColor: {r: 1, g: 1, b: 1, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 1
-      isHole: 0
-      isWall: 0
-      isEnemySpawn: 0
-      tileColor: {r: 1, g: 1, b: 1, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 1
-      isHole: 0
-      isWall: 0
-      isEnemySpawn: 0
-      tileColor: {r: 1, g: 1, b: 1, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 1
-      isHole: 0
-      isWall: 0
-      isEnemySpawn: 0
-      tileColor: {r: 1, g: 1, b: 1, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 1
-      isHole: 0
-      isWall: 0
-      isEnemySpawn: 0
-      tileColor: {r: 1, g: 1, b: 1, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 1
-      isHole: 0
-      isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 1
       isWall: 0
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      isHole: 0
+      isWall: 0
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 1, g: 1, b: 1, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      isHole: 0
+      isWall: 0
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 1, g: 1, b: 1, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      isHole: 0
+      isWall: 0
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 1, g: 1, b: 1, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      isHole: 0
+      isWall: 0
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 1, g: 1, b: 1, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      isHole: 0
+      isWall: 0
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 1, g: 1, b: 1, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      isHole: 0
+      isWall: 0
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 1, g: 1, b: 1, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      isHole: 0
+      isWall: 0
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 1, g: 1, b: 1, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      isHole: 0
+      isWall: 0
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 1, g: 1, b: 1, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      isHole: 1
+      isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 1
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 1
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
-      isEnemySpawn: 0
-      tileColor: {r: 1, g: 1, b: 1, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 1
-      isHole: 1
-      isWall: 0
-      isEnemySpawn: 0
-      tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 1
-      isHole: 0
-      isWall: 0
-      isEnemySpawn: 0
-      tileColor: {r: 1, g: 1, b: 1, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 1
-      isHole: 0
-      isWall: 0
-      isEnemySpawn: 0
-      tileColor: {r: 1, g: 1, b: 1, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 1
-      isHole: 0
-      isWall: 0
-      isEnemySpawn: 0
-      tileColor: {r: 1, g: 1, b: 1, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 1
-      isHole: 0
-      isWall: 0
-      isEnemySpawn: 0
-      tileColor: {r: 1, g: 1, b: 1, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 1
-      isHole: 0
-      isWall: 0
-      isEnemySpawn: 0
-      tileColor: {r: 1, g: 1, b: 1, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 1
-      isHole: 0
-      isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 1
       isWall: 0
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      isHole: 0
+      isWall: 0
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 1, g: 1, b: 1, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      isHole: 0
+      isWall: 0
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 1, g: 1, b: 1, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      isHole: 0
+      isWall: 0
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 1, g: 1, b: 1, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      isHole: 0
+      isWall: 0
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 1, g: 1, b: 1, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      isHole: 0
+      isWall: 0
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 1, g: 1, b: 1, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      isHole: 0
+      isWall: 0
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 1, g: 1, b: 1, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      isHole: 1
+      isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 1
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 1
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0.9019608, g: 0.9254902, b: 0.10980392, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
@@ -3096,420 +3592,490 @@ MonoBehaviour:
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 1
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 1
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
-      isEnemySpawn: 0
-      tileColor: {r: 1, g: 1, b: 1, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 0
-      isHole: 0
-      isWall: 1
-      isEnemySpawn: 0
-      tileColor: {r: 0, g: 0, b: 0, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 1
-      isHole: 0
-      isWall: 0
-      isEnemySpawn: 0
-      tileColor: {r: 1, g: 1, b: 1, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 1
-      isHole: 0
-      isWall: 0
-      isEnemySpawn: 0
-      tileColor: {r: 1, g: 1, b: 1, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 1
-      isHole: 0
-      isWall: 0
-      isEnemySpawn: 0
-      tileColor: {r: 1, g: 1, b: 1, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 1
-      isHole: 0
-      isWall: 0
-      isEnemySpawn: 0
-      tileColor: {r: 1, g: 1, b: 1, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 1
-      isHole: 0
-      isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
-      isEnemySpawn: 0
-      tileColor: {r: 0, g: 0, b: 0, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 0
-      isHole: 0
-      isWall: 1
-      isEnemySpawn: 0
-      tileColor: {r: 0, g: 0, b: 0, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 0
-      isHole: 0
-      isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
-      isEnemySpawn: 0
-      tileColor: {r: 1, g: 1, b: 1, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 0
-      isHole: 0
-      isWall: 1
-      isEnemySpawn: 0
-      tileColor: {r: 0, g: 0, b: 0, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 0
-      isHole: 0
-      isWall: 1
-      isEnemySpawn: 0
-      tileColor: {r: 0, g: 0, b: 0, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 0
-      isHole: 0
-      isWall: 1
-      isEnemySpawn: 0
-      tileColor: {r: 0, g: 0, b: 0, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 0
-      isHole: 0
-      isWall: 1
-      isEnemySpawn: 0
-      tileColor: {r: 0, g: 0, b: 0, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 0
-      isHole: 0
-      isWall: 1
-      isEnemySpawn: 0
-      tileColor: {r: 0, g: 0, b: 0, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 1
-      isHole: 0
-      isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 1, g: 1, b: 1, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      isHole: 0
+      isWall: 0
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 1, g: 1, b: 1, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 0
+      isHole: 0
+      isWall: 1
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 0, g: 0, b: 0, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 0
+      isHole: 0
+      isWall: 1
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 0, g: 0, b: 0, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 0
+      isHole: 0
+      isWall: 1
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 0, g: 0, b: 0, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      isHole: 0
+      isWall: 0
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 1, g: 1, b: 1, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      isHole: 0
+      isWall: 0
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 1, g: 1, b: 1, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      isHole: 0
+      isWall: 0
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 1, g: 1, b: 1, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 0
+      isHole: 0
+      isWall: 1
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 0, g: 0, b: 0, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 0
+      isHole: 0
+      isWall: 1
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 0, g: 0, b: 0, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 0
+      isHole: 0
+      isWall: 1
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 0, g: 0, b: 0, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 0
+      isHole: 0
+      isWall: 1
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 0, g: 0, b: 0, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 0
+      isHole: 0
+      isWall: 1
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 0, g: 0, b: 0, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      isHole: 0
+      isWall: 0
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 1, g: 1, b: 1, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      isHole: 0
+      isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 1
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 1
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 1
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0.9019608, g: 0.9254902, b: 0.10980392, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 1
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
@@ -3522,420 +4088,490 @@ MonoBehaviour:
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
-      isEnemySpawn: 0
-      tileColor: {r: 1, g: 1, b: 1, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 1
-      isHole: 1
-      isWall: 0
-      isEnemySpawn: 0
-      tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 1
-      isHole: 0
-      isWall: 0
-      isEnemySpawn: 0
-      tileColor: {r: 1, g: 1, b: 1, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 1
-      isHole: 1
-      isWall: 0
-      isEnemySpawn: 0
-      tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 1
-      isHole: 0
-      isWall: 0
-      isEnemySpawn: 0
-      tileColor: {r: 1, g: 1, b: 1, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 1
-      isHole: 0
-      isWall: 0
-      isEnemySpawn: 0
-      tileColor: {r: 1, g: 1, b: 1, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 1
-      isHole: 0
-      isWall: 0
-      isEnemySpawn: 0
-      tileColor: {r: 1, g: 1, b: 1, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 1
-      isHole: 0
-      isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 1
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 1
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 1, g: 1, b: 1, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      isHole: 1
+      isWall: 0
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      isHole: 0
+      isWall: 0
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 1, g: 1, b: 1, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      isHole: 1
+      isWall: 0
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      isHole: 0
+      isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 1, g: 1, b: 1, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      isHole: 0
+      isWall: 0
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 1, g: 1, b: 1, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      isHole: 0
+      isWall: 0
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 1, g: 1, b: 1, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      isHole: 0
+      isWall: 0
+      isPike: 0
       isEnemySpawn: 1
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
-      isEnemySpawn: 0
-      tileColor: {r: 1, g: 1, b: 1, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 1
-      isHole: 1
-      isWall: 0
-      isEnemySpawn: 0
-      tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 1
-      isHole: 0
-      isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 1
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 1, g: 1, b: 1, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      isHole: 1
+      isWall: 0
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      isHole: 0
+      isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 1
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 1
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 1
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 1
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0.9019608, g: 0.9254902, b: 0.10980392, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
@@ -3948,270 +4584,315 @@ MonoBehaviour:
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 1
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 1
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 1
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 1
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
-      isEnemySpawn: 0
-      tileColor: {r: 1, g: 1, b: 1, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 0
-      isHole: 0
-      isWall: 1
-      isEnemySpawn: 0
-      tileColor: {r: 0, g: 0, b: 0, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 0
-      isHole: 0
-      isWall: 1
-      isEnemySpawn: 0
-      tileColor: {r: 0, g: 0, b: 0, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 0
-      isHole: 0
-      isWall: 1
-      isEnemySpawn: 0
-      tileColor: {r: 0, g: 0, b: 0, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 1
-      isHole: 0
-      isWall: 0
-      isEnemySpawn: 0
-      tileColor: {r: 1, g: 1, b: 1, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 1
-      isHole: 0
-      isWall: 0
-      isEnemySpawn: 0
-      tileColor: {r: 1, g: 1, b: 1, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 1
-      isHole: 0
-      isWall: 0
-      isEnemySpawn: 0
-      tileColor: {r: 1, g: 1, b: 1, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 1
-      isHole: 0
-      isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 0, g: 0, b: 0, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 0
+      isHole: 0
+      isWall: 1
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 0, g: 0, b: 0, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 0
+      isHole: 0
+      isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 1, g: 1, b: 1, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 0
+      isHole: 0
+      isWall: 1
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 0, g: 0, b: 0, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      isHole: 0
+      isWall: 0
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 1, g: 1, b: 1, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      isHole: 0
+      isWall: 0
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 1, g: 1, b: 1, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      isHole: 0
+      isWall: 0
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 1, g: 1, b: 1, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      isHole: 0
+      isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0.9019608, g: 0.9254902, b: 0.10980392, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 1
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 1
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 1
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
@@ -4224,420 +4905,490 @@ MonoBehaviour:
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 1
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 1
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 1
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 1
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0.9019608, g: 0.9254902, b: 0.10980392, a: 1}
       tileSprite: {fileID: 0}
@@ -4650,420 +5401,490 @@ MonoBehaviour:
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
-      isEnemySpawn: 0
-      tileColor: {r: 1, g: 1, b: 1, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 1
-      isHole: 1
-      isWall: 0
-      isEnemySpawn: 0
-      tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 1
-      isHole: 1
-      isWall: 0
-      isEnemySpawn: 0
-      tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 1
-      isHole: 0
-      isWall: 0
-      isEnemySpawn: 0
-      tileColor: {r: 1, g: 1, b: 1, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 1
-      isHole: 0
-      isWall: 0
-      isEnemySpawn: 0
-      tileColor: {r: 1, g: 1, b: 1, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 1
-      isHole: 0
-      isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 1
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 1
       isWall: 0
-      isEnemySpawn: 0
-      tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 1
-      isHole: 1
-      isWall: 0
-      isEnemySpawn: 0
-      tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 1
-      isHole: 1
-      isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 1
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 1
       isWall: 0
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      isHole: 1
+      isWall: 0
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      isHole: 1
+      isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 1, g: 1, b: 1, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      isHole: 1
+      isWall: 0
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      isHole: 1
+      isWall: 0
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      isHole: 0
+      isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 1, g: 1, b: 1, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      isHole: 0
+      isWall: 0
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 1, g: 1, b: 1, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      isHole: 0
+      isWall: 0
+      isPike: 0
       isEnemySpawn: 1
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 1
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
-      isEnemySpawn: 0
-      tileColor: {r: 1, g: 1, b: 1, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 1
-      isHole: 1
-      isWall: 0
-      isEnemySpawn: 0
-      tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 1
-      isHole: 1
-      isWall: 0
-      isEnemySpawn: 0
-      tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 1
-      isHole: 0
-      isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 1
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 1
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
-      isEnemySpawn: 0
-      tileColor: {r: 1, g: 1, b: 1, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 1
-      isHole: 0
-      isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 1
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 1
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 1, g: 1, b: 1, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      isHole: 0
+      isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 1
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 1
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 1, g: 1, b: 1, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      isHole: 1
+      isWall: 0
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      isHole: 1
+      isWall: 0
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      isHole: 0
+      isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0.9019608, g: 0.9254902, b: 0.10980392, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
@@ -5076,420 +5897,490 @@ MonoBehaviour:
     - isReachable: 1
       isHole: 1
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 1
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 1
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
-      isEnemySpawn: 0
-      tileColor: {r: 1, g: 1, b: 1, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 0
-      isHole: 0
-      isWall: 1
-      isEnemySpawn: 0
-      tileColor: {r: 0, g: 0, b: 0, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 0
-      isHole: 0
-      isWall: 1
-      isEnemySpawn: 0
-      tileColor: {r: 0, g: 0, b: 0, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 0
-      isHole: 0
-      isWall: 1
-      isEnemySpawn: 0
-      tileColor: {r: 0, g: 0, b: 0, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 0
-      isHole: 0
-      isWall: 1
-      isEnemySpawn: 0
-      tileColor: {r: 0, g: 0, b: 0, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 1
-      isHole: 0
-      isWall: 0
-      isEnemySpawn: 0
-      tileColor: {r: 1, g: 1, b: 1, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 1
-      isHole: 0
-      isWall: 0
-      isEnemySpawn: 0
-      tileColor: {r: 1, g: 1, b: 1, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 1
-      isHole: 0
-      isWall: 0
-      isEnemySpawn: 0
-      tileColor: {r: 1, g: 1, b: 1, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 1
-      isHole: 0
-      isWall: 0
-      isEnemySpawn: 0
-      tileColor: {r: 1, g: 1, b: 1, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 1
-      isHole: 0
-      isWall: 0
-      isEnemySpawn: 0
-      tileColor: {r: 1, g: 1, b: 1, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 1
-      isHole: 0
-      isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 0, g: 0, b: 0, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 0
+      isHole: 0
+      isWall: 1
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 0, g: 0, b: 0, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 0
+      isHole: 0
+      isWall: 1
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 0, g: 0, b: 0, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 0
+      isHole: 0
+      isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 1, g: 1, b: 1, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      isHole: 0
+      isWall: 0
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 1, g: 1, b: 1, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 0
+      isHole: 0
+      isWall: 1
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 0, g: 0, b: 0, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      isHole: 0
+      isWall: 0
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 1, g: 1, b: 1, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      isHole: 0
+      isWall: 0
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 1, g: 1, b: 1, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      isHole: 0
+      isWall: 0
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 1, g: 1, b: 1, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      isHole: 0
+      isWall: 0
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 1, g: 1, b: 1, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      isHole: 0
+      isWall: 0
+      isPike: 0
       isEnemySpawn: 1
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 1
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 0
       isHole: 0
       isWall: 1
-      isEnemySpawn: 0
-      tileColor: {r: 0, g: 0, b: 0, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 1
-      isHole: 1
-      isWall: 0
-      isEnemySpawn: 0
-      tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 1
-      isHole: 0
-      isWall: 0
-      isEnemySpawn: 0
-      tileColor: {r: 1, g: 1, b: 1, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 1
-      isHole: 0
-      isWall: 0
-      isEnemySpawn: 0
-      tileColor: {r: 1, g: 1, b: 1, a: 1}
-      tileSprite: {fileID: 0}
-    - isReachable: 0
-      isHole: 0
-      isWall: 1
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0, g: 0, b: 0, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 1
       isWall: 0
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      isHole: 0
+      isWall: 0
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 1, g: 1, b: 1, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      isHole: 0
+      isWall: 0
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 1, g: 1, b: 1, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 0
+      isHole: 0
+      isWall: 1
+      isPike: 0
+      isEnemySpawn: 0
+      tileColor: {r: 0, g: 0, b: 0, a: 1}
+      tileSprite: {fileID: 0}
+    - isReachable: 1
+      isHole: 1
+      isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 1
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 1
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 1
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 1, g: 1, b: 1, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 0
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0.9019608, g: 0.9254902, b: 0.10980392, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 1
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 1
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 1
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 1
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 1
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 1
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
       tileSprite: {fileID: 0}
     - isReachable: 1
       isHole: 1
       isWall: 0
+      isPike: 0
       isEnemySpawn: 0
       tileColor: {r: 0.078431375, g: 0.38039216, b: 0.972549, a: 1}
       tileSprite: {fileID: 0}
