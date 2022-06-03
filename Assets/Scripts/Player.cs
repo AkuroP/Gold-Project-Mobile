@@ -14,6 +14,7 @@ public class Player : Entity
 
     public bool attackNext = false;
     public bool moveNext = false;
+    public bool changingRoom = false;
 
     [SerializeField] private int weaponDamage;
 
@@ -59,9 +60,10 @@ public class Player : Entity
             canMove = true;
             timeElapsed = 0;
 
-            if (currentTile.tileIndex == currentMap.exitTileIndex)
+            if (currentTile.tileIndex == currentMap.exitTileIndex && changingRoom == false)
             {
-                GameManager.instanceGM.UpdateScoreAndMap();
+                changingRoom = true;
+                StartCoroutine(GoToNextRoom());
             }
         }
     }
@@ -181,6 +183,14 @@ public class Player : Entity
                 attackNext = false;
             }
         }
+    }
+
+    public IEnumerator GoToNextRoom()
+    {
+        UI.instanceUI.Fade();
+        yield return new WaitForSeconds(0.5f);
+        GameManager.instanceGM.UpdateScoreAndMap();
+        changingRoom = false;
     }
 
     //function to take damage / die

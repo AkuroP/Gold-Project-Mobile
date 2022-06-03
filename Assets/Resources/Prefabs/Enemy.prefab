@@ -152,10 +152,12 @@ MonoBehaviour:
   myTurn: 0
   hasMove: 0
   hasAttack: 0
-  entitySr: {fileID: 0}
+  entitySr: {fileID: 2462891084343002601}
   upDirectionATS: []
   enemyDamage: 0
   whatEnemy: 2
   parity: 0
+  player: {fileID: 0}
   enemyRange: 2
   checkEnemiesInRange: 0
+  dir: 0

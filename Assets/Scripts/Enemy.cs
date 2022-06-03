@@ -51,6 +51,14 @@ public class Enemy : Entity
             Debug.Log("Move");
             transform.position = Vector3.Lerp(currentPosition, targetPosition, timeElapsed / moveDuration) - new Vector3(0, 0, 1);
             timeElapsed += Time.deltaTime;
+            if(currentPosition.x > targetPosition.x)
+            {
+                entitySr.flipX = false;
+            }
+            else
+            {
+                entitySr.flipX = true;
+            }
         }
         else
         {
@@ -128,7 +136,7 @@ public class Enemy : Entity
             tileAround.Add(currentTile.leftTile);
         }
         
-        Tile selectedTile = tileAround[Random.Range(0, tileAround.Count - 1)];
+        Tile selectedTile = tileAround[Random.Range(0, tileAround.Count)];
         return selectedTile;
     }
 
@@ -246,15 +254,15 @@ public class Enemy : Entity
             case 1:
                 direction = Direction.LEFT;
                 FindNextTile();
-            break;
+                break;
             case 2:
                 direction = Direction.BOTTOM;
                 FindNextTile();
             break;
             case 3:
-                direction = Direction.LEFT;
+                direction = Direction.RIGHT;
                 FindNextTile();
-            break;
+                break;
         }
         
     }
