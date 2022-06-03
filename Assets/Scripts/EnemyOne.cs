@@ -22,6 +22,9 @@ public class EnemyOne : Enemy
         maxCD = 1;
         cd = 0;
 
+        entitySr = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
+        entitySr.sprite = Resources.Load<Sprite>("Assets/Graphics/Enemies/TentaculeSolo");
+
         AssignPattern();
 
         isInitialize = true;
