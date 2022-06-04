@@ -109,6 +109,15 @@ public class Entity : MonoBehaviour
         tile.GetComponent<SpriteRenderer>().color = oldColor;
     }
 
+    public IEnumerator ShowTile(Tile tile, float delay)
+    {
+        Color oldColor = tile.tileColor;
+        yield return new WaitForSeconds(delay * 0.25f);
+        tile.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 0f, 1f);
+        yield return new WaitForSeconds(0.25f);
+        tile.GetComponent<SpriteRenderer>().color = oldColor;
+    }
+
     //find ennemies in attack range
     public List<Entity> GetEntityInRange(List<AttackTileSettings> ats, bool _drawAttack = false)
     {

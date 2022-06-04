@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class Enemy : Entity
 {
+    //for pathfinding A*
+    private const int MOVE_STRAIGHT_COST = 10;
+    private const int MOVE_DIAGONAL_COST = 14;
+    private List<Tile> openList;
+    private List<Tile> closedList;
+
     public int enemyDamage;
     private bool hasRandom;
     public enum EnemyType
@@ -150,33 +156,242 @@ public class Enemy : Entity
         return Direction.NONE;
     }
 
-    /*public void InitAttackPattern()
+    public List<Tile> FindPath(Tile _originTile, Tile _targetTile)
     {
-        upDirectionATS.Clear();
-        switch(whatEnemy)
+        Tile startTile = _originTile;
+        Tile endTile = _targetTile;
+
+        //open List for Tile to check, closed List for the one checked
+        openList = new List<Tile>() { startTile };
+        closedList = new List<Tile>();
+
+        foreach(Tile oneTile in currentMap.tilesList)
         {
-            case EnemyType.ENEMY1 :
-                
-            break;
-            case EnemyType.ENEMY2 :
-            if(this.parity == 0)
+            oneTile.gCost = int.MaxValue;
+            oneTile.CalculateFCost();
+            oneTile.cameFromTile = null;
+        }
+
+        startTile.gCost = 0;
+        startTile.hCost = CalculateDistanceCost(startTile, endTile);
+        startTile.CalculateFCost();
+
+
+        int step = 0;
+        while(openList.Count > 0)
+        {
+            Tile currentTile = FindLowestFCostTile(openList);
+
+            //======= DEBUG START =======//
+            StartCoroutine(currentTile.TurnColor(new Color(0f, 1f, 0f, 1f), step));
+            //======= DEBUG END =======//
+
+            if (currentTile == endTile)
             {
-                //pattern 1
-                
-                this.parity = 1;
+                //======= DEBUG START =======//
+                foreach (Tile tile in closedList)
+                {
+                    if (!tile.isReachable) continue;
+                    StartCoroutine(tile.TurnColor(new Color(0.6f, 0.6f, 0.6f, 1f), step));
+                }
+                foreach(Tile tile in closedList)
+                {
+                    if (!tile.isReachable) continue;
+                    StartCoroutine(tile.TurnColor(new Color(0.6f, 0.6f, 0.6f, 1f), step));
+                }
+                //======= DEBUG END =======//
+
+                //Final Tile reached
+                return CalculatePath(endTile, step);
             }
-            else if(this.parity == 1)
+
+            openList.Remove(currentTile);
+            closedList.Add(currentTile);
+
+            foreach(Tile neighbourTile in GetNeighboursList(currentTile))
             {
-                
-                this.parity = 0;
+                //if in closed list Tile is alrday checked, go next
+                if (closedList.Contains(neighbourTile)) continue;
+                //if is not reachable go next 
+                if (!neighbourTile.isReachable)
+                {
+                    closedList.Add(neighbourTile);
+                    continue;
+                }
+
+                StartCoroutine(neighbourTile.TurnColor(new Color(0f, 0f, 1f, 1f), step));
+
+                int tentativeGCost = currentTile.gCost + CalculateDistanceCost(currentTile, neighbourTile);
+                if (tentativeGCost < neighbourTile.gCost)
+                {
+                    neighbourTile.cameFromTile = currentTile;
+                    neighbourTile.gCost = tentativeGCost;
+                    neighbourTile.hCost = CalculateDistanceCost(neighbourTile, endTile);
+                    neighbourTile.CalculateFCost();
+
+
+                    if (!openList.Contains(neighbourTile)) 
+                    { 
+                        openList.Add(neighbourTile); 
+                    }
+                }
             }
-            break;
-            case EnemyType.ENEMY3 :
-                upDirectionATS.Add(new AttackTileSettings(1, 0, 1));
-            break;
+
+            //======= DEBUG START =======//
+            StartCoroutine(currentTile.TurnColor(new Color(1f, 0f, 0f, 1f), step + 1));
+            //======= DEBUG END =======//
+
+            step++;
+        }
+        
+        //open List is empty, cannot reach targetTile
+        return null;
+    }
+
+    private int CalculateDistanceCost(Tile a, Tile b)
+    {
+        int xDistance = Mathf.Abs(a.tileX - b.tileX);
+        int yDistance = Mathf.Abs(a.tileY - b.tileY);
+        int remaining = Mathf.Abs(xDistance - yDistance);
+
+        return MOVE_DIAGONAL_COST * Mathf.Min(xDistance, yDistance) + MOVE_STRAIGHT_COST * remaining;
+    }
+
+    private Tile FindLowestFCostTile(List<Tile> tileList)
+    {
+        Tile lowestFCostTile = tileList[0];
+
+        for(int i = 0; i < tileList.Count; i++)
+        {
+            if(tileList[i].fCost < lowestFCostTile.fCost)
+            {
+                lowestFCostTile = tileList[i];
+            }
+        }
+
+        return lowestFCostTile;
+    }
+
+    private List<Tile> GetNeighboursList(Tile tile)
+    {
+        List<Tile> neighbourList = new List<Tile>();
+
+        if(tile.topTile != null)
+            neighbourList.Add(tile.topTile);
+        if(tile.rightTile != null)
+                    neighbourList.Add(tile.rightTile);
+        if(tile.bottomTile != null)
+                    neighbourList.Add(tile.bottomTile);
+        if(tile.leftTile != null)
+                    neighbourList.Add(tile.leftTile);
+
+        return neighbourList;
+    }
+
+    private List<Tile> CalculatePath(Tile endTile, int step)
+    {
+        List<Tile> path = new List<Tile>();
+
+        path.Add(endTile);
+
+        Tile currentTile = endTile;
+        while(currentTile.cameFromTile != null)
+        {
+            //======= DEBUG START =======//
+            StartCoroutine(currentTile.TurnColor(new Color(0f, 1f, 0f, 1f), step));
+            //======= DEBUG END =======//
+
+            path.Add(currentTile.cameFromTile);
+            currentTile = currentTile.cameFromTile;
+        }
+
+        path.Reverse();
+        return path;
+    }
+
+    /*public List<Tile> FindPath(Tile _currentTile, List<Tile> _visitedTile, int i = 1)
+    {
+        
+        List<Tile> visitedTileTop = _visitedTile;
+        List<Tile> visitedTileRight = _visitedTile;
+        List<Tile> visitedTileBottom = _visitedTile;
+        List<Tile> visitedTileLeft = _visitedTile;
+        
+        List<Tile> shortestPath = new List<Tile>();
+
+        //player here: stop
+        if(_currentTile.entityOnTile is Player)
+        {
+            Debug.Log("trouve");
+            return _visitedTile;
+        }
+        //no player here: continue
+        else
+        {
+            StartCoroutine(ShowTile(_currentTile, i));
+
+            string toPrint = "";
+            foreach(Tile tile in _visitedTile)
+            {
+                toPrint = toPrint + tile.tileIndex + " ";
+            }
+            Debug.Log(toPrint + " '" + i + "'");
+            Debug.Log("test: " + _currentTile.tileIndex);
+
             
+
+            if (_currentTile.rightTile != null && !_visitedTile.Contains(_currentTile))
+            {
+                //Debug.Log("go right " + i);
+                //Debug.Log(_currentTile.tileIndex);
+                _visitedTile.Add(_currentTile);
+                visitedTileRight = FindPath(_currentTile.rightTile, _visitedTile, i + 1);
+            }
+
+            if (_currentTile.bottomTile != null && !_visitedTile.Contains(_currentTile))
+            {
+                //Debug.Log("go bottom " + i);
+                //Debug.Log(_currentTile.tileIndex);
+                _visitedTile.Add(_currentTile);
+                visitedTileBottom = FindPath(_currentTile.bottomTile, _visitedTile, i + 1);
+            }
+
+            if (_currentTile.leftTile != null && !_visitedTile.Contains(_currentTile))
+            {
+                //Debug.Log("go lfet " + i);
+                //Debug.Log(_currentTile.tileIndex);
+                _visitedTile.Add(_currentTile);
+                visitedTileLeft = FindPath(_currentTile.leftTile, _visitedTile, i + 1);
+            }
+
+            if (_currentTile.topTile != null && !_visitedTile.Contains(_currentTile))
+            {
+                //Debug.Log("go top " + i);
+                //Debug.Log(_currentTile.tileIndex);
+                _visitedTile.Add(_currentTile);
+                visitedTileTop = FindPath(_currentTile.topTile, _visitedTile, i + 1);
+            }
+
+            List<List<Tile>> allPath = new List<List<Tile>>();
+            allPath.Add(visitedTileTop);
+            allPath.Add(visitedTileRight);
+            allPath.Add(visitedTileBottom);
+            allPath.Add(visitedTileLeft);
+
+            int highest = 10000;
+            foreach (List<Tile> onePath in allPath)
+            {
+                if (onePath != null && onePath.Count < highest)
+                {
+                    highest = onePath.Count;
+                    shortestPath = onePath;
+                }
+            }
+
+            return shortestPath;
         }
     }*/
+
 
     public void EnemyRandomMove()
     {
@@ -200,7 +415,6 @@ public class Enemy : Entity
                 FindNextTile();
                 break;
         }
-        
     }
 
     public override void StartAttack(List<AttackTileSettings> _upDirectionATS)
