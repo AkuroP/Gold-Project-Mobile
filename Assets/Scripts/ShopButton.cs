@@ -43,15 +43,14 @@ public class ShopButton : MonoBehaviour
                         if (player.hp < player.maxHP)
                         {
                             player.hp++;
-                            this.GetComponent<Button>().interactable = false;
+                            hasBeenClicked = true;
                         }
                         break;
                     case "Bonus Heart":
                         player.maxHP++;
-                        this.GetComponent<Button>().interactable = false;
+                        hasBeenClicked = true;
                         break;
                 }
-                hasBeenClicked = true;
             }
             else if (Inventory.instanceInventory.itemInInventory >= Inventory.instanceInventory.maxItemNumber)
             {
