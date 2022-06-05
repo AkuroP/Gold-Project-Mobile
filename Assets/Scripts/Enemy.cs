@@ -91,7 +91,6 @@ public class Enemy : Entity
 
     public Direction CheckAround(List<AttackTileSettings> _upDirectionATS, bool _drawAttack)
     {
-        checkEnemiesInRange = true;
         List<Entity> newList = new List<Entity>();
         
         newList = GetEntityInRange(ConvertPattern(_upDirectionATS, Direction.UP),_drawAttack);
@@ -110,49 +109,50 @@ public class Enemy : Entity
         }
 
         newList = GetEntityInRange(ConvertPattern(_upDirectionATS, Direction.RIGHT), _drawAttack);
-        for(int i = 0; i < newList.Count; i++)
+        for (int i = 0; i < newList.Count; i++)
         {
-            if(newList[i] is Enemy)
+            if (newList[i] is Enemy)
             {
                 newList.RemoveAt(i);
                 i--;
             }
         }
-        if(newList.Count > 0)
+        if (newList.Count > 0)
         {
             //Debug.Log("Enemy spotted RIGHT");
             return Direction.RIGHT;
         }
-        
-       newList = GetEntityInRange(ConvertPattern(_upDirectionATS, Direction.BOTTOM), _drawAttack);
-        for(int i = 0; i < newList.Count; i++)
+
+        newList = GetEntityInRange(ConvertPattern(_upDirectionATS, Direction.BOTTOM), _drawAttack);
+        for (int i = 0; i < newList.Count; i++)
         {
-            if(newList[i] is Enemy)
+            if (newList[i] is Enemy)
             {
                 newList.RemoveAt(i);
                 i--;
             }
         }
-        if(newList.Count > 0)
+        if (newList.Count > 0)
         {
             //Debug.Log("Enemy spotted BOTTOM");
             return Direction.BOTTOM;
         }
 
         newList = GetEntityInRange(ConvertPattern(_upDirectionATS, Direction.LEFT), _drawAttack);
-        for(int i = 0; i < newList.Count; i++)
+        for (int i = 0; i < newList.Count; i++)
         {
-            if(newList[i] is Enemy)
+            if (newList[i] is Enemy)
             {
                 newList.RemoveAt(i);
                 i--;
             }
         }
-        if(newList.Count > 0)
+        if (newList.Count > 0)
         {
             //Debug.Log("Enemy spotted LEFT");
             return Direction.LEFT;
         }
+
         return Direction.NONE;
     }
 
@@ -306,11 +306,11 @@ public class Enemy : Entity
         if(tile.topTile != null)
             neighbourList.Add(tile.topTile);
         if(tile.rightTile != null)
-                    neighbourList.Add(tile.rightTile);
+            neighbourList.Add(tile.rightTile);
         if(tile.bottomTile != null)
-                    neighbourList.Add(tile.bottomTile);
+            neighbourList.Add(tile.bottomTile);
         if(tile.leftTile != null)
-                    neighbourList.Add(tile.leftTile);
+            neighbourList.Add(tile.leftTile);
 
         return neighbourList;
     }

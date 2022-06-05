@@ -111,7 +111,7 @@ public class Map : MonoBehaviour
         foreach(Tile tile in enemySpawnTiles)
         {
             GameObject newEnemy = GameObject.Instantiate(Resources.Load("Prefabs/Enemy"), tile.transform.position, Quaternion.identity, this.gameObject.transform) as GameObject;
-            int random = Random.Range(2,2);
+            int random = Random.Range(3,3);
             //Debug.Log("RANDOM : " + random);
             switch(random)
             {
@@ -131,6 +131,12 @@ public class Map : MonoBehaviour
                     newEnemy.AddComponent<EnemyThree>();
                     newEnemy.GetComponent<EnemyThree>().Init();
                     newEnemy.GetComponent<EnemyThree>().currentMap = GetComponent<Map>();
+                    break;
+
+                case 3:
+                    newEnemy.AddComponent<EnemyFour>();
+                    newEnemy.GetComponent<EnemyFour>().Init();
+                    newEnemy.GetComponent<EnemyFour>().currentMap = GetComponent<Map>();
                     break;
 
                 default:
