@@ -60,13 +60,6 @@ public class UI : MonoBehaviour
         roomText.text = GameManager.instanceGM.room.ToString();
     }
 
-    public void OpenShop()
-    {
-        shopUI.SetActive(true);
-        shopUI.transform.Find("CloseButton").gameObject.GetComponent<Button>().onClick.AddListener(CloseShop);
-        SwipeDetection.instanceSD.blockInputs = true;
-    }
-
     public void CloseShop()
     {
         shopUI.SetActive(false);

@@ -125,6 +125,7 @@ public class ShopInGame : MonoBehaviour
                     int randomItemIndex = Random.Range(0, Dplus2Items.Count);
                     shopButtons[i].GetComponent<ShopButton>().item = Dplus2Items[randomItemIndex];
                     shopButtons[i].GetComponent<Image>().sprite = Dplus2Items[randomItemIndex].itemSprite;
+                    shopButtons[i].GetComponent<ShopButton>().costText.text = Dplus2Items[randomItemIndex].itemCost.ToString();
                     shop[i] = Dplus2Items[randomItemIndex];
                     Dplus2Items.RemoveAt(randomItemIndex);
                 }
@@ -133,6 +134,7 @@ public class ShopInGame : MonoBehaviour
                     int randomItemIndex = Random.Range(0, Dplus1Items.Count);
                     shopButtons[i].GetComponent<ShopButton>().item = Dplus1Items[randomItemIndex];
                     shopButtons[i].GetComponent<Image>().sprite = Dplus1Items[randomItemIndex].itemSprite;
+                    shopButtons[i].GetComponent<ShopButton>().costText.text = Dplus1Items[randomItemIndex].itemCost.ToString();
                     shop[i] = Dplus1Items[randomItemIndex];
                     Dplus1Items.RemoveAt(randomItemIndex);
                 }
@@ -141,6 +143,7 @@ public class ShopInGame : MonoBehaviour
                     int randomItemIndex = Random.Range(0, availableItems.Count);
                     shopButtons[i].GetComponent<ShopButton>().item = availableItems[randomItemIndex];
                     shopButtons[i].GetComponent<Image>().sprite = availableItems[randomItemIndex].itemSprite;
+                    shopButtons[i].GetComponent<ShopButton>().costText.text = availableItems[randomItemIndex].itemCost.ToString();
                     shop[i] = availableItems[randomItemIndex];
                     availableItems.RemoveAt(randomItemIndex);
                 }
@@ -153,6 +156,7 @@ public class ShopInGame : MonoBehaviour
                     int randomItemIndex = Random.Range(0, Dplus1Items.Count);
                     shopButtons[i].GetComponent<ShopButton>().item = Dplus1Items[randomItemIndex];
                     shopButtons[i].GetComponent<Image>().sprite = Dplus1Items[randomItemIndex].itemSprite;
+                    shopButtons[i].GetComponent<ShopButton>().costText.text = Dplus1Items[randomItemIndex].itemCost.ToString();
                     shop[i] = Dplus1Items[randomItemIndex];
                     Dplus1Items.RemoveAt(randomItemIndex);
                 }
@@ -161,6 +165,7 @@ public class ShopInGame : MonoBehaviour
                     int randomItemIndex = Random.Range(0, availableItems.Count);
                     shopButtons[i].GetComponent<ShopButton>().item = availableItems[randomItemIndex];
                     shopButtons[i].GetComponent<Image>().sprite = availableItems[randomItemIndex].itemSprite;
+                    shopButtons[i].GetComponent<ShopButton>().costText.text = availableItems[randomItemIndex].itemCost.ToString();
                     shop[i] = availableItems[randomItemIndex];
                     availableItems.RemoveAt(randomItemIndex);
                 }
@@ -170,6 +175,7 @@ public class ShopInGame : MonoBehaviour
                 int randomItemIndex = Random.Range(0, availableItems.Count);
                 shopButtons[i].GetComponent<ShopButton>().item = availableItems[randomItemIndex];
                 shopButtons[i].GetComponent<Image>().sprite = availableItems[randomItemIndex].itemSprite;
+                shopButtons[i].GetComponent<ShopButton>().costText.text = availableItems[randomItemIndex].itemCost.ToString();
                 shop[i] = availableItems[randomItemIndex];
                 availableItems.RemoveAt(randomItemIndex);
             }
