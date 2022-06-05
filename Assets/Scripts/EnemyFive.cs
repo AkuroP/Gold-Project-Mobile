@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyFour : Enemy
+public class EnemyFive : Enemy
 {
     public List<AttackTileSettings> upDirectionATS = new List<AttackTileSettings>();
 
@@ -10,7 +10,7 @@ public class EnemyFour : Enemy
 
     public bool inChase = false;
     public bool chargeAttack = false;
-    public int chargeAttackRoundMax = 1;
+    public int chargeAttackRoundMax = 0;
     public int chargeAttackCurrent;
 
     // Start is called before the first frame update
@@ -22,18 +22,18 @@ public class EnemyFour : Enemy
     public override void Init()
     {
         player = GameObject.FindWithTag("Player").GetComponent<Player>();
-        maxHP = 1;
+        maxHP = 2;
         hp = maxHP;
         enemyDamage = 1;
         prio = Random.Range(1, 5);
-        moveCDMax = 0;
+        moveCDMax = 1;
         moveCDCurrent = 0;
-        moveDuration = 0.25f;
+        moveDuration = 0.15f;
 
         chargeAttackCurrent = chargeAttackRoundMax;
 
         entitySr = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
-        entitySr.sprite = Resources.Load<Sprite>("Assets/Graphics/Enemies/MobADistance");
+        entitySr.sprite = Resources.Load<Sprite>("Assets/Graphics/Enemies/MobFast");
 
         AssignPattern();
 
@@ -43,7 +43,6 @@ public class EnemyFour : Enemy
     private void AssignPattern()
     {
         upDirectionATS.Add(new AttackTileSettings(1, 0, 1));
-        upDirectionATS.Add(new AttackTileSettings(1, 0, 2));
     }
 
     // Update is called once per frame
@@ -118,7 +117,8 @@ public class EnemyFour : Enemy
                     {
                         pathToTarget = FindPath(currentTile, currentMap.player.currentTile, false);
 
-                        Move(pathToTarget[1]);
+                        //Move(pathToTarget[1]);
+                        Move(pathToTarget[2]);
                         moveCDCurrent = moveCDMax;
                     }
                 }
@@ -131,6 +131,7 @@ public class EnemyFour : Enemy
                     }
                     else
                     {
+                        EnemyRandomMove();
                         EnemyRandomMove();
                         moveCDCurrent = moveCDMax;
                     }

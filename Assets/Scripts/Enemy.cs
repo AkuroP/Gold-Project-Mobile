@@ -368,7 +368,7 @@ public class Enemy : Entity
         List<AttackTileSettings> attackPattern = ConvertPattern(_upDirectionATS, direction);
 
         List<Entity> enemiesInRange = new List<Entity>();
-        enemiesInRange = GetEntityInRange(attackPattern);
+        enemiesInRange = GetEntityInRange(attackPattern, true);
 
         if (enemiesInRange != null && enemiesInRange.Count > 0)
         {

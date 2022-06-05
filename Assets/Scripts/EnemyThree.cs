@@ -58,15 +58,8 @@ public class EnemyThree : Enemy
 
         if (myTurn)
         {
-            if (moveCDCurrent > 0)
-            {
-                moveCDCurrent--;
-            }
-            else
-            {
-                StartTurn();
-                moveCDCurrent = moveCDMax;
-            }
+            StartTurn();
+
             hasPlay = true;
         }
 
@@ -92,14 +85,28 @@ public class EnemyThree : Enemy
     {
         if (!chargeAttack)
         {
-            dir = CheckAround(upDirectionATS, true);
+            dir = CheckAround(upDirectionATS, false);
 
             if (dir != Direction.NONE)
             {
                 //Debug.Log("in range");
                 chargeAttack = true;
                 Debug.Log("charge");
-                chargeAttackCurrent--;
+
+                if (chargeAttackCurrent > 0)
+                {
+                    Debug.Log("charge");
+                    chargeAttackCurrent--;
+                }
+                else
+                {
+                    Debug.Log("attaque");
+                    chargeAttack = false;
+                    chargeAttackCurrent = chargeAttackRoundMax;
+
+                    direction = dir;
+                    StartAttack(upDirectionATS);
+                }
             }
             else
             {
@@ -107,19 +114,34 @@ public class EnemyThree : Enemy
                 //chase move
                 if (inChase)
                 {
-                    pathToTarget = FindPath(currentTile, currentMap.player.currentTile, false);
+                    if (moveCDCurrent > 0)
+                    {
+                        moveCDCurrent--;
+                    }
+                    else
+                    {
+                        pathToTarget = FindPath(currentTile, currentMap.player.currentTile, false);
 
-                    Move(pathToTarget[1]);
+                        Move(pathToTarget[1]);
+                        moveCDCurrent = moveCDMax;
+                    }
                 }
                 //random move
                 else
                 {
-                    EnemyRandomMove();
+                    if(moveCDCurrent > 0)
+                    {
+                        moveCDCurrent--;
+                    }
+                    else
+                    {
+                        EnemyRandomMove();
+                        moveCDCurrent = moveCDMax;
+                    }
                 }
             }
         }
-
-        if(chargeAttack)
+        else
         {
             if(chargeAttackCurrent > 0)
             {
