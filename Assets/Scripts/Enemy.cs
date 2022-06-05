@@ -156,7 +156,28 @@ public class Enemy : Entity
         return Direction.NONE;
     }
 
-    public List<Tile> FindPath(Tile _originTile, Tile _targetTile)
+    public bool IsTargetInChaseRange(Tile _tragetCurrentTile, int range)
+    {
+        bool goodInX = false;
+        bool goodInY = false;
+
+        if(_tragetCurrentTile.tileX <= currentTile.tileX + range && _tragetCurrentTile.tileX >= currentTile.tileX - range)
+            goodInX = true;
+
+        if (_tragetCurrentTile.tileY <= currentTile.tileY + range && _tragetCurrentTile.tileY >= currentTile.tileY - range)
+            goodInY = true;
+
+
+        if(goodInX && goodInY)
+        {
+            Debug.Log("start chase");
+            return true;
+        }
+        else
+            return false;
+    }
+
+    public List<Tile> FindPath(Tile _originTile, Tile _targetTile, bool _drawDebug)
     {
         Tile startTile = _originTile;
         Tile endTile = _targetTile;
@@ -183,21 +204,25 @@ public class Enemy : Entity
             Tile currentTile = FindLowestFCostTile(openList);
 
             //======= DEBUG START =======//
-            StartCoroutine(currentTile.TurnColor(new Color(0f, 1f, 0f, 1f), step));
+            if(_drawDebug)
+                StartCoroutine(currentTile.TurnColor(new Color(0f, 1f, 0f, 1f), step));
             //======= DEBUG END =======//
 
             if (currentTile == endTile)
             {
                 //======= DEBUG START =======//
-                foreach (Tile tile in closedList)
+                if(_drawDebug)
                 {
-                    if (!tile.isReachable) continue;
-                    StartCoroutine(tile.TurnColor(new Color(0.6f, 0.6f, 0.6f, 1f), step));
-                }
-                foreach(Tile tile in closedList)
-                {
-                    if (!tile.isReachable) continue;
-                    StartCoroutine(tile.TurnColor(new Color(0.6f, 0.6f, 0.6f, 1f), step));
+                    foreach (Tile tile in closedList)
+                    {
+                        if (!tile.isReachable) continue;
+                        StartCoroutine(tile.TurnColor(new Color(0.6f, 0.6f, 0.6f, 1f), step));
+                    }
+                    foreach (Tile tile in closedList)
+                    {
+                        if (!tile.isReachable) continue;
+                        StartCoroutine(tile.TurnColor(new Color(0.6f, 0.6f, 0.6f, 1f), step));
+                    }
                 }
                 //======= DEBUG END =======//
 
@@ -219,8 +244,9 @@ public class Enemy : Entity
                     continue;
                 }
 
-                StartCoroutine(neighbourTile.TurnColor(new Color(0f, 0f, 1f, 1f), step));
-
+                if(_drawDebug)
+                    StartCoroutine(neighbourTile.TurnColor(new Color(0f, 0f, 1f, 1f), step));
+  
                 int tentativeGCost = currentTile.gCost + CalculateDistanceCost(currentTile, neighbourTile);
                 if (tentativeGCost < neighbourTile.gCost)
                 {
@@ -238,7 +264,8 @@ public class Enemy : Entity
             }
 
             //======= DEBUG START =======//
-            StartCoroutine(currentTile.TurnColor(new Color(1f, 0f, 0f, 1f), step + 1));
+            if(_drawDebug)
+                StartCoroutine(currentTile.TurnColor(new Color(1f, 0f, 0f, 1f), step + 1));
             //======= DEBUG END =======//
 
             step++;
@@ -298,7 +325,7 @@ public class Enemy : Entity
         while(currentTile.cameFromTile != null)
         {
             //======= DEBUG START =======//
-            StartCoroutine(currentTile.TurnColor(new Color(0f, 1f, 0f, 1f), step));
+            //StartCoroutine(currentTile.TurnColor(new Color(0f, 1f, 0f, 1f), step));
             //======= DEBUG END =======//
 
             path.Add(currentTile.cameFromTile);
@@ -309,88 +336,7 @@ public class Enemy : Entity
         return path;
     }
 
-    /*public List<Tile> FindPath(Tile _currentTile, List<Tile> _visitedTile, int i = 1)
-    {
-        
-        List<Tile> visitedTileTop = _visitedTile;
-        List<Tile> visitedTileRight = _visitedTile;
-        List<Tile> visitedTileBottom = _visitedTile;
-        List<Tile> visitedTileLeft = _visitedTile;
-        
-        List<Tile> shortestPath = new List<Tile>();
-
-        //player here: stop
-        if(_currentTile.entityOnTile is Player)
-        {
-            Debug.Log("trouve");
-            return _visitedTile;
-        }
-        //no player here: continue
-        else
-        {
-            StartCoroutine(ShowTile(_currentTile, i));
-
-            string toPrint = "";
-            foreach(Tile tile in _visitedTile)
-            {
-                toPrint = toPrint + tile.tileIndex + " ";
-            }
-            Debug.Log(toPrint + " '" + i + "'");
-            Debug.Log("test: " + _currentTile.tileIndex);
-
-            
-
-            if (_currentTile.rightTile != null && !_visitedTile.Contains(_currentTile))
-            {
-                //Debug.Log("go right " + i);
-                //Debug.Log(_currentTile.tileIndex);
-                _visitedTile.Add(_currentTile);
-                visitedTileRight = FindPath(_currentTile.rightTile, _visitedTile, i + 1);
-            }
-
-            if (_currentTile.bottomTile != null && !_visitedTile.Contains(_currentTile))
-            {
-                //Debug.Log("go bottom " + i);
-                //Debug.Log(_currentTile.tileIndex);
-                _visitedTile.Add(_currentTile);
-                visitedTileBottom = FindPath(_currentTile.bottomTile, _visitedTile, i + 1);
-            }
-
-            if (_currentTile.leftTile != null && !_visitedTile.Contains(_currentTile))
-            {
-                //Debug.Log("go lfet " + i);
-                //Debug.Log(_currentTile.tileIndex);
-                _visitedTile.Add(_currentTile);
-                visitedTileLeft = FindPath(_currentTile.leftTile, _visitedTile, i + 1);
-            }
-
-            if (_currentTile.topTile != null && !_visitedTile.Contains(_currentTile))
-            {
-                //Debug.Log("go top " + i);
-                //Debug.Log(_currentTile.tileIndex);
-                _visitedTile.Add(_currentTile);
-                visitedTileTop = FindPath(_currentTile.topTile, _visitedTile, i + 1);
-            }
-
-            List<List<Tile>> allPath = new List<List<Tile>>();
-            allPath.Add(visitedTileTop);
-            allPath.Add(visitedTileRight);
-            allPath.Add(visitedTileBottom);
-            allPath.Add(visitedTileLeft);
-
-            int highest = 10000;
-            foreach (List<Tile> onePath in allPath)
-            {
-                if (onePath != null && onePath.Count < highest)
-                {
-                    highest = onePath.Count;
-                    shortestPath = onePath;
-                }
-            }
-
-            return shortestPath;
-        }
-    }*/
+    
 
 
     public void EnemyRandomMove()
@@ -436,9 +382,4 @@ public class Enemy : Entity
 
     }
 
-    //function to take damage / die
-    /*public override void DamageSelf(int damage)
-    {
-
-    }*/
 }
