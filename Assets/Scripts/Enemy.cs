@@ -19,8 +19,8 @@ public class Enemy : Entity
         ENEMY3
     } 
     public EnemyType whatEnemy;
-    public int maxCD;
-    public int cd;
+    public int moveCDMax;
+    public int moveCDCurrent;
 
     public Player player;
     public float enemyRange;
@@ -170,7 +170,6 @@ public class Enemy : Entity
 
         if(goodInX && goodInY)
         {
-            Debug.Log("start chase");
             return true;
         }
         else

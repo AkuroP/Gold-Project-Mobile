@@ -19,8 +19,8 @@ public class EnemyOne : Enemy
         enemyDamage = 1;
         prio = 1;
         //InitAttackPattern();
-        maxCD = 1;
-        cd = 0;
+        moveCDMax = 1;
+        moveCDCurrent = 0;
 
         entitySr = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
         entitySr.sprite = Resources.Load<Sprite>("Assets/Graphics/Enemies/TentaculeSolo");
@@ -40,14 +40,14 @@ public class EnemyOne : Enemy
     {
         if(myTurn)
         {
-            if(cd > 0)
+            if(moveCDCurrent > 0)
             {
-                cd--;
+                moveCDCurrent--;
             }
             else
             {
                 StartTurn();
-                cd = maxCD;
+                moveCDCurrent = moveCDMax;
             }
             hasPlay = true;
         }

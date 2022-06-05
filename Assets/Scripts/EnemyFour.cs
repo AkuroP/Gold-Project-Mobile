@@ -9,6 +9,9 @@ public class EnemyFour : Enemy
     public List<Tile> pathToTarget = new List<Tile>();
 
     public bool inChase = false;
+    public bool chargeAttack = false;
+    public int chargeAttackRoundMax = 1;
+    public int chargeAttackCurrent;
 
     // Start is called before the first frame update
     void Start()
@@ -23,9 +26,11 @@ public class EnemyFour : Enemy
         hp = maxHP;
         enemyDamage = 1;
         prio = Random.Range(1, 5);
-        maxCD = 1;
-        cd = 0;
+        moveCDMax = 0;
+        moveCDCurrent = 0;
         moveDuration = 0.25f;
+
+        chargeAttackCurrent = chargeAttackRoundMax;
 
         entitySr = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
         entitySr.sprite = Resources.Load<Sprite>("Assets/Graphics/Enemies/MobADistance");
@@ -49,17 +54,16 @@ public class EnemyFour : Enemy
 
         if (myTurn)
         {
-            if (cd > 0)
+            if (moveCDCurrent > 0)
             {
-                cd--;
-                Debug.Log("cannot play");
+                moveCDCurrent--;
             }
             else
             {
                 StartTurn();
-                cd = maxCD;
-                Debug.Log("can play");
+                moveCDCurrent = moveCDMax;
             }
+
             hasPlay = true;
         }
 
@@ -83,28 +87,49 @@ public class EnemyFour : Enemy
 
     public override void StartTurn()
     {
-        dir = CheckAround(upDirectionATS, true);
-
-        if (dir != Direction.NONE)
+        if (!chargeAttack)
         {
-            //Debug.Log("in range");
-            direction = dir;
-            StartAttack(upDirectionATS);
+            dir = CheckAround(upDirectionATS, true);
+
+            if (dir != Direction.NONE)
+            {
+                //Debug.Log("in range");
+                chargeAttack = true;
+                Debug.Log("charge start");
+                chargeAttackCurrent--;
+            }
+            else
+            {
+                //Debug.Log("move");
+                //chase move
+                if (inChase)
+                {
+                    pathToTarget = FindPath(currentTile, currentMap.player.currentTile, false);
+
+                    Move(pathToTarget[1]);
+                }
+                //random move
+                else
+                {
+                    EnemyRandomMove();
+                }
+            }
         }
         else
         {
-            //Debug.Log("move");
-            //chase move
-            if (inChase)
+            if (chargeAttackCurrent > 0)
             {
-                pathToTarget = FindPath(currentTile, currentMap.player.currentTile, false);
-
-                Move(pathToTarget[1]);
+                Debug.Log("charge in progress");
+                chargeAttackCurrent--;
             }
-            //random move
             else
             {
-                EnemyRandomMove();
+                Debug.Log("attaque");
+                chargeAttack = false;
+                chargeAttackCurrent = chargeAttackRoundMax;
+
+                direction = dir;
+                StartAttack(upDirectionATS);
             }
         }
     }

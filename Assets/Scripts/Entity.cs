@@ -125,7 +125,6 @@ public class Entity : MonoBehaviour
 
         foreach (AttackTileSettings oneATS in ats)
         {
-            Debug.Log(oneATS.offsetX + " ; " + oneATS.offsetY);
             Tile attackedTile = currentTile;
 
             if(Mathf.Abs(oneATS.offsetX) == Mathf.Abs(oneATS.offsetY))

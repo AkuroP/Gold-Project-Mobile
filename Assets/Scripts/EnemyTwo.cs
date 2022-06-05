@@ -21,8 +21,8 @@ public class EnemyTwo : Enemy
         enemyDamage = 1;
         prio = Random.Range(1, 5);
         //InitAttackPattern();
-        maxCD = 0;
-        cd = 0;
+        moveCDMax = 0;
+        moveCDCurrent = 0;
         pattern1 = true;
 
         entitySr = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
@@ -53,14 +53,14 @@ public class EnemyTwo : Enemy
     {
         if(myTurn)
         {
-            if(cd > 0)
+            if(moveCDCurrent > 0)
             {
-                cd--;
+                moveCDCurrent--;
             }
             else
             {
                 StartTurn();
-                cd = maxCD;
+                moveCDCurrent = moveCDMax;
             }
             hasPlay = true;
         }

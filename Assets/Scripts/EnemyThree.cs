@@ -10,6 +10,9 @@ public class EnemyThree : Enemy
     public List<Tile> pathToTarget = new List<Tile>();
 
     public bool inChase = false;
+    public bool chargeAttack = false;
+    public int chargeAttackRoundMax = 0;
+    public int chargeAttackCurrent;
 
     // Start is called before the first frame update
     void Start()
@@ -25,8 +28,11 @@ public class EnemyThree : Enemy
         enemyDamage = 1;
         prio = Random.Range(1, 5);
         //InitAttackPattern();
-        maxCD = 0;
-        cd = 0;
+        moveCDMax = 0;
+        moveCDCurrent = 0;
+
+        chargeAttackCurrent = chargeAttackRoundMax;
+
         moveDuration = 0.25f;
 
         entitySr = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
@@ -36,6 +42,8 @@ public class EnemyThree : Enemy
 
         isInitialize = true;
     }
+
+
 
     private void AssignPattern()
     {
@@ -50,14 +58,14 @@ public class EnemyThree : Enemy
 
         if (myTurn)
         {
-            if (cd > 0)
+            if (moveCDCurrent > 0)
             {
-                cd--;
+                moveCDCurrent--;
             }
             else
             {
                 StartTurn();
-                cd = maxCD;
+                moveCDCurrent = moveCDMax;
             }
             hasPlay = true;
         }
@@ -82,19 +90,22 @@ public class EnemyThree : Enemy
 
     public override void StartTurn()
     {
+        if (!chargeAttack)
+        {
             dir = CheckAround(upDirectionATS, true);
 
             if (dir != Direction.NONE)
             {
                 //Debug.Log("in range");
-                direction = dir;
-                StartAttack(upDirectionATS);
+                chargeAttack = true;
+                Debug.Log("charge");
+                chargeAttackCurrent--;
             }
             else
             {
                 //Debug.Log("move");
                 //chase move
-                if(inChase)
+                if (inChase)
                 {
                     pathToTarget = FindPath(currentTile, currentMap.player.currentTile, false);
 
@@ -106,5 +117,24 @@ public class EnemyThree : Enemy
                     EnemyRandomMove();
                 }
             }
+        }
+
+        if(chargeAttack)
+        {
+            if(chargeAttackCurrent > 0)
+            {
+                Debug.Log("charge");
+                chargeAttackCurrent--;
+            }
+            else
+            {
+                Debug.Log("attaque");
+                chargeAttack = false;
+                chargeAttackCurrent = chargeAttackRoundMax;
+
+                direction = dir;
+                StartAttack(upDirectionATS);
+            }
+        }
     }
 }

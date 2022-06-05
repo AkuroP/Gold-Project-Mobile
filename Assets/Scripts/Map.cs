@@ -111,7 +111,7 @@ public class Map : MonoBehaviour
         foreach(Tile tile in enemySpawnTiles)
         {
             GameObject newEnemy = GameObject.Instantiate(Resources.Load("Prefabs/Enemy"), tile.transform.position, Quaternion.identity, this.gameObject.transform) as GameObject;
-            int random = Random.Range(3,3);
+            int random = Random.Range(2,2);
             //Debug.Log("RANDOM : " + random);
             switch(random)
             {
