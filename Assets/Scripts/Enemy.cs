@@ -216,7 +216,13 @@ public class Enemy : Entity
             for (int i = 0; i < enemiesInRange.Count; i++)
             {
                 if (enemiesInRange[i] is Player)
+                {
                     Damage(enemyDamage, enemiesInRange[i]);
+                    if(Inventory.instanceInventory.HasItem("Counter Ring"))
+                    {
+                        player.damageMultiplicator = 2;
+                    }
+                }
             }
         }
 

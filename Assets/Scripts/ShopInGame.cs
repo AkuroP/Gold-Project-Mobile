@@ -8,7 +8,7 @@ public class ShopInGame : MonoBehaviour
     //Health items
     [Header("==== Health items ====")]
     [SerializeField] private ShopItem heartRegeneration = new ShopItem("Heart Regeneration", 1, false);
-    [SerializeField] private ShopItem bonusHeart = new ShopItem("Bonus Heart", 2, false);
+    [SerializeField] public ShopItem bonusHeart = new ShopItem("Bonus Heart", 2, false);
     [SerializeField] private ShopItem lifeRegeneration = new ShopItem("Life Regeneration", 4, true);
 
     //Movement items
@@ -79,6 +79,22 @@ public class ShopInGame : MonoBehaviour
         Dmax = Mathf.Clamp(Dmax, minDangerousness, maxDangerousness);
         Dmin = Dmax - 2;
         Dmin = Mathf.Clamp(Dmin, minDangerousness, maxDangerousness - 2);
+
+        //Remove unique items or in inventory items
+        if (Inventory.instanceInventory.hasBonusHeart == true)
+        {
+            allItems.Remove(bonusHeart);
+        }
+        for (int i = 0; i < Inventory.instanceInventory.maxItemNumber; i++)
+        {
+            foreach(ShopItem item in allItems.ToArray())
+            {
+                if (Inventory.instanceInventory.items[i].itemName == item.itemName)
+                {
+                    allItems.Remove(item);
+                }
+            }
+        }
 
         //Add items that can be seen at your dangerousness level
         foreach (ShopItem item in allItems)

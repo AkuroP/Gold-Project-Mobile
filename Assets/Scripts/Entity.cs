@@ -33,6 +33,7 @@ public class Entity : MonoBehaviour
     public int mobilityY;
 
     public int damage;
+    public int damageMultiplicator = 1;
 
     //directions enum and direction of the entity
 
@@ -278,7 +279,8 @@ public class Entity : MonoBehaviour
     //function to take damage / die
     public void Damage(int damage, Entity entity)
     {
-        entity.hp -= damage;
+        entity.hp -= damage * damageMultiplicator;
+        damageMultiplicator = 1;
     }
 
     public virtual void Move(Tile _targetTile)

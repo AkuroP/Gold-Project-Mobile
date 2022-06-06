@@ -18,9 +18,12 @@ public class ShopButton : MonoBehaviour
     [SerializeField] Button[] inventoryButtons;
     [SerializeField] Button closeButton;
 
+    private ShopInGame shopInGame;
+
     public void Start()
     {
         player = GameObject.FindWithTag("Player").GetComponent<Player>();
+        shopInGame = GameObject.FindWithTag("ShopInGame").GetComponent<ShopInGame>();
     }
 
     public void Update()
@@ -50,6 +53,7 @@ public class ShopButton : MonoBehaviour
                         player.maxHP++;
                         player.hp++;
                         hasBeenClicked = true;
+                        Inventory.instanceInventory.hasBonusHeart = true;
                         break;
                     case "Mystery Box":
                         if (Inventory.instanceInventory.mysteryBoxInShop == false)
@@ -123,11 +127,11 @@ public class ShopButton : MonoBehaviour
         bool hasFindItem = false;
         while (hasFindItem == false)
         {
-            int random = Random.Range(0, GameObject.FindWithTag("ShopInGame").GetComponent<ShopInGame>().allItems.Count);
-            if (GameObject.FindWithTag("ShopInGame").GetComponent<ShopInGame>().allItems[random].itemDangerousness == Inventory.instanceInventory.mysteryBoxDangerousness)
+            int random = Random.Range(0, shopInGame.allItems.Count);
+            if (shopInGame.allItems[random].itemDangerousness == Inventory.instanceInventory.mysteryBoxDangerousness)
             {
                 hasFindItem = true;
-                this.item = GameObject.FindWithTag("ShopInGame").GetComponent<ShopInGame>().allItems[random];
+                this.item = shopInGame.allItems[random];
             }
         }
     }

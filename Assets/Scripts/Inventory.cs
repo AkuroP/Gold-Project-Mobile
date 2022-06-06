@@ -14,6 +14,9 @@ public class Inventory : MonoBehaviour
     public bool mysteryBoxInShop = false;
     public int mysteryBoxDangerousness = 0;
 
+    //Bonus Heart
+    public bool hasBonusHeart = false;
+
     public ShopItem[] items = new ShopItem[3];
 
     private void Awake()
