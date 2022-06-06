@@ -64,7 +64,7 @@ public class Enemy : Entity
         }
     }
 
-    private Tile FindDirection()
+    public Tile FindDirection(Tile currentTile)
     {
         List<Tile> tileAround = new List<Tile>();
         

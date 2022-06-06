@@ -252,6 +252,34 @@ public class Entity : MonoBehaviour
         
         moveInProgress = true;
         canMove = false;
+    }  
+
+    public IEnumerator MoveWithDelay(Tile _targetTile, float _delay)
+    {
+        yield return new WaitForSeconds(_delay);
+
+        currentPosition = transform.position;
+        targetPosition = _targetTile.transform.position;
+
+        Debug.Log(_delay + " / " + currentPosition + " / " + targetPosition);
+
+        if (!_targetTile.isHole)
+        {
+            _targetTile.entityOnTile = currentTile.entityOnTile;
+            currentTile.entityOnTile = null;
+            currentTile = _targetTile;
+        }
+
+        moveInProgress = true;
+        canMove = false;
+    }
+    
+    public virtual void Move(List<Tile> _targetTileList)
+    {
+        for(int i = 0; i < _targetTileList.Count; i++)
+        {
+            StartCoroutine(MoveWithDelay(_targetTileList[i], moveDuration * i + 0.15f * i));
+        }
     }
 
     public virtual void FindNextTile()

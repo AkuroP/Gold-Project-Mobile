@@ -28,7 +28,7 @@ public class EnemyFive : Enemy
         prio = Random.Range(1, 5);
         moveCDMax = 1;
         moveCDCurrent = 0;
-        moveDuration = 0.15f;
+        moveDuration = 0.25f;
 
         chargeAttackCurrent = chargeAttackRoundMax;
 
@@ -116,9 +116,14 @@ public class EnemyFive : Enemy
                     else
                     {
                         pathToTarget = FindPath(currentTile, currentMap.player.currentTile, false);
+                        List<Tile> temp = new List<Tile>();
+                        temp.Add(pathToTarget[1]);
+                        temp.Add(pathToTarget[2]);
 
                         //Move(pathToTarget[1]);
-                        Move(pathToTarget[2]);
+                        //Move(pathToTarget[2]);
+
+                        Move(temp);
                         moveCDCurrent = moveCDMax;
                     }
                 }
@@ -131,8 +136,15 @@ public class EnemyFive : Enemy
                     }
                     else
                     {
-                        EnemyRandomMove();
-                        EnemyRandomMove();
+                        Tile firstTile = FindDirection(currentTile);
+                        Tile secondTile = FindDirection(firstTile);
+
+                        List<Tile> temp = new List<Tile>();
+                        temp.Add(firstTile);
+                        temp.Add(secondTile);
+
+                        Move(temp);
+
                         moveCDCurrent = moveCDMax;
                     }
                 }
