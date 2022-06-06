@@ -23,6 +23,7 @@ public class Entity : MonoBehaviour
     public int maxHP;
     [SerializeField]
     public int hp;
+    public int invincibilityTurn;
     //priority of entity (player always first)
     public int prio;
     [Header("==== Movement ====")]
@@ -278,9 +279,12 @@ public class Entity : MonoBehaviour
 
     //function to take damage / die
     public void Damage(int damage, Entity entity)
-    {
-        entity.hp -= damage * damageMultiplicator;
-        damageMultiplicator = 1;
+    {;
+        if(entity.invincibilityTurn == 0)
+        {
+            entity.hp -= damage * damageMultiplicator;
+            damageMultiplicator = 1;
+        }
     }
 
     public virtual void Move(Tile _targetTile)

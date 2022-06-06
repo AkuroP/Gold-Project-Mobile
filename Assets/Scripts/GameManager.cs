@@ -177,6 +177,10 @@ public class GameManager : MonoBehaviour
             if (playingEntity.tag == "Player")
             {
                 SwipeDetection.instanceSD.blockInputs = false;
+                if (playingEntity.invincibilityTurn > 0)
+                {
+                    playingEntity.invincibilityTurn--;
+                }
             }
             playingEntity.myTurn = true;
         }

@@ -217,6 +217,11 @@ public class Enemy : Entity
             {
                 if (enemiesInRange[i] is Player)
                 {
+                    if (Inventory.instanceInventory.HasItem("Invincibility"))
+                    {
+                        player.invincibilityTurn = 3;
+                        Inventory.instanceInventory.RemoveItem("Invincibility");
+                    }
                     Damage(enemyDamage, enemiesInRange[i]);
                     if(Inventory.instanceInventory.HasItem("Counter Ring"))
                     {
