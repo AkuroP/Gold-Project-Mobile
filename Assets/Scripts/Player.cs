@@ -70,9 +70,25 @@ public class Player : Entity
 
             if (currentTile.isPike && !isOnThePike)
             {
-                this.hp--;
                 currentTile.GetComponent<SpriteRenderer>().color = new Color(0.5f, 0.5f, 0.5f, 1f);
                 isOnThePike = true;
+                if (Inventory.instanceInventory.HasItem("Trap Protector") == true)
+                {
+                    ShopItem trapProtector = Inventory.instanceInventory.GetItem("Trap Protector");
+                    Debug.Log(trapProtector.itemName + ", " + trapProtector.itemCooldown);
+                    if (trapProtector.itemCooldown == 0)
+                    {
+                        trapProtector.itemCooldown = 5;
+                    }
+                    else
+                    {
+                        this.hp--;
+                    }
+                }
+                else
+                {
+                    this.hp--;
+                }
             }
 
             if (currentTile.tileIndex == currentMap.exitTileIndex && changingRoom == false)
