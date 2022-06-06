@@ -116,9 +116,12 @@ public class EnemyFour : Enemy
                     }
                     else
                     {
-                        pathToTarget = FindPath(currentTile, currentMap.player.currentTile, false);
+                        List<Tile> possibleAttackSpot = FindAvailableAttackSpot(upDirectionATS);
+                        pathToTarget = FindQuickestPath(currentTile ,possibleAttackSpot, false);
 
-                        Move(pathToTarget[1]);
+                        if(pathToTarget != null && pathToTarget.Count > 1)
+                            Move(pathToTarget[1]);
+
                         moveCDCurrent = moveCDMax;
                     }
                 }

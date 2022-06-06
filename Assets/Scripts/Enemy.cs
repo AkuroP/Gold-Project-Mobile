@@ -176,6 +176,124 @@ public class Enemy : Entity
             return false;
     }
 
+    public List<Tile> FindAvailableAttackSpot(List<AttackTileSettings> _upATS)
+    {
+        Tile _playerTile = currentMap.player.currentTile;
+        List<Tile> attackSpotTile = new List<Tile>();
+
+        List<AttackTileSettings> allATS = new List<AttackTileSettings>();
+
+        
+        foreach(AttackTileSettings oneATS in _upATS)
+        {
+            allATS.Add(oneATS);
+        }
+        foreach(AttackTileSettings oneATS in ConvertPattern(_upATS, Direction.RIGHT))
+        {
+            allATS.Add(oneATS);
+        }
+        foreach(AttackTileSettings oneATS in ConvertPattern(_upATS, Direction.BOTTOM))
+        {
+            allATS.Add(oneATS);
+        }
+        foreach(AttackTileSettings oneATS in ConvertPattern(_upATS, Direction.LEFT))
+        {
+            allATS.Add(oneATS);
+        }
+
+        allATS = ReversePattern(allATS);
+
+        //Debug.Log("allATS size: " + allATS.Count);
+
+        foreach (AttackTileSettings oneATS in allATS)
+        {
+            Tile attackedTile = _playerTile;
+
+            if (Mathf.Abs(oneATS.offsetX) == Mathf.Abs(oneATS.offsetY))
+            {
+                for (int i = 0; i < Mathf.Abs(oneATS.offsetX); i++)
+                {
+                    if (attackedTile == null || attackedTile.isWall) continue;
+
+                    if (oneATS.offsetX > 0 && oneATS.offsetY > 0)
+                        attackedTile = currentMap.FindRightTopTile(attackedTile);
+                    else if (oneATS.offsetX > 0 && oneATS.offsetY < 0)
+                        attackedTile = currentMap.FindRightBottomTile(attackedTile);
+                    else if (oneATS.offsetX < 0 && oneATS.offsetY > 0)
+                        attackedTile = currentMap.FindLeftTopTile(attackedTile);
+                    else if (oneATS.offsetX < 0 && oneATS.offsetY < 0)
+                        attackedTile = currentMap.FindLeftBottomTile(attackedTile);
+                }
+            }
+            else
+            {
+                for (int i = 0; i < Mathf.Abs(oneATS.offsetX); i++)
+                {
+                    if (attackedTile == null || attackedTile.isWall) continue;
+
+                    if (oneATS.offsetX > 0)
+                        attackedTile = currentMap.FindLeftTile(attackedTile);
+                    else if (oneATS.offsetX < 0)
+                        attackedTile = currentMap.FindRightTile(attackedTile);
+                }
+
+                for (int i = 0; i < Mathf.Abs(oneATS.offsetY); i++)
+                {
+                    if (attackedTile == null || attackedTile.isWall) continue;
+
+                    if (oneATS.offsetY > 0)
+                        attackedTile = currentMap.FindTopTile(attackedTile);
+                    else if (oneATS.offsetY < 0)
+                        attackedTile = currentMap.FindBottomTile(attackedTile);
+                }
+            }
+
+            if (attackedTile != null && !attackedTile.isWall)
+            {
+                attackSpotTile.Add(attackedTile);
+            }
+        }
+
+        //Debug.Log("attackSpotTile size: " + attackSpotTile.Count);
+
+        return attackSpotTile;
+
+    }
+
+    public List<Tile> FindQuickestPath(Tile _originTile, List<Tile> _targetTileList, bool _drawDebug)
+    {
+        if(_targetTileList.Count > 0)
+        {
+            List<Tile> quickestPath = FindPath(_originTile, _targetTileList[0], false);
+
+            if(quickestPath == null)
+            {
+                Debug.Log("personne aussi");
+                return null;
+            }
+
+            if(_targetTileList.Count > 1)
+            {
+                for(int i = 0; i < _targetTileList.Count; i++)
+                {
+                    if (_targetTileList[i].entityOnTile != null) continue;
+
+                    List<Tile> newPath = FindPath(_originTile, _targetTileList[i], false);
+
+                    if (newPath.Count < quickestPath.Count)
+                    {
+                        quickestPath = newPath;
+                    }
+                }
+            }
+
+            StartCoroutine(ShowTile(quickestPath[quickestPath.Count -1], 0));
+            return quickestPath;
+        }
+
+        return null;
+    }
+
     public List<Tile> FindPath(Tile _originTile, Tile _targetTile, bool _drawDebug)
     {
         Tile startTile = _originTile;
@@ -237,7 +355,7 @@ public class Enemy : Entity
                 //if in closed list Tile is alrday checked, go next
                 if (closedList.Contains(neighbourTile)) continue;
                 //if is not reachable go next 
-                if (!neighbourTile.isReachable)
+                if (!neighbourTile.isReachable || neighbourTile.entityOnTile is Enemy)
                 {
                     closedList.Add(neighbourTile);
                     continue;
@@ -269,8 +387,9 @@ public class Enemy : Entity
 
             step++;
         }
-        
+
         //open List is empty, cannot reach targetTile
+        Debug.Log("personne");
         return null;
     }
 
@@ -314,7 +433,7 @@ public class Enemy : Entity
         return neighbourList;
     }
 
-    private List<Tile> CalculatePath(Tile endTile, int step)
+    private List<Tile> CalculatePath(Tile endTile, int step = 0)
     {
         List<Tile> path = new List<Tile>();
 
@@ -364,10 +483,16 @@ public class Enemy : Entity
 
     public override void StartAttack(List<AttackTileSettings> _upDirectionATS)
     {
-        
         List<AttackTileSettings> attackPattern = ConvertPattern(_upDirectionATS, direction);
 
         List<Entity> enemiesInRange = new List<Entity>();
+
+        Debug.Log(direction);
+        foreach(AttackTileSettings oneATS in attackPattern)
+        {
+            Debug.Log("X: " + oneATS.offsetX + " Y: " + oneATS.offsetY);
+        }
+
         enemiesInRange = GetEntityInRange(attackPattern, true);
 
         if (enemiesInRange != null && enemiesInRange.Count > 0)

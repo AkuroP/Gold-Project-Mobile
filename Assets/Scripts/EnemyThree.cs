@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EnemyThree : Enemy
 {
-
     public List<AttackTileSettings> upDirectionATS = new List<AttackTileSettings>();
 
     public List<Tile> pathToTarget = new List<Tile>();
@@ -91,11 +90,11 @@ public class EnemyThree : Enemy
             {
                 //Debug.Log("in range");
                 chargeAttack = true;
-                Debug.Log("charge");
+                Debug.Log("charge start");
 
                 if (chargeAttackCurrent > 0)
                 {
-                    Debug.Log("charge");
+                    Debug.Log("charge in progress");
                     chargeAttackCurrent--;
                 }
                 else
@@ -120,9 +119,12 @@ public class EnemyThree : Enemy
                     }
                     else
                     {
-                        pathToTarget = FindPath(currentTile, currentMap.player.currentTile, false);
+                        List<Tile> possibleAttackSpot = FindAvailableAttackSpot(upDirectionATS);
+                        pathToTarget = FindQuickestPath(currentTile, possibleAttackSpot, false);
 
-                        Move(pathToTarget[1]);
+                        if (pathToTarget != null && pathToTarget.Count > 1)
+                            Move(pathToTarget[1]);
+
                         moveCDCurrent = moveCDMax;
                     }
                 }

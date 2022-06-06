@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyFive : Enemy
+public class EnemySix : Enemy
 {
     public List<AttackTileSettings> upDirectionATS = new List<AttackTileSettings>();
 
@@ -10,7 +10,7 @@ public class EnemyFive : Enemy
 
     public bool inChase = false;
     public bool chargeAttack = false;
-    public int chargeAttackRoundMax = 0;
+    public int chargeAttackRoundMax = 2;
     public int chargeAttackCurrent;
 
     // Start is called before the first frame update
@@ -22,27 +22,33 @@ public class EnemyFive : Enemy
     public override void Init()
     {
         player = GameObject.FindWithTag("Player").GetComponent<Player>();
-        maxHP = 2;
+        maxHP = 3;
         hp = maxHP;
         enemyDamage = 1;
         prio = Random.Range(1, 5);
-        moveCDMax = 1;
+        //InitAttackPattern();
+        moveCDMax = 0;
         moveCDCurrent = 0;
-        moveDuration = 0.25f;
 
         chargeAttackCurrent = chargeAttackRoundMax;
 
+        moveDuration = 0.5f;
+
         entitySr = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
-        entitySr.sprite = Resources.Load<Sprite>("Assets/Graphics/Enemies/MobFast");
+        entitySr.sprite = Resources.Load<Sprite>("Assets/Graphics/Enemies/MobGros");
 
         AssignPattern();
 
         isInitialize = true;
     }
 
+
+
     private void AssignPattern()
     {
         upDirectionATS.Add(new AttackTileSettings(1, 0, 1));
+        upDirectionATS.Add(new AttackTileSettings(1, 1, 1));
+        upDirectionATS.Add(new AttackTileSettings(1, -1, 1));
     }
 
     // Update is called once per frame
@@ -118,20 +124,10 @@ public class EnemyFive : Enemy
                         List<Tile> possibleAttackSpot = FindAvailableAttackSpot(upDirectionATS);
                         pathToTarget = FindQuickestPath(currentTile, possibleAttackSpot, false);
 
-                        if(pathToTarget != null)
-                        {
-                            List<Tile> temp = new List<Tile>();
-                            temp.Add(pathToTarget[1]);
-                            if (pathToTarget.Count > 2)
-                                temp.Add(pathToTarget[2]);
+                        if (pathToTarget != null && pathToTarget.Count > 1)
+                            Move(pathToTarget[1]);
 
-                            if (temp.Count > 0)
-                            {
-                                Move(temp);
-                                moveCDCurrent = moveCDMax;
-                            }
-                        }
-                        
+                        moveCDCurrent = moveCDMax;
                     }
                 }
                 //random move
@@ -143,15 +139,7 @@ public class EnemyFive : Enemy
                     }
                     else
                     {
-                        Tile firstTile = FindDirection(currentTile);
-                        Tile secondTile = FindDirection(firstTile);
-
-                        List<Tile> temp = new List<Tile>();
-                        temp.Add(firstTile);
-                        temp.Add(secondTile);
-
-                        Move(temp);
-
+                        EnemyRandomMove();
                         moveCDCurrent = moveCDMax;
                     }
                 }

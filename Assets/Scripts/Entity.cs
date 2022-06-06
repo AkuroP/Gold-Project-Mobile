@@ -230,6 +230,18 @@ public class Entity : MonoBehaviour
         return newATS;
     }
 
+    public List<AttackTileSettings> ReversePattern(List<AttackTileSettings> ats)
+    {
+        List<AttackTileSettings> newATS = new List<AttackTileSettings>();
+
+        foreach (AttackTileSettings oneATS in ats)
+        {
+            newATS.Add(new AttackTileSettings(oneATS.order, -oneATS.offsetX, -oneATS.offsetY));
+        }
+
+        return newATS;
+    }
+
     //function to take damage / die
     public void Damage(int damage, Entity entity)
     {
