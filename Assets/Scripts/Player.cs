@@ -143,6 +143,7 @@ public class Player : Entity
 
             //for turn by turn
             hasAttack = true;
+            hasPlay = true;
         }
     }
 

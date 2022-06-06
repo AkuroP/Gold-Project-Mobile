@@ -319,6 +319,7 @@ public class Entity : MonoBehaviour
 
         moveInProgress = true;
         hasMove = true;
+        hasPlay = true;
         canMove = false;
     }
 
