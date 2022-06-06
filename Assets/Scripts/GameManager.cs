@@ -128,10 +128,14 @@ public class GameManager : MonoBehaviour
 
         if (room == 6)
         {
+            if (Inventory.instanceInventory.mysteryBoxInShop == true && Inventory.instanceInventory.mysteryBoxDangerousness < 5)
+            {
+                Inventory.instanceInventory.mysteryBoxDangerousness++;
+            }
             UI.instanceUI.shopUI = Instantiate(shopUIprefab, UI.instanceUI.canvas.transform);
             Instantiate(shopPrefab);
             UI.instanceUI.shopUI.transform.Find("CloseButton").gameObject.GetComponent<Button>().onClick.AddListener(UI.instanceUI.CloseShop);
-            SwipeDetection.instanceSD.blockInputs = true;   
+            SwipeDetection.instanceSD.blockInputs = true;
         }
     }
 

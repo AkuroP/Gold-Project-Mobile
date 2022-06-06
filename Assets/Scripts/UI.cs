@@ -65,6 +65,7 @@ public class UI : MonoBehaviour
         shopUI.SetActive(false);
         GameObject shop = GameObject.FindWithTag("ShopInGame");
         Destroy(shop);
+        Destroy(shopUI);
         GameManager.instanceGM.NewMap();
         SwipeDetection.instanceSD.blockInputs = false;
     }

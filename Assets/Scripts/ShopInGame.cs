@@ -31,8 +31,11 @@ public class ShopInGame : MonoBehaviour
     [SerializeField] private ShopItem powerGloves = new ShopItem("Power Gloves", 2, true);
     [SerializeField] private ShopItem sideSlash = new ShopItem("Side Slash", 3, true);
 
+    [Header("==== Others items ====")]
+    [SerializeField] private ShopItem mysteryBox = new ShopItem("Mystery Box", 0, false);
+
     //List of items and shop
-    private List<ShopItem> allItems = new List<ShopItem>();
+    public List<ShopItem> allItems = new List<ShopItem>();
     private List<ShopItem> availableItems = new List<ShopItem>();
     private List<ShopItem> Dplus1Items = new List<ShopItem>();
     private List<ShopItem> Dplus2Items = new List<ShopItem>();
@@ -92,6 +95,10 @@ public class ShopInGame : MonoBehaviour
             {
                 Dplus2Items.Add(item);
             }
+        }
+        if (Inventory.instanceInventory.mysteryBoxInShop == false)
+        {
+            availableItems.Add(mysteryBox);
         }
         ChooseShopItems();
     }
@@ -180,9 +187,16 @@ public class ShopInGame : MonoBehaviour
                 availableItems.RemoveAt(randomItemIndex);
             }
         }
+        if (Inventory.instanceInventory.mysteryBoxInShop == true)
+        {
+            mysteryBox.itemDangerousness = Inventory.instanceInventory.mysteryBoxDangerousness;
+            shopButtons[0].GetComponent<ShopButton>().item = mysteryBox;
+            shopButtons[0].GetComponent<Image>().sprite = mysteryBox.itemSprite;
+        }
         /*foreach (ShopItem item in shop)
         {
             Debug.Log("item du shop : " + item.itemName + ", " + item.itemDangerousness);
         }*/
     }
+
 }

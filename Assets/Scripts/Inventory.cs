@@ -6,8 +6,13 @@ public class Inventory : MonoBehaviour
 {
     public static Inventory instanceInventory;
 
+    //Inventory management
     public int maxItemNumber = 3;
     public int itemInInventory = 0;
+
+    //Mystery Box
+    public bool mysteryBoxInShop = false;
+    public int mysteryBoxDangerousness = 0;
 
     public ShopItem[] items = new ShopItem[3];
 
