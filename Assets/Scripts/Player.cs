@@ -160,7 +160,16 @@ public class Player : Entity
                 for (int i = 0; i < enemiesInRange.Count; i++)
                 {
                     if (enemiesInRange[i] is Enemy)
-                        Damage(weapon.weaponDamage, enemiesInRange[i]);
+                    {
+                        if(Inventory.instanceInventory.HasItem("Power Gloves"))
+                        {
+                            Damage(weapon.weaponDamage + 1, enemiesInRange[i]);
+                        }
+                        else
+                        {
+                            Damage(weapon.weaponDamage, enemiesInRange[i]);
+                        }
+                    }    
                 }
             }
 
