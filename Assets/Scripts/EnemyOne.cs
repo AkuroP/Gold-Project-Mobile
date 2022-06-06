@@ -40,6 +40,10 @@ public class EnemyOne : Enemy
     {
         if(myTurn)
         {
+            if(this.entityStatus.Count > 0)
+            {
+                this.CheckStatus(this);
+            }
             if(cd > 0)
             {
                 cd--;

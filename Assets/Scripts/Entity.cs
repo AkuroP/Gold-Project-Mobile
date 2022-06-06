@@ -65,6 +65,9 @@ public class Entity : MonoBehaviour
     //Sprite and anims
     [SerializeField] public SpriteRenderer entitySr;
 
+    public List<Debuff> entityStatus = new List<Debuff>();
+
+    private bool hasCheckStatus = false;
 
     // Start is called before the first frame update
     void Start()
@@ -76,6 +79,48 @@ public class Entity : MonoBehaviour
     void Update()
     {
 
+    }
+
+    public void AddDebuff(Debuff.Status _debuff, int _debuffCD)
+    {
+        Debuff newDebuff = new Debuff(_debuff, _debuffCD);
+        entityStatus.Add(newDebuff);
+        if(_debuff == Debuff.Status.BLEED)
+        {
+            for(int i = 0; i < entityStatus.Count; i++)
+            {
+                if(entityStatus[i].debuffStatus == Debuff.Status.BLEED)
+                {
+                    entityStatus.Remove(newDebuff);
+                    break;
+                }
+            }
+        }
+    }
+
+    public void CheckStatus(Entity _entity)
+    {
+        Debug.Log("CHECKING STATUS");
+        if(!this.hasCheckStatus)
+        {
+            for(int i = 0; i < entityStatus.Count; i++)
+            {
+                switch(entityStatus[i].debuffStatus)
+                {
+                    case Debuff.Status.BLEED :
+                        this.Damage(1, _entity);
+                        Debug.Log("BLEED -1 DAMAGE");
+                    break;
+                }
+                entityStatus[i].debuffCD -= 1;
+                if(entityStatus[i].debuffCD <= 0)
+                {
+                    entityStatus.RemoveAt(i);
+                    i -= 1;
+                }
+            }
+            this.hasCheckStatus = true;
+        }
     }
 
     public void MovingProcess()

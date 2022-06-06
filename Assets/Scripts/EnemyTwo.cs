@@ -50,8 +50,13 @@ public class EnemyTwo : Enemy
     // Update is called once per frame
     void Update()
     {
-        if(myTurn)
+        if(this.myTurn)
         {
+            if(this.entityStatus.Count > 0)
+            {
+                this.CheckStatus(this);
+                IsSelfDead();
+            }
             if(cd > 0)
             {
                 cd--;

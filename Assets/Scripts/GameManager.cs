@@ -150,11 +150,14 @@ public class GameManager : MonoBehaviour
         //Debug.Log(allEntities[indexPlayingEntity].name);
 
         yield return new WaitForSeconds(0.5f);
-        if (playingEntity.tag == "Player")
+        if(playingEntity != null)
         {
-            SwipeDetection.instanceSD.blockInputs = false;
+            if (playingEntity.tag == "Player")
+            {
+                SwipeDetection.instanceSD.blockInputs = false;
+            }
+            playingEntity.myTurn = true;
         }
-        playingEntity.myTurn = true;
     }
 
     public List<Entity> TriGnome(List<Entity> entities)
