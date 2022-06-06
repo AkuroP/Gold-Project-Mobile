@@ -279,7 +279,7 @@ public class Entity : MonoBehaviour
 
     //function to take damage / die
     public void Damage(int damage, Entity entity)
-    {;
+    {
         if(entity.invincibilityTurn == 0)
         {
             entity.hp -= damage * damageMultiplicator;

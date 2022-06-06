@@ -23,7 +23,7 @@ public class ShopInGame : MonoBehaviour
     [SerializeField] private ShopItem poisonFog = new ShopItem("Poison Fog", 2, true);
     [SerializeField] private ShopItem freezeTime = new ShopItem("Freeze Time", 3, true);
     [SerializeField] private ShopItem revivor = new ShopItem("Revivor", 4, true);
-    [SerializeField] private ShopItem invicibility = new ShopItem("Invicibility", 5, true);
+    [SerializeField] private ShopItem invincibility = new ShopItem("Invincibility", 5, true);
 
     //Damage items
     [Header("==== Damage items ====")]
@@ -64,7 +64,7 @@ public class ShopInGame : MonoBehaviour
         allItems.Add(poisonFog);
         allItems.Add(freezeTime);
         allItems.Add(revivor);
-        allItems.Add(invicibility);
+        allItems.Add(invincibility);
         allItems.Add(bossSlayer);
         allItems.Add(powerGloves);
         allItems.Add(sideSlash);

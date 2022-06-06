@@ -217,7 +217,16 @@ public class Enemy : Entity
             {
                 if (enemiesInRange[i] is Player)
                 {
-                    if (Inventory.instanceInventory.HasItem("Invincibility"))
+                    if (Inventory.instanceInventory.HasItem("Poison Fog") && Inventory.instanceInventory.HasItem("Invincibility") == false)
+                    {
+                        Inventory.instanceInventory.RemoveItem("Poison Fog");
+                        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+                        foreach(GameObject enemy in enemies)
+                        {
+                            enemy.GetComponent<Enemy>().hp--;
+                        }
+                    }
+                    else if (Inventory.instanceInventory.HasItem("Invincibility"))
                     {
                         player.invincibilityTurn = 3;
                         Inventory.instanceInventory.RemoveItem("Invincibility");
