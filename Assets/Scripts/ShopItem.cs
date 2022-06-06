@@ -9,6 +9,7 @@ public class ShopItem
 
     public int itemDangerousness;
     public int itemCost;
+    public int itemCooldown;
 
     public Sprite itemSprite;
 

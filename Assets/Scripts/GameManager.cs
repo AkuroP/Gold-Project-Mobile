@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private GameObject shopUIprefab;
     [SerializeField] private GameObject shopPrefab;
+    private Player player;
 
     public List<GameObject> enemiesPlaying;
     public int allEnemiesActionFinished;
@@ -49,6 +50,8 @@ public class GameManager : MonoBehaviour
         NewMap();
 
         actualDangerousness = 1 + (score / 20);
+
+        player = GameObject.FindWithTag("Player").GetComponent<Player>();
     }
 
     public void NewMap()
@@ -114,18 +117,29 @@ public class GameManager : MonoBehaviour
         score++;
         room++;
 
+        //floor change
         if(room % 11 == 0)
         {
             floor++;
             room = 1;
+            if(Inventory.instanceInventory.HasItem("Life Regeneration"))
+            {
+                if(player.hp < player.maxHP)
+                {
+                    player.hp++;
+                }
+            }
         }
+        //dangerousness update
         if(score % 20 == 0)
         {
             actualDangerousness = 1 + (score / 20);
         }
 
+        //map generation
         instanceGM.NewMap();
 
+        //shop
         if (room == 6)
         {
             if (Inventory.instanceInventory.mysteryBoxInShop == true && Inventory.instanceInventory.mysteryBoxDangerousness < 5)
@@ -137,6 +151,10 @@ public class GameManager : MonoBehaviour
             UI.instanceUI.shopUI.transform.Find("CloseButton").gameObject.GetComponent<Button>().onClick.AddListener(UI.instanceUI.CloseShop);
             SwipeDetection.instanceSD.blockInputs = true;
         }
+
+        //item update
+
+        Inventory.instanceInventory.RefreshCooldown();
     }
 
     public IEnumerator ChangeEntity()

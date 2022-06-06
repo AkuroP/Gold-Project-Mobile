@@ -37,6 +37,18 @@ public class Inventory : MonoBehaviour
         return false;
     }
 
+    public ShopItem GetItem(string itemName)
+    {
+        for (int i = 0; i < maxItemNumber; i++)
+        {
+            if (itemName == items[i].itemName)
+            {
+                return items[i];
+            }
+        }
+        return null;
+    }
+
     public void RemoveItem(string itemName)
     {
         for (int i = 0; i < maxItemNumber; i++)
@@ -45,6 +57,17 @@ public class Inventory : MonoBehaviour
             {
                 items[i].itemName = "";
                 items[i].itemSprite = Resources.Load<Sprite>("Assets/Graphics/empty");
+            }
+        }
+    }
+
+    public void RefreshCooldown()
+    {
+        for (int i = 0; i < maxItemNumber; i++)
+        {
+            if (items[i].itemCooldown > 0)
+            {
+                items[i].itemCooldown--;
             }
         }
     }
