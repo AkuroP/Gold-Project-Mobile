@@ -32,6 +32,8 @@ public class Entity : MonoBehaviour
     public int mobilityX;
     public int mobilityY;
 
+    public int damage;
+
     //directions enum and direction of the entity
 
     public Direction direction;

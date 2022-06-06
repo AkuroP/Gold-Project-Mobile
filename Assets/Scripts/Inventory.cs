@@ -24,4 +24,28 @@ public class Inventory : MonoBehaviour
         }
         instanceInventory = this;
     }
+
+    public bool HasItem(string itemName)
+    {
+        for(int i = 0; i < maxItemNumber; i++)
+        {
+            if(itemName == items[i].itemName)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void RemoveItem(string itemName)
+    {
+        for (int i = 0; i < maxItemNumber; i++)
+        {
+            if (itemName == items[i].itemName)
+            {
+                items[i].itemName = "";
+                items[i].itemSprite = Resources.Load<Sprite>("Assets/Graphics/empty");
+            }
+        }
+    }
 }

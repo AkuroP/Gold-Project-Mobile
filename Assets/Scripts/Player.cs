@@ -44,8 +44,15 @@ public class Player : Entity
         //hp management
         if (hp <= 0)
         {
-            Destroy(this.gameObject);
-            SceneManager.LoadScene("MainMenu");
+            if(Inventory.instanceInventory.HasItem("Revivor"))
+            {
+                hp = 1;
+                Inventory.instanceInventory.RemoveItem("Revivor");
+            }
+            else
+            {
+                SceneManager.LoadScene("MainMenu");
+            }
         }
 
 

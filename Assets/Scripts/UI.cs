@@ -51,13 +51,16 @@ public class UI : MonoBehaviour
 
     private void Update()
     {
-        essencesText.text = player.numEssence.ToString();
-        lifeText.text = player.hp.ToString();
-        slot1.sprite = Inventory.instanceInventory.items[0].itemSprite;
-        slot2.sprite = Inventory.instanceInventory.items[1].itemSprite;
-        slot3.sprite = Inventory.instanceInventory.items[2].itemSprite;
-        floorText.text = GameManager.instanceGM.floor.ToString();
-        roomText.text = GameManager.instanceGM.room.ToString();
+        if(player != null)
+        {
+            essencesText.text = player.numEssence.ToString();
+            lifeText.text = player.hp.ToString();
+            slot1.sprite = Inventory.instanceInventory.items[0].itemSprite;
+            slot2.sprite = Inventory.instanceInventory.items[1].itemSprite;
+            slot3.sprite = Inventory.instanceInventory.items[2].itemSprite;
+            floorText.text = GameManager.instanceGM.floor.ToString();
+            roomText.text = GameManager.instanceGM.room.ToString();
+        }
     }
 
     public void CloseShop()

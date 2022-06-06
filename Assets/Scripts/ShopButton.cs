@@ -48,13 +48,14 @@ public class ShopButton : MonoBehaviour
                         break;
                     case "Bonus Heart":
                         player.maxHP++;
+                        player.hp++;
                         hasBeenClicked = true;
                         break;
                     case "Mystery Box":
                         if (Inventory.instanceInventory.mysteryBoxInShop == false)
                         {
                             Inventory.instanceInventory.mysteryBoxInShop = true;
-                            Inventory.instanceInventory.mysteryBoxDangerousness = 1;
+                            Inventory.instanceInventory.mysteryBoxDangerousness = 0;
                         }
                         else
                         {
