@@ -245,29 +245,39 @@ public class Entity : MonoBehaviour
         foreach (AttackTileSettings oneATS in ats)
         {
             Tile attackedTile = currentTile;
+
             if(Mathf.Abs(oneATS.offsetX) == Mathf.Abs(oneATS.offsetY))
             {
-                if(oneATS.offsetX > 0 && oneATS.offsetY > 0)
-                    attackedTile = currentMap.FindRightTopTile(attackedTile);
-                else if(oneATS.offsetX > 0 && oneATS.offsetY < 0)
-                    attackedTile = currentMap.FindRightBottomTile(attackedTile);
-                else if(oneATS.offsetX < 0 && oneATS.offsetY > 0)
-                    attackedTile = currentMap.FindLeftTopTile(attackedTile);
-                else if(oneATS.offsetX < 0 && oneATS.offsetY < 0)
-                    attackedTile = currentMap.FindLeftBottomTile(attackedTile);
+                for(int i = 0; i < Mathf.Abs(oneATS.offsetX); i++)
+                {
+                    if (attackedTile == null || attackedTile.isWall) continue;
+
+                    if (oneATS.offsetX > 0 && oneATS.offsetY > 0)
+                        attackedTile = currentMap.FindRightTopTile(attackedTile);
+                    else if (oneATS.offsetX > 0 && oneATS.offsetY < 0)
+                        attackedTile = currentMap.FindRightBottomTile(attackedTile);
+                    else if (oneATS.offsetX < 0 && oneATS.offsetY > 0)
+                        attackedTile = currentMap.FindLeftTopTile(attackedTile);
+                    else if (oneATS.offsetX < 0 && oneATS.offsetY < 0)
+                        attackedTile = currentMap.FindLeftBottomTile(attackedTile);
+                }
             }
             else
             {
                 for (int i = 0; i < Mathf.Abs(oneATS.offsetX); i++)
                 {
+                    if (attackedTile == null || attackedTile.isWall) continue;
+
                     if (oneATS.offsetX > 0)
-                        attackedTile = currentMap.FindLeftTile(attackedTile);
-                    else if (oneATS.offsetX < 0)
                         attackedTile = currentMap.FindRightTile(attackedTile);
+                    else if (oneATS.offsetX < 0)
+                        attackedTile = currentMap.FindLeftTile(attackedTile);
                 }
 
                 for (int i = 0; i < Mathf.Abs(oneATS.offsetY); i++)
                 {
+                    if(attackedTile == null || attackedTile.isWall) continue;
+
                     if (oneATS.offsetY > 0)
                         attackedTile = currentMap.FindTopTile(attackedTile);
                     else if (oneATS.offsetY < 0)
@@ -275,20 +285,9 @@ public class Entity : MonoBehaviour
                 }
             }
 
-            if (attackedTile != null)
+            if (attackedTile != null && !attackedTile.isWall)
             {
-                //stop attack when a wall is reached
-                if (attackedTile.isWall)
-                {
-                    return allTile;
-                }
-
-                if(_drawAttack)
-                    StartCoroutine(DrawAttack(attackedTile));
-                
                 allTile.Add(attackedTile);
-                return allTile;
-
             }
         }
 

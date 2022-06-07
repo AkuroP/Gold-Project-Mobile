@@ -37,7 +37,7 @@ public class Weapon
             case WeaponType.HANDGUN:
                 upDirectionATS.Add(new AttackTileSettings(1, 0, 1));
                 upDirectionATS.Add(new AttackTileSettings(2, 0, 2));
-                if(weaponLevel >= 2)
+                if(weaponLevel >= 1)
                 {
                     upDirectionATS.Add(new AttackTileSettings(3, 0, 3));
                 }
@@ -121,7 +121,7 @@ public class Weapon
                     }
                 }
 
-                List<Tile> tileOnFire = _attacker.GetTileInRange(_attacker.ConvertPattern(upDirectionATS, _attacker.direction), true);
+                List<Tile> tileOnFire = _attacker.GetTileInRange(_attacker.ConvertPattern(upDirectionATS, _attacker.direction), false);
                 for(int j = 0; j < tileOnFire.Count; j++)
                 {
                     if(this.weaponLevel >= 2)
@@ -129,7 +129,7 @@ public class Weapon
                         Debug.Log("FIRE !");
                         if(tileOnFire[j].fireCD <= 0)
                         {
-                            tileOnFire[j].fireCD = 1;
+                            tileOnFire[j].fireCD = 2;
                             _attacker.GetComponent<Player>().tilesOnFire.Add(tileOnFire[j]);
                         }
                     }

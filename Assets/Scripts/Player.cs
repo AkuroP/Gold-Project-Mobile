@@ -31,7 +31,7 @@ public class Player : Entity
         instanceGM = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
 
         currentPosition = transform.position;
-        weapon = new Weapon(WeaponType.GRIMOIRE, 3, 1);
+        weapon = new Weapon(WeaponType.HANDGUN, 1, 1);
         hp = maxHP;
     }
 
