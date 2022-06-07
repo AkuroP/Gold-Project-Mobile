@@ -65,6 +65,7 @@ public class TileSettings
     public bool isWall;
     public bool isPike;
     public bool isEnemySpawn;
+    public bool isLight;
 
     public Color tileColor;
     public Sprite tileSprite;
