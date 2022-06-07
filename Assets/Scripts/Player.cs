@@ -22,19 +22,45 @@ public class Player : Entity
 
     public Weapon weapon;
 
+    public List<Tile> tilesOnFire = new List<Tile>();
+    public bool cdFire = false;
+
     // Start is called before the first frame update
     void Start()
     {
         instanceGM = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
 
         currentPosition = transform.position;
-        weapon = new Weapon(WeaponType.DAGGER);
+        weapon = new Weapon(WeaponType.GRIMOIRE, 3, 1);
         hp = maxHP;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(this.myTurn)
+        {
+            if(!cdFire)
+            {
+                if(tilesOnFire.Count > 0)
+                {
+                    for(int i = 0; i < tilesOnFire.Count; i++)
+                    {
+                        if(tilesOnFire[i].fireCD > 0)
+                        {
+                            tilesOnFire[i].fireCD -= 1;
+                            if(tilesOnFire[i].fireCD <= 0)
+                            {
+                                tilesOnFire.Remove(tilesOnFire[i]);
+                                i--;
+                            }
+                        }
+                    }
+                }
+                cdFire = true;
+            }
+        }
+
         //turn management
         if (Input.GetKeyDown(KeyCode.B))
         {
@@ -149,7 +175,7 @@ public class Player : Entity
         {
             numEssence -= attackCost;
 
-            List<AttackTileSettings> attackPattern = ConvertPattern(_upDirectionATS, direction);
+            /*List<AttackTileSettings> attackPattern = ConvertPattern(_upDirectionATS, direction);
 
             List<Entity> enemiesInRange = new List<Entity>();
 
@@ -171,6 +197,15 @@ public class Player : Entity
                         }
                     }    
                 }
+            }*/
+            if(Inventory.instanceInventory.HasItem("Power Gloves"))
+            {
+                Debug.Log("USING GLOVE");
+                this.weapon.ApplyEffect(this, 1);
+            }
+            else
+            {
+                this.weapon.ApplyEffect(this, 0);
             }
 
             //for turn by turn
