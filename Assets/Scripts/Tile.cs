@@ -19,6 +19,12 @@ public class Tile : MonoBehaviour
 
     public Entity entityOnTile = null;
 
+    //for pathfinding A* algorithm
+    public int gCost;
+    public int hCost;
+    public int fCost;
+    public Tile cameFromTile;
+
     [SerializeField]
     public Tile topTile, rightTile, bottomTile, leftTile;
 
@@ -42,6 +48,21 @@ public class Tile : MonoBehaviour
         transform.position = transform.parent.transform.position + new Vector3(((float)tileX - floatMapWidth) - .5f, (float)tileY - floatMapHeight - 0.5f, 0);
 
         ChangeVisual();
+    }
+
+    public void CalculateFCost()
+    {
+        fCost = gCost + hCost;
+    }
+
+    public IEnumerator TurnColor(Color newColor, int step)
+    {
+        yield return new WaitForSeconds(step * 0.15f);
+        Color oldColor = tileColor;
+        //tile.GetComponent<SpriteRenderer>().color = new Color(1f, 0f, 0f, 0.3f);
+        GetComponent<SpriteRenderer>().color = newColor;
+        /*yield return new WaitForSeconds(0.5f);
+        GetComponent<SpriteRenderer>().color = oldColor;*/
     }
 
     public void ChangeVisual()

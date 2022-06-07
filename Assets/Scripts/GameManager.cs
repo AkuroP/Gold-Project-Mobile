@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     public int floor;
     public int room;
     public int actualDangerousness;
+    public int turnNumber;
 
     [SerializeField] private GameObject shopUIprefab;
     [SerializeField] private GameObject shopPrefab;
@@ -99,6 +100,7 @@ public class GameManager : MonoBehaviour
                 if(playingEntity.tag == "Player")
                 {
                     SwipeDetection.instanceSD.blockInputs = true;
+                    playingEntity.mobility = 0;
                 }
 
                 //next entity play
@@ -116,6 +118,7 @@ public class GameManager : MonoBehaviour
     {
         score++;
         room++;
+        turnNumber = 0;
 
         //floor change
         if(room % 11 == 0)
@@ -136,9 +139,6 @@ public class GameManager : MonoBehaviour
             actualDangerousness = 1 + (score / 20);
         }
 
-        //map generation
-        instanceGM.NewMap();
-
         //shop
         if (room == 6)
         {
@@ -153,8 +153,10 @@ public class GameManager : MonoBehaviour
         }
 
         //item update
-
         Inventory.instanceInventory.RefreshCooldown();
+
+        //map generation
+        instanceGM.NewMap();
     }
 
     public IEnumerator ChangeEntity()
@@ -176,10 +178,19 @@ public class GameManager : MonoBehaviour
         {
             if (playingEntity.tag == "Player")
             {
+                turnNumber++;
                 SwipeDetection.instanceSD.blockInputs = false;
                 if (playingEntity.invincibilityTurn > 0)
                 {
                     playingEntity.invincibilityTurn--;
+                }
+                if (Inventory.instanceInventory.HasItem("Speed Boots"))
+                {
+                    playingEntity.mobility++;
+                }
+                if (Inventory.instanceInventory.HasItem("Worn Speed Boots") && turnNumber % 3 == 0)
+                {
+                    playingEntity.mobility++;
                 }
             }
             playingEntity.myTurn = true;

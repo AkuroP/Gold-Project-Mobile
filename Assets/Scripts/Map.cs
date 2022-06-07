@@ -111,7 +111,7 @@ public class Map : MonoBehaviour
         foreach(Tile tile in enemySpawnTiles)
         {
             GameObject newEnemy = GameObject.Instantiate(Resources.Load("Prefabs/Enemy"), tile.transform.position, Quaternion.identity, this.gameObject.transform) as GameObject;
-            int random = Random.Range(0,2);
+            int random = Random.Range(0, 0);
             //Debug.Log("RANDOM : " + random);
             switch(random)
             {
@@ -126,6 +126,30 @@ public class Map : MonoBehaviour
                     newEnemy.GetComponent<EnemyTwo>().Init();
                     newEnemy.GetComponent<EnemyTwo>().currentMap = GetComponent<Map>();
                 break;
+
+                case 2:
+                    newEnemy.AddComponent<EnemyThree>();
+                    newEnemy.GetComponent<EnemyThree>().Init();
+                    newEnemy.GetComponent<EnemyThree>().currentMap = GetComponent<Map>();
+                    break;
+
+                case 3:
+                    newEnemy.AddComponent<EnemyFour>();
+                    newEnemy.GetComponent<EnemyFour>().Init();
+                    newEnemy.GetComponent<EnemyFour>().currentMap = GetComponent<Map>();
+                    break;
+
+                case 4:
+                    newEnemy.AddComponent<EnemyFive>();
+                    newEnemy.GetComponent<EnemyFive>().Init();
+                    newEnemy.GetComponent<EnemyFive>().currentMap = GetComponent<Map>();
+                    break;
+                
+                case 5:
+                    newEnemy.AddComponent<EnemySix>();
+                    newEnemy.GetComponent<EnemySix>().Init();
+                    newEnemy.GetComponent<EnemySix>().currentMap = GetComponent<Map>();
+                    break;
 
                 default:
                     newEnemy.AddComponent<EnemyTwo>();

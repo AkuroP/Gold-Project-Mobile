@@ -209,8 +209,15 @@ public class Player : Entity
             }
 
             //for turn by turn
+            if(mobility > 0)
+            {
+                mobility--;
+            }
+            else
+            {
+                hasPlay = true;
+            }
             hasAttack = true;
-            hasPlay = true;
         }
     }
 

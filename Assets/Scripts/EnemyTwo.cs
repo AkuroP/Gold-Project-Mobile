@@ -10,6 +10,7 @@ public class EnemyTwo : Enemy
     // Start is called before the first frame update
     void Start()
     {
+
     }
 
     public override void Init()
@@ -20,8 +21,8 @@ public class EnemyTwo : Enemy
         enemyDamage = 1;
         prio = Random.Range(1, 5);
         //InitAttackPattern();
-        maxCD = 0;
-        cd = 0;
+        moveCDMax = 0;
+        moveCDCurrent = 0;
         pattern1 = true;
 
         entitySr = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
@@ -57,14 +58,14 @@ public class EnemyTwo : Enemy
                 this.CheckStatus(this);
                 IsSelfDead();
             }
-            if(cd > 0)
+            if(moveCDCurrent > 0)
             {
-                cd--;
+                moveCDCurrent--;
             }
             else
             {
                 StartTurn();
-                cd = maxCD;
+                moveCDCurrent = moveCDMax;
             }
             hasPlay = true;
         }
@@ -81,9 +82,9 @@ public class EnemyTwo : Enemy
             moveInProgress = false;
             canMove = true;
             timeElapsed = 0;
-            
+
         }
-        
+
         if(isInitialize)
             IsSelfDead();
     }
@@ -92,8 +93,8 @@ public class EnemyTwo : Enemy
     {
         if(pattern1)
         {
-            dir = CheckAround(upDirectionATS1, true);
-                        
+            dir = CheckAround(upDirectionATS1, false);
+
             if(dir != Direction.NONE)
             {
                 direction = dir;
@@ -105,12 +106,12 @@ public class EnemyTwo : Enemy
                 direction = (Direction)random;
                 StartAttack(upDirectionATS1);
             }
-        
+
         }
         else
         {
             dir = CheckAround(upDirectionATS2, true);
-                        
+
             if(dir != Direction.NONE)
             {
                 direction = dir;
@@ -150,6 +151,6 @@ public class EnemyTwo : Enemy
             hasMove = true;
             hasAttack = true;
         }
-        
+
     }*/
 }

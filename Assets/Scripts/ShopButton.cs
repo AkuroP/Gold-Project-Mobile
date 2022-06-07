@@ -92,33 +92,48 @@ public class ShopButton : MonoBehaviour
                         hasBeenClicked = true;
                         break;
                 }
-                }
-                else if (Inventory.instanceInventory.itemInInventory >= Inventory.instanceInventory.maxItemNumber)
+            }
+            else if (Inventory.instanceInventory.itemInInventory >= Inventory.instanceInventory.maxItemNumber)
+            {
+                switch (item.itemName)
                 {
-                    for(int i = 0; i < shopButtons.Length; i++)
+                    case "Speed Boots":
+                        player.mobility++;
+                        break;
+                    case "Worn Speed Boots":
+                        player.mobility++;
+                        break;
+                }
+                for (int i = 0; i < shopButtons.Length; i++)
+                {
+                    inventoryButtons[i].GetComponent<ShopInventoryButton>().itemToAdd = item;
+                    shopButtons[i].interactable = false;
+                    closeButton.interactable = false;
+                    inventoryButtons[i].interactable = true;
+                    hasBeenClicked = true;
+                }
+            }
+            else
+            {
+                switch (item.itemName)
+                {
+                    case "Speed Boots":
+                        player.mobility++;
+                        break;
+                }
+                for (int i = 0; i < Inventory.instanceInventory.maxItemNumber; i++)
+                {
+                    if (Inventory.instanceInventory.items[i].itemName == "" && item.goesInInventory)
                     {
-                        inventoryButtons[i].GetComponent<ShopInventoryButton>().itemToAdd = item;
-                        shopButtons[i].interactable = false;
-                        closeButton.interactable = false;
-                        inventoryButtons[i].interactable = true;
+                        player.numEssence -= item.itemCost;
+                        Inventory.instanceInventory.items[i] = item;
+                        Inventory.instanceInventory.itemInInventory++;
+                        this.GetComponent<Button>().interactable = false;
                         hasBeenClicked = true;
+                        break;
                     }
                 }
-                else
-                {
-                    for (int i = 0; i < Inventory.instanceInventory.maxItemNumber; i++)
-                    {
-                        if (Inventory.instanceInventory.items[i].itemName == "" && item.goesInInventory)
-                        {
-                            player.numEssence -= item.itemCost;
-                            Inventory.instanceInventory.items[i] = item;
-                            Inventory.instanceInventory.itemInInventory++;
-                            this.GetComponent<Button>().interactable = false;
-                            hasBeenClicked = true;
-                            break;
-                        }
-                    }
-                }
+            }
         }
     }
 

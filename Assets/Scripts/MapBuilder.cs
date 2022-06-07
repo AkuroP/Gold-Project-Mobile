@@ -26,7 +26,7 @@ public class MapBuilder : MonoBehaviour
 
     void Start()
     {
-    
+
     }
 
     public Map CreateMap()
@@ -38,7 +38,7 @@ public class MapBuilder : MonoBehaviour
         return currentMapInstance.GetComponent<Map>();
     }
 
-    
+
 }
 
 
@@ -66,4 +66,3 @@ public class TileSettings
     public Color tileColor;
     public Sprite tileSprite;
 }
-
