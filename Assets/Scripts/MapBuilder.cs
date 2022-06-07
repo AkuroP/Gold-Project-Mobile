@@ -6,6 +6,8 @@ public class MapBuilder : MonoBehaviour
 {
     [Header("==== Map References ====")]
     public List<MapSettings> mapSettings = new List<MapSettings>();
+    public MapSettings mapSettingsBoss1 = new MapSettings();
+    public MapSettings mapSettingsBoss2 = new MapSettings();
 
     [Header("==== UI Button ====")]
     public bool enableMove;
@@ -47,6 +49,7 @@ public class MapSettings
 {
     public int mapWidth, mapHeight;
     public int entranceTileIndex, exitTileIndex;
+    public int mapDangerousness;
 
     public string mapName;
 
