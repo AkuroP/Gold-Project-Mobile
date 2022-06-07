@@ -180,9 +180,9 @@ public class Player : Entity
             }
             else
             {
-                hasAttack = true;
                 hasPlay = true;
             }
+            hasAttack = true;
         }
     }
 

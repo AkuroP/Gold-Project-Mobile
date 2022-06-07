@@ -100,6 +100,7 @@ public class GameManager : MonoBehaviour
                 if(playingEntity.tag == "Player")
                 {
                     SwipeDetection.instanceSD.blockInputs = true;
+                    playingEntity.mobility = 0;
                 }
 
                 //next entity play
