@@ -31,7 +31,7 @@ public class Player : Entity
         instanceGM = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
 
         currentPosition = transform.position;
-        weapon = new Weapon(WeaponType.HANDGUN, 1, 1);
+        weapon = new Weapon(WeaponType.DAGGER, 2, 1);
         hp = maxHP;
     }
 
@@ -198,15 +198,6 @@ public class Player : Entity
                     }    
                 }
             }*/
-            if(Inventory.instanceInventory.HasItem("Power Gloves"))
-            {
-                Debug.Log("USING GLOVE");
-                this.weapon.ApplyEffect(this, 1);
-            }
-            else
-            {
-                this.weapon.ApplyEffect(this, 0);
-            }
 
             //for turn by turn
             if(mobility > 0)
@@ -217,7 +208,19 @@ public class Player : Entity
             {
                 hasPlay = true;
             }
+            hasPlay = true;
             hasAttack = true;
+            if(Inventory.instanceInventory.HasItem("Power Gloves"))
+            {
+                Debug.Log("USING GLOVE");
+                this.weapon.ApplyEffect(this, 1);
+            }
+            else
+            {
+                this.weapon.ApplyEffect(this, 0);
+            }
+
+            
         }
     }
 

@@ -96,8 +96,7 @@ public class SwipeDetection : MonoBehaviour
             {
                 doubleClickTimer = 0f;
                 doubleClickTimerOn = false;
-                player.hasMove = true;
-                player.hasAttack = true;
+                player.hasPlay = true;
             }
         }
 

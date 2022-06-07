@@ -82,7 +82,9 @@ public class Weapon
                         }
                         if(this.weaponLevel >= 2)
                         {
-                            Debug.Log("BONUS TURN");
+                            Debug.Log("BONUS MOVE");
+                            _attacker.GetComponent<Player>().numEssence += 1;
+                            _attacker.GetComponent<Player>().hasPlay = false;
                         }
                     }
                 }

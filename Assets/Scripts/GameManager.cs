@@ -90,7 +90,7 @@ public class GameManager : MonoBehaviour
     {
         if(playingEntity != null)
         {
-            if(playingEntity.hasMove && playingEntity.hasAttack || playingEntity.hasPlay)
+            if(playingEntity.hasPlay)
             {
                 //reset entity who has played
                 playingEntity.myTurn = false;
