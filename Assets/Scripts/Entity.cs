@@ -150,9 +150,9 @@ public class Entity : MonoBehaviour
                     if (attackedTile == null || attackedTile.isWall) continue;
 
                     if (oneATS.offsetX > 0)
-                        attackedTile = currentMap.FindLeftTile(attackedTile);
-                    else if (oneATS.offsetX < 0)
                         attackedTile = currentMap.FindRightTile(attackedTile);
+                    else if (oneATS.offsetX < 0)
+                        attackedTile = currentMap.FindLeftTile(attackedTile);
                 }
 
                 for (int i = 0; i < Mathf.Abs(oneATS.offsetY); i++)
@@ -202,7 +202,7 @@ public class Entity : MonoBehaviour
                 }
                 break;
 
-            case Direction.LEFT:
+            case Direction.RIGHT:
                 foreach (AttackTileSettings ats in upDirectionATS)
                 {
                     int newOrder = ats.order;
@@ -214,7 +214,7 @@ public class Entity : MonoBehaviour
                 }
                 break;
 
-            case Direction.RIGHT:
+            case Direction.LEFT:
                 foreach (AttackTileSettings ats in upDirectionATS)
                 {
                     int newOrder = ats.order;

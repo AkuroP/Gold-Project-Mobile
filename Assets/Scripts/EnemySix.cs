@@ -92,6 +92,8 @@ public class EnemySix : Enemy
             {
                 //Debug.Log("in range");
                 chargeAttack = true;
+
+                direction = dir;
                 Debug.Log("charge start");
 
                 if (chargeAttackCurrent > 0)
@@ -105,7 +107,7 @@ public class EnemySix : Enemy
                     chargeAttack = false;
                     chargeAttackCurrent = chargeAttackRoundMax;
 
-                    direction = dir;
+                    
                     StartAttack(upDirectionATS);
                 }
             }
