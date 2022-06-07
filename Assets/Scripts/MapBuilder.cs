@@ -49,6 +49,7 @@ public class MapSettings
 {
     public int mapWidth, mapHeight;
     public int entranceTileIndex, exitTileIndex;
+    public int mapDangerousness;
 
     public string mapName;
 
