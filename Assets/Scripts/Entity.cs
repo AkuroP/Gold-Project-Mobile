@@ -236,6 +236,20 @@ public class Entity : MonoBehaviour
             }
         }
 
+        if(CompareTag("Player") && Inventory.instanceInventory.HasItem("Side Slash"))
+        {
+            if(direction == Direction.UP || direction == Direction.BOTTOM)
+            {
+                entityInPattern.Add(currentTile.leftTile.entityOnTile);
+                entityInPattern.Add(currentTile.rightTile.entityOnTile);
+            }
+            else
+            {
+                entityInPattern.Add(currentTile.topTile.entityOnTile);
+                entityInPattern.Add(currentTile.bottomTile.entityOnTile);
+            }
+        }
+
         return entityInPattern;
     }
 
