@@ -168,6 +168,15 @@ public class Entity : MonoBehaviour
         tile.GetComponent<SpriteRenderer>().color = oldColor;
     }
 
+    public IEnumerator ShowTile(Tile tile, float delay)
+    {
+        Color oldColor = tile.tileColor;
+        yield return new WaitForSeconds(delay * 0.25f);
+        tile.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 0f, 1f);
+        yield return new WaitForSeconds(0.25f);
+        tile.GetComponent<SpriteRenderer>().color = oldColor;
+    }
+
     //find ennemies in attack range
     public List<Entity> GetEntityInRange(List<AttackTileSettings> ats, bool _drawAttack = false)
     {
@@ -176,29 +185,39 @@ public class Entity : MonoBehaviour
         foreach (AttackTileSettings oneATS in ats)
         {
             Tile attackedTile = currentTile;
+
             if(Mathf.Abs(oneATS.offsetX) == Mathf.Abs(oneATS.offsetY))
             {
-                if(oneATS.offsetX > 0 && oneATS.offsetY > 0)
-                    attackedTile = currentMap.FindRightTopTile(attackedTile);
-                else if(oneATS.offsetX > 0 && oneATS.offsetY < 0)
-                    attackedTile = currentMap.FindRightBottomTile(attackedTile);
-                else if(oneATS.offsetX < 0 && oneATS.offsetY > 0)
-                    attackedTile = currentMap.FindLeftTopTile(attackedTile);
-                else if(oneATS.offsetX < 0 && oneATS.offsetY < 0)
-                    attackedTile = currentMap.FindLeftBottomTile(attackedTile);
+                for(int i = 0; i < Mathf.Abs(oneATS.offsetX); i++)
+                {
+                    if (attackedTile == null || attackedTile.isWall) continue;
+
+                    if (oneATS.offsetX > 0 && oneATS.offsetY > 0)
+                        attackedTile = currentMap.FindRightTopTile(attackedTile);
+                    else if (oneATS.offsetX > 0 && oneATS.offsetY < 0)
+                        attackedTile = currentMap.FindRightBottomTile(attackedTile);
+                    else if (oneATS.offsetX < 0 && oneATS.offsetY > 0)
+                        attackedTile = currentMap.FindLeftTopTile(attackedTile);
+                    else if (oneATS.offsetX < 0 && oneATS.offsetY < 0)
+                        attackedTile = currentMap.FindLeftBottomTile(attackedTile);
+                }
             }
             else
             {
                 for (int i = 0; i < Mathf.Abs(oneATS.offsetX); i++)
                 {
+                    if (attackedTile == null || attackedTile.isWall) continue;
+
                     if (oneATS.offsetX > 0)
-                        attackedTile = currentMap.FindLeftTile(attackedTile);
-                    else if (oneATS.offsetX < 0)
                         attackedTile = currentMap.FindRightTile(attackedTile);
+                    else if (oneATS.offsetX < 0)
+                        attackedTile = currentMap.FindLeftTile(attackedTile);
                 }
 
                 for (int i = 0; i < Mathf.Abs(oneATS.offsetY); i++)
                 {
+                    if(attackedTile == null || attackedTile.isWall) continue;
+
                     if (oneATS.offsetY > 0)
                         attackedTile = currentMap.FindTopTile(attackedTile);
                     else if (oneATS.offsetY < 0)
@@ -206,24 +225,15 @@ public class Entity : MonoBehaviour
                 }
             }
 
-            if (attackedTile != null)
+            if (attackedTile != null && !attackedTile.isWall)
             {
-                //stop attack when a wall is reached
-                if (attackedTile.isWall)
-                {
-                    return entityInPattern;
-                }
-
-                if(_drawAttack)
+                if (_drawAttack)
                     StartCoroutine(DrawAttack(attackedTile));
                 
                 if (attackedTile.entityOnTile)
                 {
                     entityInPattern.Add(attackedTile.entityOnTile);
                 }
-
-                return entityInPattern;
-
             }
         }
 
@@ -251,7 +261,7 @@ public class Entity : MonoBehaviour
                 }
                 break;
 
-            case Direction.LEFT:
+            case Direction.RIGHT:
                 foreach (AttackTileSettings ats in upDirectionATS)
                 {
                     int newOrder = ats.order;
@@ -263,7 +273,7 @@ public class Entity : MonoBehaviour
                 }
                 break;
 
-            case Direction.RIGHT:
+            case Direction.LEFT:
                 foreach (AttackTileSettings ats in upDirectionATS)
                 {
                     int newOrder = ats.order;
@@ -274,6 +284,18 @@ public class Entity : MonoBehaviour
                     newATS.Add(new AttackTileSettings(newOrder, newOffsetX, newOffsetY));
                 }
                 break;
+        }
+
+        return newATS;
+    }
+
+    public List<AttackTileSettings> ReversePattern(List<AttackTileSettings> ats)
+    {
+        List<AttackTileSettings> newATS = new List<AttackTileSettings>();
+
+        foreach (AttackTileSettings oneATS in ats)
+        {
+            newATS.Add(new AttackTileSettings(oneATS.order, -oneATS.offsetX, -oneATS.offsetY));
         }
 
         return newATS;
@@ -294,7 +316,7 @@ public class Entity : MonoBehaviour
         currentPosition = transform.position;
         targetPosition = _targetTile.transform.position;
         
-        Debug.Log(currentPosition + " / " + targetPosition);
+        //Debug.Log(currentPosition + " / " + targetPosition);
 
         if (currentTile.isHole == true && currentTile.isOpen == false)
         {
@@ -338,6 +360,34 @@ public class Entity : MonoBehaviour
             hasPlay = true;
         }
         canMove = false;
+    }  
+
+    public IEnumerator MoveWithDelay(Tile _targetTile, float _delay)
+    {
+        yield return new WaitForSeconds(_delay);
+
+        currentPosition = transform.position;
+        targetPosition = _targetTile.transform.position;
+
+        Debug.Log(_delay + " / " + currentPosition + " / " + targetPosition);
+
+        if (!_targetTile.isHole)
+        {
+            _targetTile.entityOnTile = currentTile.entityOnTile;
+            currentTile.entityOnTile = null;
+            currentTile = _targetTile;
+        }
+
+        moveInProgress = true;
+        canMove = false;
+    }
+    
+    public virtual void Move(List<Tile> _targetTileList)
+    {
+        for(int i = 0; i < _targetTileList.Count; i++)
+        {
+            StartCoroutine(MoveWithDelay(_targetTileList[i], moveDuration * i + 0.15f * i));
+        }
     }
 
     public virtual void FindNextTile()

@@ -8,7 +8,7 @@ public class EnemyOne : Enemy
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     public override void Init()
@@ -19,8 +19,8 @@ public class EnemyOne : Enemy
         enemyDamage = 1;
         prio = 1;
         //InitAttackPattern();
-        maxCD = 1;
-        cd = 0;
+        moveCDMax = 1;
+        moveCDCurrent = 0;
 
         entitySr = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
         entitySr.sprite = Resources.Load<Sprite>("Assets/Graphics/Enemies/TentaculeSolo");
@@ -44,14 +44,14 @@ public class EnemyOne : Enemy
             {
                 this.CheckStatus(this);
             }
-            if(cd > 0)
+            if(moveCDCurrent > 0)
             {
-                cd--;
+                moveCDCurrent--;
             }
             else
             {
                 StartTurn();
-                cd = maxCD;
+                moveCDCurrent = moveCDMax;
             }
             hasPlay = true;
         }
@@ -59,7 +59,7 @@ public class EnemyOne : Enemy
         //move process
         if (moveInProgress && !canMove && timeElapsed < moveDuration)
         {
-            Debug.Log("Move");
+            //Debug.Log("Move");
             transform.position = Vector3.Lerp(currentPosition, targetPosition, timeElapsed / moveDuration) - new Vector3(0, 0, 1);
             timeElapsed += Time.deltaTime;
         }
@@ -68,17 +68,17 @@ public class EnemyOne : Enemy
             moveInProgress = false;
             canMove = true;
             timeElapsed = 0;
-            
+
         }
-        
+
         if(isInitialize)
             IsSelfDead();
     }
 
     public override void StartTurn()
     {
-        dir = CheckAround(upDirectionATS, true);
-                    
+        dir = CheckAround(upDirectionATS, false);
+
         if(dir != Direction.NONE)
         {
             direction = dir;
@@ -86,15 +86,11 @@ public class EnemyOne : Enemy
         }
         else
         {
-            int random = Random.Range(0,4);
+            int random = Random.Range(0,3);
             direction = (Direction)random;
             StartAttack(upDirectionATS);
         }
-            
+
     }
-    
+
 }
-
-    
-
-
