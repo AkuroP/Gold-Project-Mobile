@@ -146,7 +146,7 @@ public class Entity : MonoBehaviour
             if (currentTile.isPike && !isOnThePike)
             {
                 this.hp--;
-                currentTile.GetComponent<SpriteRenderer>().color = new Color(0.5f, 0.5f, 0.5f, 1f);
+                currentTile.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/Tiles/TilemapsDark_Spritesheet_25");
                 isOnThePike = true;
             }
         }
@@ -390,11 +390,11 @@ public class Entity : MonoBehaviour
         {
             currentTile.isOpen = true;
             currentTile.entityOnTile = null;
-            currentTile.GetComponent<SpriteRenderer>().color = new Color(0.07f, 0.2f, 0.5f, 1f);
+            currentTile.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/Tiles/TilemapsDark_Spritesheet_14");
         }
         if (currentTile.isPike == true)
         {
-            currentTile.GetComponent<SpriteRenderer>().color = new Color(0.8f, 0.8f, 0.8f, 1f);
+            currentTile.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/Tiles/TilemapsDark_Spritesheet_24");
             isOnThePike = false;
         }
 
