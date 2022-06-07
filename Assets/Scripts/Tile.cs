@@ -80,9 +80,9 @@ public class Tile : MonoBehaviour
         {
             this.gameObject.GetComponent<SpriteRenderer>().sprite = tileSprite;
         }
-        if (upSprite != null && isWall)
+        if (upSprite != null)
         {
-            this.gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = upSprite;
+            this.gameObject.transform.Find("UpSprite").GetComponent<SpriteRenderer>().sprite = upSprite;
         }
     }
 
