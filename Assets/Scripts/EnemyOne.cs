@@ -73,7 +73,7 @@ public class EnemyOne : Enemy
 
     public override void StartTurn()
     {
-        dir = CheckAround(upDirectionATS, true);
+        dir = CheckAround(upDirectionATS, false);
                     
         if(dir != Direction.NONE)
         {
@@ -82,7 +82,7 @@ public class EnemyOne : Enemy
         }
         else
         {
-            int random = Random.Range(0,4);
+            int random = Random.Range(0,3);
             direction = (Direction)random;
             StartAttack(upDirectionATS);
         }

@@ -88,7 +88,7 @@ public class EnemyTwo : Enemy
     {
         if(pattern1)
         {
-            dir = CheckAround(upDirectionATS1, true);
+            dir = CheckAround(upDirectionATS1, false);
                         
             if(dir != Direction.NONE)
             {
