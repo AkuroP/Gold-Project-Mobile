@@ -47,6 +47,18 @@ public class Tile : MonoBehaviour
         isLight = _isLight;
 
         tileSprite = _tileSprite;
+        if (isReachable && !isPike && !isHole && !isWall)
+        {
+            tileSprite = Resources.Load<Sprite>("Assets/Tiles/TilemapsDark_Spritesheet_7");
+        }
+        else if (isReachable && isHole && !isWall && !isPike)
+        {
+            tileSprite = Resources.Load<Sprite>("Assets/Tiles/TilemapsDark_Spritesheet_26");
+        }
+        else if (isReachable && isPike && !isWall && !isHole)
+        {
+            tileSprite = Resources.Load<Sprite>("Assets/Tiles/TilemapsDark_Spritesheet_24");
+        }
         upSprite = _upSprite;
         tileColor = _tileColor;
 
@@ -75,14 +87,17 @@ public class Tile : MonoBehaviour
 
     public void ChangeVisual()
     {
-        this.gameObject.GetComponent<SpriteRenderer>().color = tileColor;
+        this.gameObject.GetComponent<SpriteRenderer>().color = new Color(1f,1f,1f,1f);
         if(tileSprite != null)
         {
             this.gameObject.GetComponent<SpriteRenderer>().sprite = tileSprite;
         }
-        if (upSprite != null && isWall)
         {
-            this.gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = upSprite;
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = tileSprite;
+        }
+        if (upSprite != null)
+        {
+            this.gameObject.transform.Find("UpSprite").GetComponent<SpriteRenderer>().sprite = upSprite;
         }
     }
 

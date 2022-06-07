@@ -1,0 +1,1234 @@
+fileFormatVersion: 2
+guid: 6fdc7f32ee14aa54fb53fec9b4a8953c
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 26
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: TilemapsDark_Spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 358
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1847f9bc36dd87e4f89e0529283149ce
+      internalID: -1458843833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilemapsDark_Spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 358
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 843b058832671ba42a28cb0ba3c93b35
+      internalID: 639277811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilemapsDark_Spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 358
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4af47abff923f344db8dcbf748f43d77
+      internalID: -976557490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilemapsDark_Spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 358
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 310fa450bc207764bb8e4924767ca3b5
+      internalID: 1621068844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilemapsDark_Spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 358
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41d0f0a562b527646af68997ba4af1f8
+      internalID: -910050361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilemapsDark_Spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 358
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ae4c2dd704448242aceae681f5c3e31
+      internalID: -1648264036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilemapsDark_Spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 358
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 610f437e5e59ed84a9c7a1d8f5f9282c
+      internalID: -1462291266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilemapsDark_Spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 332
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7a41067d697ef048ad0d9a0c881c22c
+      internalID: -619341389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilemapsDark_Spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 332
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0458464a8ec19745b3d290e1edff377
+      internalID: -1548051067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilemapsDark_Spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 332
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3f127a9fdd063e48aaf26e2df030360
+      internalID: -1887586759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilemapsDark_Spritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 332
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f09a3ebf2a4e16c45a64010361e4c137
+      internalID: -219674690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilemapsDark_Spritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 332
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9976a0b87f5cfd440b197dc3fd6b115d
+      internalID: -1735423315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilemapsDark_Spritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 332
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 106554c4fc51aa84b8f4fda66d32d1c5
+      internalID: 1800264907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilemapsDark_Spritesheet_13
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 332
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bcd8ac2a7342834ea8d679a452f2bcb
+      internalID: 2126952658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilemapsDark_Spritesheet_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 306
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d433b9be0ff8884294c8ff0d13967fa
+      internalID: 2049207356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilemapsDark_Spritesheet_15
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 306
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4818ad640f7075b42974f977bbaad58d
+      internalID: -1707964907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilemapsDark_Spritesheet_16
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 306
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9035dab1b546c544b8bfa31d87f82701
+      internalID: 231661889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilemapsDark_Spritesheet_17
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 306
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46dd9fa05f8e61d4994221545f7e1093
+      internalID: 2009131025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilemapsDark_Spritesheet_18
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 306
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 646bd7b0f59c9634e9e80e851b3aafed
+      internalID: -1199738986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilemapsDark_Spritesheet_19
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 306
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc0f22edd4d220f49a64e3cb0ec34924
+      internalID: -917327437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilemapsDark_Spritesheet_20
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 306
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6bdeba79b1618d41b77f81ebf18de3a
+      internalID: -1492977491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilemapsDark_Spritesheet_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 280
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e9a59b55471c634186268452f8dae98
+      internalID: -992897937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilemapsDark_Spritesheet_22
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 280
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6569ed453570504479b7c5baf5e3e24a
+      internalID: -1249369095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilemapsDark_Spritesheet_23
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 280
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2c8f9b671408fd41abfe11a071b2f21
+      internalID: 970747889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilemapsDark_Spritesheet_24
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 280
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 924b52ffd48b87844889179e57c47e5e
+      internalID: -319783623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilemapsDark_Spritesheet_25
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 280
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cb03dbc71f2c7549a32e3997da03133
+      internalID: -1891061728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilemapsDark_Spritesheet_26
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 280
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f47709a9a5ceeb34593fbd2d7fd582d4
+      internalID: -1800197337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilemapsDark_Spritesheet_27
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 254
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b7098e136489a0419778a8c6682a815
+      internalID: 1243031920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilemapsDark_Spritesheet_28
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 254
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0ca312311077524bb7ce83088181118
+      internalID: -863474603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilemapsDark_Spritesheet_29
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 254
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa26f615f966c114a8b5d29490c22243
+      internalID: 818764670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilemapsDark_Spritesheet_30
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 254
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9b754683817d0746ac97d026b74389e
+      internalID: -1046481228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilemapsDark_Spritesheet_31
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 254
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc89ce35b323f7c4085954b3034ccffa
+      internalID: -689277422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilemapsDark_Spritesheet_32
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 254
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2842a0bdb480aeb488d5080a89cfdbcd
+      internalID: -1885817975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilemapsDark_Spritesheet_33
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 254
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ccd130e661b70a4e91cd99a6a981bb9
+      internalID: 1430781875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilemapsDark_Spritesheet_34
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 228
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f2862a674d409540b126a5317eefea4
+      internalID: 226598215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilemapsDark_Spritesheet_35
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 228
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: caea002129c14b247887f90207ae0b2a
+      internalID: 509991277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilemapsDark_Spritesheet_36
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 228
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 655c991c92756a7408ce63c3d9012496
+      internalID: -1608128878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilemapsDark_Spritesheet_37
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 228
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d05f1dc700556a047b86938da12a2a89
+      internalID: -2047341152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilemapsDark_Spritesheet_38
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 228
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6554f2dc53b00a4692f1a0550096a33
+      internalID: 1849696286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilemapsDark_Spritesheet_39
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 228
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a3405bf91438864eb86188ef90c978a
+      internalID: -942193331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilemapsDark_Spritesheet_40
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 202
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb785c4f7f1fba745b0fa91b9500cbc6
+      internalID: 663246816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilemapsDark_Spritesheet_41
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 202
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8430450771dde784cad8ca4efedc2a0a
+      internalID: 490923388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilemapsDark_Spritesheet_42
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 202
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fbcffb29b31abb4698b81b3446be4aa
+      internalID: -1452295613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilemapsDark_Spritesheet_43
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 202
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 621329258815fe54cb6ba1ae036988db
+      internalID: 1294697050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilemapsDark_Spritesheet_44
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 176
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26290301f66ad704ba19480dab88d3a6
+      internalID: 1213333448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilemapsDark_Spritesheet_45
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 176
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b00513a44c7c65f4494ad0c75bd55cfb
+      internalID: -441305942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilemapsDark_Spritesheet_46
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 176
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 387639cc188c2d64cb98b23def19506f
+      internalID: 375667284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilemapsDark_Spritesheet_47
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 176
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a09f574dd45bb54e90f3abbbca99a61
+      internalID: -966115427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilemapsDark_Spritesheet_48
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 176
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60748caa717351a448a6fb13ca106b25
+      internalID: -353454431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilemapsDark_Spritesheet_49
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 176
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 379d09416ec619b4ab1eedb60adbc096
+      internalID: 703559995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      TilemapsDark_Spritesheet_35: 509991277
+      TilemapsDark_Spritesheet_34: 226598215
+      TilemapsDark_Spritesheet_40: 663246816
+      TilemapsDark_Spritesheet_39: -942193331
+      TilemapsDark_Spritesheet_24: -319783623
+      TilemapsDark_Spritesheet_33: 1430781875
+      TilemapsDark_Spritesheet_27: 1243031920
+      TilemapsDark_Spritesheet_7: -619341389
+      TilemapsDark_Spritesheet_49: 703559995
+      TilemapsDark_Spritesheet_15: -1707964907
+      TilemapsDark_Spritesheet_31: -689277422
+      TilemapsDark_Spritesheet_48: -353454431
+      TilemapsDark_Spritesheet_38: 1849696286
+      TilemapsDark_Spritesheet_2: -976557490
+      TilemapsDark_Spritesheet_9: -1887586759
+      TilemapsDark_Spritesheet_12: 1800264907
+      TilemapsDark_Spritesheet_6: -1462291266
+      TilemapsDark_Spritesheet_42: -1452295613
+      TilemapsDark_Spritesheet_0: -1458843833
+      TilemapsDark_Spritesheet_1: 639277811
+      TilemapsDark_Spritesheet_17: 2009131025
+      TilemapsDark_Spritesheet_26: -1800197337
+      TilemapsDark_Spritesheet_37: -2047341152
+      TilemapsDark_Spritesheet_8: -1548051067
+      TilemapsDark_Spritesheet_14: 2049207356
+      TilemapsDark_Spritesheet_20: -1492977491
+      TilemapsDark_Spritesheet_16: 231661889
+      TilemapsDark_Spritesheet_11: -1735423315
+      TilemapsDark_Spritesheet_21: -992897937
+      TilemapsDark_Spritesheet_13: 2126952658
+      TilemapsDark_Spritesheet_43: 1294697050
+      TilemapsDark_Spritesheet_46: 375667284
+      TilemapsDark_Spritesheet_28: -863474603
+      TilemapsDark_Spritesheet_18: -1199738986
+      TilemapsDark_Spritesheet_29: 818764670
+      TilemapsDark_Spritesheet_3: 1621068844
+      TilemapsDark_Spritesheet_41: 490923388
+      TilemapsDark_Spritesheet_10: -219674690
+      TilemapsDark_Spritesheet_4: -910050361
+      TilemapsDark_Spritesheet_22: -1249369095
+      TilemapsDark_Spritesheet_47: -966115427
+      TilemapsDark_Spritesheet_44: 1213333448
+      TilemapsDark_Spritesheet_36: -1608128878
+      TilemapsDark_Spritesheet_23: 970747889
+      TilemapsDark_Spritesheet_32: -1885817975
+      TilemapsDark_Spritesheet_45: -441305942
+      TilemapsDark_Spritesheet_5: -1648264036
+      TilemapsDark_Spritesheet_19: -917327437
+      TilemapsDark_Spritesheet_25: -1891061728
+      TilemapsDark_Spritesheet_30: -1046481228
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

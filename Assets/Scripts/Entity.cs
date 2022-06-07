@@ -143,7 +143,7 @@ public class Entity : MonoBehaviour
             if (currentTile.isPike && !isOnThePike)
             {
                 this.hp--;
-                currentTile.GetComponent<SpriteRenderer>().color = new Color(0.5f, 0.5f, 0.5f, 1f);
+                currentTile.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/Tiles/TilemapsDark_Spritesheet_25");
                 isOnThePike = true;
             }
         }
@@ -230,6 +230,20 @@ public class Entity : MonoBehaviour
                 {
                     entityInPattern.Add(attackedTile.entityOnTile);
                 }
+            }
+        }
+
+        if(CompareTag("Player") && Inventory.instanceInventory.HasItem("Side Slash"))
+        {
+            if(direction == Direction.UP || direction == Direction.BOTTOM)
+            {
+                entityInPattern.Add(currentTile.leftTile.entityOnTile);
+                entityInPattern.Add(currentTile.rightTile.entityOnTile);
+            }
+            else
+            {
+                entityInPattern.Add(currentTile.topTile.entityOnTile);
+                entityInPattern.Add(currentTile.bottomTile.entityOnTile);
             }
         }
 
@@ -373,11 +387,11 @@ public class Entity : MonoBehaviour
         {
             currentTile.isOpen = true;
             currentTile.entityOnTile = null;
-            currentTile.GetComponent<SpriteRenderer>().color = new Color(0.07f, 0.2f, 0.5f, 1f);
+            currentTile.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/Tiles/TilemapsDark_Spritesheet_14");
         }
         if (currentTile.isPike == true)
         {
-            currentTile.GetComponent<SpriteRenderer>().color = new Color(0.8f, 0.8f, 0.8f, 1f);
+            currentTile.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/Tiles/TilemapsDark_Spritesheet_24");
             isOnThePike = false;
         }
 
