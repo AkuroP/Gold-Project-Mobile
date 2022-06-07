@@ -42,13 +42,9 @@ public class Entity : MonoBehaviour
 
     public Direction direction;
 
-    //weapons enum and weapon equiped by the entity
-    [SerializeField] protected WeaponType weaponType;
-    [SerializeField] protected int weaponRange;
-
     //effects enum, effects on the weapon, effects on the entity
-    [SerializeField] protected WeaponEffect weaponEffect;
-    [SerializeField] protected WeaponEffect effectOnEntity;
+    //[SerializeField] protected WeaponEffect weaponEffect;
+    //[SerializeField] protected WeaponEffect effectOnEntity;
 
     public Vector3 targetPosition, currentPosition;
 
@@ -73,7 +69,7 @@ public class Entity : MonoBehaviour
 
     public List<Debuff> entityStatus = new List<Debuff>();
 
-    private bool hasCheckStatus = false;
+    public bool hasCheckStatus = false;
 
     // Start is called before the first frame update
     void Start()
@@ -87,10 +83,10 @@ public class Entity : MonoBehaviour
 
     }
 
-    public void AddDebuff(Debuff.Status _debuff, int _debuffCD)
+    public void ApplyDebuff(Debuff.Status _debuff, int _debuffCD)
     {
         Debuff newDebuff = new Debuff(_debuff, _debuffCD);
-        entityStatus.Add(newDebuff);
+
         if(_debuff == Debuff.Status.BLEED)
         {
             for(int i = 0; i < entityStatus.Count; i++)
@@ -98,10 +94,13 @@ public class Entity : MonoBehaviour
                 if(entityStatus[i].debuffStatus == Debuff.Status.BLEED)
                 {
                     entityStatus.Remove(newDebuff);
+                    Debug.Log("ALREADY BLEEDING");
                     break;
                 }
             }
         }
+        
+        this.entityStatus.Add(newDebuff);
     }
 
     public void CheckStatus(Entity _entity)
@@ -238,6 +237,62 @@ public class Entity : MonoBehaviour
         }
 
         return entityInPattern;
+    }
+
+    public List<Tile> GetTileInRange(List<AttackTileSettings> ats, bool _drawAttack = false)
+    {
+        List<Tile> allTile = new List<Tile>();
+        foreach (AttackTileSettings oneATS in ats)
+        {
+            Tile attackedTile = currentTile;
+            if(Mathf.Abs(oneATS.offsetX) == Mathf.Abs(oneATS.offsetY))
+            {
+                if(oneATS.offsetX > 0 && oneATS.offsetY > 0)
+                    attackedTile = currentMap.FindRightTopTile(attackedTile);
+                else if(oneATS.offsetX > 0 && oneATS.offsetY < 0)
+                    attackedTile = currentMap.FindRightBottomTile(attackedTile);
+                else if(oneATS.offsetX < 0 && oneATS.offsetY > 0)
+                    attackedTile = currentMap.FindLeftTopTile(attackedTile);
+                else if(oneATS.offsetX < 0 && oneATS.offsetY < 0)
+                    attackedTile = currentMap.FindLeftBottomTile(attackedTile);
+            }
+            else
+            {
+                for (int i = 0; i < Mathf.Abs(oneATS.offsetX); i++)
+                {
+                    if (oneATS.offsetX > 0)
+                        attackedTile = currentMap.FindLeftTile(attackedTile);
+                    else if (oneATS.offsetX < 0)
+                        attackedTile = currentMap.FindRightTile(attackedTile);
+                }
+
+                for (int i = 0; i < Mathf.Abs(oneATS.offsetY); i++)
+                {
+                    if (oneATS.offsetY > 0)
+                        attackedTile = currentMap.FindTopTile(attackedTile);
+                    else if (oneATS.offsetY < 0)
+                        attackedTile = currentMap.FindBottomTile(attackedTile);
+                }
+            }
+
+            if (attackedTile != null)
+            {
+                //stop attack when a wall is reached
+                if (attackedTile.isWall)
+                {
+                    return allTile;
+                }
+
+                if(_drawAttack)
+                    StartCoroutine(DrawAttack(attackedTile));
+                
+                allTile.Add(attackedTile);
+                return allTile;
+
+            }
+        }
+
+        return allTile;
     }
 
     public List<AttackTileSettings> ConvertPattern(List<AttackTileSettings> upDirectionATS, Direction entityDirection)

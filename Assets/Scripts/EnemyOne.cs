@@ -44,6 +44,9 @@ public class EnemyOne : Enemy
             {
                 this.CheckStatus(this);
             }
+            
+            CheckFire();
+
             if(moveCDCurrent > 0)
             {
                 moveCDCurrent--;
@@ -77,18 +80,21 @@ public class EnemyOne : Enemy
 
     public override void StartTurn()
     {
-        dir = CheckAround(upDirectionATS, false);
+        if(this.hp > 0)
+        {
+            dir = CheckAround(upDirectionATS, false);
 
-        if(dir != Direction.NONE)
-        {
-            direction = dir;
-            StartAttack(upDirectionATS);
-        }
-        else
-        {
-            int random = Random.Range(0,3);
-            direction = (Direction)random;
-            StartAttack(upDirectionATS);
+            if(dir != Direction.NONE)
+            {
+                direction = dir;
+                StartAttack(upDirectionATS);
+            }
+            else
+            {
+                int random = Random.Range(0,3);
+                direction = (Direction)random;
+                StartAttack(upDirectionATS);
+            }
         }
 
     }

@@ -130,9 +130,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21d8fc2439ac33340bbd91fd8ce46460, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  instanceGM: {fileID: 0}
   currentMap: {fileID: 0}
   currentTile: {fileID: 0}
+  lastNotHoleTile: {fileID: 0}
   maxHP: 3
   hp: 3
   prio: 0
@@ -140,10 +140,6 @@ MonoBehaviour:
   mobilityX: 0
   mobilityY: 0
   direction: 0
-  weaponType: 0
-  weaponRange: 0
-  weaponEffect: 0
-  effectOnEntity: 0
   targetPosition: {x: 0, y: 0, z: 0}
   currentPosition: {x: 0, y: 0, z: 0}
   canMove: 1
@@ -154,18 +150,25 @@ MonoBehaviour:
   myTurn: 0
   hasMove: 0
   hasAttack: 0
+  hasPlay: 0
   entitySr: {fileID: 743562048062131082}
+  entityStatus: []
+  hasCheckStatus: 0
   numEssence: 100
   attackCost: 3
   moveCost: 1
   attackNext: 0
   moveNext: 0
+  changingRoom: 0
   weaponDamage: 0
   weapon:
-    typeOfWeapon: 0
+    typeOfWeapon: 2
     weaponLevel: 0
     weaponDamage: 0
     upDirectionATS: []
+    bleedingCD: 0
+  tilesOnFire: []
+  cdFire: 0
 --- !u!114 &8518943215265667630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,6 +181,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c27acbff30d7144298bc870cdb4aa0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxItemNumber: 3
+  itemInInventory: 0
   items:
   - itemName: 
     itemDangerousness: 0
@@ -194,4 +199,3 @@ MonoBehaviour:
     itemCost: 0
     itemSprite: {fileID: 0}
     goesInInventory: 0
-  maxItemNumber: 3

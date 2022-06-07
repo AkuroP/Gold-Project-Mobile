@@ -97,10 +97,12 @@ public class GameManager : MonoBehaviour
                 playingEntity.hasMove = false;
                 playingEntity.hasAttack = false;
                 playingEntity.hasPlay = false;
+                playingEntity.hasCheckStatus = false;
                 if(playingEntity.tag == "Player")
                 {
                     SwipeDetection.instanceSD.blockInputs = true;
                     playingEntity.mobility = 0;
+                    playingEntity.GetComponent<Player>().cdFire = false;
                 }
 
                 //next entity play

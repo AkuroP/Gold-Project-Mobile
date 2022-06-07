@@ -58,6 +58,7 @@ public class EnemyTwo : Enemy
                 this.CheckStatus(this);
                 IsSelfDead();
             }
+            CheckFire();
             if(moveCDCurrent > 0)
             {
                 moveCDCurrent--;
@@ -91,7 +92,7 @@ public class EnemyTwo : Enemy
 
     public override void StartTurn()
     {
-        if(pattern1)
+        if(this.hp > 0)
         {
             dir = CheckAround(upDirectionATS1, false);
 
@@ -119,13 +120,23 @@ public class EnemyTwo : Enemy
             }
             else
             {
-                int random = Random.Range(0,4);
-                direction = (Direction)random;
-                StartAttack(upDirectionATS2);
+                dir = CheckAround(upDirectionATS2, true);
+                            
+                if(dir != Direction.NONE)
+                {
+                    direction = dir;
+                    StartAttack(upDirectionATS2);
+                }
+                else
+                {
+                    int random = Random.Range(0,4);
+                    direction = (Direction)random;
+                    StartAttack(upDirectionATS2);
+                }
             }
-        }
 
-        pattern1 = !pattern1;
+            pattern1 = !pattern1;
+        }
     }
 
     /*private void AttackParity()

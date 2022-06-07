@@ -6,14 +6,7 @@ public enum WeaponType
 {
     DAGGER,
     HANDGUN,
-    GRIMOIRE
-}
-
-public enum WeaponEffect 
-{
-    NONE, 
-    BURN, 
-    FREEZE 
+    GRIMOIRE,
 }
 
 [System.Serializable]
@@ -24,10 +17,14 @@ public class Weapon
     public int weaponDamage;
 
     public List<AttackTileSettings> upDirectionATS;
+    
+    public int bleedingCD;
 
-    public Weapon(WeaponType _weaponType)
+    public Weapon(WeaponType _weaponType, int _weaponLevel, int _weaponDamage)
     {
-        weaponDamage = 1;
+        weaponLevel = _weaponLevel;
+        weaponDamage = _weaponDamage;
+        typeOfWeapon = _weaponType;
 
         upDirectionATS = new List<AttackTileSettings>();
 
@@ -35,15 +32,26 @@ public class Weapon
         {
             case WeaponType.DAGGER:
                 upDirectionATS.Add(new AttackTileSettings(1, 0, 1));
-                break;
+            break;
+
             case WeaponType.HANDGUN:
                 upDirectionATS.Add(new AttackTileSettings(1, 0, 1));
                 upDirectionATS.Add(new AttackTileSettings(2, 0, 2));
+                if(weaponLevel >= 2)
+                {
+                    upDirectionATS.Add(new AttackTileSettings(3, 0, 3));
+                }
                 break;
+            
             case WeaponType.GRIMOIRE:
                 upDirectionATS.Add(new AttackTileSettings(1, 0, 1));
                 upDirectionATS.Add(new AttackTileSettings(1, -1, 1));
                 upDirectionATS.Add(new AttackTileSettings(1, 1, 1));
+                if(weaponLevel >= 1)
+                {
+                    upDirectionATS.Add(new AttackTileSettings(1, 0, -1));
+                }
+                Debug.Log("GRIMOIRE");
                 break;
             default:
                 upDirectionATS.Add(new AttackTileSettings(1, 0, 1));
@@ -54,42 +62,80 @@ public class Weapon
     
 
 
-    public void ApplyEffect()
+    public void ApplyEffect(Entity _attacker, int _bonusDamage)
     {
+        List<Entity> enemiesInRange = new List<Entity>();
+        enemiesInRange = _attacker.GetEntityInRange(_attacker.ConvertPattern(upDirectionATS, _attacker.direction), true);
+
         switch(this.typeOfWeapon)
         {
             case WeaponType.DAGGER:
-            Debug.Log("EFFECT DAGGER LVL 0");
-            if(this.weaponLevel >= 1)
-            {
-                Debug.Log("EFFECT DAGGER LVL 1");
-                if(this.weaponLevel >= 2)
+
+                for (int i = 0; i < enemiesInRange.Count; i++)
                 {
-                    Debug.Log("EFFECT DAGGER LVL 2");
+                    if (enemiesInRange[i] is Enemy)
+                    {
+                        _attacker.Damage(this.weaponDamage + _bonusDamage, enemiesInRange[i]);
+                        if(this.weaponLevel >= 1)
+                        {
+                            enemiesInRange[i].ApplyDebuff(Debuff.Status.BLEED, bleedingCD);
+                        }
+                        if(this.weaponLevel >= 2)
+                        {
+                            Debug.Log("BONUS TURN");
+                        }
+                    }
                 }
-            }
             break;
+            
+
             case WeaponType.HANDGUN:
-            Debug.Log("EFFECT HANDGUN LVL 0");
-            if(this.weaponLevel >= 1)
-            {
-                Debug.Log("EFFECT HANDGUN LVL 1");
-                if(this.weaponLevel >= 2)
+
+                for (int i = 0; i < enemiesInRange.Count; i++)
                 {
-                    Debug.Log("EFFECT HANDGUN LVL 2");
+                    if (enemiesInRange[i] is Enemy)
+                    {
+                        if(this.weaponLevel < 2)
+                        {
+                            _attacker.Damage(weaponDamage + _bonusDamage, enemiesInRange[0]);
+                            break;
+                        }
+                        else
+                        {
+                            _attacker.Damage(weaponDamage + _bonusDamage, enemiesInRange[i]);
+                        }
+                    }
                 }
-            }
+
             break;
+
             case WeaponType.GRIMOIRE:
-            Debug.Log("EFFECT GRIMOIRE LVL 0");
-            if(this.weaponLevel >= 1)
-            {
-                Debug.Log("EFFECT GRIMOIRE LVL 1");
-                if(this.weaponLevel >= 2)
+
+
+                for (int i = 0; i < enemiesInRange.Count; i++)
                 {
-                    Debug.Log("EFFECT GRIMOIRE LVL 2");
+                    if (enemiesInRange[i] is Enemy)
+                    {
+                        _attacker.Damage(weaponDamage + _bonusDamage, enemiesInRange[i]);
+                        Debug.Log("GRIMOIRE ATTACK !");
+                    }
                 }
-            }
+
+                List<Tile> tileOnFire = _attacker.GetTileInRange(_attacker.ConvertPattern(upDirectionATS, _attacker.direction), true);
+                for(int j = 0; j < tileOnFire.Count; j++)
+                {
+                    if(this.weaponLevel >= 2)
+                    {
+                        Debug.Log("FIRE !");
+                        if(tileOnFire[j].fireCD <= 0)
+                        {
+                            tileOnFire[j].fireCD = 1;
+                            _attacker.GetComponent<Player>().tilesOnFire.Add(tileOnFire[j]);
+                        }
+                    }
+
+                }
+
             break;
         }
     }
