@@ -29,6 +29,8 @@ public class Entity : MonoBehaviour
     [Header("==== Movement ====")]
     //mobility of entity per turn
     public int maxMobility;
+    //mobility with items
+    public int mobility = 0;
     //movement of entity in X and Y
     public int mobilityX;
     public int mobilityY;
@@ -326,8 +328,15 @@ public class Entity : MonoBehaviour
         }
 
         moveInProgress = true;
-        hasMove = true;
-        hasPlay = true;
+        if(mobility > 0)
+        {
+            mobility--;
+        }
+        else
+        {
+            hasMove = true;
+            hasPlay = true;
+        }
         canMove = false;
     }
 

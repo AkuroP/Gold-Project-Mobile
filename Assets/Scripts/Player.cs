@@ -174,8 +174,15 @@ public class Player : Entity
             }
 
             //for turn by turn
-            hasAttack = true;
-            hasPlay = true;
+            if(mobility > 0)
+            {
+                mobility--;
+            }
+            else
+            {
+                hasAttack = true;
+                hasPlay = true;
+            }
         }
     }
 

@@ -217,7 +217,14 @@ public class Enemy : Entity
             {
                 if (enemiesInRange[i] is Player)
                 {
-                    if (Inventory.instanceInventory.HasItem("Poison Fog") && Inventory.instanceInventory.HasItem("Invincibility") == false)
+
+                    //Item activated when the player is damaged
+                    if (Inventory.instanceInventory.HasItem("Invincibility"))
+                    {
+                        player.invincibilityTurn = 3;
+                        Inventory.instanceInventory.RemoveItem("Invincibility");
+                    }
+                    else if (Inventory.instanceInventory.HasItem("Poison Fog"))
                     {
                         Inventory.instanceInventory.RemoveItem("Poison Fog");
                         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
@@ -226,12 +233,17 @@ public class Enemy : Entity
                             enemy.GetComponent<Enemy>().hp--;
                         }
                     }
-                    else if (Inventory.instanceInventory.HasItem("Invincibility"))
+                    else if (Inventory.instanceInventory.HasItem("Freeze Time"))
                     {
-                        player.invincibilityTurn = 3;
-                        Inventory.instanceInventory.RemoveItem("Invincibility");
+                        Inventory.instanceInventory.RemoveItem("Freeze Time");
+                        player.mobility += 2;
+                        GameManager.instanceGM.indexPlayingEntity = GameManager.instanceGM.allEntities.Count - 1;
+                        player.myTurn = true;
                     }
+
                     Damage(enemyDamage, enemiesInRange[i]);
+
+                    //item that boosts the player when damages
                     if(Inventory.instanceInventory.HasItem("Counter Ring"))
                     {
                         player.damageMultiplicator = 2;
