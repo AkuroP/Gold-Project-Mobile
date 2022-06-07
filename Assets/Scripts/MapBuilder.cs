@@ -35,7 +35,8 @@ public class MapBuilder : MonoBehaviour
     {
         int randomIndex = Random.Range(3, mapSettings.Count);
         GameObject currentMapInstance = Instantiate(Resources.Load("Prefabs/MapHolder"), new Vector3(0, 0f, 0), Quaternion.identity) as GameObject;
-        currentMapInstance.GetComponent<Map>().Init(mapSettings[randomIndex]);
+        //currentMapInstance.GetComponent<Map>().Init(mapSettings[randomIndex]);
+        currentMapInstance.GetComponent<Map>().Init(mapSettingsBoss1);
         Debug.Log("Nom du niveau : " + mapSettings[randomIndex].mapName);
         return currentMapInstance.GetComponent<Map>();
     }

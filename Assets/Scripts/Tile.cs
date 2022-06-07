@@ -75,7 +75,7 @@ public class Tile : MonoBehaviour
 
     public void ChangeVisual()
     {
-        this.gameObject.GetComponent<SpriteRenderer>().color = tileColor;
+        this.gameObject.GetComponent<SpriteRenderer>().color = new Color(1f,1f,1f,1f);
         if(tileSprite != null)
         {
             this.gameObject.GetComponent<SpriteRenderer>().sprite = tileSprite;
