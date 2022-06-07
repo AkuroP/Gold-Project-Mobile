@@ -20,6 +20,8 @@ public class Tile : MonoBehaviour
     public bool isEnemySpawn = false;
     public bool isLight = false;
 
+    public int fireCD = 0;
+
     public Entity entityOnTile = null;
 
     //for pathfinding A* algorithm
@@ -82,6 +84,11 @@ public class Tile : MonoBehaviour
         {
             this.gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = upSprite;
         }
+    }
+
+    public void OnFire(int _fireCD)
+    {
+        fireCD = _fireCD;
     }
 
 }

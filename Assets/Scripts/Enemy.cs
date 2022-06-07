@@ -47,11 +47,23 @@ public class Enemy : Entity
         
     }
 
-    
+    public override void Move(Tile _targetTile)
+    {
+        base.Move(_targetTile);
+    }
 
     public virtual void StartTurn()
     {
         Debug.Log("START TURN");
+    }
+
+    public void CheckFire()
+    {
+        if(currentTile.fireCD > 0)
+        {
+            this.Damage(1, this);
+            currentTile.fireCD = 0;
+        }
     }
 
     public void IsSelfDead()
