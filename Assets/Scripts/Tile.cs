@@ -8,6 +8,8 @@ public class Tile : MonoBehaviour
     public int tileIndex;
     public int tileX, tileY;
 
+    public Sprite tileSprite;
+    public Sprite upSprite;
     public Color tileColor;
 
     public bool isReachable = true;
@@ -28,7 +30,7 @@ public class Tile : MonoBehaviour
     [SerializeField]
     public Tile topTile, rightTile, bottomTile, leftTile;
 
-    public void Init(int _tileIndex, int _tileX, int _tileY, bool _isReachable, bool _isWall, bool _isHole, bool _isPike, bool _isEnemySpawn, Color _tileColor)
+    public void Init(int _tileIndex, int _tileX, int _tileY, bool _isReachable, bool _isWall, bool _isHole, bool _isPike, bool _isEnemySpawn, Sprite _tileSprite, Sprite _upSprite, Color _tileColor)
     {
         tileIndex = _tileIndex;
         tileX = _tileX;
@@ -40,6 +42,8 @@ public class Tile : MonoBehaviour
         isPike = _isPike;
         isEnemySpawn = _isEnemySpawn;
 
+        tileSprite = _tileSprite;
+        upSprite = _upSprite;
         tileColor = _tileColor;
 
         //place self relatively to its parent
@@ -68,6 +72,14 @@ public class Tile : MonoBehaviour
     public void ChangeVisual()
     {
         this.gameObject.GetComponent<SpriteRenderer>().color = tileColor;
+        if(tileSprite != null)
+        {
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = tileSprite;
+        }
+        if (upSprite != null && isWall)
+        {
+            this.gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = upSprite;
+        }
     }
 
 }

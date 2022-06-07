@@ -68,4 +68,5 @@ public class TileSettings
 
     public Color tileColor;
     public Sprite tileSprite;
+    public Sprite upSprite;
 }
