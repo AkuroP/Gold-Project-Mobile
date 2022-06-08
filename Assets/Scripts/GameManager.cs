@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
     public int score;
     public int floor;
     public int room;
+    public int nextBoss;
+    public int numberOfBosses = 2;
     public int actualDangerousness;
     public int turnNumber;
 
@@ -63,7 +65,24 @@ public class GameManager : MonoBehaviour
             currentMap = null;
         }
 
-        currentMap = instanceMB.CreateMap();
+        if(room == 10)
+        {
+            currentMap = instanceMB.CreateMap(true, nextBoss);
+
+            if(nextBoss >= numberOfBosses)
+            {
+                nextBoss = 0;
+            }
+            else
+            {
+                nextBoss++;
+            }
+        }
+        else
+        {
+            currentMap = instanceMB.CreateMap();
+        }
+
         SetUpMapRound(currentMap);
     }
 

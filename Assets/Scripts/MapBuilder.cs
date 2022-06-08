@@ -31,13 +31,43 @@ public class MapBuilder : MonoBehaviour
 
     }
 
-    public Map CreateMap()
+    public Map CreateMap(bool isBoss = false, int bossNumber = 0)
     {
         int randomIndex = Random.Range(3, mapSettings.Count);
         GameObject currentMapInstance = Instantiate(Resources.Load("Prefabs/MapHolder"), new Vector3(0, 0f, 0), Quaternion.identity) as GameObject;
-        currentMapInstance.GetComponent<Map>().Init(mapSettings[randomIndex]);
-        //currentMapInstance.GetComponent<Map>().Init(mapSettingsBoss1);
-        Debug.Log("Nom du niveau : " + mapSettings[randomIndex].mapName);
+        MapSettings bossMapSettings = null;
+
+        if (isBoss)
+        {
+            switch (bossNumber)
+            {
+                case 0:
+                    bossMapSettings = mapSettingsBoss1;
+                    break;
+
+                case 1:
+                    bossMapSettings = mapSettingsBoss2;
+                    break;
+
+                default:
+                    bossMapSettings = mapSettingsBoss1;
+                    break;
+            }
+        }
+
+        if (isBoss)
+        {
+            currentMapInstance.GetComponent<Map>().Init(bossMapSettings, true, bossNumber, false);
+            Debug.Log("Nom du niveau : " + bossMapSettings.mapName);
+        }
+        else
+        {
+            currentMapInstance.GetComponent<Map>().Init(mapSettings[randomIndex]);
+            Debug.Log("Nom du niveau : " + mapSettings[randomIndex].mapName);
+        }
+
+        
+        
         return currentMapInstance.GetComponent<Map>();
     }
 

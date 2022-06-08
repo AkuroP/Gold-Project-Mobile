@@ -117,7 +117,7 @@ public class Player : Entity
                 }
             }
 
-            if (currentTile.tileIndex == currentMap.exitTileIndex && changingRoom == false)
+            if (currentTile.tileIndex == currentMap.exitTileIndex && changingRoom == false && currentMap.canExit)
             {
                 changingRoom = true;
                 StartCoroutine(GoToNextRoom());

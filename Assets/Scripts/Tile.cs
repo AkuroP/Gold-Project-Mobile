@@ -46,6 +46,8 @@ public class Tile : MonoBehaviour
         isEnemySpawn = _isEnemySpawn;
         isLight = _isLight;
 
+        tileColor = new Color(1f, 1f, 1f, 1f);
+
         tileSprite = _tileSprite;
         if (isReachable && !isPike && !isHole && !isWall)
         {
