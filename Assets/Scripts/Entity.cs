@@ -161,7 +161,7 @@ public class Entity : MonoBehaviour
         Color oldColor = tile.tileColor;
         tile.GetComponent<SpriteRenderer>().color = new Color(1f, 0f, 0f, 1f);
         yield return new WaitForSeconds(0.5f);
-        tile.GetComponent<SpriteRenderer>().color = oldColor;
+        tile.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f); ;
     }
 
     public IEnumerator ShowTile(Tile tile, float delay)
@@ -497,6 +497,7 @@ public class Entity : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         currentTile = lastNotHoleTile;
+        currentTile.entityOnTile = this.gameObject.GetComponent<Entity>();
         this.gameObject.transform.position = currentTile.gameObject.transform.position;
     }
 
