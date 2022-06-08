@@ -61,6 +61,7 @@ public class BossFrog : Boss
         neighbourTiles.Add(currentMap.tilesList[39]);
         neighbourTiles.Add(currentMap.tilesList[43]);
         neighbourTiles.Add(currentMap.tilesList[47]);
+        neighbourTiles.Add(currentMap.tilesList[50]);
         neighbourTiles.Add(currentMap.tilesList[54]);
         neighbourTiles.Add(currentMap.tilesList[57]);
         neighbourTiles.Add(currentMap.tilesList[61]);
@@ -137,12 +138,13 @@ public class BossFrog : Boss
     public void ThrowSpitPoisonAttack(int numberOfSpit)
     {
         List<Tile> tempTiles = new List<Tile>();
+        int timeBeforeImpact = 3;
 
         //target player if he is near but not attackable
         if (neighbourTiles.Contains(player.currentTile))
         {
-            Debug.Log("not accessible");
             tempTiles.Add(player.currentTile);
+            timeBeforeImpact = 2;
             numberOfSpit--;
         }
 
@@ -162,7 +164,7 @@ public class BossFrog : Boss
         //create new spit
         foreach(Tile oneTile in tempTiles)
         {
-                poisonSpitList.Add(new FrogPoisonSpit(3, oneTile));
+                poisonSpitList.Add(new FrogPoisonSpit(timeBeforeImpact, oneTile));
         }
     }
 
