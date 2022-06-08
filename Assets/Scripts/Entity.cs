@@ -31,9 +31,6 @@ public class Entity : MonoBehaviour
     public int maxMobility;
     //mobility with items
     public int mobility = 0;
-    //movement of entity in X and Y
-    public int mobilityX;
-    public int mobilityY;
 
     public int damage;
     public int damageMultiplicator = 1;

@@ -50,6 +50,11 @@ public class Map : MonoBehaviour
                 if(newTileSettings.isEnemySpawn)
                     enemySpawnTiles.Add(newTileInstance.GetComponent<Tile>());
 
+                if(tileIndex == exitTileIndex)
+                {
+                    newTileInstance.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/Tiles/TilemapsDark_Spritesheet_23");
+                }
+
                 tilesList.Add(newTileInstance.GetComponent<Tile>());
                 tileIndex++;
             }
