@@ -4,21 +4,25 @@ using UnityEngine;
 
 public class BossFrog : Boss
 {
+    public List<Tile> neighbourTiles = new List<Tile>();
+
     [Header("==== Spit Poison Attack ====")]
     public List<FrogPoisonSpit> poisonSpitList = new List<FrogPoisonSpit>();
+    public int poisonSpitCD = 0;
     private int poisonSpitDamage = 1;
-
 
     [Header("==== Tongue Attack ====")]
     public List<Tile> tongueAttackZone = new List<Tile>();
-    private bool tongueAttackInProgress = false;
-    private int tongueAttackCD = 1;
+    public bool tongueAttackInProgress = false;
+    public int tongueAttackCD = 1;
     private int tongueDamage = 1;
 
 
     // Update is called once per frame
     void Update()
     {
+        if (hp <= 0)
+            BossDeath();
 
         if (myTurn)
         {
@@ -31,11 +35,11 @@ public class BossFrog : Boss
     public override void Init()
     {
         player = GameObject.FindWithTag("Player").GetComponent<Player>();
-        maxHP = 1;
+        maxHP = 3;
         hp = maxHP;
         enemyDamage = 1;
         prio = Random.Range(1, 5);
-        moveCDMax = 1;
+        moveCDMax = 0;
         moveCDCurrent = 0;
 
         entitySr = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
@@ -51,37 +55,53 @@ public class BossFrog : Boss
         //tongue Attack
         tongueAttackZone.Add(currentMap.tilesList[31]);
         tongueAttackZone.Add(currentMap.tilesList[38]);
+
+        //neighbour Tiles
+        neighbourTiles.Add(currentMap.tilesList[37]);
+        neighbourTiles.Add(currentMap.tilesList[39]);
+        neighbourTiles.Add(currentMap.tilesList[43]);
+        neighbourTiles.Add(currentMap.tilesList[47]);
+        neighbourTiles.Add(currentMap.tilesList[54]);
+        neighbourTiles.Add(currentMap.tilesList[57]);
+        neighbourTiles.Add(currentMap.tilesList[61]);
+        neighbourTiles.Add(currentMap.tilesList[65]);
+        neighbourTiles.Add(currentMap.tilesList[66]);
+        neighbourTiles.Add(currentMap.tilesList[67]);
     }
 
     public override void StartTurn()
     {
-        Debug.Log("Frog Turn");
-
         if(!tongueAttackInProgress)
-        {
             tongueAttackInProgress = CheckInTongueRange();
 
-            if (tongueAttackInProgress)
+        if(tongueAttackInProgress)
+        {
+            if(tongueAttackCD > 0)
             {
+                Debug.Log("charge");
                 tongueAttackCD--;
             }
             else
             {
-                //keep going
-                ThrowSpitPoisonAttack(6);
+                Debug.Log("attaque");
+                StartAttackTongue();
+                tongueAttackCD = 1;
+                tongueAttackInProgress = false;
+
+                poisonSpitCD = 0;
             }
         }
         else
         {
-            if (tongueAttackCD > 0)
+            if(poisonSpitCD > 0)
             {
-                tongueAttackCD--;
+                poisonSpitCD--;
             }
             else
             {
-                tongueAttackCD = 1;
-                tongueAttackInProgress = false;
-                StartAttackTongue();
+                Debug.Log("throw");
+                ThrowSpitPoisonAttack(6);
+                poisonSpitCD = 1;
             }
         }
 
@@ -118,12 +138,20 @@ public class BossFrog : Boss
     {
         List<Tile> tempTiles = new List<Tile>();
 
+        //target player if he is near but not attackable
+        if (neighbourTiles.Contains(player.currentTile))
+        {
+            Debug.Log("not accessible");
+            tempTiles.Add(player.currentTile);
+            numberOfSpit--;
+        }
+
         //find random tiles
         for(int i = 0; i < numberOfSpit; i++)
         {
             Tile impactTile = currentMap.ReturnRandomTile();
 
-            while(impactTile.isWall || tempTiles.Contains(impactTile))
+            while(impactTile.isWall || tempTiles.Contains(impactTile) || impactTile.entityOnTile is Boss)
             {
                 impactTile = currentMap.ReturnRandomTile();
             }
@@ -134,7 +162,6 @@ public class BossFrog : Boss
         //create new spit
         foreach(Tile oneTile in tempTiles)
         {
-            if(poisonSpitList.Count < 20)
                 poisonSpitList.Add(new FrogPoisonSpit(3, oneTile));
         }
     }
@@ -184,3 +211,74 @@ public class FrogPoisonSpit
         targetTile = _targetTile;
     }
 }
+
+
+
+
+
+/*public override void StartTurn()
+{
+    Debug.Log("Frog Turn");
+
+    if (moveCDCurrent > 0)
+    {
+        if (tongueAttackInProgress)
+        {
+            if (tongueAttackCD > 0)
+            {
+                tongueAttackCD--;
+            }
+            else
+            {
+                tongueAttackCD = 1;
+                tongueAttackInProgress = false;
+                Debug.Log("attack");
+                StartAttackTongue();
+            }
+        }
+        else
+        {
+            moveCDCurrent--;
+        }
+    }
+    else
+    {
+        if (!tongueAttackInProgress)
+        {
+            tongueAttackInProgress = CheckInTongueRange();
+
+            if (tongueAttackInProgress)
+            {
+                tongueAttackCD--;
+            }
+            else
+            {
+                //keep going
+                Debug.Log("throw");
+                ThrowSpitPoisonAttack(6);
+            }
+
+            moveCDCurrent = moveCDMax;
+        }
+        else
+        {
+            if (tongueAttackCD > 0)
+            {
+                tongueAttackCD--;
+                moveCDCurrent = moveCDMax;
+            }
+            else
+            {
+                tongueAttackCD = 1;
+                tongueAttackInProgress = false;
+                Debug.Log("attack");
+                StartAttackTongue();
+                moveCDCurrent = 0;
+            }
+        }
+
+
+    }
+
+    UpdatePoisonSpitFalls();
+}*/

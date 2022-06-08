@@ -15,4 +15,10 @@ public class Boss : Enemy
     {
         
     }
+
+    public void BossDeath()
+    {
+        currentMap.canExit = true;
+        Destroy(this.gameObject);
+    }
 }

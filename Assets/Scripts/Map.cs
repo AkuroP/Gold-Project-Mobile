@@ -22,9 +22,9 @@ public class Map : MonoBehaviour
     [SerializeField]
     private List<Tile> enemySpawnTiles = new List<Tile>();
     public int entranceTileIndex, exitTileIndex;
-    
+    public bool canExit = true;
 
-    public void Init(MapSettings _mapSettings, bool _spawnBoss = false, int _bossNumber = 0)
+    public void Init(MapSettings _mapSettings, bool _spawnBoss = false, int _bossNumber = 0, bool _canExit = true)
     {
         mapOrigin = this.gameObject;
 
@@ -34,6 +34,8 @@ public class Map : MonoBehaviour
 
         entranceTileIndex = _mapSettings.entranceTileIndex;
         exitTileIndex = _mapSettings.exitTileIndex;
+
+        canExit = _canExit;
 
         int tileIndex = 0;
         for (int i = 0; i < mapHeight; i++)

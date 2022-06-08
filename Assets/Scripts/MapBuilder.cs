@@ -57,7 +57,7 @@ public class MapBuilder : MonoBehaviour
 
         if (isBoss)
         {
-            currentMapInstance.GetComponent<Map>().Init(bossMapSettings, true, bossNumber);
+            currentMapInstance.GetComponent<Map>().Init(bossMapSettings, true, bossNumber, false);
             Debug.Log("Nom du niveau : " + bossMapSettings.mapName);
         }
         else
