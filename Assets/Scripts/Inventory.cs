@@ -12,6 +12,7 @@ public class Inventory : MonoBehaviour
 
     //Mystery Box
     public bool mysteryBoxInShop = false;
+    public bool mysteryBoxOpened = false;
     public int mysteryBoxDangerousness = 0;
 
     //Bonus Heart

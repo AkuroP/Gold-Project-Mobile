@@ -112,7 +112,7 @@ public class ShopInGame : MonoBehaviour
                 Dplus2Items.Add(item);
             }
         }
-        if (Inventory.instanceInventory.mysteryBoxInShop == false)
+        if (Inventory.instanceInventory.mysteryBoxInShop == false && !Inventory.instanceInventory.mysteryBoxOpened)
         {
             availableItems.Add(mysteryBox);
         }

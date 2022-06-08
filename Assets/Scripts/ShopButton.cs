@@ -46,20 +46,23 @@ public class ShopButton : MonoBehaviour
                         if (player.hp < player.maxHP)
                         {
                             player.hp++;
+                            player.numEssence -= item.itemCost;
                             hasBeenClicked = true;
                         }
                         break;
                     case "Bonus Heart":
                         player.maxHP++;
                         player.hp++;
+                        player.numEssence -= item.itemCost;
                         hasBeenClicked = true;
                         Inventory.instanceInventory.hasBonusHeart = true;
                         break;
                     case "Mystery Box":
-                        if (Inventory.instanceInventory.mysteryBoxInShop == false)
+                        if (Inventory.instanceInventory.mysteryBoxInShop == false && player.hp > 1)
                         {
                             Inventory.instanceInventory.mysteryBoxInShop = true;
                             Inventory.instanceInventory.mysteryBoxDangerousness = 0;
+                            player.hp--;
                         }
                         else
                         {
@@ -143,12 +146,13 @@ public class ShopButton : MonoBehaviour
         while (hasFindItem == false)
         {
             int random = Random.Range(0, shopInGame.allItems.Count);
-            if (shopInGame.allItems[random].itemDangerousness == Inventory.instanceInventory.mysteryBoxDangerousness)
+            if (shopInGame.allItems[random].itemDangerousness == Inventory.instanceInventory.mysteryBoxDangerousness && shopInGame.allItems[random].itemName != "Bonus Heart" && shopInGame.allItems[random].itemName != "Heart Regeneration")
             {
                 hasFindItem = true;
                 this.item = shopInGame.allItems[random];
             }
         }
+        Inventory.instanceInventory.mysteryBoxInShop = false;
+        Inventory.instanceInventory.mysteryBoxOpened = true;
     }
-
 }
