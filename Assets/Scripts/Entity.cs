@@ -170,7 +170,7 @@ public class Entity : MonoBehaviour
         yield return new WaitForSeconds(delay * 0.25f);
         tile.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 0f, 1f);
         yield return new WaitForSeconds(0.25f);
-        tile.GetComponent<SpriteRenderer>().color = oldColor;
+        tile.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f); ;
     }
 
     //find ennemies in attack range
@@ -386,7 +386,6 @@ public class Entity : MonoBehaviour
         if (currentTile.isHole == true && currentTile.isOpen == false)
         {
             currentTile.isOpen = true;
-            currentTile.entityOnTile = null;
             currentTile.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/Tiles/TilemapsDark_Spritesheet_14");
         }
         if (currentTile.isPike == true)

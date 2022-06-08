@@ -8,6 +8,7 @@ public class MapBuilder : MonoBehaviour
     public List<MapSettings> mapSettings = new List<MapSettings>();
     public MapSettings mapSettingsBoss1 = new MapSettings();
     public MapSettings mapSettingsBoss2 = new MapSettings();
+    public MapSettings bossMapSettings = null;
 
     [Header("==== UI Button ====")]
     public bool enableMove;
@@ -35,7 +36,6 @@ public class MapBuilder : MonoBehaviour
     {
         int randomIndex = Random.Range(3, mapSettings.Count);
         GameObject currentMapInstance = Instantiate(Resources.Load("Prefabs/MapHolder"), new Vector3(0, 0f, 0), Quaternion.identity) as GameObject;
-        MapSettings bossMapSettings = null;
 
         if (isBoss)
         {

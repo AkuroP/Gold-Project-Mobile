@@ -96,7 +96,7 @@ public class Player : Entity
 
             if (currentTile.isPike && !isOnThePike)
             {
-                currentTile.GetComponent<SpriteRenderer>().color = new Color(0.5f, 0.5f, 0.5f, 1f);
+                currentTile.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/Tiles/TilemapsDark_Spritesheet_25");
                 isOnThePike = true;
                 if (Inventory.instanceInventory.HasItem("Trap Protector") == true)
                 {
@@ -247,6 +247,11 @@ public class Player : Entity
     {
         UI.instanceUI.Fade();
         yield return new WaitForSeconds(0.5f);
+        GameObject darkMatter = GameObject.FindWithTag("DarkMatter");
+        if(darkMatter != null)
+        {
+            Destroy(darkMatter);
+        }
         GameManager.instanceGM.UpdateScoreAndMap();
         changingRoom = false;
     }
