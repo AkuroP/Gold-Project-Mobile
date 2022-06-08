@@ -43,7 +43,7 @@ public class BossFrog : Boss
         moveCDCurrent = 0;
 
         entitySr = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
-        entitySr.sprite = Resources.Load<Sprite>("Assets/Graphics/Enemies/Boss");
+        entitySr.sprite = Resources.Load<Sprite>("Assets/Graphics/Enemies/Crapo");
 
         AssignPattern();
 
