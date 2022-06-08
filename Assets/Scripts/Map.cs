@@ -24,7 +24,7 @@ public class Map : MonoBehaviour
     public int entranceTileIndex, exitTileIndex;
     
 
-    public void Init(MapSettings _mapSettings)
+    public void Init(MapSettings _mapSettings, bool _spawnBoss = false, int _bossNumber = 0)
     {
         mapOrigin = this.gameObject;
 
@@ -50,9 +50,13 @@ public class Map : MonoBehaviour
                 if(newTileSettings.isEnemySpawn)
                     enemySpawnTiles.Add(newTileInstance.GetComponent<Tile>());
 
-                if(tileIndex == exitTileIndex)
+                if(tileIndex == exitTileIndex && !_spawnBoss)
                 {
                     newTileInstance.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/Tiles/TilemapsDark_Spritesheet_23");
+                }
+                else if (tileIndex == exitTileIndex && _spawnBoss)
+                {
+                    newTileInstance.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/Tiles/TilemapsDark_Spritesheet_7");
                 }
 
                 tilesList.Add(newTileInstance.GetComponent<Tile>());
@@ -97,11 +101,31 @@ public class Map : MonoBehaviour
             oneTile.leftTile = tempLT;
         }
 
-        SpawnEntities();
+        
+
+        if(_spawnBoss)
+        {
+            switch (_bossNumber)
+            {
+                case 0:
+                    SpawnPlayer();
+                    SpawnFrog();
+                    break;
+
+                case 1:
+                    SpawnPlayer();
+                    SpawnSolar();
+                    break;
+            }
+        }
+        else
+        {
+            SpawnPlayer();
+            SpawnEntities();
+        }
     }
 
-
-    public void SpawnEntities()
+    public void SpawnPlayer()
     {
         //instantiate and spawn player
         player = GameObject.FindWithTag("Player").GetComponent<Player>();
@@ -111,13 +135,16 @@ public class Map : MonoBehaviour
         player.currentMap = GetComponent<Map>();
         player.currentTile = tilesList[entranceTileIndex];
         tilesList[entranceTileIndex].entityOnTile = player;
+    }
 
+    public void SpawnEntities()
+    {
         //instantiate and spawn ennemies
         foreach(Tile tile in enemySpawnTiles)
         {
             GameObject newEnemy = GameObject.Instantiate(Resources.Load("Prefabs/Enemy"), tile.transform.position, Quaternion.identity, this.gameObject.transform) as GameObject;
             int random = Random.Range(0, 0);
-            //Debug.Log("RANDOM : " + random);
+
             switch(random)
             {
                 case 0:
@@ -170,6 +197,44 @@ public class Map : MonoBehaviour
         }
     }
 
+    public void SpawnFrog()
+    {
+        Tile tile = enemySpawnTiles[0];
+        GameObject newEnemy = GameObject.Instantiate(Resources.Load("Prefabs/Enemy"), tile.transform.position, Quaternion.identity, this.gameObject.transform) as GameObject;
+
+        newEnemy.AddComponent<BossFrog>();
+        newEnemy.GetComponent<BossFrog>().currentMap = GetComponent<Map>();
+        newEnemy.GetComponent<BossFrog>().Init();
+
+        newEnemy.GetComponent<Enemy>().currentTile = tile;
+        tile.entityOnTile = newEnemy.GetComponent<Enemy>();
+
+        //Frog is 3x3 so fill the tiles around
+        if (tile.topTile != null)
+            tile.topTile.entityOnTile = newEnemy.GetComponent<Enemy>();
+        if (tile.rightTile != null)
+            tile.rightTile.entityOnTile = newEnemy.GetComponent<Enemy>();
+        if (tile.bottomTile != null)
+            tile.bottomTile.entityOnTile = newEnemy.GetComponent<Enemy>();
+        if (tile.leftTile != null)
+            tile.leftTile.entityOnTile = newEnemy.GetComponent<Enemy>();
+
+        if (FindRightTopTile(tile) != null)
+            FindRightTopTile(tile).entityOnTile = newEnemy.GetComponent<Enemy>();
+        if (FindRightBottomTile(tile) != null)
+            FindRightBottomTile(tile).entityOnTile = newEnemy.GetComponent<Enemy>();
+        if (FindLeftTopTile(tile) != null)
+            FindLeftTopTile(tile).entityOnTile = newEnemy.GetComponent<Enemy>();
+        if (FindLeftBottomTile(tile) != null)
+            FindLeftBottomTile(tile).entityOnTile = newEnemy.GetComponent<Enemy>();
+
+        entities.Add(newEnemy.GetComponent<Enemy>());
+    }
+
+    public void SpawnSolar()
+    {
+
+    }
 
     public Tile FindTopTile(Tile currentTile)
     {
@@ -233,6 +298,11 @@ public class Map : MonoBehaviour
             int index = currentTile.tileIndex - mapWidth + 1;
             return tilesList[index];
         }
+    }
+
+    public Tile ReturnRandomTile()
+    {
+        return tilesList[Random.Range(0, mapHeight * mapWidth - 1)];
     }
 
     public bool CheckMove(Tile nextTile)
