@@ -14,7 +14,7 @@ public class Item : MonoBehaviour
     [SerializeField] private bool isMaxed;
     [SerializeField] private int maxUpgrade = 2;
 
-    private bool hasBuyDagger = false;
+    private bool hasBuyDagger = true;
     private bool hasBuyHandgun = false;
     private bool hasBuyGrimoire = false;
 
@@ -24,7 +24,6 @@ public class Item : MonoBehaviour
     {
         player = GameObject.FindWithTag("Player").GetComponent<Player>();
         UpdateWeapon(this.name);
-        
     }
 
     public void BuyWeapon(string _weaponName)
@@ -53,6 +52,7 @@ public class Item : MonoBehaviour
                     GameManager.instanceGM.gold -= itemPrice;
                     player.weapon = new Weapon(WeaponType.HANDGUN, 0, 1);
                     hasBuyHandgun = true;
+                    AchievementManager.instanceAM.UpdateHandgunPurchase();
                 }
                 else
                 {
@@ -69,6 +69,7 @@ public class Item : MonoBehaviour
                     GameManager.instanceGM.gold -= itemPrice;
                     player.weapon = new Weapon(WeaponType.GRIMOIRE, 0, 1);
                     hasBuyGrimoire = true;
+                    AchievementManager.instanceAM.UpdateGrimoirePurchase();
                 }
                 else
                 {
@@ -88,6 +89,10 @@ public class Item : MonoBehaviour
         {
             Debug.Log("YOU ARE POOR :(");
         }
+        if (hasBuyDagger && hasBuyGrimoire && hasBuyHandgun)
+        {
+            AchievementManager.instanceAM.UpdateallWeaponPurchased();
+        }
     }
 
     private void UpgradeWeapon(WeaponType _weaponType)
@@ -99,6 +104,7 @@ public class Item : MonoBehaviour
                 Debug.Log(_weaponType.ToString() + " UPGRADED TO LVL " + (player.weapon.weaponLevel + 1));
                 player.weapon = new Weapon(_weaponType, player.weapon.weaponLevel + 1, 1);
                 GameManager.instanceGM.gold -= (this.itemPrice * (player.weapon.weaponLevel + 2));
+                AchievementManager.instanceAM.UpdateRunesPurchased();
             }
             else
             {
@@ -177,6 +183,18 @@ public class Item : MonoBehaviour
         {
             weaponUp.text = "MAXED";
             this.isMaxed = true;
+            switch (_weaponName)
+            {
+                case "DAGGER":
+                    AchievementManager.instanceAM.UpdateAllDaggerRunesPurchased();
+                    break;
+                case "HANDGUN":
+                    AchievementManager.instanceAM.UpdateAllHandgunRunesPurchased();
+                    break;
+                case "GRIMOIRE":
+                    AchievementManager.instanceAM.UpdateAllGrimoireRunesPurchased();
+                    break;
+            }
         }
     }
 }

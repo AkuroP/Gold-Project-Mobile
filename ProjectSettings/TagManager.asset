@@ -11,6 +11,7 @@ TagManager:
   - ShopSlot
   - Canvas
   - DarkMatter
+  - AchievementManager
   layers:
   - Default
   - TransparentFX

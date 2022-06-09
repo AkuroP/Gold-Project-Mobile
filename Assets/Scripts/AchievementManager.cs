@@ -17,7 +17,6 @@ public class AchievementManager : MonoBehaviour
     public int bossKilled;
     public int trapsActivated;
     public int itemsPurchased;
-    public int weaponNumber;
     public int runesPurchased;
 
     public int enemiesKilledWithDagger;
@@ -30,6 +29,9 @@ public class AchievementManager : MonoBehaviour
 
     public int enemiesKilledWithGrimory;
     public int bossKilledWithGrimory;
+
+    public bool hasPurchasedHandgun;
+    public bool hasPurchasedGrimoire;
 
     public static AchievementManager instanceAM;
 
@@ -256,6 +258,56 @@ public class AchievementManager : MonoBehaviour
         if (bossKilledWithGrimory >= 5)
         {
             Social.ReportProgress(GPGSIds.achievement_hope_you_didnt_burn_anything_expensive, 100.0f, null);
+        }
+    }
+
+    public void UpdateHandgunPurchase()
+    {
+        Social.ReportProgress(GPGSIds.achievement_the_good_the_bad_and_the_abyss, 100.0f, null);
+        hasPurchasedHandgun = true;
+        UpdateallWeaponPurchased();
+    }
+
+    public void UpdateGrimoirePurchase()
+    {
+        Social.ReportProgress(GPGSIds.achievement_5_points_for_gryffindor, 100.0f, null);
+        hasPurchasedGrimoire = true;
+        UpdateallWeaponPurchased();
+    }
+
+    public void UpdateallWeaponPurchased()
+    {
+        if(hasPurchasedHandgun && hasPurchasedGrimoire)
+        {
+            Social.ReportProgress(GPGSIds.achievement_war_machine, 100.0f, null);
+        }
+    }
+
+    public void UpdateAllDaggerRunesPurchased()
+    {
+        Social.ReportProgress(GPGSIds.achievement_sharpness_iv, 100.0f, null);
+    }
+
+    public void UpdateAllHandgunRunesPurchased()
+    {
+        Social.ReportProgress(GPGSIds.achievement_pew_pew_bang_bang, 100.0f, null);
+    }
+
+    public void UpdateAllGrimoireRunesPurchased()
+    {
+        Social.ReportProgress(GPGSIds.achievement_exploooooosion, 100.0f, null);
+    }
+
+    public void UpdateRunesPurchased()
+    {
+        runesPurchased++;
+        if(runesPurchased >= 1)
+        {
+            Social.ReportProgress(GPGSIds.achievement_improvements_in_progress, 100.0f, null);
+        }
+        if (runesPurchased >= 6)
+        {
+            Social.ReportProgress(GPGSIds.achievement_shut_up_and_take_my_money, 100.0f, null);
         }
     }
 }
