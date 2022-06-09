@@ -47,7 +47,7 @@ public class Map : MonoBehaviour
 
                 //instantiate and initialize tile
                 GameObject newTileInstance = Instantiate(Resources.Load("Prefabs/Tile"), mapOrigin.transform.position, Quaternion.identity, this.gameObject.transform) as GameObject;
-                newTileInstance.GetComponent<Tile>().Init(tileIndex, j + 1, i + 1, newTileSettings.isReachable, newTileSettings.isWall, newTileSettings.isHole, newTileSettings.isPike, newTileSettings.isEnemySpawn, newTileSettings.isLight, newTileSettings.tileSprite, newTileSettings.upSprite, newTileSettings.tileColor);
+                newTileInstance.GetComponent<Tile>().Init(tileIndex, j + 1, i + 1, newTileSettings.isReachable, newTileSettings.isWall, newTileSettings.isHole, newTileSettings.isPike, newTileSettings.isEnemySpawn, newTileSettings.isLight, newTileSettings.isShop, newTileSettings.tileSprite, newTileSettings.upSprite, newTileSettings.tileColor);
 
                 if(newTileSettings.isEnemySpawn)
                     enemySpawnTiles.Add(newTileInstance.GetComponent<Tile>());
@@ -103,7 +103,7 @@ public class Map : MonoBehaviour
             oneTile.leftTile = tempLT;
         }
 
-        
+
 
         if(_spawnBoss)
         {
@@ -178,7 +178,7 @@ public class Map : MonoBehaviour
                     newEnemy.GetComponent<EnemyFive>().Init();
                     newEnemy.GetComponent<EnemyFive>().currentMap = GetComponent<Map>();
                     break;
-                
+
                 case 5:
                     newEnemy.AddComponent<EnemySix>();
                     newEnemy.GetComponent<EnemySix>().Init();
@@ -191,7 +191,7 @@ public class Map : MonoBehaviour
                     newEnemy.GetComponent<EnemyTwo>().currentMap = GetComponent<Map>();
                 break;
             }
-            
+
             newEnemy.GetComponent<Enemy>().currentTile = tile;
             tile.entityOnTile = newEnemy.GetComponent<Enemy>();
 

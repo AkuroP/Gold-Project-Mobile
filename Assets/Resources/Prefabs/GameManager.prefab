@@ -42,8 +42,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4fff376cd98e8dd4cb16c3f574b88051, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   instanceMB: {fileID: 0}
   whatTurn: 0
   score: 0
@@ -51,12 +51,15 @@ MonoBehaviour:
   room: 1
   nextBoss: 0
   numberOfBosses: 2
+  shopRoomNumber: 5
   actualDangerousness: 1
   turnNumber: 0
   shopUIprefab: {fileID: 2232992195658834521, guid: f2461036fbabd3a45b7d6111cd0115d7, type: 3}
   shopPrefab: {fileID: 5128081185710407048, guid: 361bff0af5cb8554781bae3c5f48edbc, type: 3}
+  player: {fileID: 0}
   enemiesPlaying: []
   allEnemiesActionFinished: 0
+  gold: 100
   currentMap: {fileID: 0}
   allEntities: []
   playingEntity: {fileID: 0}

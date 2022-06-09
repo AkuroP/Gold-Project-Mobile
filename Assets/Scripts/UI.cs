@@ -65,12 +65,38 @@ public class UI : MonoBehaviour
 
     public void CloseShop()
     {
+        
+        //GameManager.instanceGM.NewMap();
+        Tile playerLastTile = new Tile();
+        switch(player.direction)
+        {
+            case Direction.UP :
+                playerLastTile = GameManager.instanceGM.currentMap.FindBottomTile(player.currentTile);
+            break;
+
+            case Direction.RIGHT :
+                playerLastTile = GameManager.instanceGM.currentMap.FindLeftTile(player.currentTile);
+            break;
+
+            case Direction.LEFT :
+                playerLastTile = GameManager.instanceGM.currentMap.FindRightTile(player.currentTile);
+            break;
+
+            case Direction.BOTTOM :
+                playerLastTile = GameManager.instanceGM.currentMap.FindTopTile(player.currentTile);
+            break;
+
+            default :
+                playerLastTile = GameManager.instanceGM.currentMap.FindBottomTile(player.currentTile);
+            break;
+        }
+        player.isInShop = false;
+        SwipeDetection.instanceSD.blockInputs = false;
+        player.Move(playerLastTile);
         shopUI.SetActive(false);
         GameObject shop = GameObject.FindWithTag("ShopInGame");
         Destroy(shop);
         Destroy(shopUI);
-        GameManager.instanceGM.NewMap();
-        SwipeDetection.instanceSD.blockInputs = false;
     }
 
     public void Fade()

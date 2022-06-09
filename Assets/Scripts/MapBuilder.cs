@@ -10,6 +10,8 @@ public class MapBuilder : MonoBehaviour
     public MapSettings mapSettingsBoss2 = new MapSettings();
     public MapSettings bossMapSettings = null;
 
+    public MapSettings mapSettingShop = new MapSettings();
+
     [Header("==== UI Button ====")]
     public bool enableMove;
     public bool enableAttack;
@@ -37,6 +39,7 @@ public class MapBuilder : MonoBehaviour
         int randomIndex = Random.Range(3, mapSettings.Count);
         GameObject currentMapInstance = Instantiate(Resources.Load("Prefabs/MapHolder"), new Vector3(0, 0f, 0), Quaternion.identity) as GameObject;
 
+
         if (isBoss)
         {
             switch (bossNumber)
@@ -53,21 +56,25 @@ public class MapBuilder : MonoBehaviour
                     bossMapSettings = mapSettingsBoss1;
                     break;
             }
-        }
-
-        if (isBoss)
-        {
             currentMapInstance.GetComponent<Map>().Init(bossMapSettings, true, bossNumber, false);
             Debug.Log("Nom du niveau : " + bossMapSettings.mapName);
+        }
+        else if(GameManager.instanceGM.shopRoomNumber <= 0)
+        {
+            currentMapInstance.GetComponent<Map>().Init(mapSettingShop);
+            if(GameManager.instanceGM.player != null)
+                GameManager.instanceGM.player.moveCost = 0;
+            GameManager.instanceGM.shopRoomNumber = 6;
         }
         else
         {
             currentMapInstance.GetComponent<Map>().Init(mapSettings[randomIndex]);
             Debug.Log("Nom du niveau : " + mapSettings[randomIndex].mapName);
+            if(GameManager.instanceGM.player != null)
+                GameManager.instanceGM.player.moveCost = 1;
         }
-
-        
-        
+        //currentMapInstance.GetComponent<Map>().Init(mapSettingsBoss1);
+        //Debug.Log("Nom du niveau : " + mapSettings[randomIndex].mapName);
         return currentMapInstance.GetComponent<Map>();
     }
 
@@ -97,6 +104,7 @@ public class TileSettings
     public bool isPike;
     public bool isEnemySpawn;
     public bool isLight;
+    public bool isShop;
 
     public Color tileColor;
     public Sprite tileSprite;
