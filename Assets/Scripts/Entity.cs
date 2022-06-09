@@ -373,6 +373,10 @@ public class Entity : MonoBehaviour
         {
             entity.hp -= damage * damageMultiplicator;
             damageMultiplicator = 1;
+            if (entity.CompareTag("Player"))
+            {
+                AchievementManager.instanceAM.roomWithoutTakingDamage = -1;
+            }
         }
     }
 
@@ -422,6 +426,10 @@ public class Entity : MonoBehaviour
         {
             hasMove = true;
             hasPlay = true;
+        }
+        if(CompareTag("Player"))
+        {
+            AchievementManager.instanceAM.UpdateStepsAchievement();
         }
         canMove = false;
     }  

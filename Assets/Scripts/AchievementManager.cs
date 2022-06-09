@@ -41,20 +41,31 @@ public class AchievementManager : MonoBehaviour
         }
         instanceAM = this;
 
+        DontDestroyOnLoad(this.gameObject);
+
         PlayGamesPlatform.DebugLogEnabled = true;
         PlayGamesPlatform.Activate();
     }
-
-    // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
-        SignInToGooglePlayServices();
+        PlayGamesPlatform.Instance.Authenticate(ProcessAuthentication);
+    }
+
+    internal void ProcessAuthentication(SignInStatus status)
+    {
+        if (status == SignInStatus.Success)
+        {
+            isConnectedToGooglePlayServices = true;
+        }
+        else
+        {
+            isConnectedToGooglePlayServices = false;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        //PlayGames.getAchievementsClient(this).unlock(getString(R.string.my_achievement_id));
     }
 
     public void SignInToGooglePlayServices()
@@ -62,16 +73,55 @@ public class AchievementManager : MonoBehaviour
         PlayGamesPlatform.Instance.Authenticate(ProcessAuthentication);
     }
 
-    internal void ProcessAuthentication(SignInStatus status)
+    public void UpdateScoreAchievement()
     {
-        switch (status)
+        if(GameManager.instanceGM.score >= 0)
         {
-            case SignInStatus.Success:
-                isConnectedToGooglePlayServices = true;
-                break;
-            default:
-                isConnectedToGooglePlayServices = false;
-                break;
+            Social.ReportProgress(GPGSIds.achievement_first_steps, 100.0f, null);
         }
+        if (GameManager.instanceGM.score >= 150)
+        {
+            Social.ReportProgress(GPGSIds.achievement_first_steps, 100.0f, null);
+        }
+        if (GameManager.instanceGM.score >= 665)
+        {
+            Social.ReportProgress(GPGSIds.achievement_first_steps, 100.0f, null);
+        }
+    }
+
+    public void UpdateStepsAchievement()
+    {
+        stepsNumber++;
+        if(stepsNumber >= 150)
+        {
+            Social.ReportProgress(GPGSIds.achievement_first_steps, 100.0f, null);
+        }
+        if (stepsNumber >= 1500)
+        {
+            Social.ReportProgress(GPGSIds.achievement_first_steps, 100.0f, null);
+        }
+    }
+
+    public void UpdateRoomWithoutTakingDamageAchievement()
+    {
+        roomWithoutTakingDamage++;
+        if(roomWithoutTakingDamage >= 10)
+        {
+            Social.ReportProgress(GPGSIds.achievement_first_steps, 100.0f, null);
+        }
+        if (roomWithoutTakingDamage >= 50)
+        {
+            Social.ReportProgress(GPGSIds.achievement_first_steps, 100.0f, null);
+        }
+        if (roomWithoutTakingDamage >= 100)
+        {
+            Social.ReportProgress(GPGSIds.achievement_first_steps, 100.0f, null);
+        }
+    }
+
+    public void UpdateCowardAchievement()
+    {
+        Debug.Log("Coward");
+        Social.ReportProgress(GPGSIds.achievement_first_steps, 100.0f, null);
     }
 }

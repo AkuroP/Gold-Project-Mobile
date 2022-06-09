@@ -20,7 +20,7 @@ public class Map : MonoBehaviour
     [SerializeField]
     public List<Tile> tilesList = new List<Tile>();
     [SerializeField]
-    private List<Tile> enemySpawnTiles = new List<Tile>();
+    public List<Tile> enemySpawnTiles = new List<Tile>();
     public int entranceTileIndex, exitTileIndex;
     public bool canExit = true;
 

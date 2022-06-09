@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7855790403722513705}
+  - component: {fileID: 1971601400}
   m_Layer: 0
   m_Name: AchievementManager
   m_TagString: Untagged
@@ -31,3 +32,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1971601400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7855790403722513710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48786e87626968542a026248543c6f56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isConnectedToGooglePlayServices: 0
+  stepsNumber: 0
+  roomWithoutTakingDamage: 0
+  deathNumber: 0
+  enemiesKilled: 0
+  bossKilled: 0
+  trapsActivated: 0
+  itemsPurchased: 0
+  weaponNumber: 0
+  runesPurchased: 0
+  enemiesKilledWithDagger: 0
+  bossKilledWithDagger: 0
+  enemiesKilledWithBleeding: 0
+  bossKilledWithBleeding: 0
+  enemiesKilledWithHandgun: 0
+  bossKilledWithHandgun: 0
+  enemiesKilledWithGrimory: 0
+  bossKilledWithGrimory: 0

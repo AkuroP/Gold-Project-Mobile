@@ -55,6 +55,8 @@ public class GameManager : MonoBehaviour
         actualDangerousness = 1 + (score / 20);
 
         player = GameObject.FindWithTag("Player").GetComponent<Player>();
+
+        AchievementManager.instanceAM.UpdateScoreAchievement();
     }
 
     public void NewMap()
@@ -141,8 +143,24 @@ public class GameManager : MonoBehaviour
         room++;
         turnNumber = 0;
 
+        //Achievements check
+        AchievementManager.instanceAM.UpdateScoreAchievement();
+        AchievementManager.instanceAM.UpdateRoomWithoutTakingDamageAchievement();
+        int entities = 0;
+        foreach(Entity entity in player.currentMap.entities)
+        {
+            if(entity != null)
+            {
+                entities++;
+            }
+        }
+        if(entities - 1 == player.currentMap.enemySpawnTiles.Count)
+        {
+            AchievementManager.instanceAM.UpdateCowardAchievement();
+        }
+
         //floor change
-        if(room % 11 == 0)
+        if (room % 11 == 0)
         {
             floor++;
             room = 1;
