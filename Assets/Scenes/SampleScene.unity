@@ -618,6 +618,22 @@ PrefabInstance:
       value: MapBuilder
       objectReference: {fileID: 0}
     - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettingShop.mapName
+      value: Shop
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettingShop.mapWidth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettingShop.mapHeight
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettingShop.exitTileIndex
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
       propertyPath: mapSettingsBoss1.exitTileIndex
       value: 52
       objectReference: {fileID: 0}
@@ -626,12 +642,48 @@ PrefabInstance:
       value: 38
       objectReference: {fileID: 0}
     - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettingShop.entranceTileIndex
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettingShop.tileSettings.Array.size
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
       propertyPath: mapSettingsBoss1.tileSettings.Array.size
       value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
       propertyPath: mapSettingsBoss2.tileSettings.Array.size
       value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettingShop.tileSettings.Array.data[16].isShop
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettingShop.tileSettings.Array.data[17].isShop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettingShop.tileSettings.Array.data[21].isPike
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettingShop.tileSettings.Array.data[21].isShop
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettingShop.tileSettings.Array.data[21].isWall
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettingShop.tileSettings.Array.data[22].isShop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettingShop.tileSettings.Array.data[22].isWall
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
       propertyPath: mapSettingsBoss1.tileSettings.Array.data[0].isWall
@@ -870,6 +922,46 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettingShop.tileSettings.Array.data[0].isReachable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettingShop.tileSettings.Array.data[1].isReachable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettingShop.tileSettings.Array.data[2].isReachable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettingShop.tileSettings.Array.data[3].isReachable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettingShop.tileSettings.Array.data[4].isReachable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettingShop.tileSettings.Array.data[5].isReachable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettingShop.tileSettings.Array.data[6].isReachable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettingShop.tileSettings.Array.data[7].isReachable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettingShop.tileSettings.Array.data[8].isReachable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettingShop.tileSettings.Array.data[9].isReachable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
       propertyPath: mapSettingsBoss1.tileSettings.Array.data[10].upSprite
       value: 
       objectReference: {fileID: 0}
@@ -904,6 +996,66 @@ PrefabInstance:
     - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
       propertyPath: mapSettingsBoss2.tileSettings.Array.data[27].upSprite
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettingShop.tileSettings.Array.data[10].isReachable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettingShop.tileSettings.Array.data[11].isReachable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettingShop.tileSettings.Array.data[12].isReachable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettingShop.tileSettings.Array.data[13].isReachable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettingShop.tileSettings.Array.data[14].isReachable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettingShop.tileSettings.Array.data[15].isReachable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettingShop.tileSettings.Array.data[16].isReachable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettingShop.tileSettings.Array.data[17].isReachable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettingShop.tileSettings.Array.data[18].isReachable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettingShop.tileSettings.Array.data[19].isReachable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettingShop.tileSettings.Array.data[20].isReachable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettingShop.tileSettings.Array.data[21].isReachable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettingShop.tileSettings.Array.data[22].isReachable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettingShop.tileSettings.Array.data[23].isReachable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettingShop.tileSettings.Array.data[24].isReachable
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
       propertyPath: mapSettingsBoss1.tileSettings.Array.data[0].tileSprite

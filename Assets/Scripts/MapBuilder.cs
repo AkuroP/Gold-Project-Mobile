@@ -9,6 +9,8 @@ public class MapBuilder : MonoBehaviour
     public MapSettings mapSettingsBoss1 = new MapSettings();
     public MapSettings mapSettingsBoss2 = new MapSettings();
 
+    public MapSettings mapSettingShop = new MapSettings();
+
     [Header("==== UI Button ====")]
     public bool enableMove;
     public bool enableAttack;
@@ -35,9 +37,21 @@ public class MapBuilder : MonoBehaviour
     {
         int randomIndex = Random.Range(3, mapSettings.Count);
         GameObject currentMapInstance = Instantiate(Resources.Load("Prefabs/MapHolder"), new Vector3(0, 0f, 0), Quaternion.identity) as GameObject;
-        currentMapInstance.GetComponent<Map>().Init(mapSettings[randomIndex]);
+        if(GameManager.instanceGM.shopRoomNumber <= 0)
+        {
+            currentMapInstance.GetComponent<Map>().Init(mapSettingShop);
+            if(GameManager.instanceGM.player != null)
+                GameManager.instanceGM.player.moveCost = 0;
+            GameManager.instanceGM.shopRoomNumber = 6;
+        }
+        else
+        {
+            currentMapInstance.GetComponent<Map>().Init(mapSettings[randomIndex]);
+            if(GameManager.instanceGM.player != null)
+                GameManager.instanceGM.player.moveCost = 1;
+        }
         //currentMapInstance.GetComponent<Map>().Init(mapSettingsBoss1);
-        Debug.Log("Nom du niveau : " + mapSettings[randomIndex].mapName);
+        //Debug.Log("Nom du niveau : " + mapSettings[randomIndex].mapName);
         return currentMapInstance.GetComponent<Map>();
     }
 
@@ -67,6 +81,7 @@ public class TileSettings
     public bool isPike;
     public bool isEnemySpawn;
     public bool isLight;
+    public bool isShop;
 
     public Color tileColor;
     public Sprite tileSprite;

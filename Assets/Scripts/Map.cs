@@ -45,7 +45,7 @@ public class Map : MonoBehaviour
 
                 //instantiate and initialize tile
                 GameObject newTileInstance = Instantiate(Resources.Load("Prefabs/Tile"), mapOrigin.transform.position, Quaternion.identity, this.gameObject.transform) as GameObject;
-                newTileInstance.GetComponent<Tile>().Init(tileIndex, j + 1, i + 1, newTileSettings.isReachable, newTileSettings.isWall, newTileSettings.isHole, newTileSettings.isPike, newTileSettings.isEnemySpawn, newTileSettings.isLight, newTileSettings.tileSprite, newTileSettings.upSprite, newTileSettings.tileColor);
+                newTileInstance.GetComponent<Tile>().Init(tileIndex, j + 1, i + 1, newTileSettings.isReachable, newTileSettings.isWall, newTileSettings.isHole, newTileSettings.isPike, newTileSettings.isEnemySpawn, newTileSettings.isLight, newTileSettings.isShop, newTileSettings.tileSprite, newTileSettings.upSprite, newTileSettings.tileColor);
 
                 if(newTileSettings.isEnemySpawn)
                     enemySpawnTiles.Add(newTileInstance.GetComponent<Tile>());
@@ -54,7 +54,7 @@ public class Map : MonoBehaviour
                 {
                     newTileInstance.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/Tiles/TilemapsDark_Spritesheet_23");
                 }
-
+                
                 tilesList.Add(newTileInstance.GetComponent<Tile>());
                 tileIndex++;
             }

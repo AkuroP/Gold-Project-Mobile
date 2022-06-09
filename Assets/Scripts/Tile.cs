@@ -19,6 +19,7 @@ public class Tile : MonoBehaviour
     public bool isPike = true;
     public bool isEnemySpawn = false;
     public bool isLight = false;
+    public bool isShop = false;
 
     public int fireCD = 0;
 
@@ -30,10 +31,11 @@ public class Tile : MonoBehaviour
     public int fCost;
     public Tile cameFromTile;
 
+
     [SerializeField]
     public Tile topTile, rightTile, bottomTile, leftTile;
 
-    public void Init(int _tileIndex, int _tileX, int _tileY, bool _isReachable, bool _isWall, bool _isHole, bool _isPike, bool _isEnemySpawn, bool _isLight, Sprite _tileSprite, Sprite _upSprite, Color _tileColor)
+    public void Init(int _tileIndex, int _tileX, int _tileY, bool _isReachable, bool _isWall, bool _isHole, bool _isPike, bool _isEnemySpawn, bool _isLight, bool _isShop, Sprite _tileSprite, Sprite _upSprite, Color _tileColor)
     {
         tileIndex = _tileIndex;
         tileX = _tileX;
@@ -45,6 +47,7 @@ public class Tile : MonoBehaviour
         isPike = _isPike;
         isEnemySpawn = _isEnemySpawn;
         isLight = _isLight;
+        isShop = _isShop;
 
         tileSprite = _tileSprite;
         if (isReachable && !isPike && !isHole && !isWall)
@@ -59,6 +62,17 @@ public class Tile : MonoBehaviour
         {
             tileSprite = Resources.Load<Sprite>("Assets/Tiles/TilemapsDark_Spritesheet_24");
         }
+
+        //Shop
+        if(isShop && isReachable && !isWall)
+        {
+            tileSprite = Resources.Load<Sprite>("Assets/Tiles/TilemapsDark_Spritesheet_26");
+        }
+        else if(isShop && !isReachable && isWall)
+        {
+            tileSprite = Resources.Load<Sprite>("Assets/Tiles/TilemapsDark_Spritesheet_25");
+        }
+        
         upSprite = _upSprite;
         tileColor = _tileColor;
 

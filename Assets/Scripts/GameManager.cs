@@ -19,15 +19,18 @@ public class GameManager : MonoBehaviour
     public int score;
     public int floor;
     public int room;
+    public int shopRoomNumber = 5;
     public int actualDangerousness;
     public int turnNumber;
 
     [SerializeField] private GameObject shopUIprefab;
     [SerializeField] private GameObject shopPrefab;
-    private Player player;
+    [HideInInspector] public Player player;
 
     public List<GameObject> enemiesPlaying;
     public int allEnemiesActionFinished;
+
+    public int gold = 100;
 
     private void Awake()
     {
@@ -120,6 +123,7 @@ public class GameManager : MonoBehaviour
     {
         score++;
         room++;
+        shopRoomNumber--;
         turnNumber = 0;
 
         //floor change
@@ -141,24 +145,25 @@ public class GameManager : MonoBehaviour
             actualDangerousness = 1 + (score / 20);
         }
 
-        //shop
-        if (room == 6)
-        {
-            if (Inventory.instanceInventory.mysteryBoxInShop == true && Inventory.instanceInventory.mysteryBoxDangerousness < 5)
-            {
-                Inventory.instanceInventory.mysteryBoxDangerousness++;
-            }
-            UI.instanceUI.shopUI = Instantiate(shopUIprefab, UI.instanceUI.canvas.transform);
-            Instantiate(shopPrefab);
-            UI.instanceUI.shopUI.transform.Find("CloseButton").gameObject.GetComponent<Button>().onClick.AddListener(UI.instanceUI.CloseShop);
-            SwipeDetection.instanceSD.blockInputs = true;
-        }
 
         //item update
         Inventory.instanceInventory.RefreshCooldown();
 
         //map generation
         instanceGM.NewMap();
+    }
+
+    public void ShopIG()
+    {
+        Debug.Log("SHOP IN GAME GO BRRR");
+        if (Inventory.instanceInventory.mysteryBoxInShop == true && Inventory.instanceInventory.mysteryBoxDangerousness < 5)
+        {
+            Inventory.instanceInventory.mysteryBoxDangerousness++;
+        }
+        UI.instanceUI.shopUI = Instantiate(shopUIprefab, UI.instanceUI.canvas.transform);
+        Instantiate(shopPrefab);
+        UI.instanceUI.shopUI.transform.Find("CloseButton").gameObject.GetComponent<Button>().onClick.AddListener(UI.instanceUI.CloseShop);
+        SwipeDetection.instanceSD.blockInputs = true;
     }
 
     public IEnumerator ChangeEntity()
