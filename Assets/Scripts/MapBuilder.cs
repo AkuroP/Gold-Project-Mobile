@@ -56,14 +56,10 @@ public class MapBuilder : MonoBehaviour
                     bossMapSettings = mapSettingsBoss1;
                     break;
             }
-        }
-
-        if (isBoss)
-        {
             currentMapInstance.GetComponent<Map>().Init(bossMapSettings, true, bossNumber, false);
             Debug.Log("Nom du niveau : " + bossMapSettings.mapName);
         }
-        if(GameManager.instanceGM.shopRoomNumber <= 0)
+        else if(GameManager.instanceGM.shopRoomNumber <= 0)
         {
             currentMapInstance.GetComponent<Map>().Init(mapSettingShop);
             if(GameManager.instanceGM.player != null)
