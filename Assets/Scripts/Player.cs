@@ -5,12 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class Player : Entity
 {
-    
+
 
     //Number of essences (= points of action)
     public int numEssence = 100;
     [SerializeField] private int attackCost = 3;
-    [SerializeField] private int moveCost = 1;
+    public int moveCost = 1;
 
     public bool attackNext = false;
     public bool moveNext = false;
@@ -24,6 +24,8 @@ public class Player : Entity
 
     public List<Tile> tilesOnFire = new List<Tile>();
     public bool cdFire = false;
+
+    public bool isInShop = false;
 
     // Start is called before the first frame update
     void Start()
@@ -117,6 +119,12 @@ public class Player : Entity
                 }
             }
 
+            if(currentTile.isShop && !isInShop)
+            {
+                GameManager.instanceGM.ShopIG();
+                isInShop = true;
+            }
+
             if (currentTile.tileIndex == currentMap.exitTileIndex && changingRoom == false && currentMap.canExit)
             {
                 changingRoom = true;
@@ -195,7 +203,7 @@ public class Player : Entity
                         {
                             Damage(weapon.weaponDamage, enemiesInRange[i]);
                         }
-                    }    
+                    }
                 }
             }*/
 
@@ -220,13 +228,13 @@ public class Player : Entity
                 this.weapon.ApplyEffect(this, 0);
             }
 
-            
+
         }
     }
 
-    
 
-    
+
+
 
     public void AttackButton()
     {
@@ -259,6 +267,6 @@ public class Player : Entity
     //function to take damage / die
 /*    public override void DamageSelf(int damage)
     {
-        
+
     }*/
 }

@@ -49,11 +49,15 @@ MonoBehaviour:
   score: 0
   floor: 0
   room: 1
+  shopRoomNumber: 5
   actualDangerousness: 1
+  turnNumber: 0
   shopUIprefab: {fileID: 2232992195658834521, guid: f2461036fbabd3a45b7d6111cd0115d7, type: 3}
   shopPrefab: {fileID: 5128081185710407048, guid: 361bff0af5cb8554781bae3c5f48edbc, type: 3}
+  player: {fileID: 0}
   enemiesPlaying: []
   allEnemiesActionFinished: 0
+  gold: 100
   currentMap: {fileID: 0}
   allEntities: []
   playingEntity: {fileID: 0}
