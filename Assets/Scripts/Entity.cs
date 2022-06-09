@@ -369,7 +369,11 @@ public class Entity : MonoBehaviour
     //function to take damage / die
     public void Damage(int damage, Entity entity)
     {
-        if(entity.invincibilityTurn == 0)
+        if (damage*damageMultiplicator >= 3 && entity.hp == 3 && entity.maxHP == 3 && !entity.CompareTag("Player"))
+        {
+            AchievementManager.instanceAM.UpdateFullCounter();
+        }
+        if (entity.invincibilityTurn == 0)
         {
             entity.hp -= damage * damageMultiplicator;
             damageMultiplicator = 1;

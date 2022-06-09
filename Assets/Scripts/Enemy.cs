@@ -71,8 +71,21 @@ public class Enemy : Entity
         //hp management
         if (hp <= 0)
         {
+            AchievementManager.instanceAM.UpdateEnemiesKilled();
             Destroy(this.gameObject);
             player.numEssence += 5;
+            switch (player.weapon.typeOfWeapon)
+            {
+                case WeaponType.DAGGER:
+                    AchievementManager.instanceAM.UpdateEnemiesKilledWithDagger();
+                    break;
+                case WeaponType.HANDGUN:
+                    AchievementManager.instanceAM.UpdateEnemiesKilledWithHandgun();
+                    break;
+                case WeaponType.GRIMOIRE:
+                    AchievementManager.instanceAM.UpdateEnemiesKilledWithGrimory();
+                    break;
+            }
         }
     }
 

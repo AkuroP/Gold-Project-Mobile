@@ -48,6 +48,7 @@ public class ShopButton : MonoBehaviour
                             player.hp++;
                             player.numEssence -= item.itemCost;
                             hasBeenClicked = true;
+                            AchievementManager.instanceAM.UpdateItemsPurchased();
                         }
                         break;
                     case "Bonus Heart":
@@ -55,6 +56,7 @@ public class ShopButton : MonoBehaviour
                         player.hp++;
                         player.numEssence -= item.itemCost;
                         hasBeenClicked = true;
+                        AchievementManager.instanceAM.UpdateItemsPurchased();
                         Inventory.instanceInventory.hasBonusHeart = true;
                         break;
                     case "Mystery Box":
@@ -114,6 +116,7 @@ public class ShopButton : MonoBehaviour
                     closeButton.interactable = false;
                     inventoryButtons[i].interactable = true;
                     hasBeenClicked = true;
+                    AchievementManager.instanceAM.UpdateItemsPurchased();
                 }
             }
             else
@@ -133,6 +136,7 @@ public class ShopButton : MonoBehaviour
                         Inventory.instanceInventory.itemInInventory++;
                         this.GetComponent<Button>().interactable = false;
                         hasBeenClicked = true;
+                        AchievementManager.instanceAM.UpdateItemsPurchased();
                         break;
                     }
                 }
@@ -154,5 +158,6 @@ public class ShopButton : MonoBehaviour
         }
         Inventory.instanceInventory.mysteryBoxInShop = false;
         Inventory.instanceInventory.mysteryBoxOpened = true;
+        AchievementManager.instanceAM.UpdateItemsPurchased();
     }
 }

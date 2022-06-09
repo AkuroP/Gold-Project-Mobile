@@ -31,7 +31,7 @@ public class Player : Entity
         instanceGM = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
 
         currentPosition = transform.position;
-        weapon = new Weapon(WeaponType.DAGGER, 2, 1);
+        weapon = new Weapon(WeaponType.GRIMOIRE, 2, 1);
         hp = maxHP;
     }
 
@@ -77,6 +77,8 @@ public class Player : Entity
             }
             else
             {
+                AchievementManager.instanceAM.roomWithoutTakingDamage = 0;
+                AchievementManager.instanceAM.UpdateDeathNumber();
                 SceneManager.LoadScene("MainMenu");
             }
         }
@@ -98,6 +100,7 @@ public class Player : Entity
             {
                 currentTile.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/Tiles/TilemapsDark_Spritesheet_25");
                 isOnThePike = true;
+                AchievementManager.instanceAM.UpdateTrapsActivated();
                 if (Inventory.instanceInventory.HasItem("Trap Protector") == true)
                 {
                     ShopItem trapProtector = Inventory.instanceInventory.GetItem("Trap Protector");

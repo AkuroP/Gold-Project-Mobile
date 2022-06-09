@@ -25,7 +25,20 @@ public class Boss : Enemy
     {
         currentMap.canExit = true;
         Destroy(this.gameObject);
+        AchievementManager.instanceAM.UpdateBossesKilled();
         GameObject darkMatter = Resources.Load<GameObject>("Prefabs/DarkMatter");
         Instantiate(darkMatter, exitTile.transform.position, Quaternion.identity);
+        switch (player.weapon.typeOfWeapon)
+        {
+            case WeaponType.DAGGER:
+                AchievementManager.instanceAM.UpdateBossesKilledWithDagger();
+                break;
+            case WeaponType.HANDGUN:
+                AchievementManager.instanceAM.UpdateBossesKilledWithHandgun();
+                break;
+            case WeaponType.GRIMOIRE:
+                AchievementManager.instanceAM.UpdateBossesKilledWithGrimory();
+                break;
+        }
     }
 }
