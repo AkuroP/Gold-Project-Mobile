@@ -381,7 +381,7 @@ public class Entity : MonoBehaviour
         currentPosition = transform.position;
         targetPosition = _targetTile.transform.position;
         
-        //Debug.Log(currentPosition + " / " + targetPosition);
+        Debug.Log(currentPosition + " / " + targetPosition);
 
         if (currentTile.isHole == true && currentTile.isOpen == false)
         {
