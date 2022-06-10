@@ -20,7 +20,7 @@ public class Map : MonoBehaviour
     [SerializeField]
     public List<Tile> tilesList = new List<Tile>();
     [SerializeField]
-    private List<Tile> enemySpawnTiles = new List<Tile>();
+    public List<Tile> enemySpawnTiles = new List<Tile>();
     public int entranceTileIndex, exitTileIndex;
     public bool canExit = true;
 
@@ -116,7 +116,7 @@ public class Map : MonoBehaviour
 
                 case 1:
                     SpawnPlayer();
-                    SpawnSolar();
+                    SpawnSunCreep(SpawnSun());
                     break;
             }
         }
@@ -233,9 +233,47 @@ public class Map : MonoBehaviour
         entities.Add(newEnemy.GetComponent<Enemy>());
     }
 
-    public void SpawnSolar()
+    public BossTP SpawnSun()
     {
+        Tile tile = enemySpawnTiles[2];
+        GameObject newEnemy = GameObject.Instantiate(Resources.Load("Prefabs/Enemy"), tile.transform.position, Quaternion.identity, this.gameObject.transform) as GameObject;
 
+        newEnemy.AddComponent<BossTP>();
+        newEnemy.GetComponent<BossTP>().currentMap = GetComponent<Map>();
+        newEnemy.GetComponent<BossTP>().Init();
+
+        newEnemy.GetComponent<Enemy>().currentTile = tile;
+        tile.entityOnTile = newEnemy.GetComponent<Enemy>();
+
+        entities.Add(newEnemy.GetComponent<Enemy>());
+
+        return newEnemy.GetComponent<BossTP>();
+    }
+    
+    public void SpawnSunCreep(BossTP _bossTP)
+    {
+        List<SunCreep> tempSunCreeps = new List<SunCreep>();
+
+        foreach(Tile sunCreepTile in enemySpawnTiles)
+        {
+            if(sunCreepTile.entityOnTile == null)
+            {
+                GameObject newEnemy = GameObject.Instantiate(Resources.Load("Prefabs/Enemy"), sunCreepTile.transform.position, Quaternion.identity, this.gameObject.transform) as GameObject;
+
+                newEnemy.AddComponent<SunCreep>();
+                newEnemy.GetComponent<SunCreep>().currentMap = GetComponent<Map>();
+                newEnemy.GetComponent<SunCreep>().Init();
+                newEnemy.GetComponent<SunCreep>().sun = _bossTP;
+
+                newEnemy.GetComponent<Enemy>().currentTile = sunCreepTile;
+                sunCreepTile.entityOnTile = newEnemy.GetComponent<Enemy>();
+
+                entities.Add(newEnemy.GetComponent<Enemy>());
+                tempSunCreeps.Add(newEnemy.GetComponent<SunCreep>());
+            }
+        }
+
+        _bossTP.sunCreeps = tempSunCreeps;
     }
 
     public Tile FindTopTile(Tile currentTile)
