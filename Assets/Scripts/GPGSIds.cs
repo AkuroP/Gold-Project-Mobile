@@ -32,6 +32,7 @@ public static class GPGSIds
         public const string achievement_go_deeper = "CgkIroyrwZUYEAIQAw"; // <GPGSID>
         public const string achievement_devil_slayer = "CgkIroyrwZUYEAIQDg"; // <GPGSID>
         public const string achievement_hunter = "CgkIroyrwZUYEAIQDA"; // <GPGSID>
+        public const string achievement_well_that_a_lot_of_crispy_chicken = "CgkIroyrwZUYEAIQGw"; // <GPGSID>
         public const string achievement_did_you_cheat = "CgkIroyrwZUYEAIQCA"; // <GPGSID>
         public const string achievement_improvements_in_progress = "CgkIroyrwZUYEAIQIQ"; // <GPGSID>
         public const string achievement_git_gud = "CgkIroyrwZUYEAIQCw"; // <GPGSID>
@@ -51,7 +52,7 @@ public static class GPGSIds
         public const string achievement_sharpness_iv = "CgkIroyrwZUYEAIQIw"; // <GPGSID>
         public const string achievement_full_counter = "CgkIroyrwZUYEAIQFg"; // <GPGSID>
         public const string achievement_bloodbath_incoming = "CgkIroyrwZUYEAIQJg"; // <GPGSID>
-        public const string achievement_well_that_a_lot_of_crispy_chicken = "CgkIroyrwZUYEAIQGw"; // <GPGSID>
+        public const string achievement_sogeking = "CgkIroyrwZUYEAIQKw"; // <GPGSID>
         public const string achievement_energy_saving = "CgkIroyrwZUYEAIQEg"; // <GPGSID>
         public const string achievement_collateral_damage = "CgkIroyrwZUYEAIQKg"; // <GPGSID>
         public const string achievement_money_money_money = "CgkIroyrwZUYEAIQFQ"; // <GPGSID>

@@ -343,4 +343,9 @@ public class AchievementManager : MonoBehaviour
     {
         Social.ReportProgress(GPGSIds.achievement_collateral_damage, 100.0f, null);
     }
+
+    public void UpdateSogeking()
+    {
+        Social.ReportProgress(GPGSIds.achievement_sogeking, 100.0f, null);
+    }
 }

@@ -237,6 +237,10 @@ public class Entity : MonoBehaviour
                 if (attackedTile.entityOnTile)
                 {
                     entityInPattern.Add(attackedTile.entityOnTile);
+                    if(CompareTag("Player") && this.GetComponent<Player>().weapon.typeOfWeapon == WeaponType.HANDGUN && oneATS.order == 4)
+                    {
+                        AchievementManager.instanceAM.UpdateSogeking();
+                    }
                 }
             }
         }
