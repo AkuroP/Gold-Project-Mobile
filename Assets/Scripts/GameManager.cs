@@ -48,6 +48,9 @@ public class GameManager : MonoBehaviour
     public Entity playingEntity;
     public int indexPlayingEntity = 0;
 
+    public bool firstUpgrade;
+    public bool secondUpgrade;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -158,8 +161,22 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
+
+        //shop
+        if (room == 6)
+        {
+            if (Inventory.instanceInventory.mysteryBoxInShop == true && Inventory.instanceInventory.mysteryBoxDangerousness < 5)
+            {
+                Inventory.instanceInventory.mysteryBoxDangerousness++;
+            }
+            UI.instanceUI.shopUI = Instantiate(shopUIprefab, UI.instanceUI.canvas.transform);
+            Instantiate(shopPrefab);
+            UI.instanceUI.shopUI.transform.Find("CloseButton").gameObject.GetComponent<Button>().onClick.AddListener(UI.instanceUI.CloseShop);
+            SwipeDetection.instanceSD.blockInputs = true;
+        }
+
         //dangerousness update
-        if(score % 20 == 0)
+        if (score % 20 == 0)
         {
             actualDangerousness = 1 + (score / 20);
         }

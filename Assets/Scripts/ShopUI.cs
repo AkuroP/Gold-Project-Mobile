@@ -10,11 +10,48 @@ public class ShopUI : MonoBehaviour
 
     [SerializeField] private Text essenceText;
 
+    [SerializeField] private GameObject runeButton1;
+    [SerializeField] private GameObject runeButton2;
+
     [SerializeField] private Image[] inventoryItems;
 
     void Start()
     {
         player = GameObject.FindWithTag("Player").GetComponent<Player>();
+
+        switch (player.weapon.typeOfWeapon)
+        {
+            case WeaponType.DAGGER:
+                if (GameManager.instanceGM.floor < 2 || RuneManager.instanceRM.daggerLevel < 1 || GameManager.instanceGM.firstUpgrade == true)
+                {
+                    runeButton1.SetActive(false);
+                }
+                if (GameManager.instanceGM.floor < 5 || RuneManager.instanceRM.daggerLevel < 2 || GameManager.instanceGM.firstUpgrade == false || GameManager.instanceGM.secondUpgrade == true)
+                {
+                    runeButton2.SetActive(false);
+                }
+                break;
+            case WeaponType.HANDGUN:
+                if (GameManager.instanceGM.floor < 2 || RuneManager.instanceRM.handgunLevel < 1 || GameManager.instanceGM.firstUpgrade == true)
+                {
+                    runeButton1.SetActive(false);
+                }
+                if (GameManager.instanceGM.floor < 5 || RuneManager.instanceRM.handgunLevel < 2 || GameManager.instanceGM.firstUpgrade == false || GameManager.instanceGM.secondUpgrade == true)
+                {
+                    runeButton2.SetActive(false);
+                }
+                break;
+            case WeaponType.GRIMOIRE:
+                if (GameManager.instanceGM.floor < 2 || RuneManager.instanceRM.grimoireLevel < 1 || GameManager.instanceGM.firstUpgrade == true)
+                {
+                    runeButton1.SetActive(false);
+                }
+                if (GameManager.instanceGM.floor < 5 || RuneManager.instanceRM.grimoireLevel < 2 || GameManager.instanceGM.firstUpgrade == false || GameManager.instanceGM.secondUpgrade == true)
+                {
+                    runeButton2.SetActive(false);
+                }
+                break;
+        }
     }
 
     // Update is called once per frame

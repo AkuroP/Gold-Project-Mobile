@@ -14,31 +14,24 @@ public class Item : MonoBehaviour
     [SerializeField] private bool isMaxed;
     [SerializeField] private int maxUpgrade = 2;
 
-    private bool hasBuyDagger = false;
-    private bool hasBuyHandgun = false;
-    private bool hasBuyGrimoire = false;
-
-
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindWithTag("Player").GetComponent<Player>();
-        UpdateWeapon(this.name);
-        
+        //UpdateWeapon(this.name);
     }
 
     public void BuyWeapon(string _weaponName)
     {
-        if(GameManager.instanceGM.gold >= this.itemPrice)
+        if(RuneManager.instanceRM.darkMatter >= this.itemPrice)
         {
             if(_weaponName == "DAGGER")
             {
-                if(!hasBuyDagger)
+                if(!RuneManager.instanceRM.hasBuyDagger)
                 {
                     Debug.Log(_weaponName + " BUYED");
-                    GameManager.instanceGM.gold -= itemPrice;
+                    RuneManager.instanceRM.darkMatter -= itemPrice;
                     player.weapon = new Weapon(WeaponType.DAGGER, 0, 1);
-                    hasBuyDagger = true;
+                    RuneManager.instanceRM.hasBuyDagger = true;
                 }
                 else
                 {
@@ -47,42 +40,42 @@ public class Item : MonoBehaviour
             }
             else if(_weaponName == "HANDGUN")
             {
-                if(!hasBuyHandgun)
+                if(RuneManager.instanceRM.hasBuyHandgun == false)
                 {
                     Debug.Log(_weaponName + " BUYED");
-                    GameManager.instanceGM.gold -= itemPrice;
-                    player.weapon = new Weapon(WeaponType.HANDGUN, 0, 1);
-                    hasBuyHandgun = true;
+                    RuneManager.instanceRM.darkMatter -= itemPrice;
+                   // player.weapon = new Weapon(WeaponType.HANDGUN, 0, 1);
+                    RuneManager.instanceRM.hasBuyHandgun = true;
                 }
                 else
                 {
                     UpgradeWeapon(WeaponType.HANDGUN);
                 }
 
-                this.UpdateWeapon(this.name);
+                //this.UpdateWeapon(this.name);
             }
             else if(_weaponName == "GRIMOIRE")
             {
-                if(!hasBuyGrimoire)
+                if(RuneManager.instanceRM.hasBuyGrimoire == false)
                 {
                     Debug.Log(_weaponName + " BUYED");
-                    GameManager.instanceGM.gold -= itemPrice;
-                    player.weapon = new Weapon(WeaponType.GRIMOIRE, 0, 1);
-                    hasBuyGrimoire = true;
+                    RuneManager.instanceRM.darkMatter -= itemPrice;
+                    //player.weapon = new Weapon(WeaponType.GRIMOIRE, 0, 1);
+                    RuneManager.instanceRM.hasBuyGrimoire = true;
                 }
                 else
                 {
                     UpgradeWeapon(WeaponType.GRIMOIRE);
                 }
 
-                this.UpdateWeapon(this.name);
+                //this.UpdateWeapon(this.name);
             }
             else
             {
                 Debug.Log("NO SUCH WEAPON FOUND");
             }
 
-            this.UpdateWeapon(this.name);
+            //this.UpdateWeapon(this.name);
         }
         else
         {
@@ -92,22 +85,31 @@ public class Item : MonoBehaviour
 
     private void UpgradeWeapon(WeaponType _weaponType)
     {
-        if(!isMaxed)
+        switch (_weaponType)
         {
-            if(GameManager.instanceGM.gold >= (this.itemPrice * (player.weapon.weaponLevel + 2)))
-            {
-                Debug.Log(_weaponType.ToString() + " UPGRADED TO LVL " + (player.weapon.weaponLevel + 1));
-                player.weapon = new Weapon(_weaponType, player.weapon.weaponLevel + 1, 1);
-                GameManager.instanceGM.gold -= (this.itemPrice * (player.weapon.weaponLevel + 2));
-            }
-            else
-            {
-                Debug.Log("NOT ENOUGH GOLD TO UPGRADE " + _weaponType.ToString() + " TO LVL " + (player.weapon.weaponLevel + 1));
-            }
-        }
-        else
-        {
-            Debug.Log(_weaponType.ToString() + " ALREADY MAXED UPGRADED");
+            case WeaponType.DAGGER:
+                if (RuneManager.instanceRM.daggerLevel < 2 && RuneManager.instanceRM.darkMatter >= (this.itemPrice * (RuneManager.instanceRM.daggerLevel + 2)))
+                {
+                    RuneManager.instanceRM.daggerLevel++;
+                    RuneManager.instanceRM.darkMatter -= (this.itemPrice * (RuneManager.instanceRM.daggerLevel + 2));
+                }
+                break;
+
+            case WeaponType.HANDGUN:
+                if (RuneManager.instanceRM.handgunLevel < 2 && RuneManager.instanceRM.darkMatter >= (this.itemPrice * (RuneManager.instanceRM.handgunLevel + 2)))
+                {
+                    RuneManager.instanceRM.handgunLevel++;
+                    RuneManager.instanceRM.darkMatter -= (this.itemPrice * (RuneManager.instanceRM.handgunLevel + 2));
+                }
+                break;
+
+            case WeaponType.GRIMOIRE:
+                if (RuneManager.instanceRM.grimoireLevel < 2 && RuneManager.instanceRM.darkMatter >= (this.itemPrice * (RuneManager.instanceRM.grimoireLevel + 2)))
+                {
+                    RuneManager.instanceRM.grimoireLevel++;
+                    RuneManager.instanceRM.darkMatter -= (this.itemPrice * (RuneManager.instanceRM.grimoireLevel + 2));
+                }
+                break;
         }
     }
 
@@ -135,7 +137,7 @@ public class Item : MonoBehaviour
         }
     }*/
 
-    private void UpdateWeapon(string _weaponName)
+    /*private void UpdateWeapon(string _weaponName)
     {
         //Debug.Log("UPDATE");
         weaponName.text = _weaponName;
@@ -144,26 +146,23 @@ public class Item : MonoBehaviour
         switch(_weaponName)
         {
             case "DAGGER" :
-                if(hasBuyDagger)
+                if(RuneManager.instanceRM.hasBuyDagger)
                 {
-                   localPrice = (this.itemPrice * (player.weapon.weaponLevel + 2));
-                   localLevel = player.weapon.weaponLevel + 1;
+                   localPrice = (this.itemPrice * (RuneManager.instanceRM.daggerLevel + 2));
                 }
             break;
 
             case "HANDGUN" :
-                if(hasBuyHandgun)
+                if(RuneManager.instanceRM.hasBuyHandgun)
                 {
-                    localPrice = (this.itemPrice * (player.weapon.weaponLevel + 2));
-                    localLevel = player.weapon.weaponLevel + 1;
+                    localPrice = (this.itemPrice * (RuneManager.instanceRM.handgunLevel + 2));
                 }
             break;
 
             case "GRIMOIRE" :
-                if(hasBuyGrimoire)
+                if(RuneManager.instanceRM.hasBuyGrimoire)
                 {
-                    localPrice = (this.itemPrice * (player.weapon.weaponLevel + 2));
-                    localLevel = player.weapon.weaponLevel + 1;
+                    localPrice = (this.itemPrice * (RuneManager.instanceRM.grimoireLevel + 2));
                 }
             break;
         }
@@ -178,5 +177,5 @@ public class Item : MonoBehaviour
             weaponUp.text = "MAXED";
             this.isMaxed = true;
         }
-    }
+    }*/
 }
