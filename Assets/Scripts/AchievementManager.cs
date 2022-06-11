@@ -310,4 +310,37 @@ public class AchievementManager : MonoBehaviour
             Social.ReportProgress(GPGSIds.achievement_shut_up_and_take_my_money, 100.0f, null);
         }
     }
+
+    public void UpdateEnemiesKilledWithBleed()
+    {
+        enemiesKilledWithBleeding++;
+        if(enemiesKilled >= 3)
+        {
+            Social.ReportProgress(GPGSIds.achievement_bloodbath_incoming, 100.0f, null);
+        }
+    }
+
+    public void UpdateBossesKilledWithBleed()
+    {
+        bossKilledWithBleeding++;
+        if (bossKilledWithBleeding >= 1)
+        {
+            Social.ReportProgress(GPGSIds.achievement_mind_if_i_take_your_blood, 100.0f, null);
+        }
+    }
+
+    public void UpdateGrimoireDoubleKill()
+    {
+        Social.ReportProgress(GPGSIds.achievement_2_birds_with_1_spell, 100.0f, null);
+    }
+
+    public void UpdateGrimoireTripleKill()
+    {
+        Social.ReportProgress(GPGSIds.achievement_burn_these_heretics, 100.0f, null);
+    }
+
+    public void UpdateHandgunDoubleKill()
+    {
+        Social.ReportProgress(GPGSIds.achievement_collateral_damage, 100.0f, null);
+    }
 }

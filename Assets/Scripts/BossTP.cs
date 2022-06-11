@@ -8,6 +8,11 @@ public class BossTP : Boss
     {
         if (myTurn)
         {
+            if (this.entityStatus.Count > 0)
+            {
+                this.CheckStatus(this);
+            }
+
             StartTurn();
 
             myTurn = false;

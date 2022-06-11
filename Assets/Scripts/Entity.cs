@@ -112,7 +112,15 @@ public class Entity : MonoBehaviour
                     case Debuff.Status.BLEED :
                         this.Damage(1, _entity);
                         Debug.Log("BLEED -1 DAMAGE");
-                    break;
+                        if (this.hp == 0 && this.GetComponent<BossFrog>() == null && this.GetComponent<BossTP>() == null)
+                        {
+                            AchievementManager.instanceAM.UpdateEnemiesKilledWithBleed();
+                        }
+                        else if (this.hp == 0 && this.GetComponent<EnemyOne>() == null && this.GetComponent<EnemyTwo>() == null && this.GetComponent<EnemyThree>() == null && this.GetComponent<EnemyFour>() == null && this.GetComponent<EnemyFive>() == null && this.GetComponent<EnemySix>() == null)
+                        {
+                            AchievementManager.instanceAM.UpdateBossesKilledWithBleed();
+                        }
+                        break;
                 }
                 entityStatus[i].debuffCD -= 1;
                 if(entityStatus[i].debuffCD <= 0)
@@ -369,6 +377,7 @@ public class Entity : MonoBehaviour
     //function to take damage / die
     public void Damage(int damage, Entity entity)
     {
+        
         if (damage*damageMultiplicator >= 3 && entity.hp == 3 && entity.maxHP == 3 && !entity.CompareTag("Player"))
         {
             AchievementManager.instanceAM.UpdateFullCounter();
@@ -431,7 +440,7 @@ public class Entity : MonoBehaviour
             hasMove = true;
             hasPlay = true;
         }
-        if(CompareTag("Player"))
+        if(this.CompareTag("Player"))
         {
             AchievementManager.instanceAM.UpdateStepsAchievement();
         }

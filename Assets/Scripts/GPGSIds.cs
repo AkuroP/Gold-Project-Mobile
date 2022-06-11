@@ -24,6 +24,8 @@
 
 public static class GPGSIds
 {
+        public const string achievement_hope_you_didnt_burn_anything_expensive = "CgkIroyrwZUYEAIQHA"; // <GPGSID>
+        public const string achievement_mind_if_i_take_your_blood = "CgkIroyrwZUYEAIQJw"; // <GPGSID>
         public const string achievement_first_steps = "CgkIroyrwZUYEAIQAA"; // <GPGSID>
         public const string achievement_annihilation = "CgkIroyrwZUYEAIQDQ"; // <GPGSID>
         public const string achievement_your_princess_is_in_another_castle = "CgkIroyrwZUYEAIQBA"; // <GPGSID>
@@ -34,9 +36,11 @@ public static class GPGSIds
         public const string achievement_improvements_in_progress = "CgkIroyrwZUYEAIQIQ"; // <GPGSID>
         public const string achievement_git_gud = "CgkIroyrwZUYEAIQCw"; // <GPGSID>
         public const string achievement_walking_simulator = "CgkIroyrwZUYEAIQBQ"; // <GPGSID>
+        public const string achievement_burn_these_heretics = "CgkIroyrwZUYEAIQKQ"; // <GPGSID>
         public const string achievement_hope_you_didnt_kill_any_friend_in_this_frenzy = "CgkIroyrwZUYEAIQFw"; // <GPGSID>
         public const string achievement_learning = "CgkIroyrwZUYEAIQCg"; // <GPGSID>
         public const string achievement_its_a_trap = "CgkIroyrwZUYEAIQEA"; // <GPGSID>
+        public const string achievement_2_birds_with_1_spell = "CgkIroyrwZUYEAIQKA"; // <GPGSID>
         public const string achievement_the_coward_way = "CgkIroyrwZUYEAIQCQ"; // <GPGSID>
         public const string achievement_5_points_for_gryffindor = "CgkIroyrwZUYEAIQHg"; // <GPGSID>
         public const string achievement_on_the_edge = "CgkIroyrwZUYEAIQEw"; // <GPGSID>
@@ -46,11 +50,12 @@ public static class GPGSIds
         public const string achievement_god_slayer = "CgkIroyrwZUYEAIQDw"; // <GPGSID>
         public const string achievement_sharpness_iv = "CgkIroyrwZUYEAIQIw"; // <GPGSID>
         public const string achievement_full_counter = "CgkIroyrwZUYEAIQFg"; // <GPGSID>
-        public const string achievement_youre_like_billy_the_kid__but_uglier = "CgkIroyrwZUYEAIQGg"; // <GPGSID>
+        public const string achievement_bloodbath_incoming = "CgkIroyrwZUYEAIQJg"; // <GPGSID>
         public const string achievement_well_that_a_lot_of_crispy_chicken = "CgkIroyrwZUYEAIQGw"; // <GPGSID>
         public const string achievement_energy_saving = "CgkIroyrwZUYEAIQEg"; // <GPGSID>
-        public const string achievement_hope_you_didnt_burn_anything_expensive = "CgkIroyrwZUYEAIQHA"; // <GPGSID>
+        public const string achievement_collateral_damage = "CgkIroyrwZUYEAIQKg"; // <GPGSID>
         public const string achievement_money_money_money = "CgkIroyrwZUYEAIQFQ"; // <GPGSID>
+        public const string achievement_youre_like_billy_the_kid__but_uglier = "CgkIroyrwZUYEAIQGg"; // <GPGSID>
         public const string achievement_the_good_the_bad_and_the_abyss = "CgkIroyrwZUYEAIQHw"; // <GPGSID>
         public const string achievement_exploooooosion = "CgkIroyrwZUYEAIQJQ"; // <GPGSID>
         public const string achievement_i_shot_u_ded = "CgkIroyrwZUYEAIQGQ"; // <GPGSID>

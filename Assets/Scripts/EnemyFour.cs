@@ -54,6 +54,11 @@ public class EnemyFour : Enemy
 
         if (myTurn)
         {
+            if (this.entityStatus.Count > 0)
+            {
+                this.CheckStatus(this);
+            }
+
             StartTurn();
 
             hasPlay = true;

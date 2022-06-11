@@ -108,8 +108,12 @@ public class Weapon
                         }
                     }
                 }
+                if (enemiesInRange.Count == 2 && enemiesInRange[0].hp == 0 && enemiesInRange[1].hp == 0)
+                {
+                    AchievementManager.instanceAM.UpdateHandgunDoubleKill();
+                }
 
-            break;
+                break;
 
             case WeaponType.GRIMOIRE:
 
@@ -138,7 +142,16 @@ public class Weapon
 
                 }
 
-            break;
+                if(enemiesInRange.Count == 2 && enemiesInRange[0].hp == 0 && enemiesInRange[1].hp == 0)
+                {
+                    AchievementManager.instanceAM.UpdateGrimoireDoubleKill();
+                }
+                else if (enemiesInRange.Count == 3 && enemiesInRange[0].hp == 0 && enemiesInRange[1].hp == 0 && enemiesInRange[1].hp == 0)
+                {
+                    AchievementManager.instanceAM.UpdateGrimoireTripleKill();
+                }
+
+                break;
         }
     }
 }
