@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     public int score;
     public int floor;
     public int room;
-    public int nextBoss;
+    public int nextBoss = 1;
     public int numberOfBosses = 2;
     public int shopRoomNumber = 5;
     public int actualDangerousness;
@@ -77,7 +77,7 @@ public class GameManager : MonoBehaviour
         {
             currentMap = instanceMB.CreateMap(true, nextBoss);
 
-            if(nextBoss >= numberOfBosses)
+            if(nextBoss >= numberOfBosses - 1)
             {
                 nextBoss = 0;
             }
