@@ -56,15 +56,16 @@ public class EnemyFour : Enemy
 
         if (myTurn)
         {
+            myTurn = false;
             turnDuration = 0;
+
             if (this.entityStatus.Count > 0)
             {
                 this.CheckStatus(this);
             }
 
             StartTurn();
-
-            hasPlay = true;
+            StartCoroutine(EndTurn(turnDuration));
         }
 
         //move process
@@ -110,6 +111,7 @@ public class EnemyFour : Enemy
                     chargeAttackCurrent = chargeAttackRoundMax;
 
                     StartAttack(upDirectionATS);
+                    turnDuration += attackDuration;
                 }
             }
             else
@@ -128,7 +130,10 @@ public class EnemyFour : Enemy
                         pathToTarget = FindQuickestPath(currentTile ,possibleAttackSpot, false);
 
                         if(pathToTarget != null && pathToTarget.Count > 1)
+                        {
                             Move(pathToTarget[1]);
+                            turnDuration += moveDuration;
+                        }
 
                         moveCDCurrent = moveCDMax;
                     }
@@ -143,6 +148,7 @@ public class EnemyFour : Enemy
                     else
                     {
                         EnemyRandomMove();
+                        turnDuration += moveDuration;
                         moveCDCurrent = moveCDMax;
                     }
                 }
@@ -163,6 +169,7 @@ public class EnemyFour : Enemy
 
                 direction = dir;
                 StartAttack(upDirectionATS);
+                turnDuration += attackDuration;
             }
         }
     }

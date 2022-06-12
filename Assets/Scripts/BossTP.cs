@@ -30,7 +30,9 @@ public class BossTP : Boss
 
         if (myTurn)
         {
+            myTurn = false;
             turnDuration = 0;
+
             if (this.entityStatus.Count > 0)
             {
                 this.CheckStatus(this);
@@ -45,8 +47,7 @@ public class BossTP : Boss
             {
                 StartTurnPhase2();
             }
-
-            hasPlay = true;
+            StartCoroutine(EndTurn(turnDuration));
         }
 
         //move process
@@ -130,12 +131,14 @@ public class BossTP : Boss
             {
                 Debug.Log("att 1");
                 StartAttack(upDirectionATS1);
+                turnDuration += attackDuration;
                 doAttack2 = true;
             }
             else if(doAttack1 && doAttack2)
             {
                 Debug.Log("att 2");
                 StartAttack(upDirectionATS2);
+                turnDuration += attackDuration;
                 doAttack1 = false;
                 doAttack2 = false;
                 attackPhase = false;
@@ -192,6 +195,7 @@ public class BossTP : Boss
 
 
                     StartAttack(upDirectionATS1);
+                    turnDuration += attackDuration;
                 }
             }
             else
@@ -206,7 +210,11 @@ public class BossTP : Boss
                     pathToTarget = FindQuickestPath(currentTile, possibleAttackSpot, false);
 
                     if (pathToTarget != null && pathToTarget.Count > 1)
+                    {
                         Move(pathToTarget[1]);
+                        turnDuration += moveDuration;
+                    }
+                        
 
                     moveCDCurrent = moveCDMax;
                 }
@@ -227,6 +235,7 @@ public class BossTP : Boss
 
                 direction = dir;
                 StartAttack(upDirectionATS1);
+                turnDuration += attackDuration;
             }
         }
     }

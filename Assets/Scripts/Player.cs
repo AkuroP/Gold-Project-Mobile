@@ -42,8 +42,7 @@ public class Player : Entity
     {
         if(this.myTurn)
         {
-            turnDuration = 0;
-            if (!cdFire)
+            if(!cdFire)
             {
                 if(tilesOnFire.Count > 0)
                 {

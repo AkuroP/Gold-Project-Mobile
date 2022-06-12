@@ -55,15 +55,16 @@ public class EnemyFive : Enemy
 
         if (myTurn)
         {
+            myTurn = false;
             turnDuration = 0;
+
             if (this.entityStatus.Count > 0)
             {
                 this.CheckStatus(this);
             }
 
             StartTurn();
-
-            hasPlay = true;
+            StartCoroutine(EndTurn(turnDuration));
         }
 
         //move process
@@ -109,6 +110,7 @@ public class EnemyFive : Enemy
                     chargeAttackCurrent = chargeAttackRoundMax;
 
                     StartAttack(upDirectionATS);
+                    turnDuration += attackDuration;
                 }
             }
             else
@@ -136,6 +138,7 @@ public class EnemyFive : Enemy
                             if (temp.Count > 0)
                             {
                                 Move(temp);
+                                turnDuration += moveDuration;
                                 moveCDCurrent = moveCDMax;
                             }
                         }
@@ -159,6 +162,7 @@ public class EnemyFive : Enemy
                         temp.Add(secondTile);
 
                         Move(temp);
+                        turnDuration += moveDuration;
 
                         moveCDCurrent = moveCDMax;
                     }
@@ -180,6 +184,7 @@ public class EnemyFive : Enemy
 
                 direction = dir;
                 StartAttack(upDirectionATS);
+                turnDuration += attackDuration;
             }
         }
     }

@@ -59,14 +59,15 @@ public class EnemyThree : Enemy
 
         if (myTurn)
         {
+            myTurn = false;
             turnDuration = 0;
+
             if (this.entityStatus.Count > 0)
             {
                 this.CheckStatus(this);
             }
             StartTurn();
-
-            hasPlay = true;
+            StartCoroutine(EndTurn(turnDuration));
         }
 
         //move process
@@ -112,6 +113,7 @@ public class EnemyThree : Enemy
                     chargeAttackCurrent = chargeAttackRoundMax;
 
                     StartAttack(upDirectionATS);
+                    turnDuration += attackDuration;
                 }
             }
             else
@@ -130,7 +132,11 @@ public class EnemyThree : Enemy
                         pathToTarget = FindQuickestPath(currentTile, possibleAttackSpot, false);
 
                         if (pathToTarget != null && pathToTarget.Count > 1)
+                        {
                             Move(pathToTarget[1]);
+                            turnDuration += moveDuration;
+                        }
+                            
 
                         moveCDCurrent = moveCDMax;
                     }
@@ -145,6 +151,7 @@ public class EnemyThree : Enemy
                     else
                     {
                         EnemyRandomMove();
+                        turnDuration += moveDuration;
                         moveCDCurrent = moveCDMax;
                     }
                 }
@@ -165,6 +172,7 @@ public class EnemyThree : Enemy
 
                 direction = dir;
                 StartAttack(upDirectionATS);
+                turnDuration += attackDuration;
             }
         }
     }

@@ -43,6 +43,8 @@ public class EnemyOne : Enemy
         if(myTurn)
         {
             turnDuration = 0;
+            myTurn = false;
+
             if (this.entityStatus.Count > 0)
             {
                 this.CheckStatus(this);
@@ -59,7 +61,8 @@ public class EnemyOne : Enemy
                 StartTurn();
                 moveCDCurrent = moveCDMax;
             }
-            hasPlay = true;
+
+            StartCoroutine(EndTurn(turnDuration));
         }
 
         //move process
@@ -83,6 +86,7 @@ public class EnemyOne : Enemy
 
     public override void StartTurn()
     {
+        turnDuration += attackDuration;
         if(this.hp > 0)
         {
             dir = CheckAround(upDirectionATS, false);

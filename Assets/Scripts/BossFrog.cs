@@ -16,6 +16,8 @@ public class BossFrog : Boss
     public bool tongueAttackInProgress = false;
     public int tongueAttackCD = 1;
     private int tongueDamage = 1;
+    public float tongueAttackDuration = 0.3f;
+    public float splitDuration = 0.1f;
 
 
     // Update is called once per frame
@@ -26,15 +28,16 @@ public class BossFrog : Boss
 
         if (myTurn)
         {
+            myTurn = false;
             turnDuration = 0;
+
             if (this.entityStatus.Count > 0)
             {
                 this.CheckStatus(this);
             }
 
             StartTurn();
-
-            hasPlay = true;
+            StartCoroutine(EndTurn(turnDuration));
         }
     }
 
@@ -92,6 +95,7 @@ public class BossFrog : Boss
             {
                 Debug.Log("attaque");
                 StartAttackTongue();
+                turnDuration += tongueAttackDuration;
                 tongueAttackCD = 1;
                 tongueAttackInProgress = false;
 
@@ -108,6 +112,7 @@ public class BossFrog : Boss
             {
                 Debug.Log("throw");
                 ThrowSpitPoisonAttack(6);
+                turnDuration += splitDuration;
                 poisonSpitCD = 1;
             }
         }

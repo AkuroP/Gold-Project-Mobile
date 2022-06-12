@@ -61,6 +61,7 @@ public class Entity : MonoBehaviour
     public bool hasPlay = false;
     protected bool isOnThePike = false;
 
+    public float attackDuration = 0.15f;
     public float turnDuration;
 
     //Sprite and anims
@@ -524,7 +525,7 @@ public class Entity : MonoBehaviour
 
     public IEnumerator EndTurn(float waitDuration)
     {
-        yield return new WaitForSeconds();
+        yield return new WaitForSeconds(waitDuration + 0.2f);
         hasPlay = true;
     }
 

@@ -254,8 +254,8 @@ public class GameManager : MonoBehaviour
                     playingEntity.mobility++;
                 }
             }
-            playingEntity.myTurn = true;
         }
+        playingEntity.myTurn = true;
     }
 
     public List<Entity> TriGnome(List<Entity> entities)

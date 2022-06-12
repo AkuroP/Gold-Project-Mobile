@@ -510,6 +510,8 @@ public class Enemy : Entity
 
     public override void StartAttack(List<AttackTileSettings> _upDirectionATS)
     {
+        turnDuration += attackDuration;
+
         List<AttackTileSettings> attackPattern = ConvertPattern(_upDirectionATS, direction);
 
         List<Entity> enemiesInRange = new List<Entity>();
