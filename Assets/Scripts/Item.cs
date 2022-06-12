@@ -81,7 +81,7 @@ public class Item : MonoBehaviour
         {
             Debug.Log("YOU ARE POOR :(");
         }
-        if (hasBuyDagger && hasBuyGrimoire && hasBuyHandgun)
+        if (RuneManager.instanceRM.hasBuyDagger && RuneManager.instanceRM.hasBuyGrimoire && RuneManager.instanceRM.hasBuyHandgun)
         {
             AchievementManager.instanceAM.UpdateallWeaponPurchased();
         }

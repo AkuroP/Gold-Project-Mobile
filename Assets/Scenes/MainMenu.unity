@@ -567,19 +567,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c060029b4a1ed41b93cf2f693470ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasFirstDaggerRune: 0
-  hasSecondDaggerRune: 0
-  hasFirstHandgunRune: 0
-  hasSecondHandgunRune: 0
-  hasFirstGrimoireRune: 0
-  hasSecondGrimoireRune: 0
   hasBuyDagger: 1
   hasBuyHandgun: 0
   hasBuyGrimoire: 0
   daggerLevel: 0
   handgunLevel: 0
   grimoireLevel: 0
-  darkMatter: 0
+  darkMatter: 200
 --- !u!4 &817403248
 Transform:
   m_ObjectHideFlags: 0
@@ -684,7 +678,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7855790403722513705, guid: 775f6af932bd79d4a9e32c1696ea984e, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7855790403722513705, guid: 775f6af932bd79d4a9e32c1696ea984e, type: 3}
       propertyPath: m_LocalPosition.x
