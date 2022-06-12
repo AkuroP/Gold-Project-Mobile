@@ -42,7 +42,8 @@ public class Player : Entity
     {
         if(this.myTurn)
         {
-            if(!cdFire)
+            turnDuration = 0;
+            if (!cdFire)
             {
                 if(tilesOnFire.Count > 0)
                 {
@@ -144,7 +145,7 @@ public class Player : Entity
             {
                 case Direction.UP:
                     Tile topTile = currentMap.FindTopTile(currentTile);
-                    if (currentMap.CheckMove(topTile))
+                    if (currentMap.CheckMove(topTile, this))
                     {
                         Move(topTile);
                         numEssence -= moveCost;
@@ -152,7 +153,7 @@ public class Player : Entity
                     break;
                 case Direction.RIGHT:
                     Tile rightTile = currentMap.FindRightTile(currentTile);
-                    if (currentMap.CheckMove(rightTile))
+                    if (currentMap.CheckMove(rightTile, this))
                     {
                         Move(rightTile);
                         entitySr.flipX = true;
@@ -161,7 +162,7 @@ public class Player : Entity
                     break;
                 case Direction.BOTTOM:
                     Tile bottomTile = currentMap.FindBottomTile(currentTile);
-                    if (currentMap.CheckMove(bottomTile))
+                    if (currentMap.CheckMove(bottomTile, this))
                     {
                         Move(bottomTile);
                         numEssence -= moveCost;
@@ -169,7 +170,7 @@ public class Player : Entity
                     break;
                 case Direction.LEFT:
                     Tile leftTile = currentMap.FindLeftTile(currentTile);
-                    if (currentMap.CheckMove(leftTile))
+                    if (currentMap.CheckMove(leftTile, this))
                     {
                         Move(leftTile);
                         entitySr.flipX = false;

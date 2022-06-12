@@ -61,6 +61,8 @@ public class Entity : MonoBehaviour
     public bool hasPlay = false;
     protected bool isOnThePike = false;
 
+    public float turnDuration;
+
     //Sprite and anims
     [SerializeField] public SpriteRenderer entitySr;
 
@@ -406,7 +408,7 @@ public class Entity : MonoBehaviour
 
         if (currentTile.isHole == true && currentTile.isOpen == false)
         {
-            currentTile.isOpen = true;
+            currentTile.isReachable = false;
             currentTile.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/Tiles/TilemapsDark_Spritesheet_14");
         }
         if (currentTile.isPike == true)
@@ -422,16 +424,11 @@ public class Entity : MonoBehaviour
             currentTile = _targetTile;
             lastNotHoleTile = currentTile;
         }
-        else if (_targetTile.isHole && !_targetTile.isOpen)
+        else if (_targetTile.isHole)
         {
             _targetTile.entityOnTile = currentTile.entityOnTile;
             currentTile.entityOnTile = null;
             currentTile = _targetTile;
-        }
-        else
-        {
-            hp--;
-            StartCoroutine(Hole());
         }
 
         moveInProgress = true;
@@ -485,14 +482,14 @@ public class Entity : MonoBehaviour
         {
             case Direction.UP:
                 Tile topTile = currentMap.FindTopTile(currentTile);
-                if (currentMap.CheckMove(topTile))
+                if (currentMap.CheckMove(topTile, this))
                 {
                     this.Move(topTile);
                 }
                 break;
             case Direction.RIGHT:
                 Tile rightTile = currentMap.FindRightTile(currentTile);
-                if (currentMap.CheckMove(rightTile))
+                if (currentMap.CheckMove(rightTile, this))
                 {
                     this.Move(rightTile);
                     entitySr.flipX = true;
@@ -500,14 +497,14 @@ public class Entity : MonoBehaviour
                 break;
             case Direction.BOTTOM:
                 Tile bottomTile = currentMap.FindBottomTile(currentTile);
-                if (currentMap.CheckMove(bottomTile))
+                if (currentMap.CheckMove(bottomTile, this))
                 {
                     this.Move(bottomTile);
                 }
                 break;
             case Direction.LEFT:
                 Tile leftTile = currentMap.FindLeftTile(currentTile);
-                if (currentMap.CheckMove(leftTile))
+                if (currentMap.CheckMove(leftTile, this))
                 {
                     this.Move(leftTile);
                     entitySr.flipX = false;
@@ -523,6 +520,12 @@ public class Entity : MonoBehaviour
         currentTile = lastNotHoleTile;
         currentTile.entityOnTile = this.gameObject.GetComponent<Entity>();
         this.gameObject.transform.position = currentTile.gameObject.transform.position;
+    }
+
+    public IEnumerator EndTurn(float waitDuration)
+    {
+        yield return new WaitForSeconds();
+        hasPlay = true;
     }
 
 }

@@ -22,6 +22,8 @@ public class Enemy : Entity
     public int moveCDMax;
     public int moveCDCurrent;
 
+    public int entityDangerousness;
+
     public Player player;
     public float enemyRange;
 
@@ -273,7 +275,7 @@ public class Enemy : Entity
                 }
             }
 
-            if (attackedTile != null && !attackedTile.isWall)
+            if (attackedTile != null && !attackedTile.isWall && attackedTile.isReachable)
             {
                 attackSpotTile.Add(attackedTile);
             }
@@ -305,7 +307,7 @@ public class Enemy : Entity
 
                     List<Tile> newPath = FindPath(_originTile, _targetTileList[i], false);
 
-                    if (newPath.Count < quickestPath.Count)
+                    if (quickestPath != null && newPath.Count < quickestPath.Count)
                     {
                         quickestPath = newPath;
                     }
@@ -380,7 +382,7 @@ public class Enemy : Entity
                 //if in closed list Tile is alrday checked, go next
                 if (closedList.Contains(neighbourTile)) continue;
                 //if is not reachable go next
-                if (!neighbourTile.isReachable || neighbourTile.entityOnTile is Enemy)
+                if (!neighbourTile.isReachable || neighbourTile.entityOnTile is Enemy || neighbourTile.isOpen)
                 {
                     closedList.Add(neighbourTile);
                     continue;
@@ -468,7 +470,7 @@ public class Enemy : Entity
         while(currentTile.cameFromTile != null)
         {
             //======= DEBUG START =======//
-            //StartCoroutine(currentTile.TurnColor(new Color(0f, 1f, 0f, 1f), step));
+            StartCoroutine(currentTile.TurnColor(new Color(0f, 1f, 0f, 1f), step));
             //======= DEBUG END =======//
 
             path.Add(currentTile.cameFromTile);

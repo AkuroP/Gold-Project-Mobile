@@ -30,6 +30,8 @@ public class EnemyThree : Enemy
         moveCDMax = 0;
         moveCDCurrent = 0;
 
+        entityDangerousness = 1;
+
         chargeAttackCurrent = chargeAttackRoundMax;
 
         moveDuration = 0.25f;
@@ -57,6 +59,7 @@ public class EnemyThree : Enemy
 
         if (myTurn)
         {
+            turnDuration = 0;
             if (this.entityStatus.Count > 0)
             {
                 this.CheckStatus(this);

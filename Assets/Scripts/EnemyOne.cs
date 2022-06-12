@@ -22,6 +22,8 @@ public class EnemyOne : Enemy
         moveCDMax = 1;
         moveCDCurrent = 0;
 
+        entityDangerousness = 1;
+
         entitySr = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
         entitySr.sprite = Resources.Load<Sprite>("Assets/Graphics/Enemies/TentaculeSolo");
 
@@ -40,7 +42,8 @@ public class EnemyOne : Enemy
     {
         if(myTurn)
         {
-            if(this.entityStatus.Count > 0)
+            turnDuration = 0;
+            if (this.entityStatus.Count > 0)
             {
                 this.CheckStatus(this);
             }

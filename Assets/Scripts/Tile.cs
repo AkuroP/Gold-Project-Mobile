@@ -99,6 +99,9 @@ public class Tile : MonoBehaviour
         GetComponent<SpriteRenderer>().color = newColor;
         /*yield return new WaitForSeconds(0.5f);
         GetComponent<SpriteRenderer>().color = oldColor;*/
+        yield return new WaitForSeconds(0.5f);
+
+        this.gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
     }
 
     public void ChangeVisual()

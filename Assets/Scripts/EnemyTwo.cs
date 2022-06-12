@@ -25,6 +25,8 @@ public class EnemyTwo : Enemy
         moveCDCurrent = 0;
         pattern1 = true;
 
+        entityDangerousness = 1;
+
         entitySr = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
         entitySr.sprite = Resources.Load<Sprite>("Assets/Graphics/Enemies/Tentacule4");
 
@@ -53,7 +55,8 @@ public class EnemyTwo : Enemy
     {
         if(this.myTurn)
         {
-            if(this.entityStatus.Count > 0)
+            turnDuration = 0;
+            if (this.entityStatus.Count > 0)
             {
                 this.CheckStatus(this);
                 IsSelfDead();
@@ -92,11 +95,11 @@ public class EnemyTwo : Enemy
 
     public override void StartTurn()
     {
-        if(this.hp > 0)
+        if(pattern1)
         {
             dir = CheckAround(upDirectionATS1, false);
 
-            if(dir != Direction.NONE)
+            if (dir != Direction.NONE)
             {
                 direction = dir;
                 StartAttack(upDirectionATS1);
@@ -134,9 +137,8 @@ public class EnemyTwo : Enemy
                     StartAttack(upDirectionATS2);
                 }
             }
-
-            pattern1 = !pattern1;
         }
+        pattern1 = !pattern1;
     }
 
     /*private void AttackParity()

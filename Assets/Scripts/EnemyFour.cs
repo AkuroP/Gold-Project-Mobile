@@ -30,6 +30,8 @@ public class EnemyFour : Enemy
         moveCDCurrent = 0;
         moveDuration = 0.25f;
 
+        entityDangerousness = 2;
+
         chargeAttackCurrent = chargeAttackRoundMax;
 
         entitySr = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
@@ -54,6 +56,7 @@ public class EnemyFour : Enemy
 
         if (myTurn)
         {
+            turnDuration = 0;
             if (this.entityStatus.Count > 0)
             {
                 this.CheckStatus(this);

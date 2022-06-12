@@ -8,6 +8,7 @@ public class BossTP : Boss
     {
         if (myTurn)
         {
+            turnDuration = 0;
             if (this.entityStatus.Count > 0)
             {
                 this.CheckStatus(this);

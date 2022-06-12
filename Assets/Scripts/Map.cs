@@ -145,41 +145,53 @@ public class Map : MonoBehaviour
         foreach(Tile tile in enemySpawnTiles)
         {
             GameObject newEnemy = GameObject.Instantiate(Resources.Load("Prefabs/Enemy"), tile.transform.position, Quaternion.identity, this.gameObject.transform) as GameObject;
-            int random = Random.Range(0, 0);
+            int random = Mathf.Clamp(GameManager.instanceGM.actualDangerousness, 1, 3);
+            int randomDangerousness = Random.Range(1, random + 1);
+            int randomEnemy = 0;
 
-            switch(random)
+            switch(randomDangerousness)
             {
-                case 0:
-                    newEnemy.AddComponent<EnemyOne>();
-                    newEnemy.GetComponent<EnemyOne>().Init();
-                    newEnemy.GetComponent<EnemyOne>().currentMap = GetComponent<Map>();
-                break;
-
                 case 1:
-                    newEnemy.AddComponent<EnemyTwo>();
-                    newEnemy.GetComponent<EnemyTwo>().Init();
-                    newEnemy.GetComponent<EnemyTwo>().currentMap = GetComponent<Map>();
-                break;
+
+                    randomEnemy = Random.Range(0, 3);
+                    switch(randomEnemy)
+                    {
+                        case 0:
+                            newEnemy.AddComponent<EnemyOne>();
+                            newEnemy.GetComponent<EnemyOne>().Init();
+                            newEnemy.GetComponent<EnemyOne>().currentMap = GetComponent<Map>();
+                            break;
+                        case 1:
+                            newEnemy.AddComponent<EnemyTwo>();
+                            newEnemy.GetComponent<EnemyTwo>().Init();
+                            newEnemy.GetComponent<EnemyTwo>().currentMap = GetComponent<Map>();
+                            break;
+                        case 2:
+                            newEnemy.AddComponent<EnemyThree>();
+                            newEnemy.GetComponent<EnemyThree>().Init();
+                            newEnemy.GetComponent<EnemyThree>().currentMap = GetComponent<Map>();
+                            break;
+                    }
+                    break;
 
                 case 2:
-                    newEnemy.AddComponent<EnemyThree>();
-                    newEnemy.GetComponent<EnemyThree>().Init();
-                    newEnemy.GetComponent<EnemyThree>().currentMap = GetComponent<Map>();
+                    randomEnemy = Random.Range(0, 2);
+                    switch (randomEnemy)
+                    {
+                        case 0:
+                            newEnemy.AddComponent<EnemyFour>();
+                            newEnemy.GetComponent<EnemyFour>().Init();
+                            newEnemy.GetComponent<EnemyFour>().currentMap = GetComponent<Map>();
+                            break;
+                        case 1:
+                            newEnemy.AddComponent<EnemyFive>();
+                            newEnemy.GetComponent<EnemyFive>().Init();
+                            newEnemy.GetComponent<EnemyFive>().currentMap = GetComponent<Map>();
+                            break;
+                    }
                     break;
 
                 case 3:
-                    newEnemy.AddComponent<EnemyFour>();
-                    newEnemy.GetComponent<EnemyFour>().Init();
-                    newEnemy.GetComponent<EnemyFour>().currentMap = GetComponent<Map>();
-                    break;
-
-                case 4:
-                    newEnemy.AddComponent<EnemyFive>();
-                    newEnemy.GetComponent<EnemyFive>().Init();
-                    newEnemy.GetComponent<EnemyFive>().currentMap = GetComponent<Map>();
-                    break;
-
-                case 5:
                     newEnemy.AddComponent<EnemySix>();
                     newEnemy.GetComponent<EnemySix>().Init();
                     newEnemy.GetComponent<EnemySix>().currentMap = GetComponent<Map>();
@@ -189,7 +201,7 @@ public class Map : MonoBehaviour
                     newEnemy.AddComponent<EnemyTwo>();
                     newEnemy.GetComponent<EnemyTwo>().Init();
                     newEnemy.GetComponent<EnemyTwo>().currentMap = GetComponent<Map>();
-                break;
+                    break;
             }
 
             newEnemy.GetComponent<Enemy>().currentTile = tile;
@@ -307,7 +319,7 @@ public class Map : MonoBehaviour
         return tilesList[Random.Range(0, mapHeight * mapWidth - 1)];
     }
 
-    public bool CheckMove(Tile nextTile)
+    public bool CheckMove(Tile nextTile, Entity entity)
     {
         //is there a tile in the direction
         if (nextTile != null)
