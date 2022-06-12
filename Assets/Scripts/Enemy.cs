@@ -17,7 +17,7 @@ public class Enemy : Entity
         ENEMY1,
         ENEMY2,
         ENEMY3
-    } 
+    }
     public EnemyType whatEnemy;
     public int moveCDMax;
     public int moveCDCurrent;
@@ -44,7 +44,7 @@ public class Enemy : Entity
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public override void Move(Tile _targetTile)
@@ -73,7 +73,7 @@ public class Enemy : Entity
         {
             AchievementManager.instanceAM.UpdateEnemiesKilled();
             Destroy(this.gameObject);
-            player.numEssence += 5;
+            player.numEssence += 8;
             switch (player.weapon.typeOfWeapon)
             {
                 case WeaponType.DAGGER:
@@ -92,7 +92,7 @@ public class Enemy : Entity
     public Tile FindDirection(Tile currentTile)
     {
         List<Tile> tileAround = new List<Tile>();
-        
+
         if(currentTile.topTile != null && currentTile.topTile.isReachable && !currentTile.topTile.isHole && currentTile.topTile.entityOnTile == null)
         {
             tileAround.Add(currentTile.topTile);
@@ -109,7 +109,7 @@ public class Enemy : Entity
         {
             tileAround.Add(currentTile.leftTile);
         }
-        
+
         Tile selectedTile = tileAround[Random.Range(0, tileAround.Count)];
         return selectedTile;
     }
@@ -117,7 +117,7 @@ public class Enemy : Entity
     public Direction CheckAround(List<AttackTileSettings> _upDirectionATS, bool _drawAttack)
     {
         List<Entity> newList = new List<Entity>();
-        
+
         newList = GetEntityInRange(ConvertPattern(_upDirectionATS, Direction.UP),_drawAttack);
         for(int i = 0; i < newList.Count; i++)
         {
@@ -208,7 +208,7 @@ public class Enemy : Entity
 
         List<AttackTileSettings> allATS = new List<AttackTileSettings>();
 
-        
+
         foreach(AttackTileSettings oneATS in _upATS)
         {
             allATS.Add(oneATS);
@@ -379,7 +379,7 @@ public class Enemy : Entity
             {
                 //if in closed list Tile is alrday checked, go next
                 if (closedList.Contains(neighbourTile)) continue;
-                //if is not reachable go next 
+                //if is not reachable go next
                 if (!neighbourTile.isReachable || neighbourTile.entityOnTile is Enemy)
                 {
                     closedList.Add(neighbourTile);
@@ -388,7 +388,7 @@ public class Enemy : Entity
 
                 if(_drawDebug)
                     StartCoroutine(neighbourTile.TurnColor(new Color(0f, 0f, 1f, 1f), step));
-  
+
                 int tentativeGCost = currentTile.gCost + CalculateDistanceCost(currentTile, neighbourTile);
                 if (tentativeGCost < neighbourTile.gCost)
                 {
@@ -398,9 +398,9 @@ public class Enemy : Entity
                     neighbourTile.CalculateFCost();
 
 
-                    if (!openList.Contains(neighbourTile)) 
-                    { 
-                        openList.Add(neighbourTile); 
+                    if (!openList.Contains(neighbourTile))
+                    {
+                        openList.Add(neighbourTile);
                     }
                 }
             }
@@ -479,7 +479,7 @@ public class Enemy : Entity
         return path;
     }
 
-    
+
 
 
     public void EnemyRandomMove()
