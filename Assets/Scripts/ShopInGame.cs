@@ -70,9 +70,9 @@ public class ShopInGame : MonoBehaviour
         allItems.Add(sideSlash);
 
         //Get all the GameObjects needed
-        shopButtons[0] = UI.instanceUI.shopUI.transform.Find("Item1Button").gameObject;
-        shopButtons[1] = UI.instanceUI.shopUI.transform.Find("Item2Button").gameObject;
-        shopButtons[2] = UI.instanceUI.shopUI.transform.Find("Item3Button").gameObject;
+        shopButtons[0] = UI.instanceUI.shopUI.transform.Find("Shop").transform.Find("Item1Button").gameObject;
+        shopButtons[1] = UI.instanceUI.shopUI.transform.Find("Shop").transform.Find("Item2Button").gameObject;
+        shopButtons[2] = UI.instanceUI.shopUI.transform.Find("Shop").transform.Find("Item3Button").gameObject;
 
         //Calculate Dmax and Dmin values
         Dmax = GameManager.instanceGM.actualDangerousness;

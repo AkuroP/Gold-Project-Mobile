@@ -180,19 +180,6 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        //shop
-        if (room == 6)
-        {
-            if (Inventory.instanceInventory.mysteryBoxInShop == true && Inventory.instanceInventory.mysteryBoxDangerousness < 5)
-            {
-                Inventory.instanceInventory.mysteryBoxDangerousness++;
-            }
-            UI.instanceUI.shopUI = Instantiate(shopUIprefab, UI.instanceUI.canvas.transform);
-            Instantiate(shopPrefab);
-            UI.instanceUI.shopUI.transform.Find("CloseButton").gameObject.GetComponent<Button>().onClick.AddListener(UI.instanceUI.CloseShop);
-            SwipeDetection.instanceSD.blockInputs = true;
-        }
-
         //dangerousness update
         if (score % 20 == 0)
         {
@@ -205,6 +192,19 @@ public class GameManager : MonoBehaviour
 
         //map generation
         instanceGM.NewMap();
+
+        //shop
+        if (room == 6)
+        {
+            if (Inventory.instanceInventory.mysteryBoxInShop == true && Inventory.instanceInventory.mysteryBoxDangerousness < 5)
+            {
+                Inventory.instanceInventory.mysteryBoxDangerousness++;
+            }
+            UI.instanceUI.shopUI = Instantiate(shopUIprefab, UI.instanceUI.canvas.transform);
+            Instantiate(shopPrefab);
+            UI.instanceUI.shopUI.transform.Find("Shop").transform.Find("CloseButton").gameObject.GetComponent<Button>().onClick.AddListener(UI.instanceUI.CloseShop);
+            SwipeDetection.instanceSD.blockInputs = true;
+        }
     }
 
     public void ShopIG()
@@ -234,7 +234,7 @@ public class GameManager : MonoBehaviour
         playingEntity = allEntities[indexPlayingEntity];
         //Debug.Log(allEntities[indexPlayingEntity].name);
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.1f);
         if(playingEntity != null)
         {
             if (playingEntity.tag == "Player")
