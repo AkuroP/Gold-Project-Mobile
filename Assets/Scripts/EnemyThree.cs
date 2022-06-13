@@ -67,7 +67,6 @@ public class EnemyThree : Enemy
                 this.CheckStatus(this);
             }
             StartTurn();
-            StartCoroutine(EndTurn(turnDuration));
         }
 
         //move process
@@ -175,5 +174,6 @@ public class EnemyThree : Enemy
                 turnDuration += attackDuration;
             }
         }
+        StartCoroutine(EndTurn(turnDuration));
     }
 }

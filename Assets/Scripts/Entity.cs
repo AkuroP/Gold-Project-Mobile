@@ -404,8 +404,17 @@ public class Entity : MonoBehaviour
     {
         currentPosition = transform.position;
         targetPosition = _targetTile.transform.position;
-        
-        Debug.Log(currentPosition + " / " + targetPosition);
+
+        if(currentTile.tileX < _targetTile.tileX)
+        {
+            entitySr.flipX = true;
+        }
+        else if (currentTile.tileX > _targetTile.tileX)
+        {
+            entitySr.flipX = false;
+        }
+
+        //Debug.Log(currentPosition + " / " + targetPosition);
 
         if (currentTile.isHole == true && currentTile.isOpen == false)
         {
@@ -437,7 +446,7 @@ public class Entity : MonoBehaviour
         {
             mobility--;
         }
-        else
+        else if (this is Player)
         {
             hasMove = true;
             hasPlay = true;
@@ -456,7 +465,7 @@ public class Entity : MonoBehaviour
         currentPosition = transform.position;
         targetPosition = _targetTile.transform.position;
 
-        Debug.Log(_delay + " / " + currentPosition + " / " + targetPosition);
+        //Debug.Log(_delay + " / " + currentPosition + " / " + targetPosition);
 
         if (!_targetTile.isHole)
         {
@@ -477,7 +486,7 @@ public class Entity : MonoBehaviour
         }
     }
 
-    public virtual void FindNextTile()
+    public bool FindNextTile()
     {
         switch (direction)
         {
@@ -486,6 +495,11 @@ public class Entity : MonoBehaviour
                 if (currentMap.CheckMove(topTile, this))
                 {
                     this.Move(topTile);
+                    return true;
+                }
+                else
+                {
+                    return false;
                 }
                 break;
             case Direction.RIGHT:
@@ -493,7 +507,11 @@ public class Entity : MonoBehaviour
                 if (currentMap.CheckMove(rightTile, this))
                 {
                     this.Move(rightTile);
-                    entitySr.flipX = true;
+                    return true;
+                }
+                else
+                {
+                    return false;
                 }
                 break;
             case Direction.BOTTOM:
@@ -501,6 +519,11 @@ public class Entity : MonoBehaviour
                 if (currentMap.CheckMove(bottomTile, this))
                 {
                     this.Move(bottomTile);
+                    return true;
+                }
+                else
+                {
+                    return false;
                 }
                 break;
             case Direction.LEFT:
@@ -508,10 +531,15 @@ public class Entity : MonoBehaviour
                 if (currentMap.CheckMove(leftTile, this))
                 {
                     this.Move(leftTile);
-                    entitySr.flipX = false;
+                    return true;
+                }
+                else
+                {
+                    return false;
                 }
                 break;
         }
+        return false;
         //enableMove = false;
     }
 
@@ -525,8 +553,9 @@ public class Entity : MonoBehaviour
 
     public IEnumerator EndTurn(float waitDuration)
     {
-        yield return new WaitForSeconds(waitDuration);
+        yield return new WaitForSeconds(waitDuration + 0.1f);
         hasPlay = true;
+        //Debug.Log("fin du tour");
     }
 
 }

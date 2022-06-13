@@ -125,7 +125,7 @@ public class GameManager : MonoBehaviour
                 playingEntity.hasAttack = false;
                 playingEntity.hasPlay = false;
                 playingEntity.hasCheckStatus = false;
-                if(playingEntity.tag == "Player")
+                if(playingEntity is Player)
                 {
                     SwipeDetection.instanceSD.blockInputs = true;
                     playingEntity.mobility = 0;
@@ -234,7 +234,7 @@ public class GameManager : MonoBehaviour
         playingEntity = allEntities[indexPlayingEntity];
         //Debug.Log(allEntities[indexPlayingEntity].name);
 
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.25f);
         if(playingEntity != null)
         {
             if (playingEntity.tag == "Player")

@@ -80,7 +80,7 @@ public class EnemyTwo : Enemy
         //move process
         if (moveInProgress && !canMove && timeElapsed < moveDuration)
         {
-            Debug.Log("Move");
+            //Debug.Log("Move");
             transform.position = Vector3.Lerp(currentPosition, targetPosition, timeElapsed / moveDuration) - new Vector3(0, 0, 1);
             timeElapsed += Time.deltaTime;
         }

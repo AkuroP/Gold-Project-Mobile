@@ -123,7 +123,7 @@ public class BossTP : Boss
 
     public void StartTurnPhase1()
     {
-        Debug.Log("sun turn");
+        //Debug.Log("sun turn");
 
         if(attackPhase)
         {
