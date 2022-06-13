@@ -42,6 +42,8 @@ public class EnemySix : Enemy
         AssignPattern();
 
         isInitialize = true;
+
+        turnArrow = this.transform.Find("Arrow").gameObject;
     }
 
 
@@ -61,6 +63,7 @@ public class EnemySix : Enemy
 
         if (myTurn)
         {
+            turnArrow.SetActive(true);
             myTurn = false;
             turnDuration = 0;
 

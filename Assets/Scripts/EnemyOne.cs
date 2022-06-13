@@ -30,6 +30,8 @@ public class EnemyOne : Enemy
         AssignPattern();
 
         isInitialize = true;
+
+        turnArrow = this.transform.Find("Arrow").gameObject;
     }
 
     private void AssignPattern()
@@ -42,6 +44,7 @@ public class EnemyOne : Enemy
     {
         if(myTurn)
         {
+            turnArrow.SetActive(true);
             turnDuration = 0;
             myTurn = false;
 

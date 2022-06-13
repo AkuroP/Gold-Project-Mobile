@@ -66,6 +66,7 @@ public class Entity : MonoBehaviour
 
     //Sprite and anims
     [SerializeField] public SpriteRenderer entitySr;
+    public GameObject turnArrow;
 
     public List<Debuff> entityStatus = new List<Debuff>();
 
@@ -563,6 +564,7 @@ public class Entity : MonoBehaviour
     {
         yield return new WaitForSeconds(waitDuration + 0.3f);
         hasPlay = true;
+        turnArrow.SetActive(false);
         //Debug.Log("fin du tour");
     }
 

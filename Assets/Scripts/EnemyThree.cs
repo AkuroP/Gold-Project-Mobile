@@ -42,6 +42,8 @@ public class EnemyThree : Enemy
         AssignPattern();
 
         isInitialize = true;
+
+        turnArrow = this.transform.Find("Arrow").gameObject;
     }
 
 
@@ -59,6 +61,7 @@ public class EnemyThree : Enemy
 
         if (myTurn)
         {
+            turnArrow.SetActive(true);
             myTurn = false;
             turnDuration = 0;
 

@@ -120,7 +120,7 @@ public class SwipeDetection : MonoBehaviour
                     player.StartAttack(player.weapon.upDirectionATS);
                     player.attackNext = false;
                 }
-                else
+                else if (!player.hasMove)
                 {
                     player.FindNextTile();
                     player.moveNext = false;

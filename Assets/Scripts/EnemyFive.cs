@@ -40,6 +40,8 @@ public class EnemyFive : Enemy
         AssignPattern();
 
         isInitialize = true;
+
+        turnArrow = this.transform.Find("Arrow").gameObject;
     }
 
     private void AssignPattern()
@@ -55,6 +57,7 @@ public class EnemyFive : Enemy
 
         if (myTurn)
         {
+            turnArrow.SetActive(true);
             myTurn = false;
             turnDuration = 0;
 

@@ -36,6 +36,8 @@ public class Player : Entity
         weapon = new Weapon(WeaponType.DAGGER, 0, 1);
         hp = maxHP;
         attackDuration = 0.2f;
+
+        turnArrow = this.transform.Find("Arrow").gameObject;
     }
 
     // Update is called once per frame
@@ -43,7 +45,8 @@ public class Player : Entity
     {
         if(this.myTurn)
         {
-            if(!cdFire)
+            turnArrow.SetActive(true);
+            if (!cdFire)
             {
                 if(tilesOnFire.Count > 0)
                 {
@@ -62,6 +65,10 @@ public class Player : Entity
                 }
                 cdFire = true;
             }
+        }
+        else
+        {
+            turnArrow.SetActive(false);
         }
 
         //turn management
