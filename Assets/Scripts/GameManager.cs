@@ -119,6 +119,16 @@ public class GameManager : MonoBehaviour
         {
             if(playingEntity.hasPlay)
             {
+                float time;
+                if(playingEntity.hasMove || playingEntity.hasAttack)
+                {
+                    time = .5f;
+                }
+                else
+                {
+                    time = 0;
+                }
+                Debug.Log(playingEntity.name + " " + time);
                 //reset entity who has played
                 playingEntity.myTurn = false;
                 playingEntity.hasMove = false;
@@ -133,13 +143,13 @@ public class GameManager : MonoBehaviour
                 }
 
                 //next entity play
-                StartCoroutine(ChangeEntity());
+                StartCoroutine(ChangeEntity(time));
             }
         }
         else
         {
             //next entity play
-            StartCoroutine(ChangeEntity());
+            StartCoroutine(ChangeEntity(0));
         }
     }
 
@@ -220,7 +230,7 @@ public class GameManager : MonoBehaviour
         SwipeDetection.instanceSD.blockInputs = true;
     }
 
-    public IEnumerator ChangeEntity()
+    public IEnumerator ChangeEntity(float time)
     {
         //new entity play
         if (indexPlayingEntity >= allEntities.Count - 1)
@@ -234,7 +244,7 @@ public class GameManager : MonoBehaviour
         playingEntity = allEntities[indexPlayingEntity];
         //Debug.Log(allEntities[indexPlayingEntity].name);
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(time);
         if(playingEntity != null)
         {
             if (playingEntity.tag == "Player")
