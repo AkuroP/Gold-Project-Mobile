@@ -67,7 +67,7 @@ public class UI : MonoBehaviour
     {
         
         //GameManager.instanceGM.NewMap();
-        /*Tile playerLastTile = new Tile();
+        Tile playerLastTile = new Tile();
         switch(player.direction)
         {
             case Direction.UP :
@@ -89,10 +89,10 @@ public class UI : MonoBehaviour
             default :
                 playerLastTile = GameManager.instanceGM.currentMap.FindBottomTile(player.currentTile);
             break;
-        }*/
+        }
         player.isInShop = false;
         SwipeDetection.instanceSD.blockInputs = false;
-        //player.Move(playerLastTile);
+        player.Move(playerLastTile);
         shopUI.SetActive(false);
         GameObject shop = GameObject.FindWithTag("ShopInGame");
         Destroy(shop);
