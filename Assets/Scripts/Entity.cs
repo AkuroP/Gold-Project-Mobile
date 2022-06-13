@@ -389,7 +389,11 @@ public class Entity : MonoBehaviour
         {
             AchievementManager.instanceAM.UpdateFullCounter();
         }
-        if (entity.invincibilityTurn == 0)
+        if(entity is BossTP && entity.GetComponent<BossTP>().sunCreeps.Count > 0)
+        {
+            return;
+        }
+        else if (entity.invincibilityTurn == 0)
         {
             entity.hp -= damage * damageMultiplicator;
             damageMultiplicator = 1;
@@ -457,6 +461,7 @@ public class Entity : MonoBehaviour
             {
                 AchievementManager.instanceAM.UpdateStepsAchievement();
             }
+            entitySr.sortingOrder = 11 - currentTile.tileY;
             canMove = false;
         }
     }  

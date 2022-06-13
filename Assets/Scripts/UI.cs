@@ -97,6 +97,8 @@ public class UI : MonoBehaviour
         GameObject shop = GameObject.FindWithTag("ShopInGame");
         Destroy(shop);
         Destroy(shopUI);
+        //map generation
+        GameManager.instanceGM.NewMap();
     }
 
     public void Fade()

@@ -195,11 +195,18 @@ public class GameManager : MonoBehaviour
         Inventory.instanceInventory.RefreshCooldown();
 
         //map generation
-        instanceGM.NewMap();
-
-        //shop
-        if (room == 6)
+        if(room != 6)
         {
+            instanceGM.NewMap();
+        }
+        //shop
+        else
+        {
+            if (currentMap != null)
+            {
+                Destroy(currentMap.gameObject);
+                currentMap = null;
+            }
             if (Inventory.instanceInventory.mysteryBoxInShop == true && Inventory.instanceInventory.mysteryBoxDangerousness < 5)
             {
                 Inventory.instanceInventory.mysteryBoxDangerousness++;

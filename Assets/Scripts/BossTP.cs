@@ -257,6 +257,7 @@ public class BossTP : Boss
 
         newTile.entityOnTile = this;
         currentTile = newTile;
+        entitySr.sortingOrder = 11 - currentTile.tileY;
         transform.position = currentTile.transform.position;
         this.gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
         isInvisible = false;

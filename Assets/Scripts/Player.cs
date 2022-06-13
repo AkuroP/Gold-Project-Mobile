@@ -33,8 +33,9 @@ public class Player : Entity
         instanceGM = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
 
         currentPosition = transform.position;
-        weapon = new Weapon(WeaponType.HANDGUN, 0, 1);
+        weapon = new Weapon(WeaponType.DAGGER, 0, 1);
         hp = maxHP;
+        attackDuration = 0.2f;
     }
 
     // Update is called once per frame
@@ -113,16 +114,16 @@ public class Player : Entity
                     }
                     else
                     {
-                        this.hp--;
+                        Damage(1, this);
                     }
                 }
                 else
                 {
-                    this.hp--;
+                    Damage(1, this);
                 }
             }
 
-            if(currentTile.isShop && !isInShop)
+            if (currentTile.isShop && !isInShop)
             {
                 GameManager.instanceGM.ShopIG();
                 isInShop = true;
@@ -175,7 +176,6 @@ public class Player : Entity
             {
                 StartCoroutine(EndTurn(attackDuration));
             }
-            hasPlay = true;
             hasAttack = true;
             if(Inventory.instanceInventory.HasItem("Power Gloves"))
             {
@@ -186,8 +186,6 @@ public class Player : Entity
             {
                 this.weapon.ApplyEffect(this, 0);
             }
-
-
         }
     }
 

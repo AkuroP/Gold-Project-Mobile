@@ -79,6 +79,30 @@ public class EnemyFive : Enemy
             moveInProgress = false;
             canMove = true;
             timeElapsed = 0;
+
+            if (currentTile.isPike && !isOnThePike)
+            {
+                currentTile.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/Tiles/TilemapsDark_Spritesheet_25");
+                isOnThePike = true;
+                AchievementManager.instanceAM.UpdateTrapsActivated();
+                if (Inventory.instanceInventory.HasItem("Trap Protector") == true)
+                {
+                    ShopItem trapProtector = Inventory.instanceInventory.GetItem("Trap Protector");
+                    Debug.Log(trapProtector.itemName + ", " + trapProtector.itemCooldown);
+                    if (trapProtector.itemCooldown == 0)
+                    {
+                        trapProtector.itemCooldown = 5;
+                    }
+                    else
+                    {
+                        Damage(1, this);
+                    }
+                }
+                else
+                {
+                    Damage(1, this);
+                }
+            }
         }
 
         if (isInitialize)

@@ -50,7 +50,7 @@ MonoBehaviour:
   floor: 0
   room: 1
   nextBoss: 1
-  numberOfBosses: 2
+  numberOfBosses: 1
   shopRoomNumber: 5
   actualDangerousness: 1
   turnNumber: 0

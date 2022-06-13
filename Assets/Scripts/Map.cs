@@ -131,6 +131,7 @@ public class Map : MonoBehaviour
     {
         //instantiate and spawn player
         player = GameObject.FindWithTag("Player").GetComponent<Player>();
+        Debug.Log("entrance tile : " + entranceTileIndex);
         player.gameObject.transform.position = tilesList[entranceTileIndex].gameObject.transform.position;
 
         //assign map and current tile
@@ -282,6 +283,8 @@ public class Map : MonoBehaviour
 
                 entities.Add(newEnemy.GetComponent<Enemy>());
                 tempSunCreeps.Add(newEnemy.GetComponent<SunCreep>());
+
+                newEnemy.transform.Find("Sprite").GetComponent<SpriteRenderer>().sortingOrder = 11 - newEnemy.GetComponent<Enemy>().currentTile.tileY;
             }
         }
 

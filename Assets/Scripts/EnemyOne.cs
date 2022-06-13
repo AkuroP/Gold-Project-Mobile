@@ -82,6 +82,8 @@ public class EnemyOne : Enemy
 
         if(isInitialize)
             IsSelfDead();
+
+        entitySr.sortingOrder = 11 - currentTile.tileY;
     }
 
     public override void StartTurn()
