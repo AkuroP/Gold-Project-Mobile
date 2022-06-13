@@ -470,7 +470,7 @@ public class Enemy : Entity
         while(currentTile.cameFromTile != null)
         {
             //======= DEBUG START =======//
-            StartCoroutine(currentTile.TurnColor(new Color(0f, 1f, 0f, 1f), step));
+            //StartCoroutine(currentTile.TurnColor(new Color(0f, 1f, 0f, 1f), step));
             //======= DEBUG END =======//
 
             path.Add(currentTile.cameFromTile);

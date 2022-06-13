@@ -99,7 +99,7 @@ public class EnemyTwo : Enemy
     public override void StartTurn()
     {
         turnDuration += attackDuration;
-        if(pattern1)
+        if(pattern1 == true)
         {
             dir = CheckAround(upDirectionATS1, false);
 
@@ -116,7 +116,7 @@ public class EnemyTwo : Enemy
             }
 
         }
-        else
+        else if (pattern1 == false)
         {
             dir = CheckAround(upDirectionATS2, true);
 
