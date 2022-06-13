@@ -173,7 +173,7 @@ public class Player : Entity
             }
             else
             {
-                hasPlay = true;
+                StartCoroutine(EndTurn(attackDuration));
             }
             hasPlay = true;
             hasAttack = true;

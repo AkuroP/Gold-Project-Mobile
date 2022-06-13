@@ -402,60 +402,63 @@ public class Entity : MonoBehaviour
 
     public virtual void Move(Tile _targetTile)
     {
-        currentPosition = transform.position;
-        targetPosition = _targetTile.transform.position;
+        if(!hasMove)
+        {
+            currentPosition = transform.position;
+            targetPosition = _targetTile.transform.position;
 
-        if(currentTile.tileX < _targetTile.tileX)
-        {
-            entitySr.flipX = true;
-        }
-        else if (currentTile.tileX > _targetTile.tileX)
-        {
-            entitySr.flipX = false;
-        }
+            if (currentTile.tileX < _targetTile.tileX)
+            {
+                entitySr.flipX = true;
+            }
+            else if (currentTile.tileX > _targetTile.tileX)
+            {
+                entitySr.flipX = false;
+            }
 
-        //Debug.Log(currentPosition + " / " + targetPosition);
+            //Debug.Log(currentPosition + " / " + targetPosition);
 
-        if (currentTile.isHole == true && currentTile.isOpen == false)
-        {
-            currentTile.isReachable = false;
-            currentTile.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/Tiles/TilemapsDark_Spritesheet_14");
-        }
-        if (currentTile.isPike == true)
-        {
-            currentTile.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/Tiles/TilemapsDark_Spritesheet_24");
-            isOnThePike = false;
-        }
+            if (currentTile.isHole == true && currentTile.isOpen == false)
+            {
+                currentTile.isReachable = false;
+                currentTile.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/Tiles/TilemapsDark_Spritesheet_14");
+            }
+            if (currentTile.isPike == true)
+            {
+                currentTile.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/Tiles/TilemapsDark_Spritesheet_24");
+                isOnThePike = false;
+            }
 
-        if (!_targetTile.isHole)
-        {
-            _targetTile.entityOnTile = currentTile.entityOnTile;
-            currentTile.entityOnTile = null;
-            currentTile = _targetTile;
-            lastNotHoleTile = currentTile;
-        }
-        else if (_targetTile.isHole)
-        {
-            _targetTile.entityOnTile = currentTile.entityOnTile;
-            currentTile.entityOnTile = null;
-            currentTile = _targetTile;
-        }
+            if (!_targetTile.isHole)
+            {
+                _targetTile.entityOnTile = currentTile.entityOnTile;
+                currentTile.entityOnTile = null;
+                currentTile = _targetTile;
+                lastNotHoleTile = currentTile;
+            }
+            else if (_targetTile.isHole)
+            {
+                _targetTile.entityOnTile = currentTile.entityOnTile;
+                currentTile.entityOnTile = null;
+                currentTile = _targetTile;
+            }
 
-        moveInProgress = true;
-        if(mobility > 0)
-        {
-            mobility--;
+            moveInProgress = true;
+            if (mobility > 0)
+            {
+                mobility--;
+            }
+            else if (this is Player && mobility == 0)
+            {
+                hasMove = true;
+                StartCoroutine(EndTurn(moveDuration));
+            }
+            if (this.CompareTag("Player"))
+            {
+                AchievementManager.instanceAM.UpdateStepsAchievement();
+            }
+            canMove = false;
         }
-        else if (this is Player)
-        {
-            hasMove = true;
-            hasPlay = true;
-        }
-        if(this.CompareTag("Player"))
-        {
-            AchievementManager.instanceAM.UpdateStepsAchievement();
-        }
-        canMove = false;
     }  
 
     public IEnumerator MoveWithDelay(Tile _targetTile, float _delay)
@@ -553,7 +556,7 @@ public class Entity : MonoBehaviour
 
     public IEnumerator EndTurn(float waitDuration)
     {
-        yield return new WaitForSeconds(waitDuration + 0.1f);
+        yield return new WaitForSeconds(waitDuration + 0.3f);
         hasPlay = true;
         //Debug.Log("fin du tour");
     }

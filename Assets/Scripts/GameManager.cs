@@ -117,6 +117,10 @@ public class GameManager : MonoBehaviour
     {
         if(playingEntity != null)
         {
+            if(!playingEntity.hasPlay && playingEntity is Player)
+            {
+                SwipeDetection.instanceSD.blockInputs = false;
+            }
             if(playingEntity.hasPlay)
             {
                 //reset entity who has played
@@ -133,13 +137,13 @@ public class GameManager : MonoBehaviour
                 }
 
                 //next entity play
-                StartCoroutine(ChangeEntity());
+                ChangeEntity();
             }
         }
         else
         {
             //next entity play
-            StartCoroutine(ChangeEntity());
+            ChangeEntity();
         }
     }
 
@@ -220,7 +224,7 @@ public class GameManager : MonoBehaviour
         SwipeDetection.instanceSD.blockInputs = true;
     }
 
-    public IEnumerator ChangeEntity()
+    public void ChangeEntity()
     {
         //new entity play
         if (indexPlayingEntity >= allEntities.Count - 1)
@@ -234,10 +238,9 @@ public class GameManager : MonoBehaviour
         playingEntity = allEntities[indexPlayingEntity];
         //Debug.Log(allEntities[indexPlayingEntity].name);
 
-        yield return new WaitForSeconds(0.25f);
         if(playingEntity != null)
         {
-            if (playingEntity.tag == "Player")
+            if (playingEntity is Player)
             {
                 turnNumber++;
                 SwipeDetection.instanceSD.blockInputs = false;

@@ -74,6 +74,7 @@ public class Enemy : Entity
         if (hp <= 0)
         {
             AchievementManager.instanceAM.UpdateEnemiesKilled();
+            this.currentTile.entityOnTile = null;
             Destroy(this.gameObject);
             player.numEssence += 8;
             switch (player.weapon.typeOfWeapon)
@@ -307,7 +308,7 @@ public class Enemy : Entity
 
                     List<Tile> newPath = FindPath(_originTile, _targetTileList[i], false);
 
-                    if (quickestPath != null && newPath.Count < quickestPath.Count)
+                    if (quickestPath != null && newPath != null && newPath.Count < quickestPath.Count)
                     {
                         quickestPath = newPath;
                     }
