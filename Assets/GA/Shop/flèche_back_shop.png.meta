@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 23d2c4ab00c34ff4bb4df93025e5176c
+guid: 7ceeff1a7c09baa4fa084ea9722571d6
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -114,91 +114,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: mc_idle_sheet_0
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 1440
-        width: 450
-        height: 489
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dcdbd786814141b408bbbdb3c8e799a2
-      internalID: 71580693
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mc_idle_sheet_1
-      rect:
-        serializedVersion: 2
-        x: 1392
-        y: 1440
-        width: 450
-        height: 489
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 656204c8eaacea346b171b9243833b71
-      internalID: -1739722758
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mc_idle_sheet_2
-      rect:
-        serializedVersion: 2
-        x: 316
-        y: 359
-        width: 450
-        height: 489
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: afe7cf66b015c5940a9dc220e8dec5f1
-      internalID: -1976491121
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mc_idle_sheet_3
-      rect:
-        serializedVersion: 2
-        x: 1396
-        y: 359
-        width: 450
-        height: 489
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 21b34e29ff547cc429907d72bc3d8ee5
-      internalID: 1781097836
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -209,11 +125,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      mc_idle_sheet_0: 71580693
-      mc_idle_sheet_1: -1739722758
-      mc_idle_sheet_2: -1976491121
-      mc_idle_sheet_3: 1781097836
+    nameFileIdTable: {}
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

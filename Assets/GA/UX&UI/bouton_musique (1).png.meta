@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 23d2c4ab00c34ff4bb4df93025e5176c
+guid: f6004c745518bde49a140275ce80c0c4
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -116,85 +116,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: mc_idle_sheet_0
+      name: bouton_musique (1)_0
       rect:
         serializedVersion: 2
-        x: 320
-        y: 1440
-        width: 450
-        height: 489
+        x: 0
+        y: 50
+        width: 50
+        height: 50
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dcdbd786814141b408bbbdb3c8e799a2
-      internalID: 71580693
+      spriteID: 12626d478f1863b4683d07774164f0a4
+      internalID: -1261210497
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mc_idle_sheet_1
+      name: bouton_musique (1)_1
       rect:
         serializedVersion: 2
-        x: 1392
-        y: 1440
-        width: 450
-        height: 489
+        x: 50
+        y: 50
+        width: 50
+        height: 50
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 656204c8eaacea346b171b9243833b71
-      internalID: -1739722758
+      spriteID: 9fdced973c1272a4cb222822e12967e7
+      internalID: -1556816396
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mc_idle_sheet_2
+      name: bouton_musique (1)_2
       rect:
         serializedVersion: 2
-        x: 316
-        y: 359
-        width: 450
-        height: 489
+        x: 0
+        y: 0
+        width: 50
+        height: 50
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: afe7cf66b015c5940a9dc220e8dec5f1
-      internalID: -1976491121
+      spriteID: 20c550835aee6c049aa2e28ae4c37fd6
+      internalID: 1246363036
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mc_idle_sheet_3
+      name: bouton_musique (1)_3
       rect:
         serializedVersion: 2
-        x: 1396
-        y: 359
-        width: 450
-        height: 489
+        x: 50
+        y: 0
+        width: 50
+        height: 50
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 21b34e29ff547cc429907d72bc3d8ee5
-      internalID: 1781097836
+      spriteID: 1d9679a1af739504fb551ccc8aaa5260
+      internalID: -742356196
       vertices: []
       indices: 
       edges: []
@@ -210,10 +210,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      mc_idle_sheet_0: 71580693
-      mc_idle_sheet_1: -1739722758
-      mc_idle_sheet_2: -1976491121
-      mc_idle_sheet_3: 1781097836
+      bouton_musique (1)_2: 1246363036
+      bouton_musique (1)_3: -742356196
+      bouton_musique (1)_1: -1556816396
+      bouton_musique (1)_0: -1261210497
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 23d2c4ab00c34ff4bb4df93025e5176c
+guid: f2f0068ac6a07414985caae88feff5c3
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -116,85 +116,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: mc_idle_sheet_0
+      name: bouton_son (1)_0
       rect:
         serializedVersion: 2
-        x: 320
-        y: 1440
-        width: 450
-        height: 489
+        x: 0
+        y: 50
+        width: 50
+        height: 50
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dcdbd786814141b408bbbdb3c8e799a2
-      internalID: 71580693
+      spriteID: 6ea7328752e8cac47908f81987d14b5e
+      internalID: -1045039808
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mc_idle_sheet_1
+      name: bouton_son (1)_1
       rect:
         serializedVersion: 2
-        x: 1392
-        y: 1440
-        width: 450
-        height: 489
+        x: 50
+        y: 50
+        width: 50
+        height: 50
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 656204c8eaacea346b171b9243833b71
-      internalID: -1739722758
+      spriteID: 3eee237411eaca543ba0304884e827c7
+      internalID: 1538740737
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mc_idle_sheet_2
+      name: bouton_son (1)_2
       rect:
         serializedVersion: 2
-        x: 316
-        y: 359
-        width: 450
-        height: 489
+        x: 0
+        y: 0
+        width: 50
+        height: 50
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: afe7cf66b015c5940a9dc220e8dec5f1
-      internalID: -1976491121
+      spriteID: b3c11ac4d74fe95468d9a2fd49f1fcd5
+      internalID: 1527927672
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mc_idle_sheet_3
+      name: bouton_son (1)_3
       rect:
         serializedVersion: 2
-        x: 1396
-        y: 359
-        width: 450
-        height: 489
+        x: 50
+        y: 0
+        width: 50
+        height: 50
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 21b34e29ff547cc429907d72bc3d8ee5
-      internalID: 1781097836
+      spriteID: 11ba717d60008334ca13adcedff450b9
+      internalID: -1771986070
       vertices: []
       indices: 
       edges: []
@@ -210,10 +210,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      mc_idle_sheet_0: 71580693
-      mc_idle_sheet_1: -1739722758
-      mc_idle_sheet_2: -1976491121
-      mc_idle_sheet_3: 1781097836
+      bouton_son (1)_2: 1527927672
+      bouton_son (1)_3: -1771986070
+      bouton_son (1)_0: -1045039808
+      bouton_son (1)_1: 1538740737
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

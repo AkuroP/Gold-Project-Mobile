@@ -119,12 +119,12 @@ TextureImporter:
       name: mc_death_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 2160
-        width: 1080
-        height: 1080
+        x: 266
+        y: 2510
+        width: 548
+        height: 545
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -140,12 +140,12 @@ TextureImporter:
       name: mc_death_1
       rect:
         serializedVersion: 2
-        x: 1080
-        y: 2160
-        width: 1080
-        height: 1080
+        x: 1314
+        y: 2509
+        width: 548
+        height: 545
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -161,12 +161,12 @@ TextureImporter:
       name: mc_death_2
       rect:
         serializedVersion: 2
-        x: 2160
-        y: 2160
-        width: 1080
-        height: 1080
+        x: 2365
+        y: 2506
+        width: 548
+        height: 545
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -182,12 +182,12 @@ TextureImporter:
       name: mc_death_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1080
-        width: 1080
-        height: 1080
+        x: 209
+        y: 1436
+        width: 548
+        height: 545
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -203,12 +203,12 @@ TextureImporter:
       name: mc_death_4
       rect:
         serializedVersion: 2
-        x: 1080
-        y: 1080
-        width: 1080
-        height: 1080
+        x: 1296
+        y: 1436
+        width: 548
+        height: 545
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -224,12 +224,12 @@ TextureImporter:
       name: mc_death_5
       rect:
         serializedVersion: 2
-        x: 2160
-        y: 1080
-        width: 1080
-        height: 1080
+        x: 2365
+        y: 1436
+        width: 548
+        height: 545
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -245,12 +245,12 @@ TextureImporter:
       name: mc_death_6
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1080
-        height: 1080
+        x: 209
+        y: 351
+        width: 548
+        height: 545
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
