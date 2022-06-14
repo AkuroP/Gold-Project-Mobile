@@ -155,7 +155,6 @@ public class GameManager : MonoBehaviour
     {
         if(_pause)
         {
-            SwipeDetection.instanceSD.doubleClickTimerOn = true;
             pauseMenu.SetActive(true);
             isPaused = true;
             Time.timeScale = 0f;
@@ -165,9 +164,7 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 1f;
             pauseMenu.SetActive(false);
             isPaused = false;
-            SwipeDetection.instanceSD.doubleClickTimerOn = false;
         }
-        SwipeDetection.instanceSD.doubleClickTimerOn = false;
     }
 
     public void UpdateScoreAndMap()

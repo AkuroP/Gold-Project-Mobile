@@ -27,6 +27,8 @@ public class UI : MonoBehaviour
     [SerializeField] private Text floorText;
     [SerializeField] private Text roomText;
     public GameObject attackButton;
+    public GameObject optionButton;
+    public GameObject closeOptionButton;
 
     //Fade
     public GameObject fadePrefab;
@@ -113,7 +115,7 @@ public class UI : MonoBehaviour
 
     public void OpenOptions()
     {
-        optionsMenu.SetActive(true);
+        GameManager.instanceGM.PauseResume(true);
     }
 
     public void CloseOptions()

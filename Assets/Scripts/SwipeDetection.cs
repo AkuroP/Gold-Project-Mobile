@@ -37,6 +37,16 @@ public class SwipeDetection : MonoBehaviour
 
     void Update()
     {
+
+        if(GameManager.instanceGM.isPaused)
+        {
+            blockInputs = true;
+        }
+        else
+        {
+            blockInputs = false;
+        }
+
         if(!SwipeDetection.instanceSD.blockInputs)
         {
             if(doubleClickTimerOn == true)
@@ -49,7 +59,7 @@ public class SwipeDetection : MonoBehaviour
                 }
             }
 
-            if (fingerDown == false && Input.GetMouseButtonDown(0) && blockInputs == false && EventSystem.current.currentSelectedGameObject != UI.instanceUI.attackButton)
+            if (fingerDown == false && Input.GetMouseButtonDown(0) && blockInputs == false && EventSystem.current.currentSelectedGameObject != UI.instanceUI.attackButton && EventSystem.current.currentSelectedGameObject != UI.instanceUI.optionButton && EventSystem.current.currentSelectedGameObject != UI.instanceUI.closeOptionButton)
             {
                 startPos = Input.mousePosition;
                 fingerDown = true;
@@ -96,7 +106,7 @@ public class SwipeDetection : MonoBehaviour
                     }
                 
                 //Double click if new click arrives in less than "doubleclickinterval" seconds after the last click release
-                if(doubleClickTimerOn == true && doubleClickTimer < doubleClickInterval && player.attackNext == false && EventSystem.current.currentSelectedGameObject != UI.instanceUI.attackButton)
+                if(doubleClickTimerOn == true && doubleClickTimer < doubleClickInterval && player.attackNext == false && EventSystem.current.currentSelectedGameObject != UI.instanceUI.attackButton && EventSystem.current.currentSelectedGameObject != UI.instanceUI.optionButton && EventSystem.current.currentSelectedGameObject != UI.instanceUI.closeOptionButton)
                 {
                     doubleClickTimer = 0f;
                     doubleClickTimerOn = false;
@@ -104,16 +114,11 @@ public class SwipeDetection : MonoBehaviour
                 }
             }
 
-            if (fingerDown && Input.GetMouseButtonUp(0) && EventSystem.current.currentSelectedGameObject != UI.instanceUI.attackButton)
+            if (fingerDown && Input.GetMouseButtonUp(0) && EventSystem.current.currentSelectedGameObject != UI.instanceUI.attackButton && EventSystem.current.currentSelectedGameObject != UI.instanceUI.optionButton && EventSystem.current.currentSelectedGameObject != UI.instanceUI.closeOptionButton)
             {
                 fingerDown = false;
                 doubleClickTimerOn = true;
                 doubleClickTimer = 0f;
-            }
-
-            if(Input.GetMouseButtonUp(0) && !GameManager.instanceGM.isPaused)
-            {
-                GameManager.instanceGM.PauseResume(true);
             }
 
             if (swipeDone == true)
