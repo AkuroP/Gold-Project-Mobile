@@ -224,8 +224,7 @@ public class GameManager : MonoBehaviour
         {
             if (currentMap != null)
             {
-                Destroy(currentMap.gameObject);
-                currentMap = null;
+                player.currentTile = currentMap.tilesList[currentMap.entranceTileIndex];
             }
             if (Inventory.instanceInventory.mysteryBoxInShop == true && Inventory.instanceInventory.mysteryBoxDangerousness < 5)
             {
