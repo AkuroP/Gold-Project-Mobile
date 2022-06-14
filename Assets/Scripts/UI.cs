@@ -17,7 +17,6 @@ public class UI : MonoBehaviour
 
     //HUD UI
     [SerializeField] private Text essencesText;
-    [SerializeField] private Text lifeText;
     [SerializeField] private Image slot1;
     [SerializeField] private Image slot2;
     [SerializeField] private Image slot3;
@@ -30,6 +29,9 @@ public class UI : MonoBehaviour
     public GameObject chooseWeaponMenu;
     public Button HandgunButton;
     public Button GrimoireButton;
+    [SerializeField] private Image heart1;
+    [SerializeField] private Image heart2;
+    [SerializeField] private Image heart3;
 
     //Fade
     public GameObject fadePrefab;
@@ -60,12 +62,31 @@ public class UI : MonoBehaviour
         if(player != null)
         {
             essencesText.text = player.numEssence.ToString();
-            lifeText.text = player.hp.ToString();
             slot1.sprite = Inventory.instanceInventory.items[0].itemSprite;
             slot2.sprite = Inventory.instanceInventory.items[1].itemSprite;
             slot3.sprite = Inventory.instanceInventory.items[2].itemSprite;
             floorText.text = GameManager.instanceGM.floor.ToString();
             roomText.text = GameManager.instanceGM.room.ToString();
+            switch(player.hp)
+            {
+                case 1 :
+                    heart1.sprite = Resources.Load<Sprite>("Assets/GA/HUD/hud1_1");
+                    heart2.sprite = Resources.Load<Sprite>("Assets/GA/HUD/hud1_0");
+                    heart3.sprite = Resources.Load<Sprite>("Assets/GA/HUD/hud1_0");
+                    break;
+                case 2:
+                    heart1.sprite = Resources.Load<Sprite>("Assets/GA/HUD/hud1_1");
+                    heart2.sprite = Resources.Load<Sprite>("Assets/GA/HUD/hud1_1");
+                    heart3.sprite = Resources.Load<Sprite>("Assets/GA/HUD/hud1_0");
+                    break;
+                case 3:
+                    heart1.sprite = Resources.Load<Sprite>("Assets/GA/HUD/hud1_1");
+                    heart2.sprite = Resources.Load<Sprite>("Assets/GA/HUD/hud1_1");
+                    heart3.sprite = Resources.Load<Sprite>("Assets/GA/HUD/hud1_1");
+                    break;
+                default:
+                    break;
+            }
         }
 
         if(HandgunButton != null && RuneManager.instanceRM.hasBuyHandgun)

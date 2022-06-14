@@ -32,6 +32,10 @@ public class Enemy : Entity
 
     public bool isInitialize = false;
 
+    public GameObject heart1;
+    public GameObject heart2;
+    public GameObject heart3;
+
     // Start is called before the first frame update
     void Start()
     {
