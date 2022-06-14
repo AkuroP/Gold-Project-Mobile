@@ -29,6 +29,9 @@ public class UI : MonoBehaviour
     public GameObject attackButton;
     public GameObject optionButton;
     public GameObject closeOptionButton;
+    public GameObject chooseWeaponMenu;
+    public Button HandgunButton;
+    public Button GrimoireButton;
 
     //Fade
     public GameObject fadePrefab;
@@ -48,7 +51,10 @@ public class UI : MonoBehaviour
 
     private void Start()
     {
-        player = GameObject.FindWithTag("Player").GetComponent<Player>();
+        if(GameObject.FindWithTag("Player") != null)
+        {
+            player = GameObject.FindWithTag("Player").GetComponent<Player>();
+        }
     }
 
     private void Update()
@@ -62,6 +68,24 @@ public class UI : MonoBehaviour
             slot3.sprite = Inventory.instanceInventory.items[2].itemSprite;
             floorText.text = GameManager.instanceGM.floor.ToString();
             roomText.text = GameManager.instanceGM.room.ToString();
+        }
+
+        if(HandgunButton != null && RuneManager.instanceRM.hasBuyHandgun)
+        {
+            HandgunButton.interactable = true;
+        }
+        else if (HandgunButton != null && !RuneManager.instanceRM.hasBuyHandgun)
+        {
+            HandgunButton.interactable = false;
+        }
+
+        if (GrimoireButton != null && RuneManager.instanceRM.hasBuyGrimoire)
+        {
+            GrimoireButton.interactable = true;
+        }
+        else if (GrimoireButton != null && !RuneManager.instanceRM.hasBuyGrimoire)
+        {
+            GrimoireButton.interactable = false;
         }
     }
 
@@ -108,9 +132,31 @@ public class UI : MonoBehaviour
         Instantiate(fadePrefab);
     }
 
-    public void StartGame()
+    public void StartGame(string weaponType)
     {
+        switch(weaponType)
+        {
+            case "Dagger":
+                RuneManager.instanceRM.currentWeapon = WeaponType.DAGGER;
+                break;
+            case "Handgun":
+                RuneManager.instanceRM.currentWeapon = WeaponType.HANDGUN;
+                break;
+            case "Grimoire":
+                RuneManager.instanceRM.currentWeapon = WeaponType.GRIMOIRE;
+                break;
+        }
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void OpenChooseWeapon()
+    {
+        chooseWeaponMenu.SetActive(true);
+    }
+
+    public void CloseChooseWeapon()
+    {
+        chooseWeaponMenu.SetActive(false);
     }
 
     public void OpenOptions()

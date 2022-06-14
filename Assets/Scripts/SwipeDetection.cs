@@ -38,7 +38,7 @@ public class SwipeDetection : MonoBehaviour
     void Update()
     {
 
-        if(GameManager.instanceGM.isPaused)
+        if(GameManager.instanceGM.isPaused || player.myTurn == false)
         {
             blockInputs = true;
         }

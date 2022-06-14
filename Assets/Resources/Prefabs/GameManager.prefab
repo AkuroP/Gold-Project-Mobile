@@ -49,8 +49,8 @@ MonoBehaviour:
   score: 0
   floor: 0
   room: 1
-  nextBoss: 1
-  numberOfBosses: 1
+  nextBoss: 0
+  numberOfBosses: 2
   shopRoomNumber: 5
   actualDangerousness: 1
   turnNumber: 0
@@ -66,3 +66,5 @@ MonoBehaviour:
   indexPlayingEntity: 0
   firstUpgrade: 0
   secondUpgrade: 0
+  pauseMenu: {fileID: 0}
+  isPaused: 0
