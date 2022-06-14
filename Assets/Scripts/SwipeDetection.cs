@@ -111,6 +111,11 @@ public class SwipeDetection : MonoBehaviour
                 doubleClickTimer = 0f;
             }
 
+            if(Input.GetMouseButtonUp(0) && !GameManager.instanceGM.isPaused)
+            {
+                GameManager.instanceGM.PauseResume(true);
+            }
+
             if (swipeDone == true)
             {
                 swipeDone = false;

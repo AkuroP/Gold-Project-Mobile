@@ -142,6 +142,7 @@ public class Player : Entity
                 StartCoroutine(GoToNextRoom());
             }
         }
+
     }
 
     public override void StartAttack(List<AttackTileSettings> _upDirectionATS)

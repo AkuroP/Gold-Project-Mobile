@@ -51,6 +51,9 @@ public class GameManager : MonoBehaviour
     public bool firstUpgrade;
     public bool secondUpgrade;
 
+    public GameObject pauseMenu;
+    public bool isPaused;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -62,7 +65,7 @@ public class GameManager : MonoBehaviour
 
         player = GameObject.FindWithTag("Player").GetComponent<Player>();
 
-        AchievementManager.instanceAM.UpdateScoreAchievement();
+        //AchievementManager.instanceAM.UpdateScoreAchievement();
     }
 
     public void NewMap()
@@ -145,6 +148,26 @@ public class GameManager : MonoBehaviour
             //next entity play
             ChangeEntity();
         }
+    
+    }
+
+    public void PauseResume(bool _pause)
+    {
+        if(_pause)
+        {
+            SwipeDetection.instanceSD.doubleClickTimerOn = true;
+            pauseMenu.SetActive(true);
+            isPaused = true;
+            Time.timeScale = 0f;
+        }
+        else
+        {
+            Time.timeScale = 1f;
+            pauseMenu.SetActive(false);
+            isPaused = false;
+            SwipeDetection.instanceSD.doubleClickTimerOn = false;
+        }
+        SwipeDetection.instanceSD.doubleClickTimerOn = false;
     }
 
     public void UpdateScoreAndMap()
