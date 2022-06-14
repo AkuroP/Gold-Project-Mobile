@@ -181,7 +181,8 @@ public class BossFrog : Boss
 
     public void UpdatePoisonSpitFalls()
     {
-        for(int i = 0;i < poisonSpitList.Count; i++)
+        turnDuration += splitDuration;
+        for (int i = 0;i < poisonSpitList.Count; i++)
         {
             FrogPoisonSpit currentFPG = poisonSpitList[i];
 
