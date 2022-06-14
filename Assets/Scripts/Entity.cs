@@ -460,7 +460,7 @@ public class Entity : MonoBehaviour
             }
             if (this.CompareTag("Player"))
             {
-                //AchievementManager.instanceAM.UpdateStepsAchievement();
+                AchievementManager.instanceAM.UpdateStepsAchievement();
             }
             entitySr.sortingOrder = 11 - currentTile.tileY;
             canMove = false;

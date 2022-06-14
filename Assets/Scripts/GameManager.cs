@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
 
         player = GameObject.FindWithTag("Player").GetComponent<Player>();
 
-        //AchievementManager.instanceAM.UpdateScoreAchievement();
+        AchievementManager.instanceAM.UpdateScoreAchievement();
     }
 
     public void NewMap()
