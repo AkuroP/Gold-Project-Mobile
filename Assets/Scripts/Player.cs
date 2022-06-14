@@ -33,7 +33,7 @@ public class Player : Entity
         instanceGM = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
 
         currentPosition = transform.position;
-        weapon = new Weapon(RuneManager.instanceRM.currentWeapon, 0, 1);
+        weapon = new Weapon(WeaponType.DAGGER, 0, 1);
         hp = maxHP;
         attackDuration = 0.2f;
 

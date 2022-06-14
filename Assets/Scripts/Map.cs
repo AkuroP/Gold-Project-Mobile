@@ -368,10 +368,6 @@ public class Map : MonoBehaviour
             //is the tile accessible and empty
             if (nextTile.entityOnTile == null && nextTile.isReachable)
             {
-                if(entity is Enemy && nextTile.isPike)
-                {
-                    return false;
-                }
                 //Debug.Log("case accessible");
                 return true;
             }
