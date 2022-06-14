@@ -104,6 +104,8 @@ public class TileSettings
     public bool isWall;
     public bool isPike;
     public bool isEnemySpawn;
+    public bool isFixedEnemySpawn;
+    public bool isMobileEnemySpawn;
     public bool isLight;
     public bool isShop;
 

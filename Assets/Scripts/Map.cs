@@ -21,6 +21,8 @@ public class Map : MonoBehaviour
     public List<Tile> tilesList = new List<Tile>();
     [SerializeField]
     public List<Tile> enemySpawnTiles = new List<Tile>();
+    public List<Tile> fixedEnemySpawnTiles = new List<Tile>();
+    public List<Tile> mobileEnemySpawnTiles = new List<Tile>();
     public int entranceTileIndex, exitTileIndex;
     public bool canExit = true;
 
@@ -47,12 +49,20 @@ public class Map : MonoBehaviour
 
                 //instantiate and initialize tile
                 GameObject newTileInstance = Instantiate(Resources.Load("Prefabs/Tile"), mapOrigin.transform.position, Quaternion.identity, this.gameObject.transform) as GameObject;
-                newTileInstance.GetComponent<Tile>().Init(tileIndex, j + 1, i + 1, newTileSettings.isReachable, newTileSettings.isWall, newTileSettings.isHole, newTileSettings.isPike, newTileSettings.isEnemySpawn, newTileSettings.isLight, newTileSettings.isShop, newTileSettings.tileSprite, newTileSettings.upSprite, newTileSettings.tileColor);
+                newTileInstance.GetComponent<Tile>().Init(tileIndex, j + 1, i + 1, newTileSettings.isReachable, newTileSettings.isWall, newTileSettings.isHole, newTileSettings.isPike, newTileSettings.isEnemySpawn, newTileSettings.isFixedEnemySpawn, newTileSettings.isMobileEnemySpawn, newTileSettings.isLight, newTileSettings.isShop, newTileSettings.tileSprite, newTileSettings.upSprite, newTileSettings.tileColor);
 
                 if(newTileSettings.isEnemySpawn)
+                {
+                    if((newTileSettings.isFixedEnemySpawn && newTileSettings.isMobileEnemySpawn) || (!newTileSettings.isFixedEnemySpawn && !newTileSettings.isMobileEnemySpawn))
                     enemySpawnTiles.Add(newTileInstance.GetComponent<Tile>());
+                    else if (newTileSettings.isFixedEnemySpawn && !newTileSettings.isMobileEnemySpawn)
+                        fixedEnemySpawnTiles.Add(newTileInstance.GetComponent<Tile>());
+                    else if (newTileSettings.isMobileEnemySpawn && !newTileSettings.isFixedEnemySpawn)
+                        mobileEnemySpawnTiles.Add(newTileInstance.GetComponent<Tile>());
+                }
+                    
 
-                if(tileIndex == exitTileIndex && !_spawnBoss)
+                if (tileIndex == exitTileIndex && !_spawnBoss)
                 {
                     newTileInstance.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/Tiles/TilemapsDark_Spritesheet_23");
                 }
@@ -173,6 +183,85 @@ public class Map : MonoBehaviour
                             newEnemy.GetComponent<EnemyThree>().currentMap = GetComponent<Map>();
                             break;
                     }
+                    break;
+
+                case 2:
+                    randomEnemy = Random.Range(0, 2);
+                    switch (randomEnemy)
+                    {
+                        case 0:
+                            newEnemy.AddComponent<EnemyFour>();
+                            newEnemy.GetComponent<EnemyFour>().Init();
+                            newEnemy.GetComponent<EnemyFour>().currentMap = GetComponent<Map>();
+                            break;
+                        case 1:
+                            newEnemy.AddComponent<EnemyFive>();
+                            newEnemy.GetComponent<EnemyFive>().Init();
+                            newEnemy.GetComponent<EnemyFive>().currentMap = GetComponent<Map>();
+                            break;
+                    }
+                    break;
+
+                case 3:
+                    newEnemy.AddComponent<EnemySix>();
+                    newEnemy.GetComponent<EnemySix>().Init();
+                    newEnemy.GetComponent<EnemySix>().currentMap = GetComponent<Map>();
+                    break;
+
+                default:
+                    newEnemy.AddComponent<EnemyTwo>();
+                    newEnemy.GetComponent<EnemyTwo>().Init();
+                    newEnemy.GetComponent<EnemyTwo>().currentMap = GetComponent<Map>();
+                    break;
+            }
+
+            newEnemy.GetComponent<Enemy>().currentTile = tile;
+            tile.entityOnTile = newEnemy.GetComponent<Enemy>();
+
+            entities.Add(newEnemy.GetComponent<Enemy>());
+        }
+
+        //instantiate and spawn fixed ennemies
+        foreach (Tile tile in fixedEnemySpawnTiles)
+        {
+            GameObject newEnemy = GameObject.Instantiate(Resources.Load("Prefabs/Enemy"), tile.transform.position, Quaternion.identity, this.gameObject.transform) as GameObject;
+            int randomEnemy = Random.Range(0, 2);
+
+            switch (randomEnemy)
+            {
+                case 0:
+                    newEnemy.AddComponent<EnemyOne>();
+                    newEnemy.GetComponent<EnemyOne>().Init();
+                    newEnemy.GetComponent<EnemyOne>().currentMap = GetComponent<Map>();
+                    break;
+                case 1:
+                    newEnemy.AddComponent<EnemyTwo>();
+                    newEnemy.GetComponent<EnemyTwo>().Init();
+                    newEnemy.GetComponent<EnemyTwo>().currentMap = GetComponent<Map>();
+                    break;
+            }
+            break;
+
+            newEnemy.GetComponent<Enemy>().currentTile = tile;
+            tile.entityOnTile = newEnemy.GetComponent<Enemy>();
+
+            entities.Add(newEnemy.GetComponent<Enemy>());
+        }
+
+        //instantiate and spawn ennemies
+        foreach (Tile tile in mobileEnemySpawnTiles)
+        {
+            GameObject newEnemy = GameObject.Instantiate(Resources.Load("Prefabs/Enemy"), tile.transform.position, Quaternion.identity, this.gameObject.transform) as GameObject;
+            int random = Mathf.Clamp(GameManager.instanceGM.actualDangerousness, 1, 3);
+            int randomDangerousness = Random.Range(1, random + 1);
+            int randomEnemy = 0;
+
+            switch (randomDangerousness)
+            {
+                case 1:
+                    newEnemy.AddComponent<EnemyThree>();
+                    newEnemy.GetComponent<EnemyThree>().Init();
+                    newEnemy.GetComponent<EnemyThree>().currentMap = GetComponent<Map>();
                     break;
 
                 case 2:
