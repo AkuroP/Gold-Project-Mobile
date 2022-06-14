@@ -134,7 +134,6 @@ public class SwipeDetection : MonoBehaviour
                 {
                     player.FindNextTile();
                     player.moveNext = false;
-                    player.numEssence--;
                 }
             }
         }

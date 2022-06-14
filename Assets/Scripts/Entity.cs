@@ -504,6 +504,10 @@ public class Entity : MonoBehaviour
                 if (currentMap.CheckMove(topTile, this))
                 {
                     this.Move(topTile);
+                    if(this is Player)
+                    {
+                        this.GetComponent<Player>().numEssence--;
+                    }
                     return true;
                 }
                 else
@@ -516,6 +520,10 @@ public class Entity : MonoBehaviour
                 if (currentMap.CheckMove(rightTile, this))
                 {
                     this.Move(rightTile);
+                    if (this is Player)
+                    {
+                        this.GetComponent<Player>().numEssence--;
+                    }
                     return true;
                 }
                 else
@@ -528,6 +536,10 @@ public class Entity : MonoBehaviour
                 if (currentMap.CheckMove(bottomTile, this))
                 {
                     this.Move(bottomTile);
+                    if (this is Player)
+                    {
+                        this.GetComponent<Player>().numEssence--;
+                    }
                     return true;
                 }
                 else
@@ -540,6 +552,10 @@ public class Entity : MonoBehaviour
                 if (currentMap.CheckMove(leftTile, this))
                 {
                     this.Move(leftTile);
+                    if (this is Player)
+                    {
+                        this.GetComponent<Player>().numEssence--;
+                    }
                     return true;
                 }
                 else
