@@ -11,9 +11,6 @@ public class UI : MonoBehaviour
     public GameObject shopUI;
     private Player player;
 
-    //Main menu
-    public GameObject optionsMenu;
-
     //Shop prefabs
     [SerializeField] GameObject shopPrefab;
     [SerializeField] GameObject shopUIPrefab;
@@ -29,6 +26,7 @@ public class UI : MonoBehaviour
     public GameObject attackButton;
     public GameObject optionButton;
     public GameObject closeOptionButton;
+    public GameObject optionMenu;
     public GameObject chooseWeaponMenu;
     public Button HandgunButton;
     public Button GrimoireButton;
@@ -87,6 +85,16 @@ public class UI : MonoBehaviour
         {
             GrimoireButton.interactable = false;
         }
+    }
+
+    public void OpenMainMenuOptions()
+    {
+        optionMenu.SetActive(true);
+    }
+
+    public void CloseMainMenuOptions()
+    {
+        optionMenu.SetActive(false);
     }
 
     public void CloseShop()
@@ -162,11 +170,6 @@ public class UI : MonoBehaviour
     public void OpenOptions()
     {
         GameManager.instanceGM.PauseResume(true);
-    }
-
-    public void CloseOptions()
-    {
-        optionsMenu.SetActive(false);
     }
 }
 
