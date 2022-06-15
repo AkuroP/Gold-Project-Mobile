@@ -394,6 +394,10 @@ public class Entity : MonoBehaviour
         {
             return;
         }
+        else if ((entity is BossTP || entity is BossFrog) && Inventory.instanceInventory.HasItem("Boss Slayer"))
+        {
+            entity.hp -= damage * damageMultiplicator + 1;
+        }
         else if (entity.invincibilityTurn == 0)
         {
             entity.hp -= damage * damageMultiplicator;
