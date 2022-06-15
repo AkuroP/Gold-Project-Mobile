@@ -835,7 +835,23 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[12].tileSettings.Array.data[35].isEnemySpawn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
       propertyPath: mapSettings.Array.data[13].tileSettings.Array.data[52].isEnemySpawn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[19].tileSettings.Array.data[16].isEnemySpawn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[19].tileSettings.Array.data[27].isEnemySpawn
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[19].tileSettings.Array.data[38].isEnemySpawn
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
@@ -935,6 +951,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[12].tileSettings.Array.data[35].isMobileEnemySpawn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
       propertyPath: mapSettings.Array.data[13].tileSettings.Array.data[33].isMobileEnemySpawn
       value: 1
       objectReference: {fileID: 0}
@@ -963,7 +983,15 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[19].tileSettings.Array.data[16].isMobileEnemySpawn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
       propertyPath: mapSettings.Array.data[19].tileSettings.Array.data[27].isMobileEnemySpawn
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettings.Array.data[19].tileSettings.Array.data[38].isMobileEnemySpawn
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
