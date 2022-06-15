@@ -21,6 +21,8 @@ public class EnemyFive : Enemy
 
     public override void Init()
     {
+        Debug.Log("débutInit");
+
         player = GameObject.FindWithTag("Player").GetComponent<Player>();
         maxHP = 2;
         hp = maxHP;
@@ -34,12 +36,10 @@ public class EnemyFive : Enemy
 
         chargeAttackCurrent = chargeAttackRoundMax;
 
-        this.transform.Find("Sprite").GetComponent<SpriteRenderer>();
+        entitySr = this.transform.Find("Sprite").GetComponent<SpriteRenderer>();
         entitySr.sprite = Resources.Load<Sprite>("Assets/Graphics/Enemies/MobFast");
 
         AssignPattern();
-
-        isInitialize = true;
 
         turnArrow = this.transform.Find("Arrow").gameObject;
 
@@ -47,6 +47,10 @@ public class EnemyFive : Enemy
         heart2 = this.transform.Find("Heart2").gameObject;
         heart3 = this.transform.Find("Heart3").gameObject;
         heart2.SetActive(false);
+
+        Debug.Log("finInit");
+
+        isInitialize = true;
     }
 
     private void AssignPattern()

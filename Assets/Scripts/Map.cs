@@ -207,12 +207,6 @@ public class Map : MonoBehaviour
                     newEnemy.GetComponent<EnemySix>().Init();
                     newEnemy.GetComponent<EnemySix>().currentMap = GetComponent<Map>();
                     break;
-
-                default:
-                    newEnemy.AddComponent<EnemyTwo>();
-                    newEnemy.GetComponent<EnemyTwo>().Init();
-                    newEnemy.GetComponent<EnemyTwo>().currentMap = GetComponent<Map>();
-                    break;
             }
 
             newEnemy.GetComponent<Entity>().currentTile = tile;
@@ -289,12 +283,6 @@ public class Map : MonoBehaviour
                     newEnemy.AddComponent<EnemySix>();
                     newEnemy.GetComponent<EnemySix>().Init();
                     newEnemy.GetComponent<EnemySix>().currentMap = GetComponent<Map>();
-                    break;
-
-                default:
-                    newEnemy.AddComponent<EnemyTwo>();
-                    newEnemy.GetComponent<EnemyTwo>().Init();
-                    newEnemy.GetComponent<EnemyTwo>().currentMap = GetComponent<Map>();
                     break;
             }
 

@@ -36,18 +36,18 @@ public class EnemySix : Enemy
 
         moveDuration = 0.5f;
 
-        this.transform.Find("Sprite").GetComponent<SpriteRenderer>();
+        entitySr = this.transform.Find("Sprite").GetComponent<SpriteRenderer>();
         entitySr.sprite = Resources.Load<Sprite>("Assets/Graphics/Enemies/MobGros");
 
         AssignPattern();
-
-        isInitialize = true;
 
         turnArrow = this.transform.Find("Arrow").gameObject;
 
         heart1 = this.transform.Find("Heart1").gameObject;
         heart2 = this.transform.Find("Heart2").gameObject;
         heart3 = this.transform.Find("Heart3").gameObject;
+
+        isInitialize = true;
     }
 
 

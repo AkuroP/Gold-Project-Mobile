@@ -41,8 +41,6 @@ public class EnemyThree : Enemy
 
         AssignPattern();
 
-        isInitialize = true;
-
         turnArrow = this.transform.Find("Arrow").gameObject;
 
         heart1 = this.transform.Find("Heart1").gameObject;
@@ -50,6 +48,8 @@ public class EnemyThree : Enemy
         heart3 = this.transform.Find("Heart3").gameObject;
         heart1.SetActive(false);
         heart3.SetActive(false);
+
+        isInitialize = true;
     }
 
 

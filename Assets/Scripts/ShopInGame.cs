@@ -112,7 +112,7 @@ public class ShopInGame : MonoBehaviour
                 Dplus2Items.Add(item);
             }
         }
-        if (Inventory.instanceInventory.mysteryBoxInShop == false && !Inventory.instanceInventory.mysteryBoxOpened)
+        if (Inventory.instanceInventory.mysteryBoxInShop == false && !Inventory.instanceInventory.mysteryBoxOpened && GameObject.FindWithTag("Player").GetComponent<Player>().hp > 1)
         {
             availableItems.Add(mysteryBox);
         }

@@ -15,6 +15,7 @@ public class SwipeDetection : MonoBehaviour
     private bool swipeDone;
     public bool doubleClickTimerOn = false;
     public bool blockInputs = false;
+    public bool isInShop = false;
 
     public float doubleClickTimer = 0f;
     [SerializeField] private float doubleClickInterval = 0.5f;
@@ -38,7 +39,7 @@ public class SwipeDetection : MonoBehaviour
     void Update()
     {
 
-        if(GameManager.instanceGM.isPaused || player.myTurn == false)
+        if(GameManager.instanceGM.isPaused || player.myTurn == false || isInShop == true)
         {
             blockInputs = true;
         }

@@ -146,7 +146,7 @@ public class UI : MonoBehaviour
             break;
         }*/
         player.isInShop = false;
-        SwipeDetection.instanceSD.blockInputs = false;
+        SwipeDetection.instanceSD.isInShop = false;
         //player.Move(playerLastTile);
         shopUI.SetActive(false);
         GameObject shop = GameObject.FindWithTag("ShopInGame");

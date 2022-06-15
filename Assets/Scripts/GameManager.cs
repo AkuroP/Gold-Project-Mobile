@@ -254,7 +254,7 @@ public class GameManager : MonoBehaviour
             UI.instanceUI.shopUI = Instantiate(shopUIprefab, UI.instanceUI.canvas.transform);
             Instantiate(shopPrefab);
             UI.instanceUI.shopUI.transform.Find("Shop").transform.Find("CloseButton").gameObject.GetComponent<Button>().onClick.AddListener(UI.instanceUI.CloseShop);
-            SwipeDetection.instanceSD.blockInputs = true;
+            SwipeDetection.instanceSD.isInShop = true;
         }
     }
 
