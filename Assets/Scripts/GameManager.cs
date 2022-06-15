@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
     public int shopRoomNumber = 5;
     public int actualDangerousness;
     public int turnNumber;
+    public AudioClip LevelClip;
+    public AudioClip BossClip;
 
     [SerializeField] private GameObject shopUIprefab;
     [SerializeField] private GameObject shopPrefab;
@@ -202,6 +204,25 @@ public class GameManager : MonoBehaviour
                     player.hp++;
                 }
             }
+        }
+
+        //music change
+        if (room == 1)
+        {
+            AudioSource audio = GetComponent<AudioSource>();
+
+            audio.clip = LevelClip;
+            audio.Play();
+
+        }
+
+        if (room == 10)
+        {
+            AudioSource audio = GetComponent<AudioSource>();
+
+            audio.clip = BossClip;
+            audio.Play();
+
         }
 
         //dangerousness update
