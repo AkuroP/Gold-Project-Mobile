@@ -65,7 +65,7 @@ public class Entity : MonoBehaviour
     public float turnDuration;
 
     //Sprite and anims
-    [SerializeField] public SpriteRenderer entitySr;
+    public SpriteRenderer entitySr;
     public GameObject turnArrow;
 
     public List<Debuff> entityStatus = new List<Debuff>();

@@ -34,7 +34,7 @@ public class EnemyFour : Enemy
 
         chargeAttackCurrent = chargeAttackRoundMax;
 
-        entitySr = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
+        entitySr = this.transform.Find("Sprite").GetComponent<SpriteRenderer>();
         entitySr.sprite = Resources.Load<Sprite>("Assets/Graphics/Enemies/MobADistance");
 
         AssignPattern();
@@ -113,6 +113,7 @@ public class EnemyFour : Enemy
                     this.hp--;
                 }
             }
+            entitySr.sortingOrder = 11 - this.currentTile.tileY;
         }
 
         if (isInitialize)

@@ -19,6 +19,7 @@ public class Tile : MonoBehaviour
     public bool isPike = true;
     public bool isEnemySpawn = false;
     public bool isFixedEnemySpawn = false;
+    public bool isMobileEnemySpawn = false;
     public bool isLight = false;
     public bool isShop = false;
 
@@ -48,7 +49,7 @@ public class Tile : MonoBehaviour
         isPike = _isPike;
         isEnemySpawn = _isEnemySpawn;
         isFixedEnemySpawn = _isFixedEnemySpawn;
-        _isMobileEnemySpawn = _isMobileEnemySpawn;
+        isMobileEnemySpawn = _isMobileEnemySpawn;
         isLight = _isLight;
         isShop = _isShop;
 

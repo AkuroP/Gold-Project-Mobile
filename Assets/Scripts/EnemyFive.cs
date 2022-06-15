@@ -34,7 +34,7 @@ public class EnemyFive : Enemy
 
         chargeAttackCurrent = chargeAttackRoundMax;
 
-        entitySr = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
+        this.transform.Find("Sprite").GetComponent<SpriteRenderer>();
         entitySr.sprite = Resources.Load<Sprite>("Assets/Graphics/Enemies/MobFast");
 
         AssignPattern();
@@ -111,6 +111,8 @@ public class EnemyFive : Enemy
                     Damage(1, this);
                 }
             }
+
+            entitySr.sortingOrder = 11 - this.currentTile.tileY;
         }
 
         if (isInitialize)

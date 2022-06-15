@@ -24,7 +24,7 @@ public class EnemyOne : Enemy
 
         entityDangerousness = 1;
 
-        entitySr = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
+        entitySr = this.transform.Find("Sprite").GetComponent<SpriteRenderer>();
         entitySr.sprite = Resources.Load<Sprite>("Assets/Graphics/Enemies/TentaculeSolo");
 
         AssignPattern();
@@ -92,7 +92,7 @@ public class EnemyOne : Enemy
         if(isInitialize)
             IsSelfDead();
 
-        entitySr.sortingOrder = 11 - currentTile.tileY;
+        entitySr.sortingOrder = 11 - this.currentTile.tileY;
     }
 
     public override void StartTurn()

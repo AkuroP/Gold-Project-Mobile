@@ -215,7 +215,7 @@ public class Map : MonoBehaviour
                     break;
             }
 
-            newEnemy.GetComponent<Enemy>().currentTile = tile;
+            newEnemy.GetComponent<Entity>().currentTile = tile;
             tile.entityOnTile = newEnemy.GetComponent<Enemy>();
 
             entities.Add(newEnemy.GetComponent<Enemy>());
@@ -239,16 +239,20 @@ public class Map : MonoBehaviour
                     newEnemy.GetComponent<EnemyTwo>().Init();
                     newEnemy.GetComponent<EnemyTwo>().currentMap = GetComponent<Map>();
                     break;
+                default:
+                    newEnemy.AddComponent<EnemyOne>();
+                    newEnemy.GetComponent<EnemyOne>().Init();
+                    newEnemy.GetComponent<EnemyOne>().currentMap = GetComponent<Map>();
+                    break;
             }
-            break;
 
-            newEnemy.GetComponent<Enemy>().currentTile = tile;
+            newEnemy.GetComponent<Entity>().currentTile = tile;
             tile.entityOnTile = newEnemy.GetComponent<Enemy>();
 
             entities.Add(newEnemy.GetComponent<Enemy>());
         }
 
-        //instantiate and spawn ennemies
+        //instantiate and spawn mobile ennemies
         foreach (Tile tile in mobileEnemySpawnTiles)
         {
             GameObject newEnemy = GameObject.Instantiate(Resources.Load("Prefabs/Enemy"), tile.transform.position, Quaternion.identity, this.gameObject.transform) as GameObject;
@@ -294,7 +298,7 @@ public class Map : MonoBehaviour
                     break;
             }
 
-            newEnemy.GetComponent<Enemy>().currentTile = tile;
+            newEnemy.GetComponent<Entity>().currentTile = tile;
             tile.entityOnTile = newEnemy.GetComponent<Enemy>();
 
             entities.Add(newEnemy.GetComponent<Enemy>());

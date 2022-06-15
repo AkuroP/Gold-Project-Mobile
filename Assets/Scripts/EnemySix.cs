@@ -36,7 +36,7 @@ public class EnemySix : Enemy
 
         moveDuration = 0.5f;
 
-        entitySr = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
+        this.transform.Find("Sprite").GetComponent<SpriteRenderer>();
         entitySr.sprite = Resources.Load<Sprite>("Assets/Graphics/Enemies/MobGros");
 
         AssignPattern();
@@ -116,6 +116,7 @@ public class EnemySix : Enemy
                     Damage(1, this);
                 }
             }
+            entitySr.sortingOrder = 11 - this.currentTile.tileY;
         }
 
         if (isInitialize)
