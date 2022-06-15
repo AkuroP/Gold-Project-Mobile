@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 23d2c4ab00c34ff4bb4df93025e5176c
+guid: a9b643d4e6bf7db41bca1cd4f884f138
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 300
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -116,85 +116,127 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: mc_idle_sheet_0
+      name: slash_0
       rect:
         serializedVersion: 2
-        x: 320
-        y: 1440
-        width: 450
-        height: 489
-      alignment: 9
-      pivot: {x: 0.48214465, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dcdbd786814141b408bbbdb3c8e799a2
-      internalID: 71580693
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mc_idle_sheet_1
-      rect:
-        serializedVersion: 2
-        x: 1392
-        y: 1440
-        width: 450
-        height: 489
+        x: 0
+        y: 660
+        width: 330
+        height: 330
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 656204c8eaacea346b171b9243833b71
-      internalID: -1739722758
+      spriteID: 1372292e71ed7e748a43e3f969f3f163
+      internalID: 1556950868
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mc_idle_sheet_2
+      name: slash_1
       rect:
         serializedVersion: 2
-        x: 316
-        y: 359
-        width: 450
-        height: 489
-      alignment: 9
-      pivot: {x: 0.49298245, y: 0.5}
+        x: 330
+        y: 660
+        width: 330
+        height: 330
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: afe7cf66b015c5940a9dc220e8dec5f1
-      internalID: -1976491121
+      spriteID: 4a5b1cd769d15c74583301029d449d2f
+      internalID: 901582986
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mc_idle_sheet_3
+      name: slash_2
       rect:
         serializedVersion: 2
-        x: 1396
-        y: 359
-        width: 450
-        height: 489
-      alignment: 9
-      pivot: {x: 0.4929826, y: 0.49999988}
+        x: 0
+        y: 330
+        width: 330
+        height: 330
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 21b34e29ff547cc429907d72bc3d8ee5
-      internalID: 1781097836
+      spriteID: 80a796d756dcbe545a463e5086cca2d4
+      internalID: 1223577716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slash_3
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 330
+        width: 330
+        height: 330
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdd3fbbe287e946458076b4fe5b4681b
+      internalID: 205866002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slash_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 330
+        height: 330
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b6aef1f7cb9da540aad72085aac187b
+      internalID: 1958308949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slash_5
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 0
+        width: 330
+        height: 330
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cae53a45b718a6c44bb409767e2c1ad3
+      internalID: 638703620
       vertices: []
       indices: 
       edges: []
@@ -210,10 +252,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      mc_idle_sheet_0: 71580693
-      mc_idle_sheet_1: -1739722758
-      mc_idle_sheet_2: -1976491121
-      mc_idle_sheet_3: 1781097836
+      slash_2: 1223577716
+      slash_1: 901582986
+      slash_0: 1556950868
+      slash_3: 205866002
+      slash_4: 1958308949
+      slash_5: 638703620
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

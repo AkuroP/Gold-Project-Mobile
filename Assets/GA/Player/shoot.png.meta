@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 23d2c4ab00c34ff4bb4df93025e5176c
+guid: e780f4a90c23ab84a8854b598e7bc4c2
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 20
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -116,85 +116,127 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: mc_idle_sheet_0
+      name: shoot_0
       rect:
         serializedVersion: 2
-        x: 320
-        y: 1440
-        width: 450
-        height: 489
-      alignment: 9
-      pivot: {x: 0.48214465, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dcdbd786814141b408bbbdb3c8e799a2
-      internalID: 71580693
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mc_idle_sheet_1
-      rect:
-        serializedVersion: 2
-        x: 1392
-        y: 1440
-        width: 450
-        height: 489
+        x: 0
+        y: 52
+        width: 26
+        height: 26
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 656204c8eaacea346b171b9243833b71
-      internalID: -1739722758
+      spriteID: a9d4779901d50924d9291aae4ffe3bb8
+      internalID: 1484297711
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mc_idle_sheet_2
+      name: shoot_1
       rect:
         serializedVersion: 2
-        x: 316
-        y: 359
-        width: 450
-        height: 489
-      alignment: 9
-      pivot: {x: 0.49298245, y: 0.5}
+        x: 26
+        y: 52
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: afe7cf66b015c5940a9dc220e8dec5f1
-      internalID: -1976491121
+      spriteID: d9bd406b868ea7e4a9f2321f8799c71b
+      internalID: -2028854557
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mc_idle_sheet_3
+      name: shoot_2
       rect:
         serializedVersion: 2
-        x: 1396
-        y: 359
-        width: 450
-        height: 489
-      alignment: 9
-      pivot: {x: 0.4929826, y: 0.49999988}
+        x: 0
+        y: 26
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 21b34e29ff547cc429907d72bc3d8ee5
-      internalID: 1781097836
+      spriteID: 40aa702b9498f2e48bbe467d3ed91a00
+      internalID: -1132344690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shoot_3
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 26
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 434530e74a0339a42a35bd2caf1fcec4
+      internalID: 1775642560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shoot_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dee6dda0739c26d4399761ec17c5b472
+      internalID: -93270720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shoot_5
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 0
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1086d1a1a888ee4bb939fe665e0e6e1
+      internalID: 2128599594
       vertices: []
       indices: 
       edges: []
@@ -210,10 +252,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      mc_idle_sheet_0: 71580693
-      mc_idle_sheet_1: -1739722758
-      mc_idle_sheet_2: -1976491121
-      mc_idle_sheet_3: 1781097836
+      shoot_0: 1484297711
+      shoot_5: 2128599594
+      shoot_1: -2028854557
+      shoot_4: -93270720
+      shoot_3: 1775642560
+      shoot_2: -1132344690
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
