@@ -46,7 +46,7 @@ public class EnemyFive : Enemy
         heart1 = this.transform.Find("Heart1").gameObject;
         heart2 = this.transform.Find("Heart2").gameObject;
         heart3 = this.transform.Find("Heart3").gameObject;
-        heart3.SetActive(false);
+        heart2.SetActive(false);
     }
 
     private void AssignPattern()
@@ -122,11 +122,11 @@ public class EnemyFive : Enemy
         {
             case 1:
                 heart1.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/hud1_1");
-                heart2.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/hud1_0");
+                heart3.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/hud1_0");
                 break;
             case 2:
                 heart1.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/hud1_1");
-                heart2.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/hud1_1");
+                heart3.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/hud1_1");
                 break;
             default:
                 break;

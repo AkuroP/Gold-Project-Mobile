@@ -36,7 +36,7 @@ public class EnemyOne : Enemy
         heart1 = this.transform.Find("Heart1").gameObject;
         heart2 = this.transform.Find("Heart2").gameObject;
         heart3 = this.transform.Find("Heart3").gameObject;
-        heart2.SetActive(false);
+        heart1.SetActive(false);
         heart3.SetActive(false);
     }
 
