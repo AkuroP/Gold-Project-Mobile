@@ -36,6 +36,8 @@ public class Enemy : Entity
     public GameObject heart2;
     public GameObject heart3;
 
+    public Animator enemyAnim;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -118,6 +120,10 @@ public class Enemy : Entity
         }
 
         Tile selectedTile = tileAround[Random.Range(0, tileAround.Count)];
+        while(!currentMap.CheckMove(selectedTile, this))
+        {
+            selectedTile = tileAround[Random.Range(0, tileAround.Count)];
+        }
         return selectedTile;
     }
 
@@ -524,11 +530,11 @@ public class Enemy : Entity
 
         List<AttackTileSettings> attackPattern = ConvertPattern(_upDirectionATS, direction);
 
-        if (currentTile.tileX < attackPattern[0].offsetX)
+        if (attackPattern[0].offsetX > 1)
         {
             entitySr.flipX = true;
         }
-        else if (currentTile.tileX > attackPattern[0].offsetX)
+        else if (attackPattern[0].offsetX < 1)
         {
             entitySr.flipX = false;
         }
@@ -574,6 +580,7 @@ public class Enemy : Entity
                     }
 
                     Damage(enemyDamage, enemiesInRange[i]);
+                    player.playerAnim.SetTrigger("Hurt");
 
                     //item that boosts the player when damages
                     if(Inventory.instanceInventory.HasItem("Counter Ring"))

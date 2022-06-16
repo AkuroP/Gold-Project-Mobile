@@ -30,6 +30,8 @@ public class Player : Entity
 
     public Image buttonImage;
 
+    [HideInInspector] public Animator playerAnim;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -54,6 +56,7 @@ public class Player : Entity
                 buttonImage.sprite = Resources.Load<Sprite>("Assets/Graphics/UI/HUD/SpellUp");
                 break;
         }
+        playerAnim = this.GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
@@ -103,9 +106,10 @@ public class Player : Entity
             }
             else
             {
+                playerAnim.SetBool("Death", true);
                 AchievementManager.instanceAM.roomWithoutTakingDamage = 0;
                 AchievementManager.instanceAM.UpdateDeathNumber();
-                SceneManager.LoadScene("MainMenu");
+                StartCoroutine(ToMainMenu());
             }
         }
 
@@ -113,11 +117,13 @@ public class Player : Entity
         //move process
         if (moveInProgress && !canMove && timeElapsed < moveDuration)
         {
+            playerAnim.SetBool("Move", true);
             transform.position = Vector3.Lerp(currentPosition, targetPosition, timeElapsed / moveDuration) - new Vector3(0, 0, 1);
             timeElapsed += Time.deltaTime;
         }
         else
         {
+            playerAnim.SetBool("Move", false);
             moveInProgress = false;
             canMove = true;
             timeElapsed = 0;
@@ -165,6 +171,7 @@ public class Player : Entity
     {
         if(myTurn && !hasAttack)
         {
+            playerAnim.SetTrigger("Atk");
             numEssence -= attackCost;
 
             /*List<AttackTileSettings> attackPattern = ConvertPattern(_upDirectionATS, direction);
@@ -267,6 +274,12 @@ public class Player : Entity
         }
         GameManager.instanceGM.UpdateScoreAndMap();
         changingRoom = false;
+    }
+
+    public IEnumerator ToMainMenu()
+    {
+        yield return new WaitForSeconds(1.4f);
+        SceneManager.LoadScene("MainMenu");
     }
 
     //function to take damage / die

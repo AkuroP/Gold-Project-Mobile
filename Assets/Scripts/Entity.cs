@@ -72,6 +72,7 @@ public class Entity : MonoBehaviour
 
     public bool hasCheckStatus = false;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -500,7 +501,7 @@ public class Entity : MonoBehaviour
         }
     }
 
-    public bool FindNextTile()
+    public virtual bool FindNextTile()
     {
         switch (direction)
         {

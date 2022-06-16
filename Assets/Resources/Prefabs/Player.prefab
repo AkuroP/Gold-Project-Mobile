@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4854972237018957591}
   - component: {fileID: 743562048062131082}
+  - component: {fileID: 4144835861219872432}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -84,6 +85,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &4144835861219872432
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5330437375578086954}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 549a7d060910dcd4b862947e9311e9eb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7817395000330428684
 GameObject:
   m_ObjectHideFlags: 0
@@ -154,7 +175,7 @@ MonoBehaviour:
   hasMove: 0
   hasAttack: 0
   hasPlay: 0
-  attackDuration: 0.3
+  attackDuration: 0.23
   turnDuration: 0
   entitySr: {fileID: 743562048062131082}
   turnArrow: {fileID: 0}
@@ -176,6 +197,8 @@ MonoBehaviour:
   tilesOnFire: []
   cdFire: 0
   isInShop: 0
+  buttonImage: {fileID: 0}
+  playerAnim: {fileID: 0}
 --- !u!114 &8518943215265667630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,18 +222,21 @@ MonoBehaviour:
     itemDangerousness: 0
     itemCost: 0
     itemCooldown: 0
+    itemDescription: 
     itemSprite: {fileID: 0}
     goesInInventory: 0
   - itemName: 
     itemDangerousness: 0
     itemCost: 0
     itemCooldown: 0
+    itemDescription: 
     itemSprite: {fileID: 0}
     goesInInventory: 0
   - itemName: 
     itemDangerousness: 0
     itemCost: 0
     itemCooldown: 0
+    itemDescription: 
     itemSprite: {fileID: 0}
     goesInInventory: 0
 --- !u!1 &8524172913218424042

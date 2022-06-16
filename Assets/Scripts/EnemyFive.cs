@@ -17,11 +17,13 @@ public class EnemyFive : Enemy
     void Start()
     {
         //test = FindPath(currentTile, currentMap.player.currentTile, false);
+        enemyAnim = this.GetComponentInChildren<Animator>();
+        enemyAnim.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Assets/GA/Enemies/anims/doggo");
     }
 
     public override void Init()
     {
-        Debug.Log("débutInit");
+        Debug.Log("dï¿½butInit");
 
         player = GameObject.FindWithTag("Player").GetComponent<Player>();
         maxHP = 2;
@@ -30,7 +32,8 @@ public class EnemyFive : Enemy
         prio = Random.Range(1, 5);
         moveCDMax = 1;
         moveCDCurrent = 0;
-        moveDuration = 0.25f;
+        moveDuration = 0.5f;
+        attackDuration = .45f;
 
         entityDangerousness = 2;
 
@@ -158,6 +161,7 @@ public class EnemyFive : Enemy
                 else
                 {
                     Debug.Log("attaque");
+                    enemyAnim.SetTrigger("Atk");
                     chargeAttack = false;
                     chargeAttackCurrent = chargeAttackRoundMax;
 
@@ -189,6 +193,7 @@ public class EnemyFive : Enemy
 
                             if (temp.Count > 0)
                             {
+                                enemyAnim.SetTrigger("Move");
                                 Move(temp);
                                 turnDuration += moveDuration;
                                 moveCDCurrent = moveCDMax;
@@ -213,6 +218,7 @@ public class EnemyFive : Enemy
                         temp.Add(firstTile);
                         temp.Add(secondTile);
 
+                        enemyAnim.SetTrigger("Move");
                         Move(temp);
                         turnDuration += moveDuration;
 
@@ -235,6 +241,7 @@ public class EnemyFive : Enemy
                 chargeAttackCurrent = chargeAttackRoundMax;
 
                 direction = dir;
+                enemyAnim.SetTrigger("Atk");
                 StartAttack(upDirectionATS);
                 turnDuration += attackDuration;
             }

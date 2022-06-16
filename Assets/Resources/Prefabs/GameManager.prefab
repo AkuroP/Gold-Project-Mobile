@@ -52,8 +52,10 @@ MonoBehaviour:
   nextBoss: 0
   numberOfBosses: 2
   shopRoomNumber: 5
-  actualDangerousness: 1
+  actualDangerousness: 2
   turnNumber: 0
+  LevelClip: {fileID: 0}
+  BossClip: {fileID: 0}
   shopUIprefab: {fileID: 2232992195658834521, guid: f2461036fbabd3a45b7d6111cd0115d7, type: 3}
   shopPrefab: {fileID: 5128081185710407048, guid: 361bff0af5cb8554781bae3c5f48edbc, type: 3}
   player: {fileID: 0}

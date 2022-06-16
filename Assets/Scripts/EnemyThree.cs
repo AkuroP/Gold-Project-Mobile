@@ -17,6 +17,8 @@ public class EnemyThree : Enemy
     void Start()
     {
         //test = FindPath(currentTile, currentMap.player.currentTile, false);
+        enemyAnim = this.GetComponentInChildren<Animator>();
+        enemyAnim.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Assets/GA/Enemies/anims/mob_base");
     }
 
     public override void Init()
@@ -34,7 +36,8 @@ public class EnemyThree : Enemy
 
         chargeAttackCurrent = chargeAttackRoundMax;
 
-        moveDuration = 0.25f;
+        moveDuration = 0.4f;
+        attackDuration = .35f;
 
         entitySr = this.transform.Find("Sprite").GetComponent<SpriteRenderer>();
         entitySr.sprite = Resources.Load<Sprite>("Assets/Graphics/Enemies/Mob");
@@ -146,6 +149,7 @@ public class EnemyThree : Enemy
                     chargeAttackCurrent = chargeAttackRoundMax;
 
                     StartAttack(upDirectionATS);
+                    enemyAnim.SetTrigger("Atk");
                     turnDuration += attackDuration;
                 }
             }
@@ -166,6 +170,7 @@ public class EnemyThree : Enemy
 
                         if (pathToTarget != null && pathToTarget.Count > 1)
                         {
+                            enemyAnim.SetTrigger("Move");
                             Move(pathToTarget[1]);
                             turnDuration += moveDuration;
                         }
@@ -183,6 +188,7 @@ public class EnemyThree : Enemy
                     }
                     else
                     {
+                        enemyAnim.SetTrigger("Move");
                         EnemyRandomMove();
                         turnDuration += moveDuration;
                         moveCDCurrent = moveCDMax;
@@ -205,6 +211,7 @@ public class EnemyThree : Enemy
 
                 direction = dir;
                 StartAttack(upDirectionATS);
+                enemyAnim.SetTrigger("Atk");
                 turnDuration += attackDuration;
             }
         }

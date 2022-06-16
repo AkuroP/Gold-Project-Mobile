@@ -8,7 +8,8 @@ public class EnemyOne : Enemy
     // Start is called before the first frame update
     void Start()
     {
-
+        enemyAnim = this.GetComponentInChildren<Animator>();
+        enemyAnim.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Assets/GA/Enemies/anims/tentacule");
     }
 
     public override void Init()
@@ -25,7 +26,7 @@ public class EnemyOne : Enemy
         entityDangerousness = 1;
 
         entitySr = this.transform.Find("Sprite").GetComponent<SpriteRenderer>();
-        entitySr.sprite = Resources.Load<Sprite>("Assets/Graphics/Enemies/TentaculeSolo");
+        entitySr.sprite = Resources.LoadAll<Sprite>("Assets/GA/Enemies/TentaculeIdle")[0];
 
         AssignPattern();
 
@@ -97,6 +98,7 @@ public class EnemyOne : Enemy
 
     public override void StartTurn()
     {
+        enemyAnim.SetTrigger("Atk");
         turnDuration += attackDuration;
         if(this.hp > 0)
         {
