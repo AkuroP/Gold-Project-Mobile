@@ -11,14 +11,17 @@ public class ShopItem
     public int itemCost;
     public int itemCooldown;
 
+    public string itemDescription;
+
     public Sprite itemSprite;
 
     public bool goesInInventory;
 
-    public ShopItem(string _itemName, int _itemDangerousness, bool _inInventory)
+    public ShopItem(string _itemName, int _itemDangerousness, bool _inInventory, string _itemDescription)
     {
         itemName = _itemName;
         itemDangerousness = _itemDangerousness;
         goesInInventory = _inInventory;
+        itemDescription = _itemDescription;
     }
 }

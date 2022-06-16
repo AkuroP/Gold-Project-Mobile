@@ -28,6 +28,7 @@ public class Boss : Enemy
         AchievementManager.instanceAM.UpdateBossesKilled();
         GameObject darkMatter = Resources.Load<GameObject>("Prefabs/DarkMatter");
         Instantiate(darkMatter, exitTile.transform.position, Quaternion.identity);
+        GameObject.FindWithTag("Player").GetComponent<Player>().numEssence += 33;
         switch (player.weapon.typeOfWeapon)
         {
             case WeaponType.DAGGER:

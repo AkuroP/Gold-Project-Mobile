@@ -32,6 +32,10 @@ public class Enemy : Entity
 
     public bool isInitialize = false;
 
+    public GameObject heart1;
+    public GameObject heart2;
+    public GameObject heart3;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -56,7 +60,7 @@ public class Enemy : Entity
 
     public virtual void StartTurn()
     {
-        Debug.Log("START TURN");
+        //Debug.Log("START TURN");
     }
 
     public void CheckFire()
@@ -74,6 +78,7 @@ public class Enemy : Entity
         if (hp <= 0)
         {
             AchievementManager.instanceAM.UpdateEnemiesKilled();
+            this.currentTile.entityOnTile = null;
             Destroy(this.gameObject);
             player.numEssence += 8;
             switch (player.weapon.typeOfWeapon)
@@ -307,7 +312,7 @@ public class Enemy : Entity
 
                     List<Tile> newPath = FindPath(_originTile, _targetTileList[i], false);
 
-                    if (quickestPath != null && newPath.Count < quickestPath.Count)
+                    if (quickestPath != null && newPath != null && newPath.Count < quickestPath.Count)
                     {
                         quickestPath = newPath;
                     }
@@ -470,7 +475,7 @@ public class Enemy : Entity
         while(currentTile.cameFromTile != null)
         {
             //======= DEBUG START =======//
-            StartCoroutine(currentTile.TurnColor(new Color(0f, 1f, 0f, 1f), step));
+            //StartCoroutine(currentTile.TurnColor(new Color(0f, 1f, 0f, 1f), step));
             //======= DEBUG END =======//
 
             path.Add(currentTile.cameFromTile);
@@ -486,25 +491,30 @@ public class Enemy : Entity
 
     public void EnemyRandomMove()
     {
-        int randomMove = Random.Range(0, 4);
-        switch(randomMove)
+        bool accessible = false;
+
+        while(!accessible)
         {
-            case 0:
-                direction = Direction.UP;
-                FindNextTile();
-            break;
-            case 1:
-                direction = Direction.LEFT;
-                FindNextTile();
-                break;
-            case 2:
-                direction = Direction.BOTTOM;
-                FindNextTile();
-            break;
-            case 3:
-                direction = Direction.RIGHT;
-                FindNextTile();
-                break;
+            int randomMove = Random.Range(0, 4);
+            switch (randomMove)
+            {
+                case 0:
+                    direction = Direction.UP;
+                    accessible = FindNextTile();
+                    break;
+                case 1:
+                    direction = Direction.LEFT;
+                    accessible = FindNextTile();
+                    break;
+                case 2:
+                    direction = Direction.BOTTOM;
+                    accessible = FindNextTile();
+                    break;
+                case 3:
+                    direction = Direction.RIGHT;
+                    accessible = FindNextTile();
+                    break;
+            }
         }
     }
 
@@ -514,12 +524,21 @@ public class Enemy : Entity
 
         List<AttackTileSettings> attackPattern = ConvertPattern(_upDirectionATS, direction);
 
+        if (currentTile.tileX < attackPattern[0].offsetX)
+        {
+            entitySr.flipX = true;
+        }
+        else if (currentTile.tileX > attackPattern[0].offsetX)
+        {
+            entitySr.flipX = false;
+        }
+
         List<Entity> enemiesInRange = new List<Entity>();
 
-        Debug.Log(direction);
+        //Debug.Log(direction);
         foreach(AttackTileSettings oneATS in attackPattern)
         {
-            Debug.Log("X: " + oneATS.offsetX + " Y: " + oneATS.offsetY);
+            //Debug.Log("X: " + oneATS.offsetX + " Y: " + oneATS.offsetY);
         }
 
         enemiesInRange = GetEntityInRange(attackPattern, true);
