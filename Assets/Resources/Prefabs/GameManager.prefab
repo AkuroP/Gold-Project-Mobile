@@ -52,7 +52,7 @@ MonoBehaviour:
   nextBoss: 0
   numberOfBosses: 2
   shopRoomNumber: 5
-  actualDangerousness: 2
+  actualDangerousness: 1
   turnNumber: 0
   LevelClip: {fileID: 0}
   BossClip: {fileID: 0}
