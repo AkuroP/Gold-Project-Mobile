@@ -61,11 +61,12 @@ public class Entity : MonoBehaviour
     public bool hasPlay = false;
     protected bool isOnThePike = false;
 
-    public float attackDuration = 0.15f;
+    public float attackDuration = 0.3f;
     public float turnDuration;
 
     //Sprite and anims
-    [SerializeField] public SpriteRenderer entitySr;
+    public SpriteRenderer entitySr;
+    public GameObject turnArrow;
 
     public List<Debuff> entityStatus = new List<Debuff>();
 
@@ -389,7 +390,15 @@ public class Entity : MonoBehaviour
         {
             AchievementManager.instanceAM.UpdateFullCounter();
         }
-        if (entity.invincibilityTurn == 0)
+        if(entity is BossTP && entity.GetComponent<BossTP>().sunCreeps.Count > 0)
+        {
+            return;
+        }
+        else if ((entity is BossTP || entity is BossFrog) && Inventory.instanceInventory.HasItem("Boss Slayer"))
+        {
+            entity.hp -= damage * damageMultiplicator + 1;
+        }
+        else if (entity.invincibilityTurn == 0)
         {
             entity.hp -= damage * damageMultiplicator;
             damageMultiplicator = 1;
@@ -402,51 +411,64 @@ public class Entity : MonoBehaviour
 
     public virtual void Move(Tile _targetTile)
     {
-        currentPosition = transform.position;
-        targetPosition = _targetTile.transform.position;
-        
-        Debug.Log(currentPosition + " / " + targetPosition);
+        if(!hasMove)
+        {
+            currentPosition = transform.position;
+            targetPosition = _targetTile.transform.position;
 
-        if (currentTile.isHole == true && currentTile.isOpen == false)
-        {
-            currentTile.isReachable = false;
-            currentTile.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/Tiles/TilemapsDark_Spritesheet_14");
-        }
-        if (currentTile.isPike == true)
-        {
-            currentTile.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/Tiles/TilemapsDark_Spritesheet_24");
-            isOnThePike = false;
-        }
+            if (currentTile.tileX < _targetTile.tileX)
+            {
+                entitySr.flipX = true;
+            }
+            else if (currentTile.tileX > _targetTile.tileX)
+            {
+                entitySr.flipX = false;
+            }
 
-        if (!_targetTile.isHole)
-        {
-            _targetTile.entityOnTile = currentTile.entityOnTile;
-            currentTile.entityOnTile = null;
-            currentTile = _targetTile;
-            lastNotHoleTile = currentTile;
-        }
-        else if (_targetTile.isHole)
-        {
-            _targetTile.entityOnTile = currentTile.entityOnTile;
-            currentTile.entityOnTile = null;
-            currentTile = _targetTile;
-        }
+            //Debug.Log(currentPosition + " / " + targetPosition);
 
-        moveInProgress = true;
-        if(mobility > 0)
-        {
-            mobility--;
+            if (currentTile.isHole == true && currentTile.isOpen == false)
+            {
+                currentTile.isReachable = false;
+                currentTile.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/Tiles/TilemapsDark_Spritesheet_14");
+            }
+            if (currentTile.isPike == true)
+            {
+                currentTile.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/Tiles/TilemapsDark_Spritesheet_24");
+                isOnThePike = false;
+            }
+
+            if (!_targetTile.isHole)
+            {
+                _targetTile.entityOnTile = currentTile.entityOnTile;
+                currentTile.entityOnTile = null;
+                currentTile = _targetTile;
+                lastNotHoleTile = currentTile;
+            }
+            else if (_targetTile.isHole)
+            {
+                _targetTile.entityOnTile = currentTile.entityOnTile;
+                currentTile.entityOnTile = null;
+                currentTile = _targetTile;
+            }
+
+            moveInProgress = true;
+            if (mobility > 0)
+            {
+                mobility--;
+            }
+            else if (this is Player && mobility == 0)
+            {
+                hasMove = true;
+                StartCoroutine(EndTurn(moveDuration));
+            }
+            if (this.CompareTag("Player"))
+            {
+                AchievementManager.instanceAM.UpdateStepsAchievement();
+            }
+            entitySr.sortingOrder = 11 - currentTile.tileY;
+            canMove = false;
         }
-        else
-        {
-            hasMove = true;
-            hasPlay = true;
-        }
-        if(this.CompareTag("Player"))
-        {
-            AchievementManager.instanceAM.UpdateStepsAchievement();
-        }
-        canMove = false;
     }  
 
     public IEnumerator MoveWithDelay(Tile _targetTile, float _delay)
@@ -456,7 +478,7 @@ public class Entity : MonoBehaviour
         currentPosition = transform.position;
         targetPosition = _targetTile.transform.position;
 
-        Debug.Log(_delay + " / " + currentPosition + " / " + targetPosition);
+        //Debug.Log(_delay + " / " + currentPosition + " / " + targetPosition);
 
         if (!_targetTile.isHole)
         {
@@ -477,7 +499,7 @@ public class Entity : MonoBehaviour
         }
     }
 
-    public virtual void FindNextTile()
+    public bool FindNextTile()
     {
         switch (direction)
         {
@@ -486,6 +508,15 @@ public class Entity : MonoBehaviour
                 if (currentMap.CheckMove(topTile, this))
                 {
                     this.Move(topTile);
+                    if(this is Player)
+                    {
+                        this.GetComponent<Player>().numEssence--;
+                    }
+                    return true;
+                }
+                else
+                {
+                    return false;
                 }
                 break;
             case Direction.RIGHT:
@@ -493,7 +524,15 @@ public class Entity : MonoBehaviour
                 if (currentMap.CheckMove(rightTile, this))
                 {
                     this.Move(rightTile);
-                    entitySr.flipX = true;
+                    if (this is Player)
+                    {
+                        this.GetComponent<Player>().numEssence--;
+                    }
+                    return true;
+                }
+                else
+                {
+                    return false;
                 }
                 break;
             case Direction.BOTTOM:
@@ -501,6 +540,15 @@ public class Entity : MonoBehaviour
                 if (currentMap.CheckMove(bottomTile, this))
                 {
                     this.Move(bottomTile);
+                    if (this is Player)
+                    {
+                        this.GetComponent<Player>().numEssence--;
+                    }
+                    return true;
+                }
+                else
+                {
+                    return false;
                 }
                 break;
             case Direction.LEFT:
@@ -508,10 +556,19 @@ public class Entity : MonoBehaviour
                 if (currentMap.CheckMove(leftTile, this))
                 {
                     this.Move(leftTile);
-                    entitySr.flipX = false;
+                    if (this is Player)
+                    {
+                        this.GetComponent<Player>().numEssence--;
+                    }
+                    return true;
+                }
+                else
+                {
+                    return false;
                 }
                 break;
         }
+        return false;
         //enableMove = false;
     }
 
@@ -525,8 +582,10 @@ public class Entity : MonoBehaviour
 
     public IEnumerator EndTurn(float waitDuration)
     {
-        yield return new WaitForSeconds(waitDuration + 0.2f);
+        yield return new WaitForSeconds(waitDuration + 0.3f);
         hasPlay = true;
+        turnArrow.SetActive(false);
+        //Debug.Log("fin du tour");
     }
 
 }

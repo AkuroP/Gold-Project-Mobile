@@ -17,6 +17,9 @@ public class ShopButton : MonoBehaviour
     [SerializeField] Button[] shopButtons;
     [SerializeField] Button[] inventoryButtons;
     [SerializeField] Button closeButton;
+    [SerializeField] Button buyButton;
+    [SerializeField] GameObject descriptionPanel;
+    [SerializeField] Text descriptionText;
 
     private ShopInGame shopInGame;
 
@@ -34,13 +37,28 @@ public class ShopButton : MonoBehaviour
         }
     }
 
-    public void ChooseItem()
+    public void ShowDescription()
+    {
+        if(descriptionPanel.activeSelf == false)
+        {
+            descriptionPanel.SetActive(true);
+            descriptionText.text = item.itemDescription;
+        }
+        else
+        {
+            descriptionText.text = item.itemDescription;
+        }
+        buyButton.onClick.RemoveAllListeners();
+        buyButton.onClick.AddListener(delegate{ChooseItem(item.itemName);});
+    }
+
+    public void ChooseItem(string name)
     {
         if (player.numEssence > item.itemCost)
         {
             if (item.goesInInventory == false)
             {
-                switch (item.itemName)
+                switch (name)
                 {
                     case "Heart Regeneration":
                         if (player.hp < player.maxHP)
@@ -100,7 +118,7 @@ public class ShopButton : MonoBehaviour
             }
             else if (Inventory.instanceInventory.itemInInventory >= Inventory.instanceInventory.maxItemNumber)
             {
-                switch (item.itemName)
+                switch (name)
                 {
                     case "Speed Boots":
                         player.mobility++;
@@ -121,7 +139,7 @@ public class ShopButton : MonoBehaviour
             }
             else
             {
-                switch (item.itemName)
+                switch (name)
                 {
                     case "Speed Boots":
                         player.mobility++;
@@ -142,6 +160,7 @@ public class ShopButton : MonoBehaviour
                 }
             }
         }
+        descriptionPanel.SetActive(false);
     }
 
     void OpenMysteryBox()

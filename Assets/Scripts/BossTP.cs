@@ -63,6 +63,33 @@ public class BossTP : Boss
             canMove = true;
             timeElapsed = 0;
         }
+
+        switch (this.sunCreeps.Count)
+        {
+            case 1:
+                heart1.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/creepsheart");
+                heart2.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/Graphics/empty");
+                heart3.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/Graphics/empty");
+                break;
+            case 2:
+                heart1.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/creepsheart");
+                heart2.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/creepsheart");
+                heart3.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/emptys");
+                break;
+            case 3:
+                heart1.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/creepsheart");
+                heart2.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/creepsheart");
+                heart3.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/creepsheart");
+                break;
+            default:
+                break;
+        }
+        if(sunCreeps.Count == 0)
+        {
+            heart2.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/hud1_1");
+            heart1.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/Graphics/empty");
+            heart3.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/Graphics/empty");
+        }
     }
 
     public override void Init()
@@ -84,6 +111,10 @@ public class BossTP : Boss
         AssignPattern();
 
         isInitialize = true;
+
+        heart1 = this.transform.Find("Heart1").gameObject;
+        heart2 = this.transform.Find("Heart2").gameObject;
+        heart3 = this.transform.Find("Heart3").gameObject;
     }
 
     public void AssignPattern()
@@ -123,7 +154,7 @@ public class BossTP : Boss
 
     public void StartTurnPhase1()
     {
-        Debug.Log("sun turn");
+        //Debug.Log("sun turn");
 
         if(attackPhase)
         {
@@ -257,6 +288,7 @@ public class BossTP : Boss
 
         newTile.entityOnTile = this;
         currentTile = newTile;
+        entitySr.sortingOrder = 11 - currentTile.tileY;
         transform.position = currentTile.transform.position;
         this.gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
         isInvisible = false;
