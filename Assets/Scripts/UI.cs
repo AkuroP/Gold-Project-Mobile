@@ -65,9 +65,30 @@ public class UI : MonoBehaviour
         if(player != null)
         {
             essencesText.text = player.numEssence.ToString();
-            slot1.sprite = Inventory.instanceInventory.items[0].itemSprite;
-            slot2.sprite = Inventory.instanceInventory.items[1].itemSprite;
-            slot3.sprite = Inventory.instanceInventory.items[2].itemSprite;
+            if(Inventory.instanceInventory.items[0].itemName == "")
+            {
+                slot1.sprite = Resources.Load<Sprite>("Assets/Graphics/empty");
+            }
+            else
+            {
+                slot1.sprite = Inventory.instanceInventory.items[0].itemSprite;
+            }
+            if(Inventory.instanceInventory.items[1].itemName == "")
+            {
+                slot2.sprite = Resources.Load<Sprite>("Assets/Graphics/empty");
+            }
+            else
+            {
+                slot2.sprite = Inventory.instanceInventory.items[1].itemSprite;
+            }
+            if (Inventory.instanceInventory.items[2].itemName == "")
+            {
+                slot3.sprite = Resources.Load<Sprite>("Assets/Graphics/empty");
+            }
+            else
+            {
+                slot3.sprite = Inventory.instanceInventory.items[2].itemSprite;
+            }
             floorText.text = GameManager.instanceGM.floor.ToString();
             roomText.text = GameManager.instanceGM.room.ToString();
             switch(player.hp)

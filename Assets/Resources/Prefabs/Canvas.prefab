@@ -2227,6 +2227,7 @@ MonoBehaviour:
   heart3: {fileID: 650425965261040636}
   rune1: {fileID: 754443680658036015}
   rune2: {fileID: 7602673105056072600}
+  hubShop: {fileID: 0}
   fadePrefab: {fileID: 4904525013109680106, guid: 1e6bc766c3dc66a469ed7ac67e97dd5f, type: 3}
 --- !u!1 &7682593074086453731
 GameObject:
