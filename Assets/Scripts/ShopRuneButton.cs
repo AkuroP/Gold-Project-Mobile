@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShopRuneButton : MonoBehaviour
 {
@@ -13,6 +14,42 @@ public class ShopRuneButton : MonoBehaviour
     void Start()
     {
         player = GameObject.FindWithTag("Player").GetComponent<Player>();
+        switch (player.weapon.typeOfWeapon)
+        {
+            case WeaponType.DAGGER:
+                if (upgradeLevel == 1)
+                {
+                    GetComponent<Image>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/runes_0");
+                }
+                if (upgradeLevel == 2)
+                {
+                    GetComponent<Image>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/runes_1");
+                }
+                break;
+
+            case WeaponType.HANDGUN:
+                if (upgradeLevel == 1)
+                {
+                    GetComponent<Image>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/runes_4");
+                }
+                if (upgradeLevel == 2)
+                {
+                    GetComponent<Image>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/runes_5");
+                }
+                break;
+
+            case WeaponType.GRIMOIRE:
+                if (upgradeLevel == 1)
+                {
+                    GetComponent<Image>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/runes_2");
+                }
+                if (upgradeLevel == 2)
+                {
+                    GetComponent<Image>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/runes_3");
+                }
+                break;
+        }
+
     }
 
     public void UpgradeWeapon()
@@ -34,15 +71,16 @@ public class ShopRuneButton : MonoBehaviour
                     player.weapon = new Weapon(WeaponType.GRIMOIRE, upgradeLevel, 1);
                     break;
             }
+            if(!GameManager.instanceGM.firstUpgrade)
+            {
+                GameManager.instanceGM.firstUpgrade = true;
+            }
+            else
+            {
+                GameManager.instanceGM.secondUpgrade = true;
+            }
             Destroy(this.gameObject);
         }
-        if(upgradeLevel == 1)
-        {
-            GameManager.instanceGM.firstUpgrade = true;
-        }
-        if (upgradeLevel == 2)
-        {
-            GameManager.instanceGM.secondUpgrade = true;
-        }
+
     }
 }

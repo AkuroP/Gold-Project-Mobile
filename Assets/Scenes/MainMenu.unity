@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &32694095 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7403878857076138125, guid: b377ef8e702e1da4ea07ad88cd024a52, type: 3}
+  m_PrefabInstance: {fileID: 1506579790}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &39981049
 GameObject:
   m_ObjectHideFlags: 0
@@ -2132,12 +2137,10 @@ MonoBehaviour:
   heart1: {fileID: 0}
   heart2: {fileID: 0}
   heart3: {fileID: 0}
+  rune1: {fileID: 0}
+  rune2: {fileID: 0}
+  hubShop: {fileID: 32694095}
   fadePrefab: {fileID: 0}
---- !u!1 &1259072765 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2749532188505197085, guid: b377ef8e702e1da4ea07ad88cd024a52, type: 3}
-  m_PrefabInstance: {fileID: 1506579790}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1503632094
 GameObject:
   m_ObjectHideFlags: 0
@@ -2225,11 +2228,7 @@ PrefabInstance:
     - target: {fileID: 2735761236044328510, guid: b377ef8e702e1da4ea07ad88cd024a52, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1259072765}
-    - target: {fileID: 2735761236044328510, guid: b377ef8e702e1da4ea07ad88cd024a52, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1110650667}
     - target: {fileID: 2749532188505197073, guid: b377ef8e702e1da4ea07ad88cd024a52, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2322,10 +2321,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1600380501}
-    - target: {fileID: 2749532188505197087, guid: b377ef8e702e1da4ea07ad88cd024a52, type: 3}
-      propertyPath: m_PresetInfoIsWorld
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b377ef8e702e1da4ea07ad88cd024a52, type: 3}
 --- !u!1 &1551820377

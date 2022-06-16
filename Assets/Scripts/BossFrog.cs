@@ -91,6 +91,7 @@ public class BossFrog : Boss
         //tongue Attack
         tongueAttackZone.Add(currentMap.tilesList[31]);
         tongueAttackZone.Add(currentMap.tilesList[38]);
+        tongueAttackZone.Add(currentMap.tilesList[24]);
 
         //neighbour Tiles
         neighbourTiles.Add(currentMap.tilesList[37]);

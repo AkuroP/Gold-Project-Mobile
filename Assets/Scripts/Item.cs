@@ -8,6 +8,8 @@ public class Item : MonoBehaviour
     public Text weaponLvl;
     public Text weaponUpPrice;
 
+    public WeaponType weaponType;
+
     public int itemPrice;
     private Player player;
 
@@ -15,6 +17,66 @@ public class Item : MonoBehaviour
     void Start()
     {
         CheckWeapon(this.name);
+    }
+
+    void Update()
+    {
+        switch (weaponType)
+        {
+            case WeaponType.DAGGER:
+                if(RuneManager.instanceRM.daggerLevel == 0 && RuneManager.instanceRM.hasBuyDagger == "true")
+                {
+                    gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/runes_0");
+                }
+                else if (RuneManager.instanceRM.daggerLevel == 1 && RuneManager.instanceRM.hasBuyDagger == "true")
+                {
+                    gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/runes_1");
+                }
+                if (RuneManager.instanceRM.daggerLevel == 2 && RuneManager.instanceRM.hasBuyDagger == "true")
+                {
+                    gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/runes_1");
+                    gameObject.GetComponent<Button>().interactable = false;
+                }
+                break;
+            case WeaponType.HANDGUN:
+                if (RuneManager.instanceRM.handgunLevel == 0 && RuneManager.instanceRM.hasBuyHandgun == "false")
+                {
+                    gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/gun");
+                }
+                else if (RuneManager.instanceRM.handgunLevel == 0 && RuneManager.instanceRM.hasBuyHandgun == "true")
+                {
+                    gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/runes_4");
+                }
+                else if (RuneManager.instanceRM.handgunLevel == 1 && RuneManager.instanceRM.hasBuyHandgun == "true")
+                {
+                    gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/runes_5");
+                }
+                if (RuneManager.instanceRM.handgunLevel == 2 && RuneManager.instanceRM.hasBuyHandgun == "true")
+                {
+                    gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/runes_5");
+                    gameObject.GetComponent<Button>().interactable = false;
+                }
+                break;
+            case WeaponType.GRIMOIRE:
+                if (RuneManager.instanceRM.handgunLevel == 0 && RuneManager.instanceRM.hasBuyHandgun == "false")
+                {
+                    gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/grimoire_hud");
+                }
+                else if (RuneManager.instanceRM.grimoireLevel == 0 && RuneManager.instanceRM.hasBuyGrimoire == "true")
+                {
+                    gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/runes_2");
+                }
+                else if (RuneManager.instanceRM.grimoireLevel == 1 && RuneManager.instanceRM.hasBuyGrimoire == "true")
+                {
+                    gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/runes_3");
+                }
+                if (RuneManager.instanceRM.grimoireLevel == 2 && RuneManager.instanceRM.hasBuyGrimoire == "true")
+                {
+                    gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/runes_3");
+                    gameObject.GetComponent<Button>().interactable = false;
+                }
+                break;
+        }
     }
 
     public void BuyWeapon(string _weaponName)
@@ -99,6 +161,7 @@ public class Item : MonoBehaviour
                 {
                     RuneManager.instanceRM.daggerLevel++;
                     RuneManager.instanceRM.darkMatter -= (this.itemPrice * (RuneManager.instanceRM.daggerLevel + 2));
+                    PlayerPrefs.SetInt("daggerLevel", RuneManager.instanceRM.daggerLevel);
                     PlayerPrefs.SetInt("darkMatter", RuneManager.instanceRM.darkMatter);
                     AchievementManager.instanceAM.UpdateRunesPurchased();
                 }
@@ -109,6 +172,7 @@ public class Item : MonoBehaviour
                 {
                     RuneManager.instanceRM.handgunLevel++;
                     RuneManager.instanceRM.darkMatter -= (this.itemPrice * (RuneManager.instanceRM.handgunLevel + 2));
+                    PlayerPrefs.SetInt("handgunLevel", RuneManager.instanceRM.handgunLevel);
                     PlayerPrefs.SetInt("darkMatter", RuneManager.instanceRM.darkMatter);
                     AchievementManager.instanceAM.UpdateRunesPurchased();
                 }
@@ -119,6 +183,7 @@ public class Item : MonoBehaviour
                 {
                     RuneManager.instanceRM.grimoireLevel++;
                     RuneManager.instanceRM.darkMatter -= (this.itemPrice * (RuneManager.instanceRM.grimoireLevel + 2));
+                    PlayerPrefs.SetInt("grimoireLevel", RuneManager.instanceRM.grimoireLevel);
                     PlayerPrefs.SetInt("darkMatter", RuneManager.instanceRM.darkMatter);
                     AchievementManager.instanceAM.UpdateRunesPurchased();
                 }

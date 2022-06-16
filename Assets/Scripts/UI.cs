@@ -32,6 +32,9 @@ public class UI : MonoBehaviour
     [SerializeField] private Image heart1;
     [SerializeField] private Image heart2;
     [SerializeField] private Image heart3;
+    [SerializeField] private Image rune1;
+    [SerializeField] private Image rune2;
+    [SerializeField] private GameObject hubShop;
 
     //Fade
     public GameObject fadePrefab;
@@ -86,6 +89,45 @@ public class UI : MonoBehaviour
                     break;
                 default:
                     break;
+            }
+            if (GameManager.instanceGM.firstUpgrade)
+            {
+                switch (player.weapon.typeOfWeapon)
+                {
+                    case WeaponType.DAGGER:
+                        rune1.GetComponent<Image>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/runes_0");
+                        break;
+
+                    case WeaponType.HANDGUN:
+                        rune1.GetComponent<Image>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/runes_4");
+                        break;
+
+                    case WeaponType.GRIMOIRE:
+                        rune1.GetComponent<Image>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/runes_2");
+                        break;
+                }
+                if (GameManager.instanceGM.secondUpgrade)
+                {
+                    switch (player.weapon.typeOfWeapon)
+                    {
+                        case WeaponType.DAGGER:
+                            rune2.GetComponent<Image>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/runes_1");
+                            break;
+
+                        case WeaponType.HANDGUN:
+                            rune2.GetComponent<Image>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/runes_5");
+                            break;
+
+                        case WeaponType.GRIMOIRE:
+                            rune2.GetComponent<Image>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/runes_3");
+                            break;
+                    }
+                }
+            }
+            else
+            {
+                rune1.GetComponent<Image>().sprite = Resources.Load<Sprite>("Assets/Graphics/empty");
+                rune2.GetComponent<Image>().sprite = Resources.Load<Sprite>("Assets/Graphics/empty");
             }
         }
 
@@ -186,6 +228,11 @@ public class UI : MonoBehaviour
     public void CloseChooseWeapon()
     {
         chooseWeaponMenu.SetActive(false);
+    }
+
+    public void CloseHubShop()
+    {
+        hubShop.SetActive(false);
     }
 
     public void OpenOptions()
