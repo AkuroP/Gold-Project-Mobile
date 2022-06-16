@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a7f16fb75624b30478e2154e20bd7b9a
+guid: 880aaa1df5c3cac4287f759f03d753ea
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -116,7 +116,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: FrogTongueAttack_0
+      name: FrogTongueAttack (1)_0
       rect:
         serializedVersion: 2
         x: 0
@@ -130,14 +130,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: affd4c7a45c35a945bb0a6295be5e578
-      internalID: -241611670
+      spriteID: f6f477e2ac4a4574393d24e0355a6bfa
+      internalID: -30062755
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrogTongueAttack_1
+      name: FrogTongueAttack (1)_1
       rect:
         serializedVersion: 2
         x: 130
@@ -151,14 +151,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c6cf9ecba8babf34a9db3858ea49fbc8
-      internalID: -748675782
+      spriteID: 603c958f9fa061845ae40478dbcbe460
+      internalID: 1863773483
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrogTongueAttack_2
+      name: FrogTongueAttack (1)_2
       rect:
         serializedVersion: 2
         x: 260
@@ -172,14 +172,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 670d6c319675da14ca7d64bbc7a33814
-      internalID: 1879972647
+      spriteID: 30f90fcb90906bd498ca7636b98c2a55
+      internalID: 1391922888
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrogTongueAttack_3
+      name: FrogTongueAttack (1)_3
       rect:
         serializedVersion: 2
         x: 390
@@ -193,14 +193,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 77ee8e095fc88d947a1728338219b50b
-      internalID: 1121793637
+      spriteID: da11c0e4fd473714ba6b2078c1ac83eb
+      internalID: 251066157
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrogTongueAttack_4
+      name: FrogTongueAttack (1)_4
       rect:
         serializedVersion: 2
         x: 520
@@ -214,14 +214,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 76d9c289f6e0fb04987084fb0c9a57a8
-      internalID: -921088599
+      spriteID: 2c1042f9d9d590945adef997c829718b
+      internalID: -268281046
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrogTongueAttack_5
+      name: FrogTongueAttack (1)_5
       rect:
         serializedVersion: 2
         x: 650
@@ -235,14 +235,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 92c1f2f6460c4ea42bdb4c53987d71c4
-      internalID: -1196536886
+      spriteID: 7fc9a3f593fc70241a3de11839cb620a
+      internalID: 1710862396
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrogTongueAttack_6
+      name: FrogTongueAttack (1)_6
       rect:
         serializedVersion: 2
         x: 780
@@ -256,14 +256,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b194772a37a81d14a8e121a52583a45d
-      internalID: 1611193324
+      spriteID: 9b4de83e469caf74ca370c7a7a6b3664
+      internalID: -1256678646
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrogTongueAttack_7
+      name: FrogTongueAttack (1)_7
       rect:
         serializedVersion: 2
         x: 910
@@ -277,14 +277,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 50b8dbc6544b5d3498caf39022624e42
-      internalID: 1555211963
+      spriteID: 78130072f063e9345a077f9b349d85f3
+      internalID: -58103890
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrogTongueAttack_8
+      name: FrogTongueAttack (1)_8
       rect:
         serializedVersion: 2
         x: 1040
@@ -298,14 +298,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e941b8e596b397b43bf0bc4186553cb6
-      internalID: 844038456
+      spriteID: 41595caca2d957546b90b5474ba8da6b
+      internalID: 1394158292
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrogTongueAttack_9
+      name: FrogTongueAttack (1)_9
       rect:
         serializedVersion: 2
         x: 1170
@@ -319,14 +319,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4249a26cae79801409ee355fa31f70aa
-      internalID: -59632380
+      spriteID: 9f7204b152056b14e9d96da34a5c0f61
+      internalID: 461536418
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrogTongueAttack_10
+      name: FrogTongueAttack (1)_10
       rect:
         serializedVersion: 2
         x: 1300
@@ -340,14 +340,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b3670c19e37bfe24a8eba538ef1b1f70
-      internalID: -1149840411
+      spriteID: a737758d55fc11546b3d7f2be6aa3063
+      internalID: -708036793
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrogTongueAttack_11
+      name: FrogTongueAttack (1)_11
       rect:
         serializedVersion: 2
         x: 1430
@@ -361,8 +361,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a10a78afe97104f499bf4efc79ff0805
-      internalID: 2111367702
+      spriteID: f3748c73ad97ad746b556d1ccfc7e598
+      internalID: 780151675
       vertices: []
       indices: 
       edges: []
@@ -378,18 +378,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      FrogTongueAttack_8: 844038456
-      FrogTongueAttack_0: -241611670
-      FrogTongueAttack_11: 2111367702
-      FrogTongueAttack_7: 1555211963
-      FrogTongueAttack_4: -921088599
-      FrogTongueAttack_6: 1611193324
-      FrogTongueAttack_1: -748675782
-      FrogTongueAttack_3: 1121793637
-      FrogTongueAttack_9: -59632380
-      FrogTongueAttack_10: -1149840411
-      FrogTongueAttack_2: 1879972647
-      FrogTongueAttack_5: -1196536886
+      FrogTongueAttack (1)_7: -58103890
+      FrogTongueAttack (1)_3: 251066157
+      FrogTongueAttack (1)_10: -708036793
+      FrogTongueAttack (1)_4: -268281046
+      FrogTongueAttack (1)_6: -1256678646
+      FrogTongueAttack (1)_0: -30062755
+      FrogTongueAttack (1)_1: 1863773483
+      FrogTongueAttack (1)_11: 780151675
+      FrogTongueAttack (1)_5: 1710862396
+      FrogTongueAttack (1)_8: 1394158292
+      FrogTongueAttack (1)_2: 1391922888
+      FrogTongueAttack (1)_9: 461536418
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
