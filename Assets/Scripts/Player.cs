@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Player : Entity
 {
@@ -27,6 +28,8 @@ public class Player : Entity
 
     public bool isInShop = false;
 
+    public Image buttonImage;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +41,19 @@ public class Player : Entity
         attackDuration = 0.2f;
 
         turnArrow = this.transform.Find("Arrow").gameObject;
+
+        switch (RuneManager.instanceRM.currentWeapon)
+        {
+            case WeaponType.DAGGER:
+                buttonImage.sprite = Resources.Load<Sprite>("Assets/Graphics/UI/HUD/DagueUp");
+                break;
+            case WeaponType.HANDGUN:
+                buttonImage.sprite = Resources.Load<Sprite>("Assets/Graphics/UI/HUD/GunUp");
+                break;
+            case WeaponType.GRIMOIRE:
+                buttonImage.sprite = Resources.Load<Sprite>("Assets/Graphics/UI/HUD/SpellUp");
+                break;
+        }
     }
 
     // Update is called once per frame
@@ -208,10 +224,34 @@ public class Player : Entity
             if (!attackNext)
             {
                 attackNext = true;
+                switch(RuneManager.instanceRM.currentWeapon)
+                {
+                    case WeaponType.DAGGER:
+                        buttonImage.sprite = Resources.Load<Sprite>("Assets/Graphics/UI/HUD/DagueDown");
+                        break;
+                    case WeaponType.HANDGUN:
+                        buttonImage.sprite = Resources.Load<Sprite>("Assets/Graphics/UI/HUD/GunDown");
+                        break;
+                    case WeaponType.GRIMOIRE:
+                        buttonImage.sprite = Resources.Load<Sprite>("Assets/Graphics/UI/HUD/SpellDown");
+                        break;
+                }
             }
             else
             {
                 attackNext = false;
+                switch (RuneManager.instanceRM.currentWeapon)
+                {
+                    case WeaponType.DAGGER:
+                        buttonImage.sprite = Resources.Load<Sprite>("Assets/Graphics/UI/HUD/DagueUp");
+                        break;
+                    case WeaponType.HANDGUN:
+                        buttonImage.sprite = Resources.Load<Sprite>("Assets/Graphics/UI/HUD/GunUp");
+                        break;
+                    case WeaponType.GRIMOIRE:
+                        buttonImage.sprite = Resources.Load<Sprite>("Assets/Graphics/UI/HUD/SpellUp");
+                        break;
+                }
             }
         }
     }

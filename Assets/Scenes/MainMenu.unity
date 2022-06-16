@@ -1266,7 +1266,7 @@ MonoBehaviour:
   daggerLevel: 0
   handgunLevel: 0
   grimoireLevel: 0
-  darkMatter: 200
+  darkMatter: 0
   currentWeapon: 0
 --- !u!4 &817403248
 Transform:
