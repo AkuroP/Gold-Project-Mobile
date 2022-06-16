@@ -18,8 +18,6 @@ public class Tile : MonoBehaviour
     public bool isOpen = false;
     public bool isPike = true;
     public bool isEnemySpawn = false;
-    public bool isFixedEnemySpawn = false;
-    public bool isMobileEnemySpawn = false;
     public bool isLight = false;
     public bool isShop = false;
 
@@ -37,7 +35,7 @@ public class Tile : MonoBehaviour
     [SerializeField]
     public Tile topTile, rightTile, bottomTile, leftTile;
 
-    public void Init(int _tileIndex, int _tileX, int _tileY, bool _isReachable, bool _isWall, bool _isHole, bool _isPike, bool _isEnemySpawn, bool _isFixedEnemySpawn, bool _isMobileEnemySpawn, bool _isLight, bool _isShop, Sprite _tileSprite, Sprite _upSprite, Color _tileColor)
+    public void Init(int _tileIndex, int _tileX, int _tileY, bool _isReachable, bool _isWall, bool _isHole, bool _isPike, bool _isEnemySpawn, bool _isLight, bool _isShop, Sprite _tileSprite, Sprite _upSprite, Color _tileColor)
     {
         tileIndex = _tileIndex;
         tileX = _tileX;
@@ -48,8 +46,6 @@ public class Tile : MonoBehaviour
         isHole = _isHole;
         isPike = _isPike;
         isEnemySpawn = _isEnemySpawn;
-        isFixedEnemySpawn = _isFixedEnemySpawn;
-        isMobileEnemySpawn = _isMobileEnemySpawn;
         isLight = _isLight;
         isShop = _isShop;
 

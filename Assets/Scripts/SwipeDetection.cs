@@ -15,7 +15,6 @@ public class SwipeDetection : MonoBehaviour
     private bool swipeDone;
     public bool doubleClickTimerOn = false;
     public bool blockInputs = false;
-    public bool isInShop = false;
 
     public float doubleClickTimer = 0f;
     [SerializeField] private float doubleClickInterval = 0.5f;
@@ -38,16 +37,6 @@ public class SwipeDetection : MonoBehaviour
 
     void Update()
     {
-
-        if(GameManager.instanceGM.isPaused || player.myTurn == false || isInShop == true)
-        {
-            blockInputs = true;
-        }
-        else
-        {
-            blockInputs = false;
-        }
-
         if(!SwipeDetection.instanceSD.blockInputs)
         {
             if(doubleClickTimerOn == true)
@@ -60,7 +49,7 @@ public class SwipeDetection : MonoBehaviour
                 }
             }
 
-            if (fingerDown == false && Input.GetMouseButtonDown(0) && blockInputs == false && EventSystem.current.currentSelectedGameObject != UI.instanceUI.attackButton && EventSystem.current.currentSelectedGameObject != UI.instanceUI.optionButton && EventSystem.current.currentSelectedGameObject != UI.instanceUI.closeOptionButton)
+            if (fingerDown == false && Input.GetMouseButtonDown(0) && blockInputs == false && EventSystem.current.currentSelectedGameObject != UI.instanceUI.attackButton)
             {
                 startPos = Input.mousePosition;
                 fingerDown = true;
@@ -107,7 +96,7 @@ public class SwipeDetection : MonoBehaviour
                     }
                 
                 //Double click if new click arrives in less than "doubleclickinterval" seconds after the last click release
-                if(doubleClickTimerOn == true && doubleClickTimer < doubleClickInterval && player.attackNext == false && EventSystem.current.currentSelectedGameObject != UI.instanceUI.attackButton && EventSystem.current.currentSelectedGameObject != UI.instanceUI.optionButton && EventSystem.current.currentSelectedGameObject != UI.instanceUI.closeOptionButton)
+                if(doubleClickTimerOn == true && doubleClickTimer < doubleClickInterval && player.attackNext == false && EventSystem.current.currentSelectedGameObject != UI.instanceUI.attackButton)
                 {
                     doubleClickTimer = 0f;
                     doubleClickTimerOn = false;
@@ -115,7 +104,7 @@ public class SwipeDetection : MonoBehaviour
                 }
             }
 
-            if (fingerDown && Input.GetMouseButtonUp(0) && EventSystem.current.currentSelectedGameObject != UI.instanceUI.attackButton && EventSystem.current.currentSelectedGameObject != UI.instanceUI.optionButton && EventSystem.current.currentSelectedGameObject != UI.instanceUI.closeOptionButton)
+            if (fingerDown && Input.GetMouseButtonUp(0) && EventSystem.current.currentSelectedGameObject != UI.instanceUI.attackButton)
             {
                 fingerDown = false;
                 doubleClickTimerOn = true;
@@ -131,7 +120,7 @@ public class SwipeDetection : MonoBehaviour
                     player.StartAttack(player.weapon.upDirectionATS);
                     player.attackNext = false;
                 }
-                else if (!player.hasMove)
+                else
                 {
                     player.FindNextTile();
                     player.moveNext = false;

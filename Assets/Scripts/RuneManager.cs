@@ -15,7 +15,6 @@ public class RuneManager : MonoBehaviour
 
     public int darkMatter;
 
-    public WeaponType currentWeapon;
 
     public static RuneManager instanceRM;
 

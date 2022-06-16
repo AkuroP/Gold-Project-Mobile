@@ -13,8 +13,6 @@ public class ShopUI : MonoBehaviour
     [SerializeField] private GameObject runeButton1;
     [SerializeField] private GameObject runeButton2;
 
-    [SerializeField] private GameObject descriptionPanel;
-
     [SerializeField] private Image[] inventoryItems;
 
     void Start()
@@ -66,10 +64,5 @@ public class ShopUI : MonoBehaviour
             inventoryItems[i].sprite = Inventory.instanceInventory.items[i].itemSprite;
             inventoryItems[i].gameObject.GetComponent<ShopInventoryButton>().item = Inventory.instanceInventory.items[i];
         }
-    }
-
-    public void CloseDescriptionPanel()
-    {
-        descriptionPanel.SetActive(false);
     }
 }

@@ -34,18 +34,10 @@ public class EnemyFour : Enemy
 
         chargeAttackCurrent = chargeAttackRoundMax;
 
-        entitySr = this.transform.Find("Sprite").GetComponent<SpriteRenderer>();
+        entitySr = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
         entitySr.sprite = Resources.Load<Sprite>("Assets/Graphics/Enemies/MobADistance");
 
         AssignPattern();
-
-        turnArrow = this.transform.Find("Arrow").gameObject;
-
-        heart1 = this.transform.Find("Heart1").gameObject;
-        heart2 = this.transform.Find("Heart2").gameObject;
-        heart3 = this.transform.Find("Heart3").gameObject;
-        heart1.SetActive(false);
-        heart3.SetActive(false);
 
         isInitialize = true;
     }
@@ -64,7 +56,6 @@ public class EnemyFour : Enemy
 
         if (myTurn)
         {
-            turnArrow.SetActive(true);
             myTurn = false;
             turnDuration = 0;
 
@@ -89,31 +80,6 @@ public class EnemyFour : Enemy
             moveInProgress = false;
             canMove = true;
             timeElapsed = 0;
-
-            if (currentTile.isPike && !isOnThePike)
-            {
-                currentTile.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/Tiles/TilemapsDark_Spritesheet_25");
-                isOnThePike = true;
-                AchievementManager.instanceAM.UpdateTrapsActivated();
-                if (Inventory.instanceInventory.HasItem("Trap Protector") == true)
-                {
-                    ShopItem trapProtector = Inventory.instanceInventory.GetItem("Trap Protector");
-                    Debug.Log(trapProtector.itemName + ", " + trapProtector.itemCooldown);
-                    if (trapProtector.itemCooldown == 0)
-                    {
-                        trapProtector.itemCooldown = 5;
-                    }
-                    else
-                    {
-                        this.hp--;
-                    }
-                }
-                else
-                {
-                    this.hp--;
-                }
-            }
-            entitySr.sortingOrder = 11 - this.currentTile.tileY;
         }
 
         if (isInitialize)

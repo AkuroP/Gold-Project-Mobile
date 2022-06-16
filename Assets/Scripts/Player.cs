@@ -33,11 +33,8 @@ public class Player : Entity
         instanceGM = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
 
         currentPosition = transform.position;
-        weapon = new Weapon(RuneManager.instanceRM.currentWeapon, 0, 1);
+        weapon = new Weapon(WeaponType.HANDGUN, 0, 1);
         hp = maxHP;
-        attackDuration = 0.2f;
-
-        turnArrow = this.transform.Find("Arrow").gameObject;
     }
 
     // Update is called once per frame
@@ -45,8 +42,7 @@ public class Player : Entity
     {
         if(this.myTurn)
         {
-            turnArrow.SetActive(true);
-            if (!cdFire)
+            if(!cdFire)
             {
                 if(tilesOnFire.Count > 0)
                 {
@@ -65,10 +61,6 @@ public class Player : Entity
                 }
                 cdFire = true;
             }
-        }
-        else
-        {
-            turnArrow.SetActive(false);
         }
 
         //turn management
@@ -121,16 +113,16 @@ public class Player : Entity
                     }
                     else
                     {
-                        Damage(1, this);
+                        this.hp--;
                     }
                 }
                 else
                 {
-                    Damage(1, this);
+                    this.hp--;
                 }
             }
 
-            if (currentTile.isShop && !isInShop)
+            if(currentTile.isShop && !isInShop)
             {
                 GameManager.instanceGM.ShopIG();
                 isInShop = true;
@@ -142,7 +134,50 @@ public class Player : Entity
                 StartCoroutine(GoToNextRoom());
             }
         }
+    }
 
+    public override void FindNextTile()
+    {
+       if(myTurn && !hasMove)
+        {
+            switch (direction)
+            {
+                case Direction.UP:
+                    Tile topTile = currentMap.FindTopTile(currentTile);
+                    if (currentMap.CheckMove(topTile, this))
+                    {
+                        Move(topTile);
+                        numEssence -= moveCost;
+                    }
+                    break;
+                case Direction.RIGHT:
+                    Tile rightTile = currentMap.FindRightTile(currentTile);
+                    if (currentMap.CheckMove(rightTile, this))
+                    {
+                        Move(rightTile);
+                        entitySr.flipX = true;
+                        numEssence -= moveCost;
+                    }
+                    break;
+                case Direction.BOTTOM:
+                    Tile bottomTile = currentMap.FindBottomTile(currentTile);
+                    if (currentMap.CheckMove(bottomTile, this))
+                    {
+                        Move(bottomTile);
+                        numEssence -= moveCost;
+                    }
+                    break;
+                case Direction.LEFT:
+                    Tile leftTile = currentMap.FindLeftTile(currentTile);
+                    if (currentMap.CheckMove(leftTile, this))
+                    {
+                        Move(leftTile);
+                        entitySr.flipX = false;
+                        numEssence -= moveCost;
+                    }
+                    break;
+            }
+        }
     }
 
     public override void StartAttack(List<AttackTileSettings> _upDirectionATS)
@@ -182,8 +217,9 @@ public class Player : Entity
             }
             else
             {
-                StartCoroutine(EndTurn(attackDuration));
+                hasPlay = true;
             }
+            hasPlay = true;
             hasAttack = true;
             if(Inventory.instanceInventory.HasItem("Power Gloves"))
             {
@@ -194,6 +230,8 @@ public class Player : Entity
             {
                 this.weapon.ApplyEffect(this, 0);
             }
+
+
         }
     }
 

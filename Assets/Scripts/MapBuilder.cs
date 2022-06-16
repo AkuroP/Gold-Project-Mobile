@@ -37,7 +37,6 @@ public class MapBuilder : MonoBehaviour
     public Map CreateMap(bool isBoss = false, int bossNumber = 0)
     {
         int randomIndex = Random.Range(3, mapSettings.Count);
-        Debug.Log(randomIndex);
         GameObject currentMapInstance = Instantiate(Resources.Load("Prefabs/MapHolder"), new Vector3(0, 0f, 0), Quaternion.identity) as GameObject;
 
 
@@ -60,13 +59,13 @@ public class MapBuilder : MonoBehaviour
             currentMapInstance.GetComponent<Map>().Init(bossMapSettings, true, bossNumber, false);
             Debug.Log("Nom du niveau : " + bossMapSettings.mapName);
         }
-        /*else if(GameManager.instanceGM.shopRoomNumber <= 0)
+        else if(GameManager.instanceGM.shopRoomNumber <= 0)
         {
             currentMapInstance.GetComponent<Map>().Init(mapSettingShop);
             if(GameManager.instanceGM.player != null)
                 GameManager.instanceGM.player.moveCost = 0;
             GameManager.instanceGM.shopRoomNumber = 6;
-        }*/
+        }
         else
         {
             currentMapInstance.GetComponent<Map>().Init(mapSettings[randomIndex]);
@@ -104,8 +103,6 @@ public class TileSettings
     public bool isWall;
     public bool isPike;
     public bool isEnemySpawn;
-    public bool isFixedEnemySpawn;
-    public bool isMobileEnemySpawn;
     public bool isLight;
     public bool isShop;
 

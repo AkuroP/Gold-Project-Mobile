@@ -27,18 +27,10 @@ public class EnemyTwo : Enemy
 
         entityDangerousness = 1;
 
-        entitySr = this.transform.Find("Sprite").GetComponent<SpriteRenderer>();
+        entitySr = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
         entitySr.sprite = Resources.Load<Sprite>("Assets/Graphics/Enemies/Tentacule4");
 
         AssignPattern();
-
-        turnArrow = this.transform.Find("Arrow").gameObject;
-
-        heart1 = this.transform.Find("Heart1").gameObject;
-        heart2 = this.transform.Find("Heart2").gameObject;
-        heart3 = this.transform.Find("Heart3").gameObject;
-        heart1.SetActive(false);
-        heart3.SetActive(false);
 
         isInitialize = true;
     }
@@ -63,7 +55,6 @@ public class EnemyTwo : Enemy
     {
         if(this.myTurn)
         {
-            turnArrow.SetActive(true);
             myTurn = false;
             turnDuration = 0;
 
@@ -89,7 +80,7 @@ public class EnemyTwo : Enemy
         //move process
         if (moveInProgress && !canMove && timeElapsed < moveDuration)
         {
-            //Debug.Log("Move");
+            Debug.Log("Move");
             transform.position = Vector3.Lerp(currentPosition, targetPosition, timeElapsed / moveDuration) - new Vector3(0, 0, 1);
             timeElapsed += Time.deltaTime;
         }
@@ -103,14 +94,12 @@ public class EnemyTwo : Enemy
 
         if(isInitialize)
             IsSelfDead();
-
-        entitySr.sortingOrder = 11 - this.currentTile.tileY;
     }
 
     public override void StartTurn()
     {
         turnDuration += attackDuration;
-        if(pattern1 == true)
+        if(pattern1)
         {
             dir = CheckAround(upDirectionATS1, false);
 
@@ -127,7 +116,7 @@ public class EnemyTwo : Enemy
             }
 
         }
-        else if (pattern1 == false)
+        else
         {
             dir = CheckAround(upDirectionATS2, true);
 
