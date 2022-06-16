@@ -50,6 +50,7 @@ public class Item : MonoBehaviour
                     // player.weapon = new Weapon(WeaponType.HANDGUN, 0, 1);
                     RuneManager.instanceRM.hasBuyHandgun = "true";
                     PlayerPrefs.SetString("hasHandgun", RuneManager.instanceRM.hasBuyHandgun);
+                    AchievementManager.instanceAM.UpdateHandgunPurchase();
                 }
                 else
                 {
@@ -68,6 +69,7 @@ public class Item : MonoBehaviour
                     //player.weapon = new Weapon(WeaponType.GRIMOIRE, 0, 1);
                     RuneManager.instanceRM.hasBuyGrimoire = "true";
                     PlayerPrefs.SetString("hasGrimoire", RuneManager.instanceRM.hasBuyGrimoire);
+                    AchievementManager.instanceAM.UpdateGrimoirePurchase();
                 }
                 else
                 {
@@ -104,6 +106,7 @@ public class Item : MonoBehaviour
                     PlayerPrefs.SetInt("daggerLevel", RuneManager.instanceRM.daggerLevel);
                     RuneManager.instanceRM.darkMatter -= (this.itemPrice * (RuneManager.instanceRM.daggerLevel + 2));
                     PlayerPrefs.SetInt("darkMatter", RuneManager.instanceRM.darkMatter);
+                    AchievementManager.instanceAM.UpdateRunesPurchased();
                 }
                 break;
 
@@ -114,6 +117,7 @@ public class Item : MonoBehaviour
                     PlayerPrefs.SetInt("handgunLevel", RuneManager.instanceRM.handgunLevel);
                     RuneManager.instanceRM.darkMatter -= (this.itemPrice * (RuneManager.instanceRM.handgunLevel + 2));
                     PlayerPrefs.SetInt("darkMatter", RuneManager.instanceRM.darkMatter);
+                    AchievementManager.instanceAM.UpdateRunesPurchased();
                 }
                 break;
 
@@ -124,6 +128,7 @@ public class Item : MonoBehaviour
                     PlayerPrefs.SetInt("grimoireLevel", RuneManager.instanceRM.grimoireLevel);
                     RuneManager.instanceRM.darkMatter -= (this.itemPrice * (RuneManager.instanceRM.grimoireLevel + 2));
                     PlayerPrefs.SetInt("darkMatter", RuneManager.instanceRM.darkMatter);
+                    AchievementManager.instanceAM.UpdateRunesPurchased();
                 }
                 break;
         }

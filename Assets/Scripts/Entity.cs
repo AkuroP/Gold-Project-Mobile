@@ -405,6 +405,7 @@ public class Entity : MonoBehaviour
             if (entity.CompareTag("Player"))
             {
                 AchievementManager.instanceAM.roomWithoutTakingDamage = -1;
+                PlayerPrefs.SetInt("roomWithoutTakingDamage", AchievementManager.instanceAM.roomWithoutTakingDamage);
             }
         }
     }
