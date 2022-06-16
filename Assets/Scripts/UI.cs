@@ -89,20 +89,20 @@ public class UI : MonoBehaviour
             }
         }
 
-        if(HandgunButton != null && RuneManager.instanceRM.hasBuyHandgun)
+        if(HandgunButton != null && RuneManager.instanceRM.hasBuyHandgun == "true")
         {
             HandgunButton.interactable = true;
         }
-        else if (HandgunButton != null && !RuneManager.instanceRM.hasBuyHandgun)
+        else if (HandgunButton != null && RuneManager.instanceRM.hasBuyHandgun == "false")
         {
             HandgunButton.interactable = false;
         }
 
-        if (GrimoireButton != null && RuneManager.instanceRM.hasBuyGrimoire)
+        if (GrimoireButton != null && RuneManager.instanceRM.hasBuyGrimoire == "true")
         {
             GrimoireButton.interactable = true;
         }
-        else if (GrimoireButton != null && !RuneManager.instanceRM.hasBuyGrimoire)
+        else if (GrimoireButton != null && RuneManager.instanceRM.hasBuyGrimoire == "false")
         {
             GrimoireButton.interactable = false;
         }

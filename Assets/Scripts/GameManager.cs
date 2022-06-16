@@ -187,7 +187,7 @@ public class GameManager : MonoBehaviour
                 entities++;
             }
         }
-        if(entities - 1 == player.currentMap.enemySpawnTiles.Count)
+        if(entities == player.currentMap.entities.Count)
         {
             AchievementManager.instanceAM.UpdateCowardAchievement();
         }

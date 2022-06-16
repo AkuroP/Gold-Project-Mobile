@@ -1260,9 +1260,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c060029b4a1ed41b93cf2f693470ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasBuyDagger: 1
-  hasBuyHandgun: 0
-  hasBuyGrimoire: 0
+  hasBuyDagger: true
+  hasBuyHandgun: false
+  hasBuyGrimoire: false
   daggerLevel: 0
   handgunLevel: 0
   grimoireLevel: 0
@@ -2117,7 +2117,6 @@ MonoBehaviour:
   shopPrefab: {fileID: 0}
   shopUIPrefab: {fileID: 0}
   essencesText: {fileID: 0}
-  lifeText: {fileID: 0}
   slot1: {fileID: 0}
   slot2: {fileID: 0}
   slot3: {fileID: 0}
@@ -2130,6 +2129,9 @@ MonoBehaviour:
   chooseWeaponMenu: {fileID: 249594338}
   HandgunButton: {fileID: 330779461}
   GrimoireButton: {fileID: 1046993416}
+  heart1: {fileID: 0}
+  heart2: {fileID: 0}
+  heart3: {fileID: 0}
   fadePrefab: {fileID: 0}
 --- !u!1 &1503632094
 GameObject:

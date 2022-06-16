@@ -26,12 +26,14 @@ public class Item : MonoBehaviour
         {
             if(_weaponName == "DAGGER")
             {
-                if(!RuneManager.instanceRM.hasBuyDagger)
+                if(RuneManager.instanceRM.hasBuyDagger == "false")
                 {
                     Debug.Log(_weaponName + " BUYED");
                     RuneManager.instanceRM.darkMatter -= itemPrice;
+                    PlayerPrefs.SetInt("darkMatter", RuneManager.instanceRM.darkMatter);
                     player.weapon = new Weapon(WeaponType.DAGGER, 0, 1);
-                    RuneManager.instanceRM.hasBuyDagger = true;
+                    RuneManager.instanceRM.hasBuyDagger = "true";
+                    PlayerPrefs.SetString("hasDagger", RuneManager.instanceRM.hasBuyDagger);
                 }
                 else
                 {
@@ -40,12 +42,14 @@ public class Item : MonoBehaviour
             }
             else if(_weaponName == "HANDGUN")
             {
-                if(RuneManager.instanceRM.hasBuyHandgun == false)
+                if(RuneManager.instanceRM.hasBuyHandgun == "false")
                 {
                     Debug.Log(_weaponName + " BUYED");
                     RuneManager.instanceRM.darkMatter -= itemPrice;
-                   // player.weapon = new Weapon(WeaponType.HANDGUN, 0, 1);
-                    RuneManager.instanceRM.hasBuyHandgun = true;
+                    PlayerPrefs.SetInt("darkMatter", RuneManager.instanceRM.darkMatter);
+                    // player.weapon = new Weapon(WeaponType.HANDGUN, 0, 1);
+                    RuneManager.instanceRM.hasBuyHandgun = "true";
+                    PlayerPrefs.SetString("hasHandgun", RuneManager.instanceRM.hasBuyHandgun);
                 }
                 else
                 {
@@ -56,12 +60,14 @@ public class Item : MonoBehaviour
             }
             else if(_weaponName == "GRIMOIRE")
             {
-                if(RuneManager.instanceRM.hasBuyGrimoire == false)
+                if(RuneManager.instanceRM.hasBuyGrimoire == "false")
                 {
                     Debug.Log(_weaponName + " BUYED");
                     RuneManager.instanceRM.darkMatter -= itemPrice;
+                    PlayerPrefs.SetInt("darkMatter", RuneManager.instanceRM.darkMatter);
                     //player.weapon = new Weapon(WeaponType.GRIMOIRE, 0, 1);
-                    RuneManager.instanceRM.hasBuyGrimoire = true;
+                    RuneManager.instanceRM.hasBuyGrimoire = "true";
+                    PlayerPrefs.SetString("hasGrimoire", RuneManager.instanceRM.hasBuyGrimoire);
                 }
                 else
                 {
@@ -81,7 +87,7 @@ public class Item : MonoBehaviour
         {
             Debug.Log("YOU ARE POOR :(");
         }
-        if (RuneManager.instanceRM.hasBuyDagger && RuneManager.instanceRM.hasBuyGrimoire && RuneManager.instanceRM.hasBuyHandgun)
+        if (RuneManager.instanceRM.hasBuyDagger == "true" && RuneManager.instanceRM.hasBuyGrimoire == "true" && RuneManager.instanceRM.hasBuyHandgun == "true")
         {
             AchievementManager.instanceAM.UpdateallWeaponPurchased();
         }
@@ -95,7 +101,9 @@ public class Item : MonoBehaviour
                 if (RuneManager.instanceRM.daggerLevel < 2 && RuneManager.instanceRM.darkMatter >= (this.itemPrice * (RuneManager.instanceRM.daggerLevel + 2)))
                 {
                     RuneManager.instanceRM.daggerLevel++;
+                    PlayerPrefs.SetInt("daggerLevel", RuneManager.instanceRM.daggerLevel);
                     RuneManager.instanceRM.darkMatter -= (this.itemPrice * (RuneManager.instanceRM.daggerLevel + 2));
+                    PlayerPrefs.SetInt("darkMatter", RuneManager.instanceRM.darkMatter);
                 }
                 break;
 
@@ -103,7 +111,9 @@ public class Item : MonoBehaviour
                 if (RuneManager.instanceRM.handgunLevel < 2 && RuneManager.instanceRM.darkMatter >= (this.itemPrice * (RuneManager.instanceRM.handgunLevel + 2)))
                 {
                     RuneManager.instanceRM.handgunLevel++;
+                    PlayerPrefs.SetInt("handgunLevel", RuneManager.instanceRM.handgunLevel);
                     RuneManager.instanceRM.darkMatter -= (this.itemPrice * (RuneManager.instanceRM.handgunLevel + 2));
+                    PlayerPrefs.SetInt("darkMatter", RuneManager.instanceRM.darkMatter);
                 }
                 break;
 
@@ -111,7 +121,9 @@ public class Item : MonoBehaviour
                 if (RuneManager.instanceRM.grimoireLevel < 2 && RuneManager.instanceRM.darkMatter >= (this.itemPrice * (RuneManager.instanceRM.grimoireLevel + 2)))
                 {
                     RuneManager.instanceRM.grimoireLevel++;
+                    PlayerPrefs.SetInt("grimoireLevel", RuneManager.instanceRM.grimoireLevel);
                     RuneManager.instanceRM.darkMatter -= (this.itemPrice * (RuneManager.instanceRM.grimoireLevel + 2));
+                    PlayerPrefs.SetInt("darkMatter", RuneManager.instanceRM.darkMatter);
                 }
                 break;
         }
