@@ -49,97 +49,114 @@ MonoBehaviour:
     itemDangerousness: 1
     itemCost: 5
     itemCooldown: 0
+    itemDescription: Gives back 1HP.
     itemSprite: {fileID: 1284780130, guid: bf1784644b19d7246855c838c15e1a54, type: 3}
     goesInInventory: 0
   bonusHeart:
     itemName: Bonus Heart
     itemDangerousness: 2
-    itemCost: 5
+    itemCost: 8
     itemCooldown: 0
+    itemDescription: Adds 1 HP max. (can only be purchased once)
     itemSprite: {fileID: 1708206484, guid: bf1784644b19d7246855c838c15e1a54, type: 3}
     goesInInventory: 0
   lifeRegeneration:
     itemName: Life Regeneration
     itemDangerousness: 4
-    itemCost: 8
+    itemCost: 16
     itemCooldown: 0
+    itemDescription: Gives back 1HP when you change floor.
     itemSprite: {fileID: -1634420788, guid: bf1784644b19d7246855c838c15e1a54, type: 3}
     goesInInventory: 1
   wornSpeedBoots:
     itemName: Worn Speed Boots
     itemDangerousness: 1
-    itemCost: 3
+    itemCost: 6
     itemCooldown: 0
+    itemDescription: Give +1 movement each 3 turns
     itemSprite: {fileID: -609895874, guid: bf1784644b19d7246855c838c15e1a54, type: 3}
     goesInInventory: 1
   trapProtector:
     itemName: Trap Protector
     itemDangerousness: 2
-    itemCost: 5
+    itemCost: 8
     itemCooldown: 0
+    itemDescription: Protect you from the first trap you set off. Recharges every
+      5 floors.
     itemSprite: {fileID: 1104162763, guid: bf1784644b19d7246855c838c15e1a54, type: 3}
     goesInInventory: 1
   speedBoots:
     itemName: Speed Boots
     itemDangerousness: 3
-    itemCost: 7
+    itemCost: 14
     itemCooldown: 0
+    itemDescription: Give +1 movement each turn.
     itemSprite: {fileID: 424248945, guid: bf1784644b19d7246855c838c15e1a54, type: 3}
     goesInInventory: 1
   counterRing:
     itemName: Counter Ring
     itemDangerousness: 1
-    itemCost: 3
+    itemCost: 7
     itemCooldown: 0
+    itemDescription: Your next attack after getting hit will be 2x more powerful.
     itemSprite: {fileID: 1486616307, guid: bf1784644b19d7246855c838c15e1a54, type: 3}
     goesInInventory: 1
   poisonFog:
     itemName: Poison Fog
     itemDangerousness: 2
-    itemCost: 4
+    itemCost: 10
     itemCooldown: 0
+    itemDescription: Fills the room with a poison fog that deal 1 HP dmamage to all
+      monsters when you get hit.
     itemSprite: {fileID: 410560265, guid: bf1784644b19d7246855c838c15e1a54, type: 3}
     goesInInventory: 1
   freezeTime:
     itemName: Freeze Time
     itemDangerousness: 3
-    itemCost: 6
+    itemCost: 14
     itemCooldown: 0
+    itemDescription: Freezes time for 2 turns when you get hit by a monster.
     itemSprite: {fileID: 1222244769, guid: bf1784644b19d7246855c838c15e1a54, type: 3}
     goesInInventory: 1
   revivor:
     itemName: Revivor
     itemDangerousness: 4
-    itemCost: 10
+    itemCost: 18
     itemCooldown: 0
+    itemDescription: When you die, revives with 1 HP.
     itemSprite: {fileID: -691136802, guid: bf1784644b19d7246855c838c15e1a54, type: 3}
     goesInInventory: 1
   invincibility:
     itemName: Invincibility
     itemDangerousness: 5
-    itemCost: 10
+    itemCost: 20
     itemCooldown: 0
+    itemDescription: "Makes you invincible for 3 turns when you get hit by a monster
+      (you don\u2019t take the hit from the monster)."
     itemSprite: {fileID: 1215371693, guid: bf1784644b19d7246855c838c15e1a54, type: 3}
     goesInInventory: 1
   bossSlayer:
     itemName: Boss Slayer
     itemDangerousness: 1
-    itemCost: 3
+    itemCost: 4
     itemCooldown: 0
+    itemDescription: You deal 1 more damage to the bosses.
     itemSprite: {fileID: 1239343374, guid: bf1784644b19d7246855c838c15e1a54, type: 3}
     goesInInventory: 1
   powerGloves:
     itemName: Power Gloves
     itemDangerousness: 2
-    itemCost: 5
+    itemCost: 9
     itemCooldown: 0
+    itemDescription: You deal 1 more HP damage to all enemies.
     itemSprite: {fileID: -679937395, guid: bf1784644b19d7246855c838c15e1a54, type: 3}
     goesInInventory: 1
   sideSlash:
     itemName: Side Slash
     itemDangerousness: 3
-    itemCost: 9
+    itemCost: 12
     itemCooldown: 0
+    itemDescription: Your range is upgraded on your sides.
     itemSprite: {fileID: -1081428994, guid: bf1784644b19d7246855c838c15e1a54, type: 3}
     goesInInventory: 1
   mysteryBox:
@@ -147,6 +164,10 @@ MonoBehaviour:
     itemDangerousness: 1
     itemCost: 0
     itemCooldown: 0
+    itemDescription: When purchased, the mystery box is at a dangerousness level
+      of 0. Each time you enter a shop, its dangerousness rises by 1. You can open
+      the box whenever you want and get a random object of the dangerousness level
+      of the box.
     itemSprite: {fileID: 21300000, guid: ee30656c08333404f8adc9f61e7449c5, type: 3}
     goesInInventory: 0
   allItems: []
