@@ -5,19 +5,16 @@ using UnityEngine.UI;
 
 public class Item : MonoBehaviour
 {
-    public Text weaponName;
-    public Text weaponUp;
+    public Text weaponLvl;
     public Text weaponUpPrice;
 
     public int itemPrice;
     private Player player;
-    [SerializeField] private bool isMaxed;
-    [SerializeField] private int maxUpgrade = 2;
 
     // Start is called before the first frame update
     void Start()
     {
-        //UpdateWeapon(this.name);
+        CheckWeapon(this.name);
     }
 
     public void BuyWeapon(string _weaponName)
@@ -85,6 +82,8 @@ public class Item : MonoBehaviour
         {
             AchievementManager.instanceAM.UpdateallWeaponPurchased();
         }
+
+        CheckWeapon(this.name);
     }
 
     private void UpgradeWeapon(WeaponType _weaponType)
@@ -117,29 +116,77 @@ public class Item : MonoBehaviour
         }
     }
 
-    /*public void BuyItem()
+    private void CheckWeapon(string _weaponName)
     {
-        if(!isMaxed)
+        switch(_weaponName)
         {
-            if(GameObject.Find("Canvas").GetComponent<Shop>().gold >= this.itemPrice)
-            {
-                Debug.Log("ITEM BUYED");
-                GameObject.Find("Canvas").GetComponent<Shop>().gold -= this.itemPrice;
-                //localLevel += 1;
-                //player.weapon = new Weapon(localWT, localLevel, 1);
-                data = new DataSave(2, WeaponType.HANDGUN);
-                Destroy(this.gameObject);
-            }
-            else
-            {
-                Debug.Log("CAN'T BUY ITEM");
-            }
+            case "DAGGER":
+                if(!RuneManager.instanceRM.hasBuyDagger)
+                {
+                    weaponLvl.text = "BUY".ToString();
+                    weaponUpPrice.text = this.itemPrice.ToString();
+                }
+                else
+                {
+                    if(RuneManager.instanceRM.daggerLevel < 2)
+                    {
+                        weaponLvl.text = "LVL " + RuneManager.instanceRM.daggerLevel.ToString();
+                        weaponUpPrice.text = (this.itemPrice * (RuneManager.instanceRM.daggerLevel + 2)).ToString();
+
+                    }
+                    else
+                    {
+                        weaponLvl.text = "MAXED";
+                        weaponUpPrice.text = " ";
+                    }
+                }
+            break;
+
+            case "HANDGUN":
+                if(!RuneManager.instanceRM.hasBuyHandgun)
+                {
+                    weaponLvl.text = "BUY".ToString();
+                    weaponUpPrice.text = this.itemPrice.ToString();
+                }
+                else
+                {
+                    if(RuneManager.instanceRM.handgunLevel < 2)
+                    {
+                        weaponLvl.text = "LVL " + RuneManager.instanceRM.handgunLevel.ToString();
+                        weaponUpPrice.text = (this.itemPrice * (RuneManager.instanceRM.handgunLevel + 2)).ToString();
+
+                    }
+                    else
+                    {
+                        weaponLvl.text = "MAXED";
+                        weaponUpPrice.text = " ";
+                    }
+                }
+            break;
+
+            case "GRIMOIRE" :
+                if(!RuneManager.instanceRM.hasBuyGrimoire)
+                {
+                    weaponLvl.text = "BUY".ToString();
+                    weaponUpPrice.text = this.itemPrice.ToString();
+                }
+                else
+                {
+                    if(RuneManager.instanceRM.grimoireLevel < 2)
+                    {
+                        weaponLvl.text = "LVL " + RuneManager.instanceRM.grimoireLevel.ToString();
+                        weaponUpPrice.text = (this.itemPrice * (RuneManager.instanceRM.grimoireLevel + 2)).ToString();
+
+                    }
+                    else
+                    {
+                        weaponLvl.text = "MAXED";
+                        weaponUpPrice.text = " ";
+                    }
+                }
+            break;
         }
-        else
-        {
-            Debug.Log("ITEM MAX UPGRADED");
-        }
-    }*/
+    }
 
     /*private void UpdateWeapon(string _weaponName)
     {
@@ -153,6 +200,12 @@ public class Item : MonoBehaviour
                 if(RuneManager.instanceRM.hasBuyDagger)
                 {
                    localPrice = (this.itemPrice * (RuneManager.instanceRM.daggerLevel + 2));
+                   localLevel = 
+                   weaponLvl.text = "LVL " + localLevel.ToString();
+                }
+                else
+                {
+                    weaponLvl.text = "BUY";
                 }
             break;
 
@@ -161,6 +214,10 @@ public class Item : MonoBehaviour
                 {
                     localPrice = (this.itemPrice * (RuneManager.instanceRM.handgunLevel + 2));
                 }
+                else
+                {
+                    weaponLvl.text = "BUY";
+                }
             break;
 
             case "GRIMOIRE" :
@@ -168,17 +225,23 @@ public class Item : MonoBehaviour
                 {
                     localPrice = (this.itemPrice * (RuneManager.instanceRM.grimoireLevel + 2));
                 }
+                else
+                {
+                    weaponLvl.text = "BUY";
+                }
             break;
         }
         weaponUpPrice.text = localPrice.ToString();
+
+        
         if(localLevel <= maxUpgrade)
         {
-            weaponUp.text = "Level " + localLevel.ToString();
+            weaponLvl.text = "Level " + localLevel.ToString();
             this.isMaxed = false;
         }
         else
         {
-            weaponUp.text = "MAXED";
+            weaponLvl.text = "MAXED";
             this.isMaxed = true;
             switch (_weaponName)
             {
