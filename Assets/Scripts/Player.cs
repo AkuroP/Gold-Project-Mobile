@@ -219,7 +219,7 @@ public class Player : Entity
 
     public void AttackButton()
     {
-        if(SwipeDetection.instanceSD.blockInputs == false)
+        if(SwipeDetection.instanceSD.blockInputs == false && !hasAttack)
         {
             if (!attackNext)
             {
