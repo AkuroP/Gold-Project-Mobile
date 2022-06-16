@@ -130,6 +130,18 @@ public class SwipeDetection : MonoBehaviour
                     //Debug.Log("Attack");
                     player.StartAttack(player.weapon.upDirectionATS);
                     player.attackNext = false;
+                    switch (RuneManager.instanceRM.currentWeapon)
+                    {
+                        case WeaponType.DAGGER:
+                            player.buttonImage.sprite = Resources.Load<Sprite>("Assets/Graphics/UI/HUD/DagueUp");
+                            break;
+                        case WeaponType.HANDGUN:
+                            player.buttonImage.sprite = Resources.Load<Sprite>("Assets/Graphics/UI/HUD/GunUp");
+                            break;
+                        case WeaponType.GRIMOIRE:
+                            player.buttonImage.sprite = Resources.Load<Sprite>("Assets/Graphics/UI/HUD/SpellUp");
+                            break;
+                    }
                 }
                 else if (!player.hasMove)
                 {
