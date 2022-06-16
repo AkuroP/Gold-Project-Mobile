@@ -5,8 +5,6 @@ using UnityEngine;
 public class Shop : MonoBehaviour
 {
     public GameObject shopObject;
-
-    public int gold;
     // Start is called before the first frame update
     void Start()
     {
