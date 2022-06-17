@@ -254,13 +254,42 @@ public class Entity : MonoBehaviour
         {
             if(direction == Direction.UP || direction == Direction.BOTTOM)
             {
-                entityInPattern.Add(currentTile.leftTile.entityOnTile);
-                entityInPattern.Add(currentTile.rightTile.entityOnTile);
+                if(currentTile.leftTile != null && !currentTile.leftTile.isWall)
+                {
+                    if (currentTile.leftTile.entityOnTile != null)
+                    {
+                        entityInPattern.Add(currentTile.leftTile.entityOnTile);
+                    }
+                    StartCoroutine(DrawAttack(currentTile.leftTile));
+                }
+
+                if (currentTile.rightTile != null && !currentTile.rightTile.isWall)
+                {
+                    if (currentTile.rightTile.entityOnTile != null)
+                    {
+                        entityInPattern.Add(currentTile.rightTile.entityOnTile);
+                    }
+                    StartCoroutine(DrawAttack(currentTile.rightTile));
+                }
             }
             else
             {
-                entityInPattern.Add(currentTile.topTile.entityOnTile);
-                entityInPattern.Add(currentTile.bottomTile.entityOnTile);
+                if (currentTile.topTile != null && !currentTile.topTile.isWall)
+                {
+                    if (currentTile.topTile.entityOnTile != null)
+                    {
+                        entityInPattern.Add(currentTile.topTile.entityOnTile);
+                    }
+                    StartCoroutine(DrawAttack(currentTile.topTile));
+                }
+                if (currentTile.bottomTile != null && !currentTile.bottomTile.isWall)
+                {
+                    if (currentTile.bottomTile.entityOnTile != null)
+                    {
+                        entityInPattern.Add(currentTile.bottomTile.entityOnTile);
+                    }
+                    StartCoroutine(DrawAttack(currentTile.bottomTile));
+                }
             }
         }
 
