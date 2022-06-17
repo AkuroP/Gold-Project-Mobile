@@ -71,7 +71,7 @@ public class UI : MonoBehaviour
             }
             else
             {
-                slot1.sprite = Inventory.instanceInventory.items[0].itemSprite;
+                slot1.sprite = Inventory.instanceInventory.items[0].itemHudSprite1;
             }
             if(Inventory.instanceInventory.items[1].itemName == "")
             {
@@ -79,7 +79,7 @@ public class UI : MonoBehaviour
             }
             else
             {
-                slot2.sprite = Inventory.instanceInventory.items[1].itemSprite;
+                slot2.sprite = Inventory.instanceInventory.items[1].itemHudSprite2;
             }
             if (Inventory.instanceInventory.items[2].itemName == "")
             {
@@ -87,7 +87,7 @@ public class UI : MonoBehaviour
             }
             else
             {
-                slot3.sprite = Inventory.instanceInventory.items[2].itemSprite;
+                slot3.sprite = Inventory.instanceInventory.items[2].itemHudSprite3;
             }
             floorText.text = GameManager.instanceGM.floor.ToString();
             roomText.text = GameManager.instanceGM.room.ToString();

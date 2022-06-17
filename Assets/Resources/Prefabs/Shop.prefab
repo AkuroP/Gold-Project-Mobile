@@ -51,6 +51,9 @@ MonoBehaviour:
     itemCooldown: 0
     itemDescription: Gives back 1HP.
     itemSprite: {fileID: 1284780130, guid: bf1784644b19d7246855c838c15e1a54, type: 3}
+    itemHudSprite1: {fileID: 0}
+    itemHudSprite2: {fileID: 0}
+    itemHudSprite3: {fileID: 0}
     goesInInventory: 0
   bonusHeart:
     itemName: Bonus Heart
@@ -59,6 +62,9 @@ MonoBehaviour:
     itemCooldown: 0
     itemDescription: Adds 1 HP max. (can only be purchased once)
     itemSprite: {fileID: 1708206484, guid: bf1784644b19d7246855c838c15e1a54, type: 3}
+    itemHudSprite1: {fileID: 0}
+    itemHudSprite2: {fileID: 0}
+    itemHudSprite3: {fileID: 0}
     goesInInventory: 0
   lifeRegeneration:
     itemName: Life Regeneration
@@ -67,6 +73,9 @@ MonoBehaviour:
     itemCooldown: 0
     itemDescription: Gives back 1HP when you change floor.
     itemSprite: {fileID: -1634420788, guid: bf1784644b19d7246855c838c15e1a54, type: 3}
+    itemHudSprite1: {fileID: 21300000, guid: 83e74057d03df3a4183278bfade999a3, type: 3}
+    itemHudSprite2: {fileID: 21300000, guid: b52b420be4479cc4dbe147c76bd3727a, type: 3}
+    itemHudSprite3: {fileID: 21300000, guid: e61ddecb280cfee488a4fd79162e35b6, type: 3}
     goesInInventory: 1
   wornSpeedBoots:
     itemName: Worn Speed Boots
@@ -75,6 +84,9 @@ MonoBehaviour:
     itemCooldown: 0
     itemDescription: Give +1 movement each 3 turns
     itemSprite: {fileID: -609895874, guid: bf1784644b19d7246855c838c15e1a54, type: 3}
+    itemHudSprite1: {fileID: 21300000, guid: c4beee8282b95824ca85a13e92203720, type: 3}
+    itemHudSprite2: {fileID: 21300000, guid: fb718af970360dd458ae195a53fc2697, type: 3}
+    itemHudSprite3: {fileID: 21300000, guid: 6281b479b7f7f9944b15850dc5448200, type: 3}
     goesInInventory: 1
   trapProtector:
     itemName: Trap Protector
@@ -84,6 +96,9 @@ MonoBehaviour:
     itemDescription: Protect you from the first trap you set off. Recharges every
       5 floors.
     itemSprite: {fileID: 1104162763, guid: bf1784644b19d7246855c838c15e1a54, type: 3}
+    itemHudSprite1: {fileID: 21300000, guid: a25193f59b25b9946a90a9c1b8a2a1cf, type: 3}
+    itemHudSprite2: {fileID: 21300000, guid: ff6b7025be3562f499fca01ed62fc6b9, type: 3}
+    itemHudSprite3: {fileID: 21300000, guid: e747eb3e6a2231b4daaf594ef0ec87ca, type: 3}
     goesInInventory: 1
   speedBoots:
     itemName: Speed Boots
@@ -92,6 +107,9 @@ MonoBehaviour:
     itemCooldown: 0
     itemDescription: Give +1 movement each turn.
     itemSprite: {fileID: 424248945, guid: bf1784644b19d7246855c838c15e1a54, type: 3}
+    itemHudSprite1: {fileID: 21300000, guid: 05259bf97ae289e4783a6b9cddf3524b, type: 3}
+    itemHudSprite2: {fileID: 21300000, guid: 381351345917f6244abb08c0e856e810, type: 3}
+    itemHudSprite3: {fileID: 21300000, guid: 8a8c974912c7caf4095836d3cc57f3e0, type: 3}
     goesInInventory: 1
   counterRing:
     itemName: Counter Ring
@@ -100,6 +118,9 @@ MonoBehaviour:
     itemCooldown: 0
     itemDescription: Your next attack after getting hit will be 2x more powerful.
     itemSprite: {fileID: 1486616307, guid: bf1784644b19d7246855c838c15e1a54, type: 3}
+    itemHudSprite1: {fileID: 21300000, guid: ade49cc931bb8ca458b57abee33e426c, type: 3}
+    itemHudSprite2: {fileID: 21300000, guid: 75943a2d47ce5024bb5a522d136e27bd, type: 3}
+    itemHudSprite3: {fileID: 21300000, guid: 21325f211a85efe4da43bc859394bd63, type: 3}
     goesInInventory: 1
   poisonFog:
     itemName: Poison Fog
@@ -109,6 +130,9 @@ MonoBehaviour:
     itemDescription: Fills the room with a poison fog that deal 1 HP dmamage to all
       monsters when you get hit.
     itemSprite: {fileID: 410560265, guid: bf1784644b19d7246855c838c15e1a54, type: 3}
+    itemHudSprite1: {fileID: 21300000, guid: 7fb2c9dcc87c4eb47bb8ff65e48578dd, type: 3}
+    itemHudSprite2: {fileID: 21300000, guid: bbb43f66a5d17264c8fc9a270d0acfde, type: 3}
+    itemHudSprite3: {fileID: 21300000, guid: 1049f90d3cc28714fb82677a541fa0be, type: 3}
     goesInInventory: 1
   freezeTime:
     itemName: Freeze Time
@@ -117,6 +141,9 @@ MonoBehaviour:
     itemCooldown: 0
     itemDescription: Freezes time for 2 turns when you get hit by a monster.
     itemSprite: {fileID: 1222244769, guid: bf1784644b19d7246855c838c15e1a54, type: 3}
+    itemHudSprite1: {fileID: 21300000, guid: 9e05f922b9094c546b7decf7b47cc941, type: 3}
+    itemHudSprite2: {fileID: 21300000, guid: 6868e047bda2a14499a42835fd0d7a0e, type: 3}
+    itemHudSprite3: {fileID: 21300000, guid: 9183e0d5aaea6614b92fafccf1709562, type: 3}
     goesInInventory: 1
   revivor:
     itemName: Revivor
@@ -125,6 +152,9 @@ MonoBehaviour:
     itemCooldown: 0
     itemDescription: When you die, revives with 1 HP.
     itemSprite: {fileID: -691136802, guid: bf1784644b19d7246855c838c15e1a54, type: 3}
+    itemHudSprite1: {fileID: 21300000, guid: 1d97a7baa5bb0704ab3dacc578fe7184, type: 3}
+    itemHudSprite2: {fileID: 21300000, guid: a7ab76748c8237549ba766a6451f64e7, type: 3}
+    itemHudSprite3: {fileID: 21300000, guid: 1796c43754f117045bd32955e93d4ba3, type: 3}
     goesInInventory: 1
   invincibility:
     itemName: Invincibility
@@ -134,6 +164,9 @@ MonoBehaviour:
     itemDescription: "Makes you invincible for 3 turns when you get hit by a monster
       (you don\u2019t take the hit from the monster)."
     itemSprite: {fileID: 1215371693, guid: bf1784644b19d7246855c838c15e1a54, type: 3}
+    itemHudSprite1: {fileID: 21300000, guid: dde5d0c1e4f4677439f7b81504bd7610, type: 3}
+    itemHudSprite2: {fileID: 21300000, guid: e2cc991cf9e6c654cb909e0742a8a305, type: 3}
+    itemHudSprite3: {fileID: 21300000, guid: a34efff8ec4c586489972ae9988d28e5, type: 3}
     goesInInventory: 1
   bossSlayer:
     itemName: Boss Slayer
@@ -142,6 +175,9 @@ MonoBehaviour:
     itemCooldown: 0
     itemDescription: You deal 1 more damage to the bosses.
     itemSprite: {fileID: 1239343374, guid: bf1784644b19d7246855c838c15e1a54, type: 3}
+    itemHudSprite1: {fileID: 21300000, guid: 0c9488507577cbf4181118f30d2789a6, type: 3}
+    itemHudSprite2: {fileID: 21300000, guid: 15175acd4c57d704980174442f74b80c, type: 3}
+    itemHudSprite3: {fileID: 21300000, guid: 29d271aee45dab448b376f4de8a50d73, type: 3}
     goesInInventory: 1
   powerGloves:
     itemName: Power Gloves
@@ -150,6 +186,9 @@ MonoBehaviour:
     itemCooldown: 0
     itemDescription: You deal 1 more HP damage to all enemies.
     itemSprite: {fileID: -679937395, guid: bf1784644b19d7246855c838c15e1a54, type: 3}
+    itemHudSprite1: {fileID: 21300000, guid: 6580a8a7d680dd34cb271e9c4501e1a7, type: 3}
+    itemHudSprite2: {fileID: 21300000, guid: 26f7c9285ef20c44dacd7f8d4d0c3549, type: 3}
+    itemHudSprite3: {fileID: 21300000, guid: 39b7136095d14b44397e36ebeb048d58, type: 3}
     goesInInventory: 1
   sideSlash:
     itemName: Side Slash
@@ -158,6 +197,9 @@ MonoBehaviour:
     itemCooldown: 0
     itemDescription: Your range is upgraded on your sides.
     itemSprite: {fileID: -1081428994, guid: bf1784644b19d7246855c838c15e1a54, type: 3}
+    itemHudSprite1: {fileID: 21300000, guid: 3bc5c7c89e33fab448453de1057fcf28, type: 3}
+    itemHudSprite2: {fileID: 21300000, guid: 4468f592158600941a77aec0e2689152, type: 3}
+    itemHudSprite3: {fileID: 21300000, guid: 907375b7c7ee22346b1a8a3e56683dbe, type: 3}
     goesInInventory: 1
   mysteryBox:
     itemName: Mystery Box
@@ -169,6 +211,9 @@ MonoBehaviour:
       the box whenever you want and get a random object of the dangerousness level
       of the box.
     itemSprite: {fileID: 21300000, guid: ee30656c08333404f8adc9f61e7449c5, type: 3}
+    itemHudSprite1: {fileID: 0}
+    itemHudSprite2: {fileID: 0}
+    itemHudSprite3: {fileID: 0}
     goesInInventory: 0
   allItems: []
   shopButtons:

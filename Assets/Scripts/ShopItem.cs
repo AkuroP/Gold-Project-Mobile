@@ -14,6 +14,9 @@ public class ShopItem
     public string itemDescription;
 
     public Sprite itemSprite;
+    public Sprite itemHudSprite1;
+    public Sprite itemHudSprite2;
+    public Sprite itemHudSprite3;
 
     public bool goesInInventory;
 
