@@ -71,6 +71,8 @@ public class BossFrog : Boss
         prio = Random.Range(1, 5);
         moveCDMax = 0;
         moveCDCurrent = 0;
+        enemyAnim = this.GetComponentInChildren<Animator>();
+        enemyAnim.runtimeAnimatorController = enemyAnim.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Assets/GA/Enemies/anims/frog");
 
         entitySr = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
         entitySr.sprite = Resources.Load<Sprite>("Assets/Graphics/Enemies/Crapo");
@@ -117,6 +119,7 @@ public class BossFrog : Boss
             if(tongueAttackCD > 0)
             {
                 Debug.Log("charge");
+                enemyAnim.SetTrigger("Charge");
                 tongueAttackCD--;
             }
             else
@@ -163,6 +166,7 @@ public class BossFrog : Boss
 
     public void StartAttackTongue()
     {
+        enemyAnim.SetTrigger("Atk_tongue");
         foreach (Tile tile in tongueAttackZone)
         {
             StartCoroutine(ShowTile(tile, 0));
@@ -171,11 +175,13 @@ public class BossFrog : Boss
         if (tongueAttackZone.Contains(player.currentTile))
         {
             Damage(tongueDamage, player);
+            player.playerAnim.SetTrigger("Hurt");
         }
     }
 
     public void ThrowSpitPoisonAttack(int numberOfSpit)
     {
+        enemyAnim.SetTrigger("Atk_poison");
         List<Tile> tempTiles = new List<Tile>();
         int timeBeforeImpact = 3;
 
@@ -237,6 +243,7 @@ public class BossFrog : Boss
         if (_fpg.targetTile.entityOnTile != null && _fpg.targetTile.entityOnTile is Player)
         {
             Damage(poisonSpitDamage, _fpg.targetTile.entityOnTile);
+            player.playerAnim.SetTrigger("Hurt");
         }
     }
 }

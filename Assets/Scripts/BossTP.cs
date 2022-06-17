@@ -20,6 +20,7 @@ public class BossTP : Boss
     public bool chargeAttack = false;
     public int chargeAttackRoundMax = 1;
     public int chargeAttackCurrent;
+    private GameObject sunfireGO;
 
     void Update()
     {
@@ -107,6 +108,9 @@ public class BossTP : Boss
 
         entitySr = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
         entitySr.sprite = Resources.Load<Sprite>("Assets/Graphics/Enemies/Sun");
+        enemyAnim = this.GetComponentInChildren<Animator>();
+        enemyAnim.runtimeAnimatorController = enemyAnim.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Assets/GA/Enemies/anims/sun");
+        sunfireGO = Resources.Load<GameObject>("Prefabs/SunFireEffect");
 
         AssignPattern();
 
@@ -162,6 +166,11 @@ public class BossTP : Boss
             {
                 Debug.Log("att 1");
                 StartAttack(upDirectionATS1);
+                List<Tile> fireTile = this.GetTileInRange(this.ConvertPattern(upDirectionATS1, this.direction), false);
+                for(int i = 0; i < fireTile.Count; i++)
+                {
+                    Instantiate(sunfireGO, fireTile[i].transform);
+                }
                 turnDuration += attackDuration;
                 doAttack2 = true;
             }
@@ -169,11 +178,17 @@ public class BossTP : Boss
             {
                 Debug.Log("att 2");
                 StartAttack(upDirectionATS2);
+                List<Tile> fireTile = this.GetTileInRange(this.ConvertPattern(upDirectionATS2, this.direction), false);
+                for(int i = 0; i < fireTile.Count; i++)
+                {
+                    Instantiate(sunfireGO, fireTile[i].transform);
+                }
                 turnDuration += attackDuration;
                 doAttack1 = false;
                 doAttack2 = false;
                 attackPhase = false;
             }
+            enemyAnim.SetTrigger("Atk");
         }
         else
         {
@@ -224,7 +239,7 @@ public class BossTP : Boss
                     chargeAttack = false;
                     chargeAttackCurrent = chargeAttackRoundMax;
 
-
+                    enemyAnim.SetTrigger("Atk");
                     StartAttack(upDirectionATS1);
                     turnDuration += attackDuration;
                 }
@@ -266,6 +281,7 @@ public class BossTP : Boss
 
                 direction = dir;
                 StartAttack(upDirectionATS1);
+                enemyAnim.SetTrigger("Atk");
                 turnDuration += attackDuration;
             }
         }
@@ -274,7 +290,7 @@ public class BossTP : Boss
     public void TPOut()
     {
         currentTile.entityOnTile = null;
-        this.gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
+        enemyAnim.SetBool("TP", true);
         isInvisible = true;
     }
 
@@ -290,7 +306,7 @@ public class BossTP : Boss
         currentTile = newTile;
         entitySr.sortingOrder = 11 - currentTile.tileY;
         transform.position = currentTile.transform.position;
-        this.gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
+        enemyAnim.SetBool("TP", false);
         isInvisible = false;
     }
 }

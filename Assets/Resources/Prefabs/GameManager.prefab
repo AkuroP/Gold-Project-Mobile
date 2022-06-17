@@ -48,7 +48,7 @@ MonoBehaviour:
   whatTurn: 0
   score: 0
   floor: 0
-  room: 1
+  room: 0
   nextBoss: 0
   numberOfBosses: 2
   shopRoomNumber: 5

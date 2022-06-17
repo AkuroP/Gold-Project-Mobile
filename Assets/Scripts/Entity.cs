@@ -586,7 +586,8 @@ public class Entity : MonoBehaviour
     {
         yield return new WaitForSeconds(waitDuration + 0.3f);
         hasPlay = true;
-        turnArrow.SetActive(false);
+        if(turnArrow != null)
+            turnArrow.SetActive(false);
         //Debug.Log("fin du tour");
     }
 
