@@ -847,6 +847,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
+      propertyPath: mapSettingsBoss1.tileSettings.Array.data[69].isWall
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5509594956100542043, guid: 3a342dc97d7f3d8438bed11ff69afa7d, type: 3}
       propertyPath: mapSettings.Array.data[3].tileSettings.Array.data[12].isEnemySpawn
       value: 1
       objectReference: {fileID: 0}
