@@ -94,19 +94,19 @@ public class UI : MonoBehaviour
             switch(player.hp)
             {
                 case 1 :
-                    heart1.sprite = Resources.Load<Sprite>("Assets/GA/HUD/hud1_1");
-                    heart2.sprite = Resources.Load<Sprite>("Assets/GA/HUD/hud1_0");
-                    heart3.sprite = Resources.Load<Sprite>("Assets/GA/HUD/hud1_0");
+                    heart1.sprite = Resources.Load<Sprite>("Assets/GA/HUD/fullheart1");
+                    heart2.sprite = Resources.Load<Sprite>("Assets/GA/HUD/emptyheart2");
+                    heart3.sprite = Resources.Load<Sprite>("Assets/GA/HUD/emptyheart3");
                     break;
                 case 2:
-                    heart1.sprite = Resources.Load<Sprite>("Assets/GA/HUD/hud1_1");
-                    heart2.sprite = Resources.Load<Sprite>("Assets/GA/HUD/hud1_1");
-                    heart3.sprite = Resources.Load<Sprite>("Assets/GA/HUD/hud1_0");
+                    heart1.sprite = Resources.Load<Sprite>("Assets/GA/HUD/fullheart1");
+                    heart2.sprite = Resources.Load<Sprite>("Assets/GA/HUD/fullheart2");
+                    heart3.sprite = Resources.Load<Sprite>("Assets/GA/HUD/emptyheart3");
                     break;
                 case 3:
-                    heart1.sprite = Resources.Load<Sprite>("Assets/GA/HUD/hud1_1");
-                    heart2.sprite = Resources.Load<Sprite>("Assets/GA/HUD/hud1_1");
-                    heart3.sprite = Resources.Load<Sprite>("Assets/GA/HUD/hud1_1");
+                    heart1.sprite = Resources.Load<Sprite>("Assets/GA/HUD/fullheart1");
+                    heart2.sprite = Resources.Load<Sprite>("Assets/GA/HUD/fullheart2");
+                    heart3.sprite = Resources.Load<Sprite>("Assets/GA/HUD/fullheart3");
                     break;
                 default:
                     break;
@@ -116,15 +116,15 @@ public class UI : MonoBehaviour
                 switch (player.weapon.typeOfWeapon)
                 {
                     case WeaponType.DAGGER:
-                        rune1.GetComponent<Image>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/runes_0");
+                        rune1.GetComponent<Image>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/runedagger1");
                         break;
 
                     case WeaponType.HANDGUN:
-                        rune1.GetComponent<Image>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/runes_4");
+                        rune1.GetComponent<Image>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/runegun1");
                         break;
 
                     case WeaponType.GRIMOIRE:
-                        rune1.GetComponent<Image>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/runes_2");
+                        rune1.GetComponent<Image>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/runegrimoire1");
                         break;
                 }
                 if (GameManager.instanceGM.secondUpgrade)
@@ -132,15 +132,15 @@ public class UI : MonoBehaviour
                     switch (player.weapon.typeOfWeapon)
                     {
                         case WeaponType.DAGGER:
-                            rune2.GetComponent<Image>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/runes_1");
+                            rune2.GetComponent<Image>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/runedagger2");
                             break;
 
                         case WeaponType.HANDGUN:
-                            rune2.GetComponent<Image>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/runes_5");
+                            rune2.GetComponent<Image>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/runegun2");
                             break;
 
                         case WeaponType.GRIMOIRE:
-                            rune2.GetComponent<Image>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/runes_3");
+                            rune2.GetComponent<Image>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/runegrimoire2");
                             break;
                     }
                 }
