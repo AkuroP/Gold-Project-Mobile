@@ -152,7 +152,7 @@ public class ShopInGame : MonoBehaviour
                     shop[i] = Dplus2Items[randomItemIndex];
                     Dplus2Items.RemoveAt(randomItemIndex);
                 }
-                else if (randomList <= 100 - d2Chance && randomList >= 100 - d2Chance - d1Chance && Dplus1Items.Count > 0)
+                else if (randomList <= 100 - d2Chance && randomList >= 100 - d2Chance - d1Chance && Dplus1Items.Count > 0 || availableItems.Count == 0)
                 {
                     int randomItemIndex = Random.Range(0, Dplus1Items.Count);
                     shopButtons[i].GetComponent<ShopButton>().item = Dplus1Items[randomItemIndex];
@@ -174,7 +174,7 @@ public class ShopInGame : MonoBehaviour
             else if (Dmax == maxDangerousness - 1)
             {
                 int randomList = Random.Range(0, 101);
-                if (randomList >= 100 - d1Chance && Dplus1Items.Count > 0)
+                if (randomList >= 100 - d1Chance && Dplus1Items.Count > 0 || availableItems.Count == 0)
                 {
                     int randomItemIndex = Random.Range(0, Dplus1Items.Count);
                     shopButtons[i].GetComponent<ShopButton>().item = Dplus1Items[randomItemIndex];

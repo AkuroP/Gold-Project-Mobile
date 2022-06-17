@@ -169,7 +169,42 @@ public class ShopButton : MonoBehaviour
         while (hasFindItem == false)
         {
             int random = Random.Range(0, shopInGame.allItems.Count);
-            if (shopInGame.allItems[random].itemDangerousness == Inventory.instanceInventory.mysteryBoxDangerousness && shopInGame.allItems[random].itemName != "Bonus Heart" && shopInGame.allItems[random].itemName != "Heart Regeneration")
+            if (Inventory.instanceInventory.mysteryBoxDangerousness == 5 && Inventory.instanceInventory.HasItem("Invincibility") && (!Inventory.instanceInventory.HasItem("Life Regeneration") || !Inventory.instanceInventory.HasItem("Revivor")) &&  shopInGame.allItems[random].itemDangerousness == Inventory.instanceInventory.mysteryBoxDangerousness - 1)
+            {
+                hasFindItem = true;
+                this.item = shopInGame.allItems[random];
+            }
+            else if (Inventory.instanceInventory.mysteryBoxDangerousness == 5 && Inventory.instanceInventory.HasItem("Invincibility") && Inventory.instanceInventory.HasItem("Life Regeneration") && Inventory.instanceInventory.HasItem("Revivor") && shopInGame.allItems[random].itemDangerousness == Inventory.instanceInventory.mysteryBoxDangerousness - 2)
+            {
+                hasFindItem = true;
+                this.item = shopInGame.allItems[random];
+            }
+            else if (Inventory.instanceInventory.mysteryBoxDangerousness == 4 && Inventory.instanceInventory.HasItem("Life Regeneration") && Inventory.instanceInventory.HasItem("Revivor") && Inventory.instanceInventory.HasItem("Invincibility") && shopInGame.allItems[random].itemDangerousness == Inventory.instanceInventory.mysteryBoxDangerousness - 1)
+            {
+                hasFindItem = true;
+                this.item = shopInGame.allItems[random];
+            }
+            else if (Inventory.instanceInventory.mysteryBoxDangerousness == 4 && Inventory.instanceInventory.HasItem("Life Regeneration") && Inventory.instanceInventory.HasItem("Revivor") && !Inventory.instanceInventory.HasItem("Invincibility") && shopInGame.allItems[random].itemDangerousness == Inventory.instanceInventory.mysteryBoxDangerousness + 1)
+            {
+                hasFindItem = true;
+                this.item = shopInGame.allItems[random];
+            }
+            else if (Inventory.instanceInventory.mysteryBoxDangerousness == 3 && Inventory.instanceInventory.HasItem("Speed Boots") && Inventory.instanceInventory.HasItem("Freeze TIme") && Inventory.instanceInventory.HasItem("Side Slash") && shopInGame.allItems[random].itemDangerousness == Inventory.instanceInventory.mysteryBoxDangerousness + 1)
+            {
+                hasFindItem = true;
+                this.item = shopInGame.allItems[random];
+            }
+            else if (Inventory.instanceInventory.mysteryBoxDangerousness == 2 && Inventory.instanceInventory.HasItem("Trap Protector") && Inventory.instanceInventory.HasItem("Poison Fog") && Inventory.instanceInventory.HasItem("Power Gloves") && shopInGame.allItems[random].itemDangerousness == Inventory.instanceInventory.mysteryBoxDangerousness + 1)
+            {
+                hasFindItem = true;
+                this.item = shopInGame.allItems[random];
+            }
+            else if (Inventory.instanceInventory.mysteryBoxDangerousness == 1 && Inventory.instanceInventory.HasItem("Counter Ring") && Inventory.instanceInventory.HasItem("Worn Speed Boots") && Inventory.instanceInventory.HasItem("Boss Slayer") && shopInGame.allItems[random].itemDangerousness == Inventory.instanceInventory.mysteryBoxDangerousness + 1 && shopInGame.allItems[random].itemName != "Bonus Heart" && shopInGame.allItems[random].itemName != "Heart Regeneration")
+            {
+                hasFindItem = true;
+                this.item = shopInGame.allItems[random];
+            }
+            else if (shopInGame.allItems[random].itemDangerousness == Inventory.instanceInventory.mysteryBoxDangerousness && shopInGame.allItems[random].itemName != "Bonus Heart" && shopInGame.allItems[random].itemName != "Heart Regeneration")
             {
                 hasFindItem = true;
                 this.item = shopInGame.allItems[random];

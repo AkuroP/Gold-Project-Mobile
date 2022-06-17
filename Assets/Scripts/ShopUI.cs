@@ -9,6 +9,7 @@ public class ShopUI : MonoBehaviour
     private Player player;
 
     [SerializeField] private Text essenceText;
+    [SerializeField] private Text healthText;
 
     [SerializeField] private GameObject runeButton1;
     [SerializeField] private GameObject runeButton2;
@@ -60,8 +61,9 @@ public class ShopUI : MonoBehaviour
     void Update()
     {
         essenceText.text = player.numEssence.ToString();
+        healthText.text = player.hp.ToString();
 
-        for(int i = 0; i < Inventory.instanceInventory.maxItemNumber; i++)
+        for (int i = 0; i < Inventory.instanceInventory.maxItemNumber; i++)
         {
             inventoryItems[i].sprite = Inventory.instanceInventory.items[i].itemSprite;
             inventoryItems[i].gameObject.GetComponent<ShopInventoryButton>().item = Inventory.instanceInventory.items[i];
