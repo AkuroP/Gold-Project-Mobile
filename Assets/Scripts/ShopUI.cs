@@ -25,31 +25,31 @@ public class ShopUI : MonoBehaviour
         switch (player.weapon.typeOfWeapon)
         {
             case WeaponType.DAGGER:
-                if (GameManager.instanceGM.floor < 2 || RuneManager.instanceRM.daggerLevel < 1 || GameManager.instanceGM.firstUpgrade == true)
+                if (GameManager.instanceGM.floor < 3 || RuneManager.instanceRM.daggerLevel < 1 || GameManager.instanceGM.firstUpgrade == true)
                 {
                     runeButton1.SetActive(false);
                 }
-                if (GameManager.instanceGM.floor < 5 || RuneManager.instanceRM.daggerLevel < 2 || GameManager.instanceGM.firstUpgrade == false || GameManager.instanceGM.secondUpgrade == true)
+                if (GameManager.instanceGM.floor < 6 || RuneManager.instanceRM.daggerLevel < 2 || GameManager.instanceGM.firstUpgrade == false || GameManager.instanceGM.secondUpgrade == true)
                 {
                     runeButton2.SetActive(false);
                 }
                 break;
             case WeaponType.HANDGUN:
-                if (GameManager.instanceGM.floor < 2 || RuneManager.instanceRM.handgunLevel < 1 || GameManager.instanceGM.firstUpgrade == true)
+                if (GameManager.instanceGM.floor < 3 || RuneManager.instanceRM.handgunLevel < 1 || GameManager.instanceGM.firstUpgrade == true)
                 {
                     runeButton1.SetActive(false);
                 }
-                if (GameManager.instanceGM.floor < 5 || RuneManager.instanceRM.handgunLevel < 2 || GameManager.instanceGM.firstUpgrade == false || GameManager.instanceGM.secondUpgrade == true)
+                if (GameManager.instanceGM.floor < 6 || RuneManager.instanceRM.handgunLevel < 2 || GameManager.instanceGM.firstUpgrade == false || GameManager.instanceGM.secondUpgrade == true)
                 {
                     runeButton2.SetActive(false);
                 }
                 break;
             case WeaponType.GRIMOIRE:
-                if (GameManager.instanceGM.floor < 2 || RuneManager.instanceRM.grimoireLevel < 1 || GameManager.instanceGM.firstUpgrade == true)
+                if (GameManager.instanceGM.floor < 3 || RuneManager.instanceRM.grimoireLevel < 1 || GameManager.instanceGM.firstUpgrade == true)
                 {
                     runeButton1.SetActive(false);
                 }
-                if (GameManager.instanceGM.floor < 5 || RuneManager.instanceRM.grimoireLevel < 2 || GameManager.instanceGM.firstUpgrade == false || GameManager.instanceGM.secondUpgrade == true)
+                if (GameManager.instanceGM.floor < 6 || RuneManager.instanceRM.grimoireLevel < 2 || GameManager.instanceGM.firstUpgrade == false || GameManager.instanceGM.secondUpgrade == true)
                 {
                     runeButton2.SetActive(false);
                 }

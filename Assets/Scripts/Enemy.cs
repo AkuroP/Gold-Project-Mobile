@@ -325,7 +325,7 @@ public class Enemy : Entity
                 }
             }
 
-            StartCoroutine(ShowTile(quickestPath[quickestPath.Count -1], 0));
+            //StartCoroutine(ShowTile(quickestPath[quickestPath.Count -1], 0));
             return quickestPath;
         }
 

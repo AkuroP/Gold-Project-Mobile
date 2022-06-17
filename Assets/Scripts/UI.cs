@@ -108,6 +108,11 @@ public class UI : MonoBehaviour
                     heart2.sprite = Resources.Load<Sprite>("Assets/GA/HUD/fullheart2");
                     heart3.sprite = Resources.Load<Sprite>("Assets/GA/HUD/fullheart3");
                     break;
+                case 4:
+                    heart1.sprite = Resources.Load<Sprite>("Assets/GA/HUD/goldheart1");
+                    heart2.sprite = Resources.Load<Sprite>("Assets/GA/HUD/fullheart2");
+                    heart3.sprite = Resources.Load<Sprite>("Assets/GA/HUD/fullheart3");
+                    break;
                 default:
                     break;
             }
