@@ -511,11 +511,31 @@ public class Entity : MonoBehaviour
 
         //Debug.Log(_delay + " / " + currentPosition + " / " + targetPosition);
 
+        if (currentTile.isPike == true)
+        {
+            currentTile.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/Tiles/TilemapsDark_Spritesheet_24");
+            isOnThePike = false;
+        }
+
         if (!_targetTile.isOpen)
         {
             _targetTile.entityOnTile = currentTile.entityOnTile;
             currentTile.entityOnTile = null;
             currentTile = _targetTile;
+        }
+
+        if (currentTile.isPike && !isOnThePike)
+        {
+            currentTile.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/Tiles/TilemapsDark_Spritesheet_25");
+            isOnThePike = true;
+            if (hp == 1)
+            {
+                StartCoroutine(ResetPike(currentTile));
+            }
+            else
+            {
+                Damage(1, this);
+            }
         }
 
         moveInProgress = true;
@@ -526,7 +546,7 @@ public class Entity : MonoBehaviour
     {
         for(int i = 0; i < _targetTileList.Count; i++)
         {
-            StartCoroutine(MoveWithDelay(_targetTileList[i], moveDuration * i + 0.15f * i));
+            StartCoroutine(MoveWithDelay(_targetTileList[i], moveDuration * i + 0.2f * i));
         }
     }
 

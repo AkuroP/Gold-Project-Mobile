@@ -273,5 +273,10 @@ public class UI : MonoBehaviour
     {
         titleScreen.SetActive(false);
     }
+
+    public void GoToMainMenu()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+    }
 }
 

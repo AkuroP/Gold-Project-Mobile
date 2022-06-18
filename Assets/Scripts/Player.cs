@@ -283,8 +283,8 @@ public class Player : Entity
     }
 
     //function to take damage / die
-/*    public override void DamageSelf(int damage)
-    {
+    /*    public override void DamageSelf(int damage)
+        {
 
-    }*/
+        }*/
 }
