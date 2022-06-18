@@ -110,7 +110,7 @@ public class BossTP : Boss
         entitySr.sprite = Resources.Load<Sprite>("Assets/Graphics/Enemies/Sun");
         enemyAnim = this.GetComponentInChildren<Animator>();
         enemyAnim.runtimeAnimatorController = enemyAnim.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Assets/GA/Enemies/anims/sun");
-        sunfireGO = Resources.Load<GameObject>("Prefabs/SunFireEffect");
+        sunfireGO = Resources.Load("Prefabs/SunFireEffect") as GameObject;
 
         AssignPattern();
 
@@ -165,24 +165,20 @@ public class BossTP : Boss
             if(doAttack1 && !doAttack2)
             {
                 Debug.Log("att 1");
+                List<Tile> fireTile = this.GetTileInRange(upDirectionATS1, false);
+                Debug.Log("fire tile count : " + fireTile.Count);
+                StartCoroutine(SpawnFire(fireTile));
                 StartAttack(upDirectionATS1);
-                List<Tile> fireTile = this.GetTileInRange(this.ConvertPattern(upDirectionATS1, this.direction), false);
-                for(int i = 0; i < fireTile.Count; i++)
-                {
-                    Instantiate(sunfireGO, fireTile[i].transform);
-                }
                 turnDuration += attackDuration;
                 doAttack2 = true;
             }
             else if(doAttack1 && doAttack2)
             {
                 Debug.Log("att 2");
+                List<Tile> fireTile = this.GetTileInRange(upDirectionATS2, false);
+                Debug.Log("fire tile count : " + fireTile.Count);
+                StartCoroutine(SpawnFire(fireTile));
                 StartAttack(upDirectionATS2);
-                List<Tile> fireTile = this.GetTileInRange(this.ConvertPattern(upDirectionATS2, this.direction), false);
-                for(int i = 0; i < fireTile.Count; i++)
-                {
-                    Instantiate(sunfireGO, fireTile[i].transform);
-                }
                 turnDuration += attackDuration;
                 doAttack1 = false;
                 doAttack2 = false;
@@ -291,6 +287,9 @@ public class BossTP : Boss
     {
         currentTile.entityOnTile = null;
         enemyAnim.SetBool("TP", true);
+        heart1.GetComponent<SpriteRenderer>().enabled = false;
+        heart2.GetComponent<SpriteRenderer>().enabled = false;
+        heart3.GetComponent<SpriteRenderer>().enabled = false;
         isInvisible = true;
     }
 
@@ -307,6 +306,23 @@ public class BossTP : Boss
         entitySr.sortingOrder = 11 - currentTile.tileY;
         transform.position = currentTile.transform.position;
         enemyAnim.SetBool("TP", false);
+        heart1.GetComponent<SpriteRenderer>().enabled = true;
+        heart2.GetComponent<SpriteRenderer>().enabled = true;
+        heart3.GetComponent<SpriteRenderer>().enabled = true;
         isInvisible = false;
     }
+
+    private IEnumerator SpawnFire(List<Tile> _fireTiles)
+    {
+        for(int i = 0; i < _fireTiles.Count; i++)
+        {
+            float randomSpawn = Random.Range(0f, 0.05f);
+            Debug.Log("Spawn Time :" + randomSpawn);
+            yield return new WaitForSeconds(randomSpawn);
+            GameObject sFG = Instantiate(sunfireGO);
+            sFG.transform.parent = _fireTiles[i].transform;
+            sFG.transform.localPosition = new Vector3(0f, 0.5f, 0f);
+        }
+    }
+
 }
