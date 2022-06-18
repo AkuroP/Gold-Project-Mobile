@@ -620,4 +620,12 @@ public class Entity : MonoBehaviour
         //Debug.Log("fin du tour");
     }
 
+    public IEnumerator ResetPike(Tile pikeTile)
+    {
+        Debug.Log("prout 1");
+        yield return new WaitForSeconds(0.3f);
+        pikeTile.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/Tiles/TilemapsDark_Spritesheet_24");
+        Damage(1, this);
+        Debug.Log("prout 2");
+    }
 }

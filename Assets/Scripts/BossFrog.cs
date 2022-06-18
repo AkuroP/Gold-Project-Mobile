@@ -176,6 +176,10 @@ public class BossFrog : Boss
         {
             Damage(tongueDamage, player);
             player.playerAnim.SetTrigger("Hurt");
+            if (Inventory.instanceInventory.HasItem("Counter Ring"))
+            {
+                player.damageMultiplicator = 2;
+            }
         }
     }
 
@@ -244,6 +248,10 @@ public class BossFrog : Boss
         {
             Damage(poisonSpitDamage, _fpg.targetTile.entityOnTile);
             player.playerAnim.SetTrigger("Hurt");
+            if (Inventory.instanceInventory.HasItem("Counter Ring"))
+            {
+                player.damageMultiplicator = 2;
+            }
         }
     }
 }
