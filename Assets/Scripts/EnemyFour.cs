@@ -94,23 +94,13 @@ public class EnemyFour : Enemy
             {
                 currentTile.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/Tiles/TilemapsDark_Spritesheet_25");
                 isOnThePike = true;
-                AchievementManager.instanceAM.UpdateTrapsActivated();
-                if (Inventory.instanceInventory.HasItem("Trap Protector") == true)
+                if (hp == 1)
                 {
-                    ShopItem trapProtector = Inventory.instanceInventory.GetItem("Trap Protector");
-                    Debug.Log(trapProtector.itemName + ", " + trapProtector.itemCooldown);
-                    if (trapProtector.itemCooldown == 0)
-                    {
-                        trapProtector.itemCooldown = 5;
-                    }
-                    else
-                    {
-                        this.hp--;
-                    }
+                    StartCoroutine(ResetPike(currentTile));
                 }
                 else
                 {
-                    this.hp--;
+                    Damage(1, this);
                 }
             }
             entitySr.sortingOrder = 11 - this.currentTile.tileY;

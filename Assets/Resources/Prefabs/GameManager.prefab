@@ -49,8 +49,8 @@ MonoBehaviour:
   whatTurn: 0
   score: 0
   floor: 1
-  room: 9
-  nextBoss: 1
+  room: 1
+  nextBoss: 0
   numberOfBosses: 2
   shopRoomNumber: 5
   actualDangerousness: 1
