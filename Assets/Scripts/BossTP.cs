@@ -22,7 +22,7 @@ public class BossTP : Boss
     public int chargeAttackCurrent;
     private GameObject sunfireGO;
 
-    void Update()
+    void FixedUpdate()
     {
         if(hp <= 0)
         {

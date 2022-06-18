@@ -21,7 +21,7 @@ public class BossFrog : Boss
 
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (hp <= 0)
             BossDeath();

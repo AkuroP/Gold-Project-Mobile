@@ -60,7 +60,7 @@ public class EnemySix : Enemy
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (!inChase)
             inChase = IsTargetInChaseRange(currentMap.player.currentTile, 3);
