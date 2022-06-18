@@ -19,6 +19,7 @@ public class ShopButton : MonoBehaviour
     [SerializeField] Button closeButton;
     [SerializeField] Button buyButton;
     [SerializeField] GameObject descriptionPanel;
+    [SerializeField] GameObject runeDescriptionPanel;
     [SerializeField] Text descriptionText;
 
     private ShopInGame shopInGame;
@@ -39,6 +40,7 @@ public class ShopButton : MonoBehaviour
 
     public void ShowDescription()
     {
+        runeDescriptionPanel.SetActive(false);
         if(descriptionPanel.activeSelf == false)
         {
             descriptionPanel.SetActive(true);

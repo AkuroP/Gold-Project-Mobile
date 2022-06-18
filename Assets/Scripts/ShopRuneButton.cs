@@ -9,6 +9,11 @@ public class ShopRuneButton : MonoBehaviour
     [SerializeField] private int upgradeCost;
     [SerializeField] private int upgradeLevel;
 
+    [SerializeField] private GameObject itemDescriptionPanel;
+    [SerializeField] private GameObject descriptionPanel;
+    [SerializeField] private Text descriptionText;
+    [SerializeField] private Button buyButton;
+
     private Player player;
 
     void Start()
@@ -52,8 +57,52 @@ public class ShopRuneButton : MonoBehaviour
 
     }
 
+    public void ShowDescriptionPanel()
+    {
+        itemDescriptionPanel.SetActive(false);
+        descriptionPanel.SetActive(true);
+        buyButton.onClick.RemoveAllListeners();
+        buyButton.onClick.AddListener(delegate { UpgradeWeapon(); });
+        switch (player.weapon.typeOfWeapon)
+        {
+            case WeaponType.DAGGER:
+                if(player.weapon.weaponLevel == 0)
+                {
+                    descriptionText.text = "When an enemy is hit, he is bleeds and loses 1 hp at the end of its next turn.";
+                }
+                else
+                {
+                    descriptionText.text = "When an enemy is killed, you get a bonus turn.";
+                }
+                break;
+
+            case WeaponType.HANDGUN:
+                if (player.weapon.weaponLevel == 0)
+                {
+                    descriptionText.text = "Increases the handgun range by 1.";
+                }
+                else
+                {
+                    descriptionText.text = "Shots hit all enemies in the range.";
+                }
+                break;
+
+            case WeaponType.GRIMOIRE:
+                if (player.weapon.weaponLevel == 0)
+                {
+                    descriptionText.text = "Spawns a flame on the square behind you.";
+                }
+                else
+                {
+                    descriptionText.text = "The squares where fire has spawned do (for 1 turn) damage to everything that walks on them (except you).";
+                }
+                break;
+        }
+    }
+
     public void UpgradeWeapon()
     {
+        descriptionPanel.SetActive(false);
         if(player.numEssence > upgradeCost)
         {
             player.numEssence -= upgradeCost;

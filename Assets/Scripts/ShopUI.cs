@@ -15,6 +15,7 @@ public class ShopUI : MonoBehaviour
     [SerializeField] private GameObject runeButton2;
 
     [SerializeField] private GameObject descriptionPanel;
+    [SerializeField] private GameObject runeDescriptionPanel;
 
     [SerializeField] private Image[] inventoryItems;
 
@@ -73,5 +74,10 @@ public class ShopUI : MonoBehaviour
     public void CloseDescriptionPanel()
     {
         descriptionPanel.SetActive(false);
+    }
+
+    public void CloseRuneDescriptionPanel()
+    {
+        runeDescriptionPanel.SetActive(false);
     }
 }

@@ -13,6 +13,10 @@ public class Item : MonoBehaviour
     public int itemPrice;
     private Player player;
 
+    public GameObject descriptionPanel;
+    public Button buyButton;
+    public Text descriptionText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -79,7 +83,61 @@ public class Item : MonoBehaviour
         }
     }
 
-    public void BuyWeapon(string _weaponName)
+    public void ShowDescription(string _weaponName)
+    {
+        descriptionPanel.SetActive(true);
+        switch (_weaponName)
+        {
+            case "DAGGER":
+                buyButton.onClick.RemoveAllListeners();
+                buyButton.onClick.AddListener(delegate { BuyWeapon("DAGGER"); });
+                if (RuneManager.instanceRM.daggerLevel == 0)
+                {
+                    descriptionText.text = "When an enemy is hit, he is bleeds and loses 1 hp at the end of its next turn.";
+                }
+                else
+                {
+                    descriptionText.text = "When an enemy is killed, you get a bonus turn.";
+                }
+                break;
+
+            case "HANDGUN":
+                buyButton.onClick.RemoveAllListeners();
+                buyButton.onClick.AddListener(delegate { BuyWeapon("HANDGUN"); });
+                if (RuneManager.instanceRM.hasBuyHandgun == "false")
+                {
+                    descriptionText.text = "Ranged attack with a 3 block maximum range. Only the first enemy in range takes damage.";
+                }
+                else if (RuneManager.instanceRM.handgunLevel == 0)
+                {
+                    descriptionText.text = "Increases the handgun range by 1.";
+                }
+                else
+                {
+                    descriptionText.text = "Shots hit all enemies in the range.";
+                }
+                break;
+
+            case "GRIMOIRE":
+                buyButton.onClick.RemoveAllListeners();
+                buyButton.onClick.AddListener(delegate { BuyWeapon("GRIMOIRE"); });
+                if (RuneManager.instanceRM.hasBuyGrimoire == "false")
+                {
+                    descriptionText.text = "Melee attack with a 1 block range. The attack is an AOE that summons fire and hits all 3 blocks horizontally in the direction of the attack.";
+                }
+                else if (RuneManager.instanceRM.handgunLevel == 0)
+                {
+                    descriptionText.text = "Spawns a flame on the square behind you.";
+                }
+                else
+                {
+                    descriptionText.text = "The squares where fire has spawned do (for 1 turn) damage to everything that walks on them (except you).";
+                }
+                break;
+        }
+    }
+
+        public void BuyWeapon(string _weaponName)
     {
         if(RuneManager.instanceRM.darkMatter >= this.itemPrice)
         {
@@ -139,6 +197,7 @@ public class Item : MonoBehaviour
             }
 
             //this.UpdateWeapon(this.name);
+            descriptionPanel.SetActive(false);
         }
         else
         {
@@ -159,8 +218,8 @@ public class Item : MonoBehaviour
             case WeaponType.DAGGER:
                 if (RuneManager.instanceRM.daggerLevel < 2 && RuneManager.instanceRM.darkMatter >= (this.itemPrice * (RuneManager.instanceRM.daggerLevel + 2)))
                 {
-                    RuneManager.instanceRM.daggerLevel++;
                     RuneManager.instanceRM.darkMatter -= (this.itemPrice * (RuneManager.instanceRM.daggerLevel + 2));
+                    RuneManager.instanceRM.daggerLevel++;
                     PlayerPrefs.SetInt("daggerLevel", RuneManager.instanceRM.daggerLevel);
                     PlayerPrefs.SetInt("darkMatter", RuneManager.instanceRM.darkMatter);
                     AchievementManager.instanceAM.UpdateRunesPurchased();
@@ -170,8 +229,8 @@ public class Item : MonoBehaviour
             case WeaponType.HANDGUN:
                 if (RuneManager.instanceRM.handgunLevel < 2 && RuneManager.instanceRM.darkMatter >= (this.itemPrice * (RuneManager.instanceRM.handgunLevel + 2)))
                 {
-                    RuneManager.instanceRM.handgunLevel++;
                     RuneManager.instanceRM.darkMatter -= (this.itemPrice * (RuneManager.instanceRM.handgunLevel + 2));
+                    RuneManager.instanceRM.handgunLevel++;
                     PlayerPrefs.SetInt("handgunLevel", RuneManager.instanceRM.handgunLevel);
                     PlayerPrefs.SetInt("darkMatter", RuneManager.instanceRM.darkMatter);
                     AchievementManager.instanceAM.UpdateRunesPurchased();
@@ -181,8 +240,8 @@ public class Item : MonoBehaviour
             case WeaponType.GRIMOIRE:
                 if (RuneManager.instanceRM.grimoireLevel < 2 && RuneManager.instanceRM.darkMatter >= (this.itemPrice * (RuneManager.instanceRM.grimoireLevel + 2)))
                 {
-                    RuneManager.instanceRM.grimoireLevel++;
                     RuneManager.instanceRM.darkMatter -= (this.itemPrice * (RuneManager.instanceRM.grimoireLevel + 2));
+                    RuneManager.instanceRM.grimoireLevel++;
                     PlayerPrefs.SetInt("grimoireLevel", RuneManager.instanceRM.grimoireLevel);
                     PlayerPrefs.SetInt("darkMatter", RuneManager.instanceRM.darkMatter);
                     AchievementManager.instanceAM.UpdateRunesPurchased();

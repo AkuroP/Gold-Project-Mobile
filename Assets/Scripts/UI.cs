@@ -37,6 +37,7 @@ public class UI : MonoBehaviour
     [SerializeField] private Image rune2;
     [SerializeField] private GameObject hubShop;
     [SerializeField] private GameObject titleScreen;
+    [SerializeField] private GameObject descriptionPanel;
 
     //Fade
     public GameObject fadePrefab;
@@ -261,7 +262,13 @@ public class UI : MonoBehaviour
 
     public void CloseHubShop()
     {
+        descriptionPanel.SetActive(false);
         hubShop.SetActive(false);
+    }
+
+    public void CloseRuneDescription()
+    {
+        descriptionPanel.SetActive(false);
     }
 
     public void OpenOptions()
