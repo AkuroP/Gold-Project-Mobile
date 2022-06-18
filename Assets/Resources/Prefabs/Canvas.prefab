@@ -1428,6 +1428,7 @@ MonoBehaviour:
   shopPrefab: {fileID: 5128081185710407048, guid: 361bff0af5cb8554781bae3c5f48edbc, type: 3}
   shopUIPrefab: {fileID: 2232992195658834521, guid: f2461036fbabd3a45b7d6111cd0115d7, type: 3}
   essencesText: {fileID: 902996153}
+  darkMatterText: {fileID: 29472964416186182}
   slot1: {fileID: 1637066608}
   slot2: {fileID: 1027675880}
   slot3: {fileID: 723376464}
@@ -1446,6 +1447,7 @@ MonoBehaviour:
   rune1: {fileID: 754443680658036015}
   rune2: {fileID: 7602673105056072600}
   hubShop: {fileID: 0}
+  titleScreen: {fileID: 0}
   fadePrefab: {fileID: 4904525013109680106, guid: 1e6bc766c3dc66a469ed7ac67e97dd5f, type: 3}
 --- !u!1 &7682593074086453731
 GameObject:

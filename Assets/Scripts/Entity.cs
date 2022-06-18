@@ -511,7 +511,7 @@ public class Entity : MonoBehaviour
 
         //Debug.Log(_delay + " / " + currentPosition + " / " + targetPosition);
 
-        if (!_targetTile.isHole)
+        if (!_targetTile.isOpen)
         {
             _targetTile.entityOnTile = currentTile.entityOnTile;
             currentTile.entityOnTile = null;
@@ -615,17 +615,19 @@ public class Entity : MonoBehaviour
     {
         yield return new WaitForSeconds(waitDuration + 0.3f);
         hasPlay = true;
-        if(turnArrow != null)
-            turnArrow.SetActive(false);
+        if (turnArrow != null)
+             turnArrow.SetActive(false);
+        if (this.entityStatus.Count > 0)
+        {
+            this.CheckStatus(this);
+        }
         //Debug.Log("fin du tour");
     }
 
     public IEnumerator ResetPike(Tile pikeTile)
     {
-        Debug.Log("prout 1");
         yield return new WaitForSeconds(0.3f);
         pikeTile.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/Tiles/TilemapsDark_Spritesheet_24");
         Damage(1, this);
-        Debug.Log("prout 2");
     }
 }

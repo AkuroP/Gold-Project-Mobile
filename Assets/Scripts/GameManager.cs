@@ -198,7 +198,8 @@ public class GameManager : MonoBehaviour
             floor++;
             room = 1;
             RuneManager.instanceRM.darkMatter += 1;
-            if(Inventory.instanceInventory.HasItem("Life Regeneration"))
+            PlayerPrefs.SetInt("darkMatter", RuneManager.instanceRM.darkMatter);
+            if (Inventory.instanceInventory.HasItem("Life Regeneration"))
             {
                 if(player.hp < player.maxHP)
                 {

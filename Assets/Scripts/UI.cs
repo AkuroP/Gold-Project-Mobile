@@ -17,6 +17,7 @@ public class UI : MonoBehaviour
 
     //HUD UI
     [SerializeField] private Text essencesText;
+    [SerializeField] private Text darkMatterText;
     [SerializeField] private Image slot1;
     [SerializeField] private Image slot2;
     [SerializeField] private Image slot3;
@@ -90,6 +91,7 @@ public class UI : MonoBehaviour
             {
                 slot3.sprite = Inventory.instanceInventory.items[2].itemHudSprite3;
             }
+            darkMatterText.text = RuneManager.instanceRM.darkMatter.ToString();
             floorText.text = GameManager.instanceGM.floor.ToString();
             roomText.text = GameManager.instanceGM.room.ToString();
             switch(player.hp)

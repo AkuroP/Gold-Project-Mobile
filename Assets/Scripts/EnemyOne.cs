@@ -54,11 +54,6 @@ public class EnemyOne : Enemy
             turnArrow.SetActive(true);
             turnDuration = 0;
             myTurn = false;
-
-            if (this.entityStatus.Count > 0)
-            {
-                this.CheckStatus(this);
-            }
             
             CheckFire();
 

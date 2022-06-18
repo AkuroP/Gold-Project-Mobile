@@ -69,11 +69,6 @@ public class EnemyTwo : Enemy
             myTurn = false;
             turnDuration = 0;
 
-            if (this.entityStatus.Count > 0)
-            {
-                this.CheckStatus(this);
-                IsSelfDead();
-            }
             CheckFire();
             if(moveCDCurrent > 0)
             {

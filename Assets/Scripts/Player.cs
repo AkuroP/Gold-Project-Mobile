@@ -199,14 +199,6 @@ public class Player : Entity
             }*/
 
             //for turn by turn
-            if(mobility > 0)
-            {
-                mobility--;
-            }
-            else
-            {
-                StartCoroutine(EndTurn(attackDuration));
-            }
             hasAttack = true;
             if(Inventory.instanceInventory.HasItem("Power Gloves"))
             {
@@ -216,6 +208,14 @@ public class Player : Entity
             else
             {
                 this.weapon.ApplyEffect(this, 0);
+            }
+            if (mobility > 0)
+            {
+                mobility--;
+            }
+            else
+            {
+                StartCoroutine(EndTurn(attackDuration));
             }
         }
     }

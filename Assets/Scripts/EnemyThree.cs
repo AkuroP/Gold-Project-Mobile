@@ -74,10 +74,6 @@ public class EnemyThree : Enemy
             myTurn = false;
             turnDuration = 0;
 
-            if (this.entityStatus.Count > 0)
-            {
-                this.CheckStatus(this);
-            }
             StartTurn();
         }
 
