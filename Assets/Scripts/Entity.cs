@@ -239,7 +239,7 @@ public class Entity : MonoBehaviour
                 if (_drawAttack)
                     StartCoroutine(DrawAttack(attackedTile));
                 
-                if (attackedTile.entityOnTile)
+                if (attackedTile.entityOnTile && !entityInPattern.Contains(attackedTile.entityOnTile))
                 {
                     entityInPattern.Add(attackedTile.entityOnTile);
                     if(CompareTag("Player") && this.GetComponent<Player>().weapon.typeOfWeapon == WeaponType.HANDGUN && oneATS.order == 4)
@@ -436,6 +436,21 @@ public class Entity : MonoBehaviour
             {
                 AchievementManager.instanceAM.roomWithoutTakingDamage = -1;
                 PlayerPrefs.SetInt("roomWithoutTakingDamage", AchievementManager.instanceAM.roomWithoutTakingDamage);
+            }
+        }
+        if(this is Player && Inventory.instanceInventory.HasItem("Counter Ring"))
+        {
+            if (Inventory.instanceInventory.items[0].itemName == "Counter Ring")
+            {
+                UI.instanceUI.activeSlot1.sprite = Resources.Load<Sprite>("Assets/Graphics/empty");
+            }
+            else if (Inventory.instanceInventory.items[1].itemName == "Counter Ring")
+            {
+                UI.instanceUI.activeSlot2.sprite = Resources.Load<Sprite>("Assets/Graphics/empty");
+            }
+            else
+            {
+                UI.instanceUI.activeSlot3.sprite = Resources.Load<Sprite>("Assets/Graphics/empty");
             }
         }
     }
@@ -640,6 +655,21 @@ public class Entity : MonoBehaviour
         if (this.entityStatus.Count > 0)
         {
             this.CheckStatus(this);
+        }
+        if (this is Player && Inventory.instanceInventory.HasItem("Worn Speed Boots"))
+        {
+            if (Inventory.instanceInventory.items[0].itemName == "Worn Speed Boots")
+            {
+                UI.instanceUI.activeSlot1.sprite = Resources.Load<Sprite>("Assets/Graphics/empty");
+            }
+            else if (Inventory.instanceInventory.items[1].itemName == "Worn Speed Boots")
+            {
+                UI.instanceUI.activeSlot2.sprite = Resources.Load<Sprite>("Assets/Graphics/empty");
+            }
+            else
+            {
+                UI.instanceUI.activeSlot3.sprite = Resources.Load<Sprite>("Assets/Graphics/empty");
+            }
         }
         //Debug.Log("fin du tour");
     }

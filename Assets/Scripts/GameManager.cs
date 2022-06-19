@@ -304,6 +304,18 @@ public class GameManager : MonoBehaviour
                 if (Inventory.instanceInventory.HasItem("Worn Speed Boots") && turnNumber % 3 == 0)
                 {
                     playingEntity.mobility++;
+                    if(Inventory.instanceInventory.items[0].itemName == "Worn Speed Boots")
+                    {
+                        UI.instanceUI.activeSlot1.sprite = Resources.Load<Sprite>("Assets/GA/HUD/activeItem1");
+                    }
+                    else if (Inventory.instanceInventory.items[1].itemName == "Worn Speed Boots")
+                    {
+                        UI.instanceUI.activeSlot2.sprite = Resources.Load<Sprite>("Assets/GA/HUD/activeItem2");
+                    }
+                    else
+                    {
+                        UI.instanceUI.activeSlot3.sprite = Resources.Load<Sprite>("Assets/GA/HUD/activeItem3");
+                    }
                 }
             }
         }

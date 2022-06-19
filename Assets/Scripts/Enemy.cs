@@ -586,6 +586,18 @@ public class Enemy : Entity
                     if(Inventory.instanceInventory.HasItem("Counter Ring"))
                     {
                         player.damageMultiplicator = 2;
+                        if (Inventory.instanceInventory.items[0].itemName == "Counter Ring")
+                        {
+                            UI.instanceUI.activeSlot1.sprite = Resources.Load<Sprite>("Assets/GA/HUD/activeItem1");
+                        }
+                        else if (Inventory.instanceInventory.items[1].itemName == "Counter Ring")
+                        {
+                            UI.instanceUI.activeSlot2.sprite = Resources.Load<Sprite>("Assets/GA/HUD/activeItem2");
+                        }
+                        else
+                        {
+                            UI.instanceUI.activeSlot3.sprite = Resources.Load<Sprite>("Assets/GA/HUD/activeItem3");
+                        }
                     }
                 }
             }

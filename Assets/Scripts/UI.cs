@@ -21,6 +21,9 @@ public class UI : MonoBehaviour
     [SerializeField] private Image slot1;
     [SerializeField] private Image slot2;
     [SerializeField] private Image slot3;
+    public Image activeSlot1;
+    public Image activeSlot2;
+    public Image activeSlot3;
     [SerializeField] private Text floorText;
     [SerializeField] private Text roomText;
     public GameObject attackButton;

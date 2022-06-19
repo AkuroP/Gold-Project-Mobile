@@ -164,7 +164,33 @@ public class Player : Entity
                 StartCoroutine(GoToNextRoom());
             }
         }
-
+        if (Inventory.instanceInventory.HasItem("Trap Protector"))
+        {
+            if (Inventory.instanceInventory.items[0].itemName == "Trap Protector" && Inventory.instanceInventory.items[0].itemCooldown == 0)
+            {
+                UI.instanceUI.activeSlot1.sprite = Resources.Load<Sprite>("Assets/GA/HUD/activeItem1");
+            }
+            if (Inventory.instanceInventory.items[0].itemName == "Trap Protector" && Inventory.instanceInventory.items[0].itemCooldown > 0)
+            {
+                UI.instanceUI.activeSlot1.sprite = Resources.Load<Sprite>("Assets/Graphics/empty");
+            }
+            else if (Inventory.instanceInventory.items[1].itemName == "Trap Protector" && Inventory.instanceInventory.items[1].itemCooldown == 0)
+            {
+                UI.instanceUI.activeSlot2.sprite = Resources.Load<Sprite>("Assets/GA/HUD/activeItem2");
+            }
+            if (Inventory.instanceInventory.items[1].itemName == "Trap Protector" && Inventory.instanceInventory.items[1].itemCooldown > 0)
+            {
+                UI.instanceUI.activeSlot2.sprite = Resources.Load<Sprite>("Assets/Graphics/empty");
+            }
+            else if (Inventory.instanceInventory.items[2].itemName == "Trap Protector" && Inventory.instanceInventory.items[2].itemCooldown == 0)
+            {
+                UI.instanceUI.activeSlot3.sprite = Resources.Load<Sprite>("Assets/GA/HUD/activeItem3");
+            }
+            else
+            {
+                UI.instanceUI.activeSlot3.sprite = Resources.Load<Sprite>("Assets/Graphics/empty");
+            }
+        }
     }
 
     public override void StartAttack(List<AttackTileSettings> _upDirectionATS)
