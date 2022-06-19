@@ -243,7 +243,7 @@ public class Player : Entity
             enemiesInRange = GetEntityInRange(ConvertPattern(weapon.upDirectionATS, direction), false);
             if(enemiesInRange.Count > 0)
             {
-                for(int i = 0; i < this.weapon.upDirectionATS.Count; i++)
+                foreach(Entity enemy in enemiesInRange)
                 {
                     GameObject weaponVFX;
                     switch(weapon.typeOfWeapon)
@@ -263,7 +263,7 @@ public class Player : Entity
                             weaponVFX = null;
                         break;
                     }
-                    Instantiate(weaponVFX, enemiesInRange[i].transform.position, Quaternion.identity);
+                    Instantiate(weaponVFX, enemy.transform.position, Quaternion.identity);
                     Debug.Log("SFX " + weaponVFX.name);
                 }
             }            
