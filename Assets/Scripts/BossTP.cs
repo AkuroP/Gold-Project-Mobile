@@ -111,6 +111,7 @@ public class BossTP : Boss
         enemyAnim = this.GetComponentInChildren<Animator>();
         enemyAnim.runtimeAnimatorController = enemyAnim.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Assets/GA/Enemies/anims/sun");
         sunfireGO = Resources.Load("Prefabs/SunFireEffect") as GameObject;
+        this.transform.localScale = new Vector3(1f, 1f, 0f);
 
         AssignPattern();
 

@@ -251,7 +251,6 @@ public class BossFrog : Boss
                 i--;
             }
         }
-
     }
 
     public void StartSpitPoisonAttack(FrogPoisonSpit _fpg, Animator _poisonAnim)
@@ -268,6 +267,20 @@ public class BossFrog : Boss
                 player.damageMultiplicator = 2;
             }
         }
+    }
+
+    public override void BossDeath()
+    {
+        if(poisoninTiles.Count > 0)
+        {
+            foreach(GameObject poison in poisoninTiles)
+            {
+                poisoninTiles.Remove(poison);
+                Destroy(poison);
+            }
+        }
+        poisonSpitList.Clear();
+        base.BossDeath();
     }
 }
 
