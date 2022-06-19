@@ -271,13 +271,15 @@ public class BossFrog : Boss
 
     public override void BossDeath()
     {
+        Debug.Log("RESET POISON");
         if(poisoninTiles.Count > 0)
         {
             for(int i = 0; i < poisoninTiles.Count; i++)
             {
-                GameObject poison = poisoninTiles[0];
+                GameObject poison = poisoninTiles[i];
                 poisoninTiles.Remove(poison);
-                Destroy(poison);
+                poison.GetComponent<AnimDestruct>().DestroyAnimGO();
+                i--;
             }
         }
         poisonSpitList.Clear();
