@@ -127,13 +127,37 @@ public class Player : Entity
         //move process
         if (moveInProgress && !canMove && timeElapsed < moveDuration)
         {
-            playerAnim.SetBool("Move", true);
+            if(this.direction == Direction.RIGHT || this.direction == Direction.LEFT)
+            {
+                playerAnim.SetBool("MoveHorizontal", true);
+            }
+            else if(this.direction == Direction.UP)
+            {
+                playerAnim.SetBool("MoveUp", true);
+            }
+            else if(this.direction == Direction.BOTTOM)
+            {
+                playerAnim.SetBool("MoveDown", true);
+            }
+
             transform.position = Vector3.Lerp(currentPosition, targetPosition, timeElapsed / moveDuration) - new Vector3(0, 0, 1);
             timeElapsed += Time.deltaTime;
         }
         else
         {
-            playerAnim.SetBool("Move", false);
+            if(playerAnim.GetBool("MoveHorizontal"))
+            {
+                playerAnim.SetBool("MoveHorizontal", false);
+            }
+            else if(playerAnim.GetBool("MoveUp"))
+            {
+                playerAnim.SetBool("MoveUp", false);
+            }
+            else if(playerAnim.GetBool("MoveDown"))
+            {
+                playerAnim.SetBool("MoveDown", false);
+            }
+
             moveInProgress = false;
             canMove = true;
             timeElapsed = 0;
