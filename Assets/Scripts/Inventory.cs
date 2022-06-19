@@ -74,7 +74,7 @@ public class Inventory : MonoBehaviour
                 items[i].itemCooldown--;
                 if (HasItem("Trap Protector") && items[GetItemIndex("Trap Protector")].itemCooldown == 0)
                 {
-                    GameManager.instanceGM.sfxAudioSource.clip = Resources.Load<AudioClip>("Assets/audio/SFX_Item_Highlight");
+                    GameManager.instanceGM.sfxAudioSource.clip = Resources.Load<AudioClip>("Assets/audio/SFX_Item_TrapProtector");
                     GameManager.instanceGM.sfxAudioSource.Play();
                 }
             }

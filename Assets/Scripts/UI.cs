@@ -41,6 +41,8 @@ public class UI : MonoBehaviour
     [SerializeField] private GameObject hubShop;
     [SerializeField] private GameObject titleScreen;
     [SerializeField] private GameObject descriptionPanel;
+    [SerializeField] private GameObject tutorial;
+    [SerializeField] private Button lastTutoImage;
 
     //Fade
     public GameObject fadePrefab;
@@ -255,7 +257,21 @@ public class UI : MonoBehaviour
 
     public void OpenChooseWeapon()
     {
-        chooseWeaponMenu.SetActive(true);
+        if (RuneManager.instanceRM.hasBuyHandgun == "true" || RuneManager.instanceRM.hasBuyGrimoire == "true")
+        {
+            chooseWeaponMenu.SetActive(true);
+        }
+        else if (AchievementManager.instanceAM.stepsNumber <= 0)
+        {
+            tutorial.SetActive(true);
+            lastTutoImage.onClick.RemoveAllListeners();
+            lastTutoImage.onClick.AddListener(delegate { lastTutoImage.GetComponent<TutorialButton>().FinalImageAndLauchGame(); });
+        }
+        else
+        {
+            RuneManager.instanceRM.currentWeapon = WeaponType.DAGGER;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
     }
 
     public void CloseChooseWeapon()

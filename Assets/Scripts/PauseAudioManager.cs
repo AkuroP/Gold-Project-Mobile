@@ -14,6 +14,9 @@ public class PauseAudioManager : MonoBehaviour
     public bool hasSound = true;
     public bool hasMusic = true;
 
+    public GameObject tutorialPanel;
+    [SerializeField] Button lastTutoImage;
+
     public void SoundOnOff()
     {
         Sprite[] allSprites = Resources.LoadAll<Sprite>("Assets/GA/UX&UI/bouton_son (1)");
@@ -56,5 +59,12 @@ public class PauseAudioManager : MonoBehaviour
             hasMusic = true;
             music.SetFloat("volume", 0f);
         }
+    }
+
+    public void ShowTutorial()
+    {
+        tutorialPanel.SetActive(true);
+        lastTutoImage.onClick.RemoveAllListeners();
+        lastTutoImage.onClick.AddListener(delegate { lastTutoImage.GetComponent<TutorialButton>().FinalImageAndClose(); });
     }
 }

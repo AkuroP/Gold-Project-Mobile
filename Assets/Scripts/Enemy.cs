@@ -581,7 +581,7 @@ public class Enemy : Entity
                     else if (Inventory.instanceInventory.HasItem("Poison Fog"))
                     {
                         Inventory.instanceInventory.RemoveItem("Poison Fog");
-                        GameManager.instanceGM.sfxAudioSource.clip = Resources.Load<AudioClip>("Assets/audio/SFX_Item_Highlight");
+                        GameManager.instanceGM.sfxAudioSource.clip = Resources.Load<AudioClip>("Assets/audio/SFX_Item_Poison");
                         GameManager.instanceGM.sfxAudioSource.Play();
                         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
                         foreach(GameObject enemy in enemies)
@@ -591,24 +591,20 @@ public class Enemy : Entity
                     }
                     else if (Inventory.instanceInventory.HasItem("Freeze Time"))
                     {
+                        GameManager.instanceGM.sfxAudioSource.clip = Resources.Load<AudioClip>("Assets/audio/SFX_Item_Highlight");
+                        GameManager.instanceGM.sfxAudioSource.Play();
                         if (Inventory.instanceInventory.items[0].itemName == "Freeze Time")
                         {
-                            GameManager.instanceGM.sfxAudioSource.clip = Resources.Load<AudioClip>("Assets/audio/SFX_Item_Highlight");
-                            GameManager.instanceGM.sfxAudioSource.Play();
                             UI.instanceUI.activeSlot1.sprite = Resources.Load<Sprite>("Assets/GA/HUD/activeItem1");
                             Inventory.instanceInventory.items[0].itemCooldown = 1;
                         }
                         else if (Inventory.instanceInventory.items[1].itemName == "Freeze Time")
                         {
-                            GameManager.instanceGM.sfxAudioSource.clip = Resources.Load<AudioClip>("Assets/audio/SFX_Item_Highlight");
-                            GameManager.instanceGM.sfxAudioSource.Play();
                             UI.instanceUI.activeSlot2.sprite = Resources.Load<Sprite>("Assets/GA/HUD/activeItem2");
                             Inventory.instanceInventory.items[1].itemCooldown = 1;
                         }
                         else if (Inventory.instanceInventory.items[2].itemName == "Freeze Time")
                         {
-                            GameManager.instanceGM.sfxAudioSource.clip = Resources.Load<AudioClip>("Assets/audio/SFX_Item_Highlight");
-                            GameManager.instanceGM.sfxAudioSource.Play();
                             UI.instanceUI.activeSlot3.sprite = Resources.Load<Sprite>("Assets/GA/HUD/activeItem3");
                             Inventory.instanceInventory.items[2].itemCooldown = 1;
                         }
@@ -623,7 +619,7 @@ public class Enemy : Entity
                     //item that boosts the player when damages
                     if(Inventory.instanceInventory.HasItem("Counter Ring"))
                     {
-                        GameManager.instanceGM.sfxAudioSource.clip = Resources.Load<AudioClip>("Assets/audio/SFX_Item_Highlight");
+                        GameManager.instanceGM.sfxAudioSource.clip = Resources.Load<AudioClip>("Assets/audio/SFX_Item_Counter");
                         GameManager.instanceGM.sfxAudioSource.Play();
                         player.damageMultiplicator = 2;
                         if (Inventory.instanceInventory.items[0].itemName == "Counter Ring")

@@ -304,7 +304,7 @@ public class GameManager : MonoBehaviour
                 }
                 if (Inventory.instanceInventory.HasItem("Worn Speed Boots") && turnNumber % 3 == 0)
                 {
-                    sfxAudioSource.clip = Resources.Load<AudioClip>("Assets/audio/SFX_Item_Highlight");
+                    sfxAudioSource.clip = Resources.Load<AudioClip>("Assets/audio/SFX_Item_WornBoots");
                     sfxAudioSource.Play();
                     playingEntity.mobility++;
                     if(Inventory.instanceInventory.items[0].itemName == "Worn Speed Boots")

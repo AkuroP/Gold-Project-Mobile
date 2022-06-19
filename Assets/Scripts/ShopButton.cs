@@ -129,6 +129,7 @@ public class ShopButton : MonoBehaviour
                         player.mobility++;
                         break;
                 }
+                player.numEssence -= item.itemCost;
                 for (int i = 0; i < shopButtons.Length; i++)
                 {
                     inventoryButtons[i].GetComponent<ShopInventoryButton>().itemToAdd = item;
