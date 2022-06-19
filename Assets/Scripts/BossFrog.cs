@@ -13,8 +13,6 @@ public class BossFrog : Boss
     private GameObject poisonGO;
     private List<GameObject> poisoninTiles = new List<GameObject>();
 
-    private int poisonNumber;
-
     [Header("==== Tongue Attack ====")]
     public List<Tile> tongueAttackZone = new List<Tile>();
     public bool tongueAttackInProgress = false;
@@ -226,30 +224,6 @@ public class BossFrog : Boss
         //SpawnPoison();
     }
 
-    private void SpawnPoison()
-    {
-        Debug.Log("POISON NUMBER : " + poisonNumber);
-        if(poisonSpitList.Count == poisonNumber)
-        {
-            for(int i = 0; i < poisonNumber; i++)
-            {
-                GameObject poison = Instantiate(poisonGO, poisonSpitList[i].targetTile.gameObject.transform);
-                poisoninTiles.Add(poison);
-            }
-
-        }
-        else if(poisonSpitList.Count > poisonNumber)
-        {
-            Debug.Log("DIF");
-            int numberDif = poisonSpitList.Count - poisonNumber;
-            for(int i = 0; i < poisonNumber; i++)
-            {
-                GameObject poison = Instantiate(poisonGO, poisonSpitList[(i + numberDif)].targetTile.gameObject.transform);
-                poisoninTiles.Add(poison);
-            }
-        }
-        poisonNumber = 0;
-    }
 
     public void UpdatePoisonSpitFalls()
     {
@@ -257,39 +231,32 @@ public class BossFrog : Boss
         for (int i = 0;i < poisonSpitList.Count; i++)
         {
             FrogPoisonSpit currentFPG = poisonSpitList[i];
-            /*GameObject currentPoison = null;
-            if(poisonSpitList.Count == poisoninTiles.Count) 
-            {
-                currentPoison = poisoninTiles[i];
-            }
-            else if(poisonSpitList.Count > poisoninTiles.Count)
-            {
-                int dif = poisonSpitList.Count - poisoninTiles.Count;
-                currentPoison = poisoninTiles[i + dif];
-                Debug.Log("START AT " + dif);
-            }*/
-            //Debug.Log("PSL COUNT : " + poisonSpitList.Count + " PIT COUNT : " + poisoninTiles.Count);
+            
             currentFPG.turnBeforeImpact--;
 
             if(currentFPG.turnBeforeImpact == 1)
             {
                 StartCoroutine(currentFPG.targetTile.TurnColor(new Color(0f, 1f, 0f, 1f), 0));
+                GameObject poison = Instantiate(poisonGO, currentFPG.targetTile.transform);
+                poisoninTiles.Add(poison);
             }
 
             if (currentFPG.turnBeforeImpact == 0)
             {
-
-                StartSpitPoisonAttack(currentFPG);
+                GameObject currentPoison = currentFPG.targetTile.gameObject.GetComponentInChildren<AnimDestruct>().gameObject;
+                StartSpitPoisonAttack(currentFPG, currentPoison.GetComponent<Animator>());
                 poisonSpitList.Remove(currentFPG);
-                //poisoninTiles.Remove(currentPoison);
+
+                poisoninTiles.Remove(currentPoison);
                 i--;
             }
         }
+
     }
 
-    public void StartSpitPoisonAttack(FrogPoisonSpit _fpg)
+    public void StartSpitPoisonAttack(FrogPoisonSpit _fpg, Animator _poisonAnim)
     {
-        //_poisonAnim.SetBool("poisoned", true);
+        _poisonAnim.SetBool("poisoned", true);
         StartCoroutine(ShowTile(_fpg.targetTile, 0));
 
         if (_fpg.targetTile.entityOnTile != null && _fpg.targetTile.entityOnTile is Player)
