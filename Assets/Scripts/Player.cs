@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Player : Entity
 {
@@ -27,14 +28,35 @@ public class Player : Entity
 
     public bool isInShop = false;
 
+    public Image buttonImage;
+
+    [HideInInspector] public Animator playerAnim;
+
     // Start is called before the first frame update
     void Start()
     {
         instanceGM = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
 
         currentPosition = transform.position;
-        weapon = new Weapon(WeaponType.HANDGUN, 0, 1);
+        weapon = new Weapon(RuneManager.instanceRM.currentWeapon, 0, 1);
         hp = maxHP;
+        attackDuration = 0.2f;
+
+        turnArrow = this.transform.Find("Arrow").gameObject;
+
+        switch (RuneManager.instanceRM.currentWeapon)
+        {
+            case WeaponType.DAGGER:
+                buttonImage.sprite = Resources.Load<Sprite>("Assets/Graphics/UI/HUD/DagueUp");
+                break;
+            case WeaponType.HANDGUN:
+                buttonImage.sprite = Resources.Load<Sprite>("Assets/Graphics/UI/HUD/GunUp");
+                break;
+            case WeaponType.GRIMOIRE:
+                buttonImage.sprite = Resources.Load<Sprite>("Assets/Graphics/UI/HUD/SpellUp");
+                break;
+        }
+        playerAnim = this.GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
@@ -42,7 +64,8 @@ public class Player : Entity
     {
         if(this.myTurn)
         {
-            if(!cdFire)
+            turnArrow.SetActive(true);
+            if (!cdFire)
             {
                 if(tilesOnFire.Count > 0)
                 {
@@ -62,6 +85,10 @@ public class Player : Entity
                 cdFire = true;
             }
         }
+        else
+        {
+            turnArrow.SetActive(false);
+        }
 
         //turn management
         if (Input.GetKeyDown(KeyCode.B))
@@ -79,9 +106,10 @@ public class Player : Entity
             }
             else
             {
+                playerAnim.SetBool("Death", true);
                 AchievementManager.instanceAM.roomWithoutTakingDamage = 0;
                 AchievementManager.instanceAM.UpdateDeathNumber();
-                SceneManager.LoadScene("MainMenu");
+                StartCoroutine(ToMainMenu());
             }
         }
 
@@ -89,11 +117,13 @@ public class Player : Entity
         //move process
         if (moveInProgress && !canMove && timeElapsed < moveDuration)
         {
+            playerAnim.SetBool("Move", true);
             transform.position = Vector3.Lerp(currentPosition, targetPosition, timeElapsed / moveDuration) - new Vector3(0, 0, 1);
             timeElapsed += Time.deltaTime;
         }
         else
         {
+            playerAnim.SetBool("Move", false);
             moveInProgress = false;
             canMove = true;
             timeElapsed = 0;
@@ -113,16 +143,16 @@ public class Player : Entity
                     }
                     else
                     {
-                        this.hp--;
+                        Damage(1, this);
                     }
                 }
                 else
                 {
-                    this.hp--;
+                    Damage(1, this);
                 }
             }
 
-            if(currentTile.isShop && !isInShop)
+            if (currentTile.isShop && !isInShop)
             {
                 GameManager.instanceGM.ShopIG();
                 isInShop = true;
@@ -134,12 +164,14 @@ public class Player : Entity
                 StartCoroutine(GoToNextRoom());
             }
         }
+
     }
 
     public override void StartAttack(List<AttackTileSettings> _upDirectionATS)
     {
         if(myTurn && !hasAttack)
         {
+            playerAnim.SetTrigger("Atk");
             numEssence -= attackCost;
 
             /*List<AttackTileSettings> attackPattern = ConvertPattern(_upDirectionATS, direction);
@@ -167,15 +199,6 @@ public class Player : Entity
             }*/
 
             //for turn by turn
-            if(mobility > 0)
-            {
-                mobility--;
-            }
-            else
-            {
-                hasPlay = true;
-            }
-            hasPlay = true;
             hasAttack = true;
             if(Inventory.instanceInventory.HasItem("Power Gloves"))
             {
@@ -186,8 +209,14 @@ public class Player : Entity
             {
                 this.weapon.ApplyEffect(this, 0);
             }
-
-
+            if (mobility > 0)
+            {
+                mobility--;
+            }
+            else
+            {
+                StartCoroutine(EndTurn(attackDuration));
+            }
         }
     }
 
@@ -197,15 +226,39 @@ public class Player : Entity
 
     public void AttackButton()
     {
-        if(SwipeDetection.instanceSD.blockInputs == false)
+        if(SwipeDetection.instanceSD.blockInputs == false && !hasAttack)
         {
             if (!attackNext)
             {
                 attackNext = true;
+                switch(RuneManager.instanceRM.currentWeapon)
+                {
+                    case WeaponType.DAGGER:
+                        buttonImage.sprite = Resources.Load<Sprite>("Assets/Graphics/UI/HUD/DagueDown");
+                        break;
+                    case WeaponType.HANDGUN:
+                        buttonImage.sprite = Resources.Load<Sprite>("Assets/Graphics/UI/HUD/GunDown");
+                        break;
+                    case WeaponType.GRIMOIRE:
+                        buttonImage.sprite = Resources.Load<Sprite>("Assets/Graphics/UI/HUD/SpellDown");
+                        break;
+                }
             }
             else
             {
                 attackNext = false;
+                switch (RuneManager.instanceRM.currentWeapon)
+                {
+                    case WeaponType.DAGGER:
+                        buttonImage.sprite = Resources.Load<Sprite>("Assets/Graphics/UI/HUD/DagueUp");
+                        break;
+                    case WeaponType.HANDGUN:
+                        buttonImage.sprite = Resources.Load<Sprite>("Assets/Graphics/UI/HUD/GunUp");
+                        break;
+                    case WeaponType.GRIMOIRE:
+                        buttonImage.sprite = Resources.Load<Sprite>("Assets/Graphics/UI/HUD/SpellUp");
+                        break;
+                }
             }
         }
     }
@@ -223,9 +276,15 @@ public class Player : Entity
         changingRoom = false;
     }
 
-    //function to take damage / die
-/*    public override void DamageSelf(int damage)
+    public IEnumerator ToMainMenu()
     {
+        yield return new WaitForSeconds(1.4f);
+        SceneManager.LoadScene("MainMenu");
+    }
 
-    }*/
+    //function to take damage / die
+    /*    public override void DamageSelf(int damage)
+        {
+
+        }*/
 }

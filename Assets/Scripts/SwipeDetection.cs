@@ -15,6 +15,7 @@ public class SwipeDetection : MonoBehaviour
     private bool swipeDone;
     public bool doubleClickTimerOn = false;
     public bool blockInputs = false;
+    public bool isInShop = false;
 
     public float doubleClickTimer = 0f;
     [SerializeField] private float doubleClickInterval = 0.5f;
@@ -37,6 +38,16 @@ public class SwipeDetection : MonoBehaviour
 
     void Update()
     {
+
+        if(GameManager.instanceGM.isPaused || player.myTurn == false || isInShop == true)
+        {
+            blockInputs = true;
+        }
+        else
+        {
+            blockInputs = false;
+        }
+
         if(!SwipeDetection.instanceSD.blockInputs)
         {
             if(doubleClickTimerOn == true)
@@ -49,7 +60,7 @@ public class SwipeDetection : MonoBehaviour
                 }
             }
 
-            if (fingerDown == false && Input.GetMouseButtonDown(0) && blockInputs == false && EventSystem.current.currentSelectedGameObject != UI.instanceUI.attackButton)
+            if (fingerDown == false && Input.GetMouseButtonDown(0) && blockInputs == false && EventSystem.current.currentSelectedGameObject != UI.instanceUI.attackButton && EventSystem.current.currentSelectedGameObject != UI.instanceUI.optionButton && EventSystem.current.currentSelectedGameObject != UI.instanceUI.closeOptionButton)
             {
                 startPos = Input.mousePosition;
                 fingerDown = true;
@@ -96,7 +107,7 @@ public class SwipeDetection : MonoBehaviour
                     }
                 
                 //Double click if new click arrives in less than "doubleclickinterval" seconds after the last click release
-                if(doubleClickTimerOn == true && doubleClickTimer < doubleClickInterval && player.attackNext == false && EventSystem.current.currentSelectedGameObject != UI.instanceUI.attackButton)
+                if(doubleClickTimerOn == true && doubleClickTimer < doubleClickInterval && player.attackNext == false && EventSystem.current.currentSelectedGameObject != UI.instanceUI.attackButton && EventSystem.current.currentSelectedGameObject != UI.instanceUI.optionButton && EventSystem.current.currentSelectedGameObject != UI.instanceUI.closeOptionButton)
                 {
                     doubleClickTimer = 0f;
                     doubleClickTimerOn = false;
@@ -104,7 +115,7 @@ public class SwipeDetection : MonoBehaviour
                 }
             }
 
-            if (fingerDown && Input.GetMouseButtonUp(0) && EventSystem.current.currentSelectedGameObject != UI.instanceUI.attackButton)
+            if (fingerDown && Input.GetMouseButtonUp(0) && EventSystem.current.currentSelectedGameObject != UI.instanceUI.attackButton && EventSystem.current.currentSelectedGameObject != UI.instanceUI.optionButton && EventSystem.current.currentSelectedGameObject != UI.instanceUI.closeOptionButton)
             {
                 fingerDown = false;
                 doubleClickTimerOn = true;
@@ -119,8 +130,20 @@ public class SwipeDetection : MonoBehaviour
                     //Debug.Log("Attack");
                     player.StartAttack(player.weapon.upDirectionATS);
                     player.attackNext = false;
+                    switch (RuneManager.instanceRM.currentWeapon)
+                    {
+                        case WeaponType.DAGGER:
+                            player.buttonImage.sprite = Resources.Load<Sprite>("Assets/Graphics/UI/HUD/DagueUp");
+                            break;
+                        case WeaponType.HANDGUN:
+                            player.buttonImage.sprite = Resources.Load<Sprite>("Assets/Graphics/UI/HUD/GunUp");
+                            break;
+                        case WeaponType.GRIMOIRE:
+                            player.buttonImage.sprite = Resources.Load<Sprite>("Assets/Graphics/UI/HUD/SpellUp");
+                            break;
+                    }
                 }
-                else
+                else if (!player.hasMove)
                 {
                     player.FindNextTile();
                     player.moveNext = false;

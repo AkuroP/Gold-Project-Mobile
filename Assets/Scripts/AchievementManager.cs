@@ -30,8 +30,8 @@ public class AchievementManager : MonoBehaviour
     public int enemiesKilledWithGrimory;
     public int bossKilledWithGrimory;
 
-    public bool hasPurchasedHandgun;
-    public bool hasPurchasedGrimoire;
+    public string hasPurchasedHandgun = "false";
+    public string hasPurchasedGrimoire = "false";
 
     public static AchievementManager instanceAM;
 
@@ -49,7 +49,33 @@ public class AchievementManager : MonoBehaviour
 
         PlayGamesPlatform.DebugLogEnabled = true;
         PlayGamesPlatform.Activate();
+
+        stepsNumber = PlayerPrefs.GetInt("stepsNumber");
+        roomWithoutTakingDamage = PlayerPrefs.GetInt("roomWithoutTakingDamage");
+        deathNumber = PlayerPrefs.GetInt("deathNumber");
+        enemiesKilled = PlayerPrefs.GetInt("enemiesKilled");
+        bossKilled = PlayerPrefs.GetInt("bossKilled");
+        trapsActivated = PlayerPrefs.GetInt("trapsActivated");
+        itemsPurchased = PlayerPrefs.GetInt("itemsPurchased");
+        runesPurchased = PlayerPrefs.GetInt("runesPurchased");
+        enemiesKilledWithDagger = PlayerPrefs.GetInt("enemiesKilledWithDagger");
+        bossKilledWithDagger = PlayerPrefs.GetInt("bossKilledWithDagger");
+        enemiesKilledWithBleeding = PlayerPrefs.GetInt("enemiesKilledWithBleeding");
+        bossKilledWithBleeding = PlayerPrefs.GetInt("bossKilledWithBleeding");
+        enemiesKilledWithHandgun = PlayerPrefs.GetInt("enemiesKilledWithHandgun");
+        bossKilledWithHandgun = PlayerPrefs.GetInt("bossKilledWithHangun");
+        enemiesKilledWithGrimory = PlayerPrefs.GetInt("enemiesKilledWithGrimory");
+        bossKilledWithGrimory = PlayerPrefs.GetInt("BossKilledWithGrimory");
+        if (PlayerPrefs.GetString("hasPurchasedHandgun") != "")
+        {
+            hasPurchasedHandgun = PlayerPrefs.GetString("hasPurchasedHandgun");
+        }
+        if (PlayerPrefs.GetString("hasPurchasedGrimoire") != "")
+        {
+            hasPurchasedGrimoire = PlayerPrefs.GetString("hasPurchasedGrimoire");
+        }
     }
+
     public void Start()
     {
         PlayGamesPlatform.Instance.Authenticate(ProcessAuthentication);
@@ -96,7 +122,8 @@ public class AchievementManager : MonoBehaviour
     public void UpdateStepsAchievement()
     {
         stepsNumber++;
-        if(stepsNumber >= 150)
+        PlayerPrefs.SetInt("stepsNumber", stepsNumber);
+        if (stepsNumber >= 150)
         {
             Social.ReportProgress(GPGSIds.achievement_walking_simulator, 100.0f, null);
         }
@@ -109,7 +136,8 @@ public class AchievementManager : MonoBehaviour
     public void UpdateRoomWithoutTakingDamageAchievement()
     {
         roomWithoutTakingDamage++;
-        if(roomWithoutTakingDamage >= 10)
+        PlayerPrefs.SetInt("roomWithoutTakingDamage", roomWithoutTakingDamage);
+        if (roomWithoutTakingDamage >= 10)
         {
             Social.ReportProgress(GPGSIds.achievement_pff_even_i_can_do_that, 100.0f, null);
         }
@@ -125,14 +153,14 @@ public class AchievementManager : MonoBehaviour
 
     public void UpdateCowardAchievement()
     {
-        Debug.Log("Coward");
         Social.ReportProgress(GPGSIds.achievement_the_coward_way, 100.0f, null);
     }
 
     public void UpdateDeathNumber()
     {
         deathNumber++;
-        if(deathNumber >= 1)
+        PlayerPrefs.SetInt("deathNumber", deathNumber);
+        if (deathNumber >= 1)
         {
             Social.ReportProgress(GPGSIds.achievement_learning, 100.0f, null);
         }
@@ -145,6 +173,7 @@ public class AchievementManager : MonoBehaviour
     public void UpdateEnemiesKilled()
     {
         enemiesKilled++;
+        PlayerPrefs.SetInt("enemiesKilled", enemiesKilled);
         if (enemiesKilled >= 50)
         {
             Social.ReportProgress(GPGSIds.achievement_hunter, 100.0f, null);
@@ -158,6 +187,7 @@ public class AchievementManager : MonoBehaviour
     public void UpdateBossesKilled()
     {
         bossKilled++;
+        PlayerPrefs.SetInt("bossKilled", bossKilled);
         if (bossKilled >= 5)
         {
             Social.ReportProgress(GPGSIds.achievement_devil_slayer, 100.0f, null);
@@ -179,6 +209,7 @@ public class AchievementManager : MonoBehaviour
     public void UpdateTrapsActivated()
     {
         trapsActivated++;
+        PlayerPrefs.SetInt("trapsActivated",  trapsActivated);
         if (trapsActivated >= 1)
         {
             Social.ReportProgress(GPGSIds.achievement_its_a_trap, 100.0f, null);
@@ -192,6 +223,7 @@ public class AchievementManager : MonoBehaviour
     public void UpdateItemsPurchased()
     {
         itemsPurchased++;
+        PlayerPrefs.SetInt("itemsPurchased", itemsPurchased);
         if (itemsPurchased >= 25)
         {
             Social.ReportProgress(GPGSIds.achievement_pocket_savings, 100.0f, null);
@@ -210,6 +242,7 @@ public class AchievementManager : MonoBehaviour
     public void UpdateEnemiesKilledWithDagger()
     {
         enemiesKilledWithDagger++;
+        PlayerPrefs.SetInt("enemiesKilledWithDagger", enemiesKilledWithDagger);
         if (enemiesKilledWithDagger >= 50)
         {
             Social.ReportProgress(GPGSIds.achievement_hope_you_didnt_kill_any_friend_in_this_frenzy, 100.0f, null);
@@ -219,6 +252,7 @@ public class AchievementManager : MonoBehaviour
     public void UpdateEnemiesKilledWithHandgun()
     {
         enemiesKilledWithHandgun++;
+        PlayerPrefs.SetInt("enemiesKilledWithHandgun", enemiesKilledWithHandgun);
         if (enemiesKilledWithHandgun >= 50)
         {
             Social.ReportProgress(GPGSIds.achievement_i_shot_u_ded, 100.0f, null);
@@ -228,6 +262,7 @@ public class AchievementManager : MonoBehaviour
     public void UpdateEnemiesKilledWithGrimory()
     {
         enemiesKilledWithGrimory++;
+        PlayerPrefs.SetInt("enemiesKilledWithGrimory", enemiesKilledWithGrimory);
         if (enemiesKilledWithGrimory >= 50)
         {
             Social.ReportProgress(GPGSIds.achievement_well_that_a_lot_of_crispy_chicken, 100.0f, null);
@@ -237,6 +272,7 @@ public class AchievementManager : MonoBehaviour
     public void UpdateBossesKilledWithDagger()
     {
         bossKilledWithDagger++;
+        PlayerPrefs.SetInt("bossKilledWithDagger", bossKilledWithDagger);
         if (bossKilledWithDagger >= 5)
         {
             Social.ReportProgress(GPGSIds.achievement_they_were_so_cute_now_they_are_dead, 100.0f, null);
@@ -246,6 +282,7 @@ public class AchievementManager : MonoBehaviour
     public void UpdateBossesKilledWithHandgun()
     {
         bossKilledWithHandgun++;
+        PlayerPrefs.SetInt("bossKilledWithHangun", bossKilledWithHandgun);
         if (bossKilledWithHandgun >= 5)
         {
             Social.ReportProgress(GPGSIds.achievement_youre_like_billy_the_kid__but_uglier, 100.0f, null);
@@ -255,6 +292,7 @@ public class AchievementManager : MonoBehaviour
     public void UpdateBossesKilledWithGrimory()
     {
         bossKilledWithGrimory++;
+        PlayerPrefs.SetInt("BossKilledWithGrimory", bossKilledWithGrimory);
         if (bossKilledWithGrimory >= 5)
         {
             Social.ReportProgress(GPGSIds.achievement_hope_you_didnt_burn_anything_expensive, 100.0f, null);
@@ -264,20 +302,22 @@ public class AchievementManager : MonoBehaviour
     public void UpdateHandgunPurchase()
     {
         Social.ReportProgress(GPGSIds.achievement_the_good_the_bad_and_the_abyss, 100.0f, null);
-        hasPurchasedHandgun = true;
+        hasPurchasedHandgun = "true";
+        PlayerPrefs.SetString("hasPurchasedHandgun", hasPurchasedHandgun);
         UpdateallWeaponPurchased();
     }
 
     public void UpdateGrimoirePurchase()
     {
         Social.ReportProgress(GPGSIds.achievement_5_points_for_gryffindor, 100.0f, null);
-        hasPurchasedGrimoire = true;
+        hasPurchasedGrimoire = "true";
+        PlayerPrefs.SetString("hasPurchasedGrimoire", hasPurchasedGrimoire);
         UpdateallWeaponPurchased();
     }
 
     public void UpdateallWeaponPurchased()
     {
-        if(hasPurchasedHandgun && hasPurchasedGrimoire)
+        if(hasPurchasedHandgun == "true" && hasPurchasedGrimoire == "true")
         {
             Social.ReportProgress(GPGSIds.achievement_war_machine, 100.0f, null);
         }
@@ -301,7 +341,8 @@ public class AchievementManager : MonoBehaviour
     public void UpdateRunesPurchased()
     {
         runesPurchased++;
-        if(runesPurchased >= 1)
+        PlayerPrefs.SetInt("runesPurchased", runesPurchased);
+        if (runesPurchased >= 1)
         {
             Social.ReportProgress(GPGSIds.achievement_improvements_in_progress, 100.0f, null);
         }
@@ -314,7 +355,8 @@ public class AchievementManager : MonoBehaviour
     public void UpdateEnemiesKilledWithBleed()
     {
         enemiesKilledWithBleeding++;
-        if(enemiesKilled >= 3)
+        PlayerPrefs.SetInt("enemiesKilledWithBleeding", enemiesKilledWithBleeding);
+        if (enemiesKilled >= 3)
         {
             Social.ReportProgress(GPGSIds.achievement_bloodbath_incoming, 100.0f, null);
         }
@@ -323,6 +365,7 @@ public class AchievementManager : MonoBehaviour
     public void UpdateBossesKilledWithBleed()
     {
         bossKilledWithBleeding++;
+        PlayerPrefs.SetInt("bossKilledWithBleeding", bossKilledWithBleeding);
         if (bossKilledWithBleeding >= 1)
         {
             Social.ReportProgress(GPGSIds.achievement_mind_if_i_take_your_blood, 100.0f, null);

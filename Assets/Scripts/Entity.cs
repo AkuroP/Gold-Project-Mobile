@@ -65,11 +65,13 @@ public class Entity : MonoBehaviour
     public float turnDuration;
 
     //Sprite and anims
-    [SerializeField] public SpriteRenderer entitySr;
+    public SpriteRenderer entitySr;
+    public GameObject turnArrow;
 
     public List<Debuff> entityStatus = new List<Debuff>();
 
     public bool hasCheckStatus = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -252,13 +254,42 @@ public class Entity : MonoBehaviour
         {
             if(direction == Direction.UP || direction == Direction.BOTTOM)
             {
-                entityInPattern.Add(currentTile.leftTile.entityOnTile);
-                entityInPattern.Add(currentTile.rightTile.entityOnTile);
+                if(currentTile.leftTile != null && !currentTile.leftTile.isWall)
+                {
+                    if (currentTile.leftTile.entityOnTile != null)
+                    {
+                        entityInPattern.Add(currentTile.leftTile.entityOnTile);
+                    }
+                    StartCoroutine(DrawAttack(currentTile.leftTile));
+                }
+
+                if (currentTile.rightTile != null && !currentTile.rightTile.isWall)
+                {
+                    if (currentTile.rightTile.entityOnTile != null)
+                    {
+                        entityInPattern.Add(currentTile.rightTile.entityOnTile);
+                    }
+                    StartCoroutine(DrawAttack(currentTile.rightTile));
+                }
             }
             else
             {
-                entityInPattern.Add(currentTile.topTile.entityOnTile);
-                entityInPattern.Add(currentTile.bottomTile.entityOnTile);
+                if (currentTile.topTile != null && !currentTile.topTile.isWall)
+                {
+                    if (currentTile.topTile.entityOnTile != null)
+                    {
+                        entityInPattern.Add(currentTile.topTile.entityOnTile);
+                    }
+                    StartCoroutine(DrawAttack(currentTile.topTile));
+                }
+                if (currentTile.bottomTile != null && !currentTile.bottomTile.isWall)
+                {
+                    if (currentTile.bottomTile.entityOnTile != null)
+                    {
+                        entityInPattern.Add(currentTile.bottomTile.entityOnTile);
+                    }
+                    StartCoroutine(DrawAttack(currentTile.bottomTile));
+                }
             }
         }
 
@@ -389,73 +420,86 @@ public class Entity : MonoBehaviour
         {
             AchievementManager.instanceAM.UpdateFullCounter();
         }
-        if (entity.invincibilityTurn == 0)
+        if(entity is BossTP && entity.GetComponent<BossTP>().sunCreeps.Count > 0)
+        {
+            return;
+        }
+        else if ((entity is BossTP || entity is BossFrog) && Inventory.instanceInventory.HasItem("Boss Slayer"))
+        {
+            entity.hp -= damage * damageMultiplicator + 1;
+        }
+        else if (entity.invincibilityTurn == 0)
         {
             entity.hp -= damage * damageMultiplicator;
             damageMultiplicator = 1;
             if (entity.CompareTag("Player"))
             {
                 AchievementManager.instanceAM.roomWithoutTakingDamage = -1;
+                PlayerPrefs.SetInt("roomWithoutTakingDamage", AchievementManager.instanceAM.roomWithoutTakingDamage);
             }
         }
     }
 
     public virtual void Move(Tile _targetTile)
     {
-        currentPosition = transform.position;
-        targetPosition = _targetTile.transform.position;
+        if(!hasMove)
+        {
+            currentPosition = transform.position;
+            targetPosition = _targetTile.transform.position;
 
-        if(currentTile.tileX < _targetTile.tileX)
-        {
-            entitySr.flipX = true;
-        }
-        else if (currentTile.tileX > _targetTile.tileX)
-        {
-            entitySr.flipX = false;
-        }
+            if (currentTile.tileX < _targetTile.tileX)
+            {
+                entitySr.flipX = true;
+            }
+            else if (currentTile.tileX > _targetTile.tileX)
+            {
+                entitySr.flipX = false;
+            }
 
-        //Debug.Log(currentPosition + " / " + targetPosition);
+            //Debug.Log(currentPosition + " / " + targetPosition);
 
-        if (currentTile.isHole == true && currentTile.isOpen == false)
-        {
-            currentTile.isReachable = false;
-            currentTile.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/Tiles/TilemapsDark_Spritesheet_14");
-        }
-        if (currentTile.isPike == true)
-        {
-            currentTile.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/Tiles/TilemapsDark_Spritesheet_24");
-            isOnThePike = false;
-        }
+            if (currentTile.isHole == true && currentTile.isOpen == false)
+            {
+                currentTile.isReachable = false;
+                currentTile.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/Tiles/TilemapsDark_Spritesheet_14");
+            }
+            if (currentTile.isPike == true)
+            {
+                currentTile.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/Tiles/TilemapsDark_Spritesheet_24");
+                isOnThePike = false;
+            }
 
-        if (!_targetTile.isHole)
-        {
-            _targetTile.entityOnTile = currentTile.entityOnTile;
-            currentTile.entityOnTile = null;
-            currentTile = _targetTile;
-            lastNotHoleTile = currentTile;
-        }
-        else if (_targetTile.isHole)
-        {
-            _targetTile.entityOnTile = currentTile.entityOnTile;
-            currentTile.entityOnTile = null;
-            currentTile = _targetTile;
-        }
+            if (!_targetTile.isHole)
+            {
+                _targetTile.entityOnTile = currentTile.entityOnTile;
+                currentTile.entityOnTile = null;
+                currentTile = _targetTile;
+                lastNotHoleTile = currentTile;
+            }
+            else if (_targetTile.isHole)
+            {
+                _targetTile.entityOnTile = currentTile.entityOnTile;
+                currentTile.entityOnTile = null;
+                currentTile = _targetTile;
+            }
 
-        moveInProgress = true;
-        if(mobility > 0)
-        {
-            mobility--;
+            moveInProgress = true;
+            if (mobility > 0)
+            {
+                mobility--;
+            }
+            else if (this is Player && mobility == 0)
+            {
+                hasMove = true;
+                StartCoroutine(EndTurn(moveDuration));
+            }
+            if (this.CompareTag("Player"))
+            {
+                AchievementManager.instanceAM.UpdateStepsAchievement();
+            }
+            entitySr.sortingOrder = 11 - currentTile.tileY;
+            canMove = false;
         }
-        else if (this is Player)
-        {
-            hasMove = true;
-            hasPlay = true;
-        }
-        if(this.CompareTag("Player"))
-        {
-            AchievementManager.instanceAM.UpdateStepsAchievement();
-        }
-        canMove = false;
     }  
 
     public IEnumerator MoveWithDelay(Tile _targetTile, float _delay)
@@ -467,11 +511,31 @@ public class Entity : MonoBehaviour
 
         //Debug.Log(_delay + " / " + currentPosition + " / " + targetPosition);
 
-        if (!_targetTile.isHole)
+        if (currentTile.isPike == true)
+        {
+            currentTile.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/Tiles/TilemapsDark_Spritesheet_24");
+            isOnThePike = false;
+        }
+
+        if (!_targetTile.isOpen)
         {
             _targetTile.entityOnTile = currentTile.entityOnTile;
             currentTile.entityOnTile = null;
             currentTile = _targetTile;
+        }
+
+        if (currentTile.isPike && !isOnThePike)
+        {
+            currentTile.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/Tiles/TilemapsDark_Spritesheet_25");
+            isOnThePike = true;
+            if (hp == 1)
+            {
+                StartCoroutine(ResetPike(currentTile));
+            }
+            else
+            {
+                Damage(1, this);
+            }
         }
 
         moveInProgress = true;
@@ -482,11 +546,11 @@ public class Entity : MonoBehaviour
     {
         for(int i = 0; i < _targetTileList.Count; i++)
         {
-            StartCoroutine(MoveWithDelay(_targetTileList[i], moveDuration * i + 0.15f * i));
+            StartCoroutine(MoveWithDelay(_targetTileList[i], moveDuration * i + 0.2f * i));
         }
     }
 
-    public bool FindNextTile()
+    public virtual bool FindNextTile()
     {
         switch (direction)
         {
@@ -495,6 +559,10 @@ public class Entity : MonoBehaviour
                 if (currentMap.CheckMove(topTile, this))
                 {
                     this.Move(topTile);
+                    if(this is Player)
+                    {
+                        this.GetComponent<Player>().numEssence--;
+                    }
                     return true;
                 }
                 else
@@ -507,6 +575,10 @@ public class Entity : MonoBehaviour
                 if (currentMap.CheckMove(rightTile, this))
                 {
                     this.Move(rightTile);
+                    if (this is Player)
+                    {
+                        this.GetComponent<Player>().numEssence--;
+                    }
                     return true;
                 }
                 else
@@ -519,6 +591,10 @@ public class Entity : MonoBehaviour
                 if (currentMap.CheckMove(bottomTile, this))
                 {
                     this.Move(bottomTile);
+                    if (this is Player)
+                    {
+                        this.GetComponent<Player>().numEssence--;
+                    }
                     return true;
                 }
                 else
@@ -531,6 +607,10 @@ public class Entity : MonoBehaviour
                 if (currentMap.CheckMove(leftTile, this))
                 {
                     this.Move(leftTile);
+                    if (this is Player)
+                    {
+                        this.GetComponent<Player>().numEssence--;
+                    }
                     return true;
                 }
                 else
@@ -553,9 +633,21 @@ public class Entity : MonoBehaviour
 
     public IEnumerator EndTurn(float waitDuration)
     {
-        yield return new WaitForSeconds(waitDuration + 0.1f);
+        yield return new WaitForSeconds(waitDuration + 0.3f);
         hasPlay = true;
+        if (turnArrow != null)
+             turnArrow.SetActive(false);
+        if (this.entityStatus.Count > 0)
+        {
+            this.CheckStatus(this);
+        }
         //Debug.Log("fin du tour");
     }
 
+    public IEnumerator ResetPike(Tile pikeTile)
+    {
+        yield return new WaitForSeconds(0.3f);
+        pikeTile.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/Tiles/TilemapsDark_Spritesheet_24");
+        Damage(1, this);
+    }
 }

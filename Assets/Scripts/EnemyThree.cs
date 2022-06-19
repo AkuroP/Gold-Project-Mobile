@@ -17,6 +17,8 @@ public class EnemyThree : Enemy
     void Start()
     {
         //test = FindPath(currentTile, currentMap.player.currentTile, false);
+        enemyAnim = this.GetComponentInChildren<Animator>();
+        enemyAnim.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Assets/GA/Enemies/anims/mob_base");
     }
 
     public override void Init()
@@ -34,12 +36,21 @@ public class EnemyThree : Enemy
 
         chargeAttackCurrent = chargeAttackRoundMax;
 
-        moveDuration = 0.25f;
+        moveDuration = 0.4f;
+        attackDuration = .35f;
 
-        entitySr = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
+        entitySr = this.transform.Find("Sprite").GetComponent<SpriteRenderer>();
         entitySr.sprite = Resources.Load<Sprite>("Assets/Graphics/Enemies/Mob");
 
         AssignPattern();
+
+        turnArrow = this.transform.Find("Arrow").gameObject;
+
+        heart1 = this.transform.Find("Heart1").gameObject;
+        heart2 = this.transform.Find("Heart2").gameObject;
+        heart3 = this.transform.Find("Heart3").gameObject;
+        heart1.SetActive(false);
+        heart3.SetActive(false);
 
         isInitialize = true;
     }
@@ -59,13 +70,10 @@ public class EnemyThree : Enemy
 
         if (myTurn)
         {
+            turnArrow.SetActive(true);
             myTurn = false;
             turnDuration = 0;
 
-            if (this.entityStatus.Count > 0)
-            {
-                this.CheckStatus(this);
-            }
             StartTurn();
         }
 
@@ -81,6 +89,21 @@ public class EnemyThree : Enemy
             moveInProgress = false;
             canMove = true;
             timeElapsed = 0;
+
+            if (currentTile.isPike && !isOnThePike)
+            {
+                currentTile.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/Tiles/TilemapsDark_Spritesheet_25");
+                isOnThePike = true;
+                if(hp == 1)
+                {
+                    StartCoroutine(ResetPike(currentTile));
+                }
+                else
+                {
+                    Damage(1, this);
+                }
+            }
+            entitySr.sortingOrder = 11 - this.currentTile.tileY;
         }
 
         if (isInitialize)
@@ -112,6 +135,7 @@ public class EnemyThree : Enemy
                     chargeAttackCurrent = chargeAttackRoundMax;
 
                     StartAttack(upDirectionATS);
+                    enemyAnim.SetTrigger("Atk");
                     turnDuration += attackDuration;
                 }
             }
@@ -132,6 +156,7 @@ public class EnemyThree : Enemy
 
                         if (pathToTarget != null && pathToTarget.Count > 1)
                         {
+                            enemyAnim.SetTrigger("Move");
                             Move(pathToTarget[1]);
                             turnDuration += moveDuration;
                         }
@@ -149,6 +174,7 @@ public class EnemyThree : Enemy
                     }
                     else
                     {
+                        enemyAnim.SetTrigger("Move");
                         EnemyRandomMove();
                         turnDuration += moveDuration;
                         moveCDCurrent = moveCDMax;
@@ -171,6 +197,7 @@ public class EnemyThree : Enemy
 
                 direction = dir;
                 StartAttack(upDirectionATS);
+                enemyAnim.SetTrigger("Atk");
                 turnDuration += attackDuration;
             }
         }

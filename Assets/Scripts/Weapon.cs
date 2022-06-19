@@ -76,16 +76,16 @@ public class Weapon
                 {
                     if (enemiesInRange[i] is Enemy)
                     {
+                        if (this.weaponLevel >= 2 && enemiesInRange[i].hp <= this.weaponDamage + _bonusDamage)
+                        {
+                            Debug.Log("BONUS MOVE");
+                            _attacker.GetComponent<Player>().mobility++;
+                            _attacker.GetComponent<Player>().hasPlay = false;
+                        }
                         _attacker.Damage(this.weaponDamage + _bonusDamage, enemiesInRange[i]);
                         if(this.weaponLevel >= 1)
                         {
                             enemiesInRange[i].ApplyDebuff(Debuff.Status.BLEED, bleedingCD);
-                        }
-                        if(this.weaponLevel >= 2)
-                        {
-                            Debug.Log("BONUS MOVE");
-                            _attacker.GetComponent<Player>().numEssence += 1;
-                            _attacker.GetComponent<Player>().hasPlay = false;
                         }
                     }
                 }

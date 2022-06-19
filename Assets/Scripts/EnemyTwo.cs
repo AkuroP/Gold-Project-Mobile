@@ -10,7 +10,8 @@ public class EnemyTwo : Enemy
     // Start is called before the first frame update
     void Start()
     {
-
+        enemyAnim = this.GetComponentInChildren<Animator>();
+        enemyAnim.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Assets/GA/Enemies/anims/tentacules4");
     }
 
     public override void Init()
@@ -24,13 +25,22 @@ public class EnemyTwo : Enemy
         moveCDMax = 0;
         moveCDCurrent = 0;
         pattern1 = true;
+        attackDuration = .45f;
 
         entityDangerousness = 1;
 
-        entitySr = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
-        entitySr.sprite = Resources.Load<Sprite>("Assets/Graphics/Enemies/Tentacule4");
+        entitySr = this.transform.Find("Sprite").GetComponent<SpriteRenderer>();
+        entitySr.sprite = Resources.Load<Sprite>("Assets/Graphics/Enemies/tentacule4");
 
         AssignPattern();
+
+        turnArrow = this.transform.Find("Arrow").gameObject;
+
+        heart1 = this.transform.Find("Heart1").gameObject;
+        heart2 = this.transform.Find("Heart2").gameObject;
+        heart3 = this.transform.Find("Heart3").gameObject;
+        heart1.SetActive(false);
+        heart3.SetActive(false);
 
         isInitialize = true;
     }
@@ -55,14 +65,10 @@ public class EnemyTwo : Enemy
     {
         if(this.myTurn)
         {
+            turnArrow.SetActive(true);
             myTurn = false;
             turnDuration = 0;
 
-            if (this.entityStatus.Count > 0)
-            {
-                this.CheckStatus(this);
-                IsSelfDead();
-            }
             CheckFire();
             if(moveCDCurrent > 0)
             {
@@ -94,10 +100,13 @@ public class EnemyTwo : Enemy
 
         if(isInitialize)
             IsSelfDead();
+
+        entitySr.sortingOrder = 11 - this.currentTile.tileY;
     }
 
     public override void StartTurn()
     {
+        enemyAnim.SetTrigger("Atk");
         turnDuration += attackDuration;
         if(pattern1 == true)
         {

@@ -20,6 +20,7 @@ public class BossTP : Boss
     public bool chargeAttack = false;
     public int chargeAttackRoundMax = 1;
     public int chargeAttackCurrent;
+    private GameObject sunfireGO;
 
     void Update()
     {
@@ -63,6 +64,33 @@ public class BossTP : Boss
             canMove = true;
             timeElapsed = 0;
         }
+
+        switch (this.sunCreeps.Count)
+        {
+            case 1:
+                heart1.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/creepsheart");
+                heart2.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/Graphics/empty");
+                heart3.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/Graphics/empty");
+                break;
+            case 2:
+                heart1.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/creepsheart");
+                heart2.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/creepsheart");
+                heart3.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/emptys");
+                break;
+            case 3:
+                heart1.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/creepsheart");
+                heart2.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/creepsheart");
+                heart3.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/creepsheart");
+                break;
+            default:
+                break;
+        }
+        if(sunCreeps.Count == 0)
+        {
+            heart2.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/hud1_1");
+            heart1.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/Graphics/empty");
+            heart3.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/Graphics/empty");
+        }
     }
 
     public override void Init()
@@ -80,10 +108,17 @@ public class BossTP : Boss
 
         entitySr = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
         entitySr.sprite = Resources.Load<Sprite>("Assets/Graphics/Enemies/Sun");
+        enemyAnim = this.GetComponentInChildren<Animator>();
+        enemyAnim.runtimeAnimatorController = enemyAnim.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Assets/GA/Enemies/anims/sun");
+        sunfireGO = Resources.Load("Prefabs/SunFireEffect") as GameObject;
 
         AssignPattern();
 
         isInitialize = true;
+
+        heart1 = this.transform.Find("Heart1").gameObject;
+        heart2 = this.transform.Find("Heart2").gameObject;
+        heart3 = this.transform.Find("Heart3").gameObject;
     }
 
     public void AssignPattern()
@@ -130,6 +165,9 @@ public class BossTP : Boss
             if(doAttack1 && !doAttack2)
             {
                 Debug.Log("att 1");
+                List<Tile> fireTile = this.GetTileInRange(upDirectionATS1, false);
+                Debug.Log("fire tile count : " + fireTile.Count);
+                StartCoroutine(SpawnFire(fireTile));
                 StartAttack(upDirectionATS1);
                 turnDuration += attackDuration;
                 doAttack2 = true;
@@ -137,12 +175,16 @@ public class BossTP : Boss
             else if(doAttack1 && doAttack2)
             {
                 Debug.Log("att 2");
+                List<Tile> fireTile = this.GetTileInRange(upDirectionATS2, false);
+                Debug.Log("fire tile count : " + fireTile.Count);
+                StartCoroutine(SpawnFire(fireTile));
                 StartAttack(upDirectionATS2);
                 turnDuration += attackDuration;
                 doAttack1 = false;
                 doAttack2 = false;
                 attackPhase = false;
             }
+            enemyAnim.SetTrigger("Atk");
         }
         else
         {
@@ -193,7 +235,7 @@ public class BossTP : Boss
                     chargeAttack = false;
                     chargeAttackCurrent = chargeAttackRoundMax;
 
-
+                    enemyAnim.SetTrigger("Atk");
                     StartAttack(upDirectionATS1);
                     turnDuration += attackDuration;
                 }
@@ -235,6 +277,7 @@ public class BossTP : Boss
 
                 direction = dir;
                 StartAttack(upDirectionATS1);
+                enemyAnim.SetTrigger("Atk");
                 turnDuration += attackDuration;
             }
         }
@@ -243,7 +286,10 @@ public class BossTP : Boss
     public void TPOut()
     {
         currentTile.entityOnTile = null;
-        this.gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
+        enemyAnim.SetBool("TP", true);
+        heart1.GetComponent<SpriteRenderer>().enabled = false;
+        heart2.GetComponent<SpriteRenderer>().enabled = false;
+        heart3.GetComponent<SpriteRenderer>().enabled = false;
         isInvisible = true;
     }
 
@@ -257,8 +303,26 @@ public class BossTP : Boss
 
         newTile.entityOnTile = this;
         currentTile = newTile;
+        entitySr.sortingOrder = 11 - currentTile.tileY;
         transform.position = currentTile.transform.position;
-        this.gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
+        enemyAnim.SetBool("TP", false);
+        heart1.GetComponent<SpriteRenderer>().enabled = true;
+        heart2.GetComponent<SpriteRenderer>().enabled = true;
+        heart3.GetComponent<SpriteRenderer>().enabled = true;
         isInvisible = false;
     }
+
+    private IEnumerator SpawnFire(List<Tile> _fireTiles)
+    {
+        for(int i = 0; i < _fireTiles.Count; i++)
+        {
+            float randomSpawn = Random.Range(0f, 0.05f);
+            Debug.Log("Spawn Time :" + randomSpawn);
+            yield return new WaitForSeconds(randomSpawn);
+            GameObject sFG = Instantiate(sunfireGO);
+            sFG.transform.parent = _fireTiles[i].transform;
+            sFG.transform.localPosition = new Vector3(0f, 0.5f, 0f);
+        }
+    }
+
 }

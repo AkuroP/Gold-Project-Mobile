@@ -39,6 +39,27 @@ public class BossFrog : Boss
             StartTurn();
             StartCoroutine(EndTurn(turnDuration));
         }
+
+        switch (this.hp)
+        {
+            case 1:
+                heart1.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/hud1_1");
+                heart2.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/hud1_0");
+                heart3.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/hud1_0");
+                break;
+            case 2:
+                heart1.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/hud1_1");
+                heart2.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/hud1_1");
+                heart3.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/hud1_0");
+                break;
+            case 3:
+                heart1.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/hud1_1");
+                heart2.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/hud1_1");
+                heart3.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/hud1_1");
+                break;
+            default:
+                break;
+        }
     }
 
     public override void Init()
@@ -50,6 +71,8 @@ public class BossFrog : Boss
         prio = Random.Range(1, 5);
         moveCDMax = 0;
         moveCDCurrent = 0;
+        enemyAnim = this.GetComponentInChildren<Animator>();
+        enemyAnim.runtimeAnimatorController = enemyAnim.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Assets/GA/Enemies/anims/frog");
 
         entitySr = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
         entitySr.sprite = Resources.Load<Sprite>("Assets/Graphics/Enemies/Crapo");
@@ -57,6 +80,12 @@ public class BossFrog : Boss
         AssignPattern();
 
         isInitialize = true;
+
+        turnArrow = this.transform.Find("Arrow").gameObject;
+
+        heart1 = this.transform.Find("Heart1").gameObject;
+        heart2 = this.transform.Find("Heart2").gameObject;
+        heart3 = this.transform.Find("Heart3").gameObject;
     }
 
     public void AssignPattern()
@@ -64,6 +93,7 @@ public class BossFrog : Boss
         //tongue Attack
         tongueAttackZone.Add(currentMap.tilesList[31]);
         tongueAttackZone.Add(currentMap.tilesList[38]);
+        tongueAttackZone.Add(currentMap.tilesList[24]);
 
         //neighbour Tiles
         neighbourTiles.Add(currentMap.tilesList[37]);
@@ -89,6 +119,7 @@ public class BossFrog : Boss
             if(tongueAttackCD > 0)
             {
                 Debug.Log("charge");
+                enemyAnim.SetTrigger("Charge");
                 tongueAttackCD--;
             }
             else
@@ -135,6 +166,7 @@ public class BossFrog : Boss
 
     public void StartAttackTongue()
     {
+        enemyAnim.SetTrigger("Atk_tongue");
         foreach (Tile tile in tongueAttackZone)
         {
             StartCoroutine(ShowTile(tile, 0));
@@ -143,11 +175,17 @@ public class BossFrog : Boss
         if (tongueAttackZone.Contains(player.currentTile))
         {
             Damage(tongueDamage, player);
+            player.playerAnim.SetTrigger("Hurt");
+            if (Inventory.instanceInventory.HasItem("Counter Ring"))
+            {
+                player.damageMultiplicator = 2;
+            }
         }
     }
 
     public void ThrowSpitPoisonAttack(int numberOfSpit)
     {
+        enemyAnim.SetTrigger("Atk_poison");
         List<Tile> tempTiles = new List<Tile>();
         int timeBeforeImpact = 3;
 
@@ -181,7 +219,8 @@ public class BossFrog : Boss
 
     public void UpdatePoisonSpitFalls()
     {
-        for(int i = 0;i < poisonSpitList.Count; i++)
+        turnDuration += splitDuration;
+        for (int i = 0;i < poisonSpitList.Count; i++)
         {
             FrogPoisonSpit currentFPG = poisonSpitList[i];
 
@@ -208,6 +247,11 @@ public class BossFrog : Boss
         if (_fpg.targetTile.entityOnTile != null && _fpg.targetTile.entityOnTile is Player)
         {
             Damage(poisonSpitDamage, _fpg.targetTile.entityOnTile);
+            player.playerAnim.SetTrigger("Hurt");
+            if (Inventory.instanceInventory.HasItem("Counter Ring"))
+            {
+                player.damageMultiplicator = 2;
+            }
         }
     }
 }

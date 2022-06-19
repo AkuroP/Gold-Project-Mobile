@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
     public int shopRoomNumber = 5;
     public int actualDangerousness;
     public int turnNumber;
+    public AudioClip LevelClip;
+    public AudioClip BossClip;
 
     [SerializeField] private GameObject shopUIprefab;
     [SerializeField] private GameObject shopPrefab;
@@ -50,6 +52,9 @@ public class GameManager : MonoBehaviour
 
     public bool firstUpgrade;
     public bool secondUpgrade;
+
+    public GameObject pauseMenu;
+    public bool isPaused;
 
     // Start is called before the first frame update
     void Start()
@@ -117,6 +122,10 @@ public class GameManager : MonoBehaviour
     {
         if(playingEntity != null)
         {
+            if(!playingEntity.hasPlay && playingEntity is Player)
+            {
+                SwipeDetection.instanceSD.blockInputs = false;
+            }
             if(playingEntity.hasPlay)
             {
                 //reset entity who has played
@@ -133,13 +142,30 @@ public class GameManager : MonoBehaviour
                 }
 
                 //next entity play
-                StartCoroutine(ChangeEntity());
+                ChangeEntity();
             }
         }
         else
         {
             //next entity play
-            StartCoroutine(ChangeEntity());
+            ChangeEntity();
+        }
+    
+    }
+
+    public void PauseResume(bool _pause)
+    {
+        if(_pause)
+        {
+            pauseMenu.SetActive(true);
+            isPaused = true;
+            Time.timeScale = 0f;
+        }
+        else
+        {
+            Time.timeScale = 1f;
+            pauseMenu.SetActive(false);
+            isPaused = false;
         }
     }
 
@@ -161,7 +187,7 @@ public class GameManager : MonoBehaviour
                 entities++;
             }
         }
-        if(entities - 1 == player.currentMap.enemySpawnTiles.Count)
+        if(entities == player.currentMap.entities.Count)
         {
             AchievementManager.instanceAM.UpdateCowardAchievement();
         }
@@ -171,13 +197,34 @@ public class GameManager : MonoBehaviour
         {
             floor++;
             room = 1;
-            if(Inventory.instanceInventory.HasItem("Life Regeneration"))
+            RuneManager.instanceRM.darkMatter += 1;
+            PlayerPrefs.SetInt("darkMatter", RuneManager.instanceRM.darkMatter);
+            if (Inventory.instanceInventory.HasItem("Life Regeneration"))
             {
                 if(player.hp < player.maxHP)
                 {
                     player.hp++;
                 }
             }
+        }
+
+        //music change
+        if (room == 1)
+        {
+            AudioSource audio = GetComponent<AudioSource>();
+
+            audio.clip = LevelClip;
+            audio.Play();
+
+        }
+
+        if (room == 10)
+        {
+            AudioSource audio = GetComponent<AudioSource>();
+
+            audio.clip = BossClip;
+            audio.Play();
+
         }
 
         //dangerousness update
@@ -191,11 +238,17 @@ public class GameManager : MonoBehaviour
         Inventory.instanceInventory.RefreshCooldown();
 
         //map generation
-        instanceGM.NewMap();
-
-        //shop
-        if (room == 6)
+        if(room != 6)
         {
+            instanceGM.NewMap();
+        }
+        //shop
+        else
+        {
+            if (currentMap != null)
+            {
+                player.currentTile = currentMap.tilesList[currentMap.entranceTileIndex];
+            }
             if (Inventory.instanceInventory.mysteryBoxInShop == true && Inventory.instanceInventory.mysteryBoxDangerousness < 5)
             {
                 Inventory.instanceInventory.mysteryBoxDangerousness++;
@@ -203,7 +256,7 @@ public class GameManager : MonoBehaviour
             UI.instanceUI.shopUI = Instantiate(shopUIprefab, UI.instanceUI.canvas.transform);
             Instantiate(shopPrefab);
             UI.instanceUI.shopUI.transform.Find("Shop").transform.Find("CloseButton").gameObject.GetComponent<Button>().onClick.AddListener(UI.instanceUI.CloseShop);
-            SwipeDetection.instanceSD.blockInputs = true;
+            SwipeDetection.instanceSD.isInShop = true;
         }
     }
 
@@ -220,7 +273,7 @@ public class GameManager : MonoBehaviour
         SwipeDetection.instanceSD.blockInputs = true;
     }
 
-    public IEnumerator ChangeEntity()
+    public void ChangeEntity()
     {
         //new entity play
         if (indexPlayingEntity >= allEntities.Count - 1)
@@ -234,10 +287,9 @@ public class GameManager : MonoBehaviour
         playingEntity = allEntities[indexPlayingEntity];
         //Debug.Log(allEntities[indexPlayingEntity].name);
 
-        yield return new WaitForSeconds(0.25f);
         if(playingEntity != null)
         {
-            if (playingEntity.tag == "Player")
+            if (playingEntity is Player)
             {
                 turnNumber++;
                 SwipeDetection.instanceSD.blockInputs = false;

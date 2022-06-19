@@ -5,9 +5,9 @@ using UnityEngine;
 public class RuneManager : MonoBehaviour
 {
 
-    public bool hasBuyDagger = true;
-    public bool hasBuyHandgun = false;
-    public bool hasBuyGrimoire = false;
+    public string hasBuyDagger = "true";
+    public string hasBuyHandgun = "false";
+    public string hasBuyGrimoire = "false";
 
     public int daggerLevel;
     public int handgunLevel;
@@ -15,6 +15,7 @@ public class RuneManager : MonoBehaviour
 
     public int darkMatter;
 
+    public WeaponType currentWeapon;
 
     public static RuneManager instanceRM;
 
@@ -29,5 +30,27 @@ public class RuneManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        if (PlayerPrefs.GetString("hasDagger") != "")
+        {
+            hasBuyDagger = PlayerPrefs.GetString("hasDagger");
+        }
+        if (PlayerPrefs.GetString("hasHandgun") != "")
+        {
+            hasBuyHandgun = PlayerPrefs.GetString("hasHandgun");
+        }
+        if (PlayerPrefs.GetString("hasGrimoire") != "")
+        {
+            hasBuyGrimoire = PlayerPrefs.GetString("hasGrimoire");
+        }
+
+        daggerLevel = PlayerPrefs.GetInt("daggerLevel");
+        handgunLevel = PlayerPrefs.GetInt("handgunLevel");
+        grimoireLevel = PlayerPrefs.GetInt("grimoireLevel");
+
+        if(PlayerPrefs.GetInt("darkMatter") != 0)
+        {
+            darkMatter = PlayerPrefs.GetInt("darkMatter");
+        }  
     }
 }

@@ -17,6 +17,10 @@ public class ShopButton : MonoBehaviour
     [SerializeField] Button[] shopButtons;
     [SerializeField] Button[] inventoryButtons;
     [SerializeField] Button closeButton;
+    [SerializeField] Button buyButton;
+    [SerializeField] GameObject descriptionPanel;
+    [SerializeField] GameObject runeDescriptionPanel;
+    [SerializeField] Text descriptionText;
 
     private ShopInGame shopInGame;
 
@@ -34,13 +38,29 @@ public class ShopButton : MonoBehaviour
         }
     }
 
-    public void ChooseItem()
+    public void ShowDescription()
+    {
+        runeDescriptionPanel.SetActive(false);
+        if(descriptionPanel.activeSelf == false)
+        {
+            descriptionPanel.SetActive(true);
+            descriptionText.text = item.itemDescription;
+        }
+        else
+        {
+            descriptionText.text = item.itemDescription;
+        }
+        buyButton.onClick.RemoveAllListeners();
+        buyButton.onClick.AddListener(delegate{ChooseItem(item.itemName);});
+    }
+
+    public void ChooseItem(string name)
     {
         if (player.numEssence > item.itemCost)
         {
             if (item.goesInInventory == false)
             {
-                switch (item.itemName)
+                switch (name)
                 {
                     case "Heart Regeneration":
                         if (player.hp < player.maxHP)
@@ -100,7 +120,7 @@ public class ShopButton : MonoBehaviour
             }
             else if (Inventory.instanceInventory.itemInInventory >= Inventory.instanceInventory.maxItemNumber)
             {
-                switch (item.itemName)
+                switch (name)
                 {
                     case "Speed Boots":
                         player.mobility++;
@@ -121,7 +141,7 @@ public class ShopButton : MonoBehaviour
             }
             else
             {
-                switch (item.itemName)
+                switch (name)
                 {
                     case "Speed Boots":
                         player.mobility++;
@@ -142,6 +162,7 @@ public class ShopButton : MonoBehaviour
                 }
             }
         }
+        descriptionPanel.SetActive(false);
     }
 
     void OpenMysteryBox()
@@ -150,7 +171,42 @@ public class ShopButton : MonoBehaviour
         while (hasFindItem == false)
         {
             int random = Random.Range(0, shopInGame.allItems.Count);
-            if (shopInGame.allItems[random].itemDangerousness == Inventory.instanceInventory.mysteryBoxDangerousness && shopInGame.allItems[random].itemName != "Bonus Heart" && shopInGame.allItems[random].itemName != "Heart Regeneration")
+            if (Inventory.instanceInventory.mysteryBoxDangerousness == 5 && Inventory.instanceInventory.HasItem("Invincibility") && (!Inventory.instanceInventory.HasItem("Life Regeneration") || !Inventory.instanceInventory.HasItem("Revivor")) &&  shopInGame.allItems[random].itemDangerousness == Inventory.instanceInventory.mysteryBoxDangerousness - 1)
+            {
+                hasFindItem = true;
+                this.item = shopInGame.allItems[random];
+            }
+            else if (Inventory.instanceInventory.mysteryBoxDangerousness == 5 && Inventory.instanceInventory.HasItem("Invincibility") && Inventory.instanceInventory.HasItem("Life Regeneration") && Inventory.instanceInventory.HasItem("Revivor") && shopInGame.allItems[random].itemDangerousness == Inventory.instanceInventory.mysteryBoxDangerousness - 2)
+            {
+                hasFindItem = true;
+                this.item = shopInGame.allItems[random];
+            }
+            else if (Inventory.instanceInventory.mysteryBoxDangerousness == 4 && Inventory.instanceInventory.HasItem("Life Regeneration") && Inventory.instanceInventory.HasItem("Revivor") && Inventory.instanceInventory.HasItem("Invincibility") && shopInGame.allItems[random].itemDangerousness == Inventory.instanceInventory.mysteryBoxDangerousness - 1)
+            {
+                hasFindItem = true;
+                this.item = shopInGame.allItems[random];
+            }
+            else if (Inventory.instanceInventory.mysteryBoxDangerousness == 4 && Inventory.instanceInventory.HasItem("Life Regeneration") && Inventory.instanceInventory.HasItem("Revivor") && !Inventory.instanceInventory.HasItem("Invincibility") && shopInGame.allItems[random].itemDangerousness == Inventory.instanceInventory.mysteryBoxDangerousness + 1)
+            {
+                hasFindItem = true;
+                this.item = shopInGame.allItems[random];
+            }
+            else if (Inventory.instanceInventory.mysteryBoxDangerousness == 3 && Inventory.instanceInventory.HasItem("Speed Boots") && Inventory.instanceInventory.HasItem("Freeze TIme") && Inventory.instanceInventory.HasItem("Side Slash") && shopInGame.allItems[random].itemDangerousness == Inventory.instanceInventory.mysteryBoxDangerousness + 1)
+            {
+                hasFindItem = true;
+                this.item = shopInGame.allItems[random];
+            }
+            else if (Inventory.instanceInventory.mysteryBoxDangerousness == 2 && Inventory.instanceInventory.HasItem("Trap Protector") && Inventory.instanceInventory.HasItem("Poison Fog") && Inventory.instanceInventory.HasItem("Power Gloves") && shopInGame.allItems[random].itemDangerousness == Inventory.instanceInventory.mysteryBoxDangerousness + 1)
+            {
+                hasFindItem = true;
+                this.item = shopInGame.allItems[random];
+            }
+            else if (Inventory.instanceInventory.mysteryBoxDangerousness == 1 && Inventory.instanceInventory.HasItem("Counter Ring") && Inventory.instanceInventory.HasItem("Worn Speed Boots") && Inventory.instanceInventory.HasItem("Boss Slayer") && shopInGame.allItems[random].itemDangerousness == Inventory.instanceInventory.mysteryBoxDangerousness + 1 && shopInGame.allItems[random].itemName != "Bonus Heart" && shopInGame.allItems[random].itemName != "Heart Regeneration")
+            {
+                hasFindItem = true;
+                this.item = shopInGame.allItems[random];
+            }
+            else if (shopInGame.allItems[random].itemDangerousness == Inventory.instanceInventory.mysteryBoxDangerousness && shopInGame.allItems[random].itemName != "Bonus Heart" && shopInGame.allItems[random].itemName != "Heart Regeneration")
             {
                 hasFindItem = true;
                 this.item = shopInGame.allItems[random];
