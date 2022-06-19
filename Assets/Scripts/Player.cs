@@ -204,11 +204,44 @@ public class Player : Entity
             {
                 Debug.Log("USING GLOVE");
                 this.weapon.ApplyEffect(this, 1);
+                
+                    
             }
             else
             {
                 this.weapon.ApplyEffect(this, 0);
             }
+            
+            //anim
+            List<Entity> enemiesInRange = new List<Entity>();
+            enemiesInRange = GetEntityInRange(ConvertPattern(weapon.upDirectionATS, direction), false);
+            if(enemiesInRange.Count > 0)
+            {
+                for(int i = 0; i < this.weapon.upDirectionATS.Count; i++)
+                {
+                    GameObject weaponVFX;
+                    switch(weapon.typeOfWeapon)
+                    {
+                        case WeaponType.DAGGER :
+                            weaponVFX = Resources.Load<GameObject>("Assets/GA/Player/slash");
+                        break;
+
+                        case WeaponType.HANDGUN :
+                            weaponVFX = Resources.Load<GameObject>("Assets/GA/Player/shoot");
+                        break;
+
+                        case WeaponType.GRIMOIRE :
+                            weaponVFX = Resources.Load<GameObject>("Assets/GA/Player/fire");
+                        break;
+                        default :
+                            weaponVFX = null;
+                        break;
+                    }
+                    Instantiate(weaponVFX, enemiesInRange[i].transform.position, Quaternion.identity);
+                    Debug.Log("SFX " + weaponVFX.name);
+                }
+            }            
+            
             if (mobility > 0)
             {
                 mobility--;

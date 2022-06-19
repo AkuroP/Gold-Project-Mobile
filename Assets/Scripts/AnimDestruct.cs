@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Sunfire : MonoBehaviour
+public class AnimDestruct : MonoBehaviour
 {
 
-    public void DestroyFire()
+    public void DestroyAnimGO()
     {
         Destroy(this.gameObject);
     }

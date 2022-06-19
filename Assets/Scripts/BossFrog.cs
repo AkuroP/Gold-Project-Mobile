@@ -10,6 +10,10 @@ public class BossFrog : Boss
     public List<FrogPoisonSpit> poisonSpitList = new List<FrogPoisonSpit>();
     public int poisonSpitCD = 0;
     private int poisonSpitDamage = 1;
+    private GameObject poisonGO;
+    private List<GameObject> poisoninTiles = new List<GameObject>();
+
+    private int poisonNumber;
 
     [Header("==== Tongue Attack ====")]
     public List<Tile> tongueAttackZone = new List<Tile>();
@@ -18,6 +22,7 @@ public class BossFrog : Boss
     private int tongueDamage = 1;
     public float tongueAttackDuration = 0.3f;
     public float splitDuration = 0.1f;
+
 
 
     // Update is called once per frame
@@ -76,6 +81,7 @@ public class BossFrog : Boss
 
         entitySr = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
         entitySr.sprite = Resources.Load<Sprite>("Assets/Graphics/Enemies/Crapo");
+        poisonGO = Resources.Load<GameObject>("Prefabs/FrogPoison");
 
         AssignPattern();
 
@@ -208,6 +214,9 @@ public class BossFrog : Boss
             }
 
             tempTiles.Add(impactTile);
+            
+           
+            poisonNumber++;
         }
 
         //create new spit
@@ -215,6 +224,31 @@ public class BossFrog : Boss
         {
                 poisonSpitList.Add(new FrogPoisonSpit(timeBeforeImpact, oneTile));
         }
+
+        SpawnPoison();
+    }
+
+    private void SpawnPoison()
+    {
+        if(poisonSpitList.Count == poisonNumber)
+        {
+            for(int i = 0; i < poisonNumber; i++)
+            {
+                GameObject poison = Instantiate(poisonGO, poisonSpitList[i].targetTile.gameObject.transform);
+                poisoninTiles.Add(poison);
+            }
+
+        }
+        else if(poisonSpitList.Count > poisonNumber)
+        {
+            int numberDif = poisonSpitList.Count - poisonNumber;
+            for(int i = 0; i < poisonNumber; i++)
+            {
+                GameObject poison = Instantiate(poisonGO, poisonSpitList[(i + numberDif)].targetTile.gameObject.transform);
+                poisoninTiles.Add(poison);
+            }
+        }
+        poisonNumber = 0;
     }
 
     public void UpdatePoisonSpitFalls()
@@ -223,6 +257,7 @@ public class BossFrog : Boss
         for (int i = 0;i < poisonSpitList.Count; i++)
         {
             FrogPoisonSpit currentFPG = poisonSpitList[i];
+            GameObject currentPoison = poisoninTiles[i];
 
             currentFPG.turnBeforeImpact--;
 
@@ -233,15 +268,18 @@ public class BossFrog : Boss
 
             if (currentFPG.turnBeforeImpact == 0)
             {
-                StartSpitPoisonAttack(currentFPG);
+
+                StartSpitPoisonAttack(currentFPG, currentPoison.GetComponent<Animator>());
                 poisonSpitList.Remove(currentFPG);
+                poisoninTiles.Remove(currentPoison);
                 i--;
             }
         }
     }
 
-    public void StartSpitPoisonAttack(FrogPoisonSpit _fpg)
+    public void StartSpitPoisonAttack(FrogPoisonSpit _fpg, Animator _poisonAnim)
     {
+        _poisonAnim.SetBool("poisoned", true);
         StartCoroutine(ShowTile(_fpg.targetTile, 0));
 
         if (_fpg.targetTile.entityOnTile != null && _fpg.targetTile.entityOnTile is Player)
