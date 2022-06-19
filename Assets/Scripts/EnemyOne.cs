@@ -94,6 +94,8 @@ public class EnemyOne : Enemy
     public override void StartTurn()
     {
         enemyAnim.SetTrigger("Atk");
+        GameManager.instanceGM.sfxAudioSource.clip = Resources.Load<AudioClip>("SoundDesign/SFX/SFX_Atk_Enemy1");
+        GameManager.instanceGM.sfxAudioSource.Play();
         turnDuration += attackDuration;
         if(this.hp > 0)
         {

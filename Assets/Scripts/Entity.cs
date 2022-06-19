@@ -174,7 +174,7 @@ public class Entity : MonoBehaviour
         Color oldColor = tile.tileColor;
         tile.GetComponent<SpriteRenderer>().color = new Color(1f, 0f, 0f, 1f);
         yield return new WaitForSeconds(0.5f);
-        tile.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f); ;
+        tile.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
     }
 
     public IEnumerator ShowTile(Tile tile, float delay)
@@ -258,7 +258,7 @@ public class Entity : MonoBehaviour
                 {
                     if (currentTile.leftTile.entityOnTile != null)
                     {
-                        entityInPattern.Add(currentTile.leftTile.entityOnTile);
+                        Damage(GetComponent<Player>().weapon.weaponDamage, currentTile.leftTile.entityOnTile);
                     }
                     StartCoroutine(DrawAttack(currentTile.leftTile));
                 }
@@ -267,7 +267,7 @@ public class Entity : MonoBehaviour
                 {
                     if (currentTile.rightTile.entityOnTile != null)
                     {
-                        entityInPattern.Add(currentTile.rightTile.entityOnTile);
+                        Damage(GetComponent<Player>().weapon.weaponDamage, currentTile.rightTile.entityOnTile);
                     }
                     StartCoroutine(DrawAttack(currentTile.rightTile));
                 }
@@ -278,7 +278,7 @@ public class Entity : MonoBehaviour
                 {
                     if (currentTile.topTile.entityOnTile != null)
                     {
-                        entityInPattern.Add(currentTile.topTile.entityOnTile);
+                        Damage(GetComponent<Player>().weapon.weaponDamage, currentTile.topTile.entityOnTile);
                     }
                     StartCoroutine(DrawAttack(currentTile.topTile));
                 }
@@ -286,7 +286,7 @@ public class Entity : MonoBehaviour
                 {
                     if (currentTile.bottomTile.entityOnTile != null)
                     {
-                        entityInPattern.Add(currentTile.bottomTile.entityOnTile);
+                        Damage(GetComponent<Player>().weapon.weaponDamage, currentTile.bottomTile.entityOnTile);
                     }
                     StartCoroutine(DrawAttack(currentTile.bottomTile));
                 }
@@ -477,6 +477,8 @@ public class Entity : MonoBehaviour
             {
                 currentTile.isReachable = false;
                 currentTile.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/Tiles/TilemapsDark_Spritesheet_14");
+                GameManager.instanceGM.sfxAudioSource.clip = Resources.Load<AudioClip>("SoundDesign/SFX/FloorBreak");
+                GameManager.instanceGM.sfxAudioSource.Play();
             }
             if (currentTile.isPike == true)
             {
@@ -543,6 +545,8 @@ public class Entity : MonoBehaviour
         {
             currentTile.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/Tiles/TilemapsDark_Spritesheet_25");
             isOnThePike = true;
+            GameManager.instanceGM.sfxAudioSource.clip = Resources.Load<AudioClip>("SoundDesign/SFX/spike");
+            GameManager.instanceGM.sfxAudioSource.Play();
             if (hp == 1)
             {
                 StartCoroutine(ResetPike(currentTile));

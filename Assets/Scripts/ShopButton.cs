@@ -69,6 +69,8 @@ public class ShopButton : MonoBehaviour
                             player.numEssence -= item.itemCost;
                             hasBeenClicked = true;
                             AchievementManager.instanceAM.UpdateItemsPurchased();
+                            GameManager.instanceGM.sfxAudioSource.clip = Resources.Load<AudioClip>("SoundDesign/SFX/money-sound-effect");
+                            GameManager.instanceGM.sfxAudioSource.Play();
                         }
                         break;
                     case "Bonus Heart":
@@ -78,6 +80,8 @@ public class ShopButton : MonoBehaviour
                         hasBeenClicked = true;
                         AchievementManager.instanceAM.UpdateItemsPurchased();
                         Inventory.instanceInventory.hasBonusHeart = true;
+                        GameManager.instanceGM.sfxAudioSource.clip = Resources.Load<AudioClip>("SoundDesign/SFX/money-sound-effect");
+                        GameManager.instanceGM.sfxAudioSource.Play();
                         break;
                     case "Mystery Box":
                         if (Inventory.instanceInventory.mysteryBoxInShop == false && player.hp > 1)
@@ -130,6 +134,8 @@ public class ShopButton : MonoBehaviour
                         break;
                 }
                 player.numEssence -= item.itemCost;
+                GameManager.instanceGM.sfxAudioSource.clip = Resources.Load<AudioClip>("SoundDesign/SFX/money-sound-effect");
+                GameManager.instanceGM.sfxAudioSource.Play();
                 for (int i = 0; i < shopButtons.Length; i++)
                 {
                     inventoryButtons[i].GetComponent<ShopInventoryButton>().itemToAdd = item;
@@ -153,6 +159,8 @@ public class ShopButton : MonoBehaviour
                     if (Inventory.instanceInventory.items[i].itemName == "" && item.goesInInventory)
                     {
                         player.numEssence -= item.itemCost;
+                        GameManager.instanceGM.sfxAudioSource.clip = Resources.Load<AudioClip>("SoundDesign/SFX/money-sound-effect");
+                        GameManager.instanceGM.sfxAudioSource.Play();
                         Inventory.instanceInventory.items[i] = item;
                         Inventory.instanceInventory.itemInInventory++;
                         this.GetComponent<Button>().interactable = false;

@@ -92,6 +92,8 @@ public class EnemySix : Enemy
             {
                 currentTile.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/Tiles/TilemapsDark_Spritesheet_25");
                 isOnThePike = true;
+                GameManager.instanceGM.sfxAudioSource.clip = Resources.Load<AudioClip>("SoundDesign/SFX/spike");
+                GameManager.instanceGM.sfxAudioSource.Play();
                 if (hp == 1)
                 {
                     StartCoroutine(ResetPike(currentTile));
@@ -211,6 +213,8 @@ public class EnemySix : Enemy
                 Debug.Log("attaque");
                 chargeAttack = false;
                 chargeAttackCurrent = chargeAttackRoundMax;
+                GameManager.instanceGM.sfxAudioSource.clip = Resources.Load<AudioClip>("SoundDesign/SFX/SFX_Atk_Enemy6");
+                GameManager.instanceGM.sfxAudioSource.Play();
 
                 direction = dir;
                 StartAttack(upDirectionATS);

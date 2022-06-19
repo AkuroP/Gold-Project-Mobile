@@ -89,6 +89,8 @@ public class EnemyFour : Enemy
             {
                 currentTile.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/Tiles/TilemapsDark_Spritesheet_25");
                 isOnThePike = true;
+                GameManager.instanceGM.sfxAudioSource.clip = Resources.Load<AudioClip>("SoundDesign/SFX/spike");
+                GameManager.instanceGM.sfxAudioSource.Play();
                 if (hp == 1)
                 {
                     StartCoroutine(ResetPike(currentTile));
@@ -189,6 +191,8 @@ public class EnemyFour : Enemy
                 direction = dir;
                 StartAttack(upDirectionATS);
                 turnDuration += attackDuration;
+                GameManager.instanceGM.sfxAudioSource.clip = Resources.Load<AudioClip>("SoundDesign/SFX/SFX_Atk_Enemy4");
+                GameManager.instanceGM.sfxAudioSource.Play();
             }
         }
     }

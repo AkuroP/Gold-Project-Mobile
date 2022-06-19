@@ -171,6 +171,8 @@ public class BossFrog : Boss
     public void StartAttackTongue()
     {
         enemyAnim.SetTrigger("Atk_tongue");
+        GameManager.instanceGM.sfxAudioSource.clip = Resources.Load<AudioClip>("SoundDesign/SFX/SFX_Atk_Boss1-2");
+        GameManager.instanceGM.sfxAudioSource.Play();
         foreach (Tile tile in tongueAttackZone)
         {
             Instantiate(Resources.Load<GameObject>("Prefabs/FrogTongue"), tile.transform);
@@ -191,6 +193,8 @@ public class BossFrog : Boss
     public void ThrowSpitPoisonAttack(int numberOfSpit)
     {
         enemyAnim.SetTrigger("Atk_poison");
+        GameManager.instanceGM.sfxAudioSource.clip = Resources.Load<AudioClip>("SoundDesign/SFX/SFX_Atk_Boss1-1");
+        GameManager.instanceGM.sfxAudioSource.Play();
         List<Tile> tempTiles = new List<Tile>();
         int timeBeforeImpact = 3;
 

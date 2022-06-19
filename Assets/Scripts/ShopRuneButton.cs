@@ -106,6 +106,8 @@ public class ShopRuneButton : MonoBehaviour
         if(player.numEssence > upgradeCost)
         {
             player.numEssence -= upgradeCost;
+            GameManager.instanceGM.sfxAudioSource.clip = Resources.Load<AudioClip>("SoundDesign/SFX/money-sound-effect");
+            GameManager.instanceGM.sfxAudioSource.Play();
             switch (player.weapon.typeOfWeapon)
             {
                 case WeaponType.DAGGER:

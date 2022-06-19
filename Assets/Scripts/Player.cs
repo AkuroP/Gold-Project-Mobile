@@ -30,6 +30,8 @@ public class Player : Entity
 
     public Image buttonImage;
 
+    private bool isDying;
+
     [HideInInspector] public Animator playerAnim;
 
     // Start is called before the first frame update
@@ -97,7 +99,7 @@ public class Player : Entity
         }
 
         //hp management
-        if (hp <= 0)
+        if (hp <= 0 && !isDying)
         {
             if(Inventory.instanceInventory.HasItem("Revivor"))
             {
@@ -108,6 +110,9 @@ public class Player : Entity
             }
             else
             {
+                isDying = true;
+                GameManager.instanceGM.sfxAudioSource2.clip = Resources.Load<AudioClip>("SoundDesign/SFX/SFX_Player_Death");
+                GameManager.instanceGM.sfxAudioSource2.Play();
                 playerAnim.SetBool("Death", true);
                 AchievementManager.instanceAM.roomWithoutTakingDamage = 0;
                 AchievementManager.instanceAM.UpdateDeathNumber();
@@ -115,12 +120,15 @@ public class Player : Entity
             }
         }
 
-        if(numEssence <= 0)
+        if(numEssence <= 0 && !isDying)
         {
+            isDying = true;
             playerAnim.SetBool("Death", true);
             AchievementManager.instanceAM.roomWithoutTakingDamage = 0;
             AchievementManager.instanceAM.UpdateDeathNumber();
             StartCoroutine(ToMainMenu());
+            GameManager.instanceGM.sfxAudioSource2.clip = Resources.Load<AudioClip>("SoundDesign/SFX/SFX_Player_Death");
+            GameManager.instanceGM.sfxAudioSource2.Play();
         }
 
 
@@ -166,6 +174,8 @@ public class Player : Entity
             {
                 currentTile.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/Tiles/TilemapsDark_Spritesheet_25");
                 isOnThePike = true;
+                GameManager.instanceGM.sfxAudioSource.clip = Resources.Load<AudioClip>("SoundDesign/SFX/spike");
+                GameManager.instanceGM.sfxAudioSource.Play();
                 AchievementManager.instanceAM.UpdateTrapsActivated();
                 if (Inventory.instanceInventory.HasItem("Trap Protector") == true)
                 {
@@ -194,6 +204,8 @@ public class Player : Entity
 
             if (currentTile.tileIndex == currentMap.exitTileIndex && changingRoom == false && currentMap.canExit)
             {
+                GameManager.instanceGM.sfxAudioSource.clip = Resources.Load<AudioClip>("SoundDesign/SFX/Stairs");
+                GameManager.instanceGM.sfxAudioSource.Play();
                 changingRoom = true;
                 StartCoroutine(GoToNextRoom());
             }
@@ -300,7 +312,7 @@ public class Player : Entity
                     {
                         case WeaponType.DAGGER :
                             weaponVFX = Resources.Load<GameObject>("Assets/GA/Player/slash");
-                        break;
+                            break;
 
                         case WeaponType.HANDGUN :
                             weaponVFX = Resources.Load<GameObject>("Assets/GA/Player/shoot");
@@ -387,7 +399,7 @@ public class Player : Entity
 
     public IEnumerator ToMainMenu()
     {
-        yield return new WaitForSeconds(1.4f);
+        yield return new WaitForSeconds(2f);
         SceneManager.LoadScene("MainMenu");
     }
 

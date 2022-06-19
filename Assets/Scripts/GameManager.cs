@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject shopUIprefab;
     [SerializeField] private GameObject shopPrefab;
     public AudioSource sfxAudioSource;
+    public AudioSource sfxAudioSource2;
     [HideInInspector] public Player player;
 
     public List<GameObject> enemiesPlaying;
