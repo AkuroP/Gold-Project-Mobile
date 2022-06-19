@@ -209,7 +209,7 @@ public class BossFrog : Boss
         {
             Tile impactTile = currentMap.ReturnRandomTile();
 
-            while(impactTile.isWall || tempTiles.Contains(impactTile) || impactTile.entityOnTile is Boss)
+            while(impactTile.isWall || tempTiles.Contains(impactTile) || impactTile.entityOnTile is Boss || impactTile.isHole)
             {
                 impactTile = currentMap.ReturnRandomTile();
             }
@@ -231,6 +231,7 @@ public class BossFrog : Boss
 
     private void SpawnPoison()
     {
+        Debug.Log("POISON NUMBER : " + poisonNumber);
         if(poisonSpitList.Count == poisonNumber)
         {
             for(int i = 0; i < poisonNumber; i++)
@@ -242,6 +243,7 @@ public class BossFrog : Boss
         }
         else if(poisonSpitList.Count > poisonNumber)
         {
+            Debug.Log("DIF");
             int numberDif = poisonSpitList.Count - poisonNumber;
             for(int i = 0; i < poisonNumber; i++)
             {
@@ -267,7 +269,9 @@ public class BossFrog : Boss
             {
                 int dif = poisonSpitList.Count - poisoninTiles.Count;
                 currentPoison = poisoninTiles[i + dif];
+                Debug.Log("START AT " + dif);
             }
+            Debug.Log("PSL COUNT : " + poisonSpitList.Count + " PIT COUNT : " + poisoninTiles.Count);
             currentFPG.turnBeforeImpact--;
 
             if(currentFPG.turnBeforeImpact == 1)
