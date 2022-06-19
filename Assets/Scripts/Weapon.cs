@@ -37,10 +37,9 @@ public class Weapon
             case WeaponType.HANDGUN:
                 upDirectionATS.Add(new AttackTileSettings(1, 0, 1));
                 upDirectionATS.Add(new AttackTileSettings(2, 0, 2));
-                upDirectionATS.Add(new AttackTileSettings(3, 0, 3));
                 if (weaponLevel >= 1)
                 {
-                    upDirectionATS.Add(new AttackTileSettings(4, 0, 4));
+                    upDirectionATS.Add(new AttackTileSettings(3, 0, 3));
                 }
                 break;
             
