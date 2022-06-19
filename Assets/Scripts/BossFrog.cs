@@ -175,6 +175,7 @@ public class BossFrog : Boss
         enemyAnim.SetTrigger("Atk_tongue");
         foreach (Tile tile in tongueAttackZone)
         {
+            Instantiate(Resources.Load<GameObject>("Prefabs/FrogTongue"), tile.transform);
             StartCoroutine(ShowTile(tile, 0));
         }
 
@@ -257,8 +258,16 @@ public class BossFrog : Boss
         for (int i = 0;i < poisonSpitList.Count; i++)
         {
             FrogPoisonSpit currentFPG = poisonSpitList[i];
-            GameObject currentPoison = poisoninTiles[i];
-
+            GameObject currentPoison = null;
+            if(poisonSpitList.Count == poisoninTiles.Count) 
+            {
+                currentPoison = poisoninTiles[i];
+            }
+            else if(poisonSpitList.Count > poisoninTiles.Count)
+            {
+                int dif = poisonSpitList.Count - poisoninTiles.Count;
+                currentPoison = poisoninTiles[i + dif];
+            }
             currentFPG.turnBeforeImpact--;
 
             if(currentFPG.turnBeforeImpact == 1)
