@@ -72,7 +72,24 @@ public class Inventory : MonoBehaviour
             if (items[i].itemCooldown > 0)
             {
                 items[i].itemCooldown--;
+                if (HasItem("Trap Protector") && items[GetItemIndex("Trap Protector")].itemCooldown == 0)
+                {
+                    GameManager.instanceGM.sfxAudioSource.clip = Resources.Load<AudioClip>("Assets/audio/SFX_Item_Highlight");
+                    GameManager.instanceGM.sfxAudioSource.Play();
+                }
             }
         }
+    }
+
+    public int GetItemIndex(string itemName)
+    {
+        for (int i = 0; i < maxItemNumber; i++)
+        {
+            if (itemName == items[i].itemName)
+            {
+                return i;
+            }
+        }
+        return -1;
     }
 }

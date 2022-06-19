@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class PauseAudioManager : MonoBehaviour
 {
     public GameObject soundGO;
     public GameObject musicGO;
-    
+    public AudioMixer music;
+    public AudioMixer sfx;
+
     public bool hasSound = true;
     public bool hasMusic = true;
 
@@ -21,6 +24,7 @@ public class PauseAudioManager : MonoBehaviour
             soundGO.GetComponent<Button>().spriteState = newSpriteState;
             soundGO.GetComponent<Image>().sprite = allSprites[2];
             hasSound = false;
+            sfx.SetFloat("volume", -80f);
         }
         else
         {
@@ -28,6 +32,7 @@ public class PauseAudioManager : MonoBehaviour
             soundGO.GetComponent<Button>().spriteState = newSpriteState;
             soundGO.GetComponent<Image>().sprite = allSprites[0];
             hasSound = true;
+            sfx.SetFloat("volume", 0f);
         }
     }
 
@@ -41,6 +46,7 @@ public class PauseAudioManager : MonoBehaviour
             musicGO.GetComponent<Button>().spriteState = newSpriteState;
             musicGO.GetComponent<Image>().sprite = allSprites[2];
             hasMusic = false;
+            music.SetFloat("volume", -80f);
         }
         else
         {
@@ -48,6 +54,7 @@ public class PauseAudioManager : MonoBehaviour
             musicGO.GetComponent<Button>().spriteState = newSpriteState;
             musicGO.GetComponent<Image>().sprite = allSprites[0];
             hasMusic = true;
+            music.SetFloat("volume", 0f);
         }
     }
 }

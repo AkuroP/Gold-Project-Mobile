@@ -671,6 +671,22 @@ public class Entity : MonoBehaviour
                 UI.instanceUI.activeSlot3.sprite = Resources.Load<Sprite>("Assets/Graphics/empty");
             }
         }
+        if (this is Player && Inventory.instanceInventory.HasItem("Freeze Time") && invincibilityTurn == 0 && Inventory.instanceInventory.items[Inventory.instanceInventory.GetItemIndex("Freeze Time")].itemCooldown == 1)
+        {
+            if (Inventory.instanceInventory.items[0].itemName == "Freeze Time")
+            {
+                UI.instanceUI.activeSlot1.sprite = Resources.Load<Sprite>("Assets/Graphics/empty");
+            }
+            else if (Inventory.instanceInventory.items[1].itemName == "Freeze Time")
+            {
+                UI.instanceUI.activeSlot2.sprite = Resources.Load<Sprite>("Assets/Graphics/empty");
+            }
+            else if (Inventory.instanceInventory.items[2].itemName == "Freeze Time")
+            {
+                UI.instanceUI.activeSlot3.sprite = Resources.Load<Sprite>("Assets/Graphics/empty");
+            }
+            Inventory.instanceInventory.RemoveItem("Freeze Time");
+        }
         //Debug.Log("fin du tour");
     }
 

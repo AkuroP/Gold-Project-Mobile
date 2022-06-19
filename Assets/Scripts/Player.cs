@@ -103,6 +103,8 @@ public class Player : Entity
             {
                 hp = 1;
                 Inventory.instanceInventory.RemoveItem("Revivor");
+                GameManager.instanceGM.sfxAudioSource.clip = Resources.Load<AudioClip>("Assets/audio/SFX_Item_Highlight");
+                GameManager.instanceGM.sfxAudioSource.Play();
             }
             else
             {
@@ -111,6 +113,14 @@ public class Player : Entity
                 AchievementManager.instanceAM.UpdateDeathNumber();
                 StartCoroutine(ToMainMenu());
             }
+        }
+
+        if(numEssence <= 0)
+        {
+            playerAnim.SetBool("Death", true);
+            AchievementManager.instanceAM.roomWithoutTakingDamage = 0;
+            AchievementManager.instanceAM.UpdateDeathNumber();
+            StartCoroutine(ToMainMenu());
         }
 
 
@@ -190,6 +200,22 @@ public class Player : Entity
             {
                 UI.instanceUI.activeSlot3.sprite = Resources.Load<Sprite>("Assets/Graphics/empty");
             }
+        }
+        if(Inventory.instanceInventory.HasItem("Invincibility") && invincibilityTurn == 0 && Inventory.instanceInventory.items[Inventory.instanceInventory.GetItemIndex("Invincibility")].itemCooldown == 1)
+        {
+            if (Inventory.instanceInventory.items[0].itemName == "Invincibility")
+            {
+                UI.instanceUI.activeSlot1.sprite = Resources.Load<Sprite>("Assets/Graphics/empty");
+            }
+            else if (Inventory.instanceInventory.items[1].itemName == "Invincibility")
+            {
+                UI.instanceUI.activeSlot2.sprite = Resources.Load<Sprite>("Assets/Graphics/empty");
+            }
+            else if (Inventory.instanceInventory.items[2].itemName == "Invincibility")
+            {
+                UI.instanceUI.activeSlot3.sprite = Resources.Load<Sprite>("Assets/Graphics/empty");
+            }
+            Inventory.instanceInventory.RemoveItem("Invincibility");
         }
     }
 

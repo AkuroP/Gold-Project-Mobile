@@ -93,6 +93,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundGO: {fileID: 6970984081318417486}
   musicGO: {fileID: 4885910095414651003}
+  music: {fileID: 24100000, guid: d4bef8d2214cdcb43a3d2d40716fbcd8, type: 2}
+  sfx: {fileID: 24100000, guid: 471887b29b97c714796da2bb71c96d1e, type: 2}
   hasSound: 1
   hasMusic: 1
 --- !u!1 &4885910095414651003

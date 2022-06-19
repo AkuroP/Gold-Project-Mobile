@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private GameObject shopUIprefab;
     [SerializeField] private GameObject shopPrefab;
+    public AudioSource sfxAudioSource;
     [HideInInspector] public Player player;
 
     public List<GameObject> enemiesPlaying;
@@ -303,6 +304,8 @@ public class GameManager : MonoBehaviour
                 }
                 if (Inventory.instanceInventory.HasItem("Worn Speed Boots") && turnNumber % 3 == 0)
                 {
+                    sfxAudioSource.clip = Resources.Load<AudioClip>("Assets/audio/SFX_Item_Highlight");
+                    sfxAudioSource.Play();
                     playingEntity.mobility++;
                     if(Inventory.instanceInventory.items[0].itemName == "Worn Speed Boots")
                     {

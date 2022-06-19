@@ -111,7 +111,7 @@ public class SwipeDetection : MonoBehaviour
                 {
                     doubleClickTimer = 0f;
                     doubleClickTimerOn = false;
-                    player.hasPlay = true;
+                    StartCoroutine(player.EndTurn(0f));
                 }
             }
 
