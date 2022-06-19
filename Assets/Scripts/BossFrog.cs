@@ -273,8 +273,9 @@ public class BossFrog : Boss
     {
         if(poisoninTiles.Count > 0)
         {
-            foreach(GameObject poison in poisoninTiles)
+            for(int i = 0; i < poisoninTiles.Count; i++)
             {
+                GameObject poison = poisoninTiles[0];
                 poisoninTiles.Remove(poison);
                 Destroy(poison);
             }
