@@ -215,9 +215,6 @@ public class BossFrog : Boss
             }
 
             tempTiles.Add(impactTile);
-            
-           
-            poisonNumber++;
         }
 
         //create new spit
@@ -226,7 +223,7 @@ public class BossFrog : Boss
                 poisonSpitList.Add(new FrogPoisonSpit(timeBeforeImpact, oneTile));
         }
 
-        SpawnPoison();
+        //SpawnPoison();
     }
 
     private void SpawnPoison()
@@ -260,7 +257,7 @@ public class BossFrog : Boss
         for (int i = 0;i < poisonSpitList.Count; i++)
         {
             FrogPoisonSpit currentFPG = poisonSpitList[i];
-            GameObject currentPoison = null;
+            /*GameObject currentPoison = null;
             if(poisonSpitList.Count == poisoninTiles.Count) 
             {
                 currentPoison = poisoninTiles[i];
@@ -270,8 +267,8 @@ public class BossFrog : Boss
                 int dif = poisonSpitList.Count - poisoninTiles.Count;
                 currentPoison = poisoninTiles[i + dif];
                 Debug.Log("START AT " + dif);
-            }
-            Debug.Log("PSL COUNT : " + poisonSpitList.Count + " PIT COUNT : " + poisoninTiles.Count);
+            }*/
+            //Debug.Log("PSL COUNT : " + poisonSpitList.Count + " PIT COUNT : " + poisoninTiles.Count);
             currentFPG.turnBeforeImpact--;
 
             if(currentFPG.turnBeforeImpact == 1)
@@ -282,17 +279,17 @@ public class BossFrog : Boss
             if (currentFPG.turnBeforeImpact == 0)
             {
 
-                StartSpitPoisonAttack(currentFPG, currentPoison.GetComponent<Animator>());
+                StartSpitPoisonAttack(currentFPG);
                 poisonSpitList.Remove(currentFPG);
-                poisoninTiles.Remove(currentPoison);
+                //poisoninTiles.Remove(currentPoison);
                 i--;
             }
         }
     }
 
-    public void StartSpitPoisonAttack(FrogPoisonSpit _fpg, Animator _poisonAnim)
+    public void StartSpitPoisonAttack(FrogPoisonSpit _fpg)
     {
-        _poisonAnim.SetBool("poisoned", true);
+        //_poisonAnim.SetBool("poisoned", true);
         StartCoroutine(ShowTile(_fpg.targetTile, 0));
 
         if (_fpg.targetTile.entityOnTile != null && _fpg.targetTile.entityOnTile is Player)
