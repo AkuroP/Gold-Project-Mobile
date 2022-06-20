@@ -129,6 +129,7 @@ public class Player : Entity
             StartCoroutine(ToMainMenu());
             GameManager.instanceGM.sfxAudioSource2.clip = Resources.Load<AudioClip>("SoundDesign/SFX/SFX_Player_Death");
             GameManager.instanceGM.sfxAudioSource2.Play();
+            this.enabled = false;
         }
 
 

@@ -432,10 +432,13 @@ public class Entity : MonoBehaviour
         {
             entity.hp -= damage * damageMultiplicator;
             damageMultiplicator = 1;
-            if (entity.CompareTag("Player"))
+            if (entity.CompareTag("Player") && entity.hp > 0)
             {
                 AchievementManager.instanceAM.roomWithoutTakingDamage = -1;
                 PlayerPrefs.SetInt("roomWithoutTakingDamage", AchievementManager.instanceAM.roomWithoutTakingDamage);
+                entity.GetComponentInChildren<Animator>().SetTrigger("Hurt");
+                GameManager.instanceGM.sfxAudioSource2.clip = Resources.Load<AudioClip>("SoundDesign/SFX/SFX_Player_Hurt");
+                GameManager.instanceGM.sfxAudioSource2.Play();
             }
         }
         if(this is Player && Inventory.instanceInventory.HasItem("Counter Ring"))

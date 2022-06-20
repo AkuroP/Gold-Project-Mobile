@@ -143,14 +143,20 @@ public class GameManager : MonoBehaviour
                     playingEntity.GetComponent<Player>().cdFire = false;
                 }
 
-                //next entity play
-                ChangeEntity();
+                if(GameObject.FindWithTag("Player").GetComponent<Player>().hp > 0)
+                {
+                    //next entity play
+                    ChangeEntity();
+                }
             }
         }
         else
         {
-            //next entity play
-            ChangeEntity();
+            if(GameObject.FindWithTag("Player").GetComponent<Player>().hp > 0)
+            {
+                //next entity play
+                ChangeEntity();
+            }
         }
     
     }

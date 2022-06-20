@@ -644,9 +644,6 @@ public class Enemy : Entity
                     }
 
                     Damage(enemyDamage, enemiesInRange[i]);
-                    player.playerAnim.SetTrigger("Hurt");
-                    GameManager.instanceGM.sfxAudioSource2.clip = Resources.Load<AudioClip>("SoundDesign/SFX/SFX_Player_Hurt");
-                    GameManager.instanceGM.sfxAudioSource2.Play();
 
                     //item that boosts the player when damages
                     if (Inventory.instanceInventory.HasItem("Counter Ring"))
