@@ -205,8 +205,16 @@ public class Player : Entity
 
             if (currentTile.tileIndex == currentMap.exitTileIndex && changingRoom == false && currentMap.canExit)
             {
-                GameManager.instanceGM.sfxAudioSource.clip = Resources.Load<AudioClip>("SoundDesign/SFX/Stairs");
-                GameManager.instanceGM.sfxAudioSource.Play();
+                if(GameManager.instanceGM.room == 10)
+                {
+                    GameManager.instanceGM.sfxAudioSource.clip = Resources.Load<AudioClip>("SoundDesign/SFX/SFX_DarkMatter");
+                    GameManager.instanceGM.sfxAudioSource.Play();
+                }
+                else
+                {
+                    GameManager.instanceGM.sfxAudioSource.clip = Resources.Load<AudioClip>("SoundDesign/SFX/Stairs");
+                    GameManager.instanceGM.sfxAudioSource.Play();
+                }
                 changingRoom = true;
                 StartCoroutine(GoToNextRoom());
             }
@@ -293,8 +301,6 @@ public class Player : Entity
             {
                 Debug.Log("USING GLOVE");
                 this.weapon.ApplyEffect(this, 1);
-                
-                    
             }
             else
             {
