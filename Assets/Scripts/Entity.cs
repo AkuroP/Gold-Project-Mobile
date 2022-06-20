@@ -415,33 +415,47 @@ public class Entity : MonoBehaviour
     //function to take damage / die
     public void Damage(int damage, Entity entity)
     {
-        
+        //Achievement
         if (damage*damageMultiplicator >= 3 && entity.hp == 3 && entity.maxHP == 3 && !entity.CompareTag("Player"))
         {
             AchievementManager.instanceAM.UpdateFullCounter();
         }
+        //Sun Boss Invincible when has creeps
         if(entity is BossTP && entity.GetComponent<BossTP>().sunCreeps.Count > 0)
         {
+            Feedback feedback = Instantiate(Resources.Load<Feedback>("Prefabs/Feedback"), this.transform.position, Quaternion.identity);
+            feedback.Init(false, 0, new Vector2(entity.transform.position.x, entity.transform.position.y + 1f));
             return;
         }
+        //Boss Damage with Boss Slayer
         else if ((entity is BossTP || entity is BossFrog) && Inventory.instanceInventory.HasItem("Boss Slayer"))
         {
             if(!Inventory.instanceInventory.HasItem("Power Gloves"))
             {
                 entity.hp -= damage * damageMultiplicator + 1;
+                Feedback feedback = Instantiate(Resources.Load<Feedback>("Prefabs/Feedback"), this.transform.position, Quaternion.identity);
+                feedback.Init(false, 2 * damageMultiplicator, new Vector2(entity.transform.position.x, entity.transform.position.y + 1f));
             }
            else if (Inventory.instanceInventory.HasItem("Power Gloves"))
             {
                 entity.hp -= damage * damageMultiplicator;
+                Feedback feedback = Instantiate(Resources.Load<Feedback>("Prefabs/Feedback"), this.transform.position, Quaternion.identity);
+                feedback.Init(false, 2 * damageMultiplicator, new Vector2(entity.transform.position.x, entity.transform.position.y + 1f));
             }
         }
+        //Boss damage without Boss Slayer
         else if ((entity is BossTP || entity is BossFrog) && !Inventory.instanceInventory.HasItem("Boss Slayer") && Inventory.instanceInventory.HasItem("Power Gloves"))
         {
             entity.hp -= damage * damageMultiplicator - 1;
+            Feedback feedback = Instantiate(Resources.Load<Feedback>("Prefabs/Feedback"), this.transform.position, Quaternion.identity);
+            feedback.Init(false, 1 * damageMultiplicator, new Vector2(entity.transform.position.x, entity.transform.position.y + 1f));
         }
+        //Damage entites
         else if (entity.invincibilityTurn == 0)
         {
             entity.hp -= damage * damageMultiplicator;
+            Feedback feedback = Instantiate(Resources.Load<Feedback>("Prefabs/Feedback"), this.transform.position, Quaternion.identity);
+            feedback.Init(false, damage * damageMultiplicator, new Vector2(entity.transform.position.x, entity.transform.position.y + 1f));
             damageMultiplicator = 1;
             if (entity.CompareTag("Player") && entity.hp > 0)
             {
@@ -452,6 +466,12 @@ public class Entity : MonoBehaviour
                 GameManager.instanceGM.sfxAudioSource2.Play();
             }
         }
+        else
+        {
+            Feedback feedback = Instantiate(Resources.Load<Feedback>("Prefabs/Feedback"), this.transform.position, Quaternion.identity);
+            feedback.Init(false, 0, new Vector2(entity.transform.position.x, entity.transform.position.y + 1f));
+        }
+        //Activate Counter Ring
         if(this is Player && Inventory.instanceInventory.HasItem("Counter Ring"))
         {
             if (Inventory.instanceInventory.items[0].itemName == "Counter Ring")
@@ -527,6 +547,7 @@ public class Entity : MonoBehaviour
             if (this.CompareTag("Player"))
             {
                 AchievementManager.instanceAM.UpdateStepsAchievement();
+                Instantiate(Resources.Load<GameObject>("Prefabs/Feedback"), this.transform.position, Quaternion.identity);
             }
             entitySr.sortingOrder = 11 - currentTile.tileY;
             canMove = false;

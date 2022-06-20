@@ -24,6 +24,8 @@ public class Boss : Enemy
     public virtual void BossDeath()
     {
         currentMap.canExit = true;
+        Feedback feedback = Instantiate(Resources.Load<Feedback>("Prefabs/Feedback"), this.transform.position, Quaternion.identity);
+        feedback.Init(true, true, 3, this.transform.position);
         Destroy(this.gameObject);
         AchievementManager.instanceAM.UpdateBossesKilled();
         GameObject darkMatter = Resources.Load<GameObject>("Prefabs/DarkMatter");

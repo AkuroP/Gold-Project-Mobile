@@ -62,7 +62,7 @@ public class Item : MonoBehaviour
                 }
                 break;
             case WeaponType.GRIMOIRE:
-                if (RuneManager.instanceRM.handgunLevel == 0 && RuneManager.instanceRM.hasBuyHandgun == "false")
+                if (RuneManager.instanceRM.grimoireLevel == 0 && RuneManager.instanceRM.hasBuyGrimoire == "false")
                 {
                     gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/grimoire_hud");
                 }
@@ -125,7 +125,7 @@ public class Item : MonoBehaviour
                 {
                     descriptionText.text = "Melee attack with a 1 block range. The attack is an AOE that summons fire and hits all 3 blocks horizontally in the direction of the attack.";
                 }
-                else if (RuneManager.instanceRM.handgunLevel == 0)
+                else if (RuneManager.instanceRM.grimoireLevel == 0)
                 {
                     descriptionText.text = "Spawns a flame on the square behind you.";
                 }

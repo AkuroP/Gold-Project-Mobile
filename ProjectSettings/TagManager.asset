@@ -12,6 +12,7 @@ TagManager:
   - Canvas
   - DarkMatter
   - AchievementManager
+  - FeedbackPos
   layers:
   - Default
   - TransparentFX
