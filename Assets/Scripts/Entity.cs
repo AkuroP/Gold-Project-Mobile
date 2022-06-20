@@ -261,6 +261,8 @@ public class Entity : MonoBehaviour
                         Damage(GetComponent<Player>().weapon.weaponDamage, currentTile.leftTile.entityOnTile);
                     }
                     StartCoroutine(DrawAttack(currentTile.leftTile));
+                    
+                    Instantiate(Resources.Load<GameObject>("Prefabs/Enemy_Atk_VFX"), currentTile.leftTile.transform);
                 }
 
                 if (currentTile.rightTile != null && !currentTile.rightTile.isWall)
@@ -270,6 +272,8 @@ public class Entity : MonoBehaviour
                         Damage(GetComponent<Player>().weapon.weaponDamage, currentTile.rightTile.entityOnTile);
                     }
                     StartCoroutine(DrawAttack(currentTile.rightTile));
+                
+                    Instantiate(Resources.Load<GameObject>("Prefabs/Enemy_Atk_VFX"), currentTile.rightTile.transform);
                 }
             }
             else
@@ -281,6 +285,8 @@ public class Entity : MonoBehaviour
                         Damage(GetComponent<Player>().weapon.weaponDamage, currentTile.topTile.entityOnTile);
                     }
                     StartCoroutine(DrawAttack(currentTile.topTile));
+
+                    Instantiate(Resources.Load<GameObject>("Prefabs/Enemy_Atk_VFX"), currentTile.topTile.transform);
                 }
                 if (currentTile.bottomTile != null && !currentTile.bottomTile.isWall)
                 {
@@ -289,6 +295,8 @@ public class Entity : MonoBehaviour
                         Damage(GetComponent<Player>().weapon.weaponDamage, currentTile.bottomTile.entityOnTile);
                     }
                     StartCoroutine(DrawAttack(currentTile.bottomTile));
+
+                    Instantiate(Resources.Load<GameObject>("Prefabs/Enemy_Atk_VFX"), currentTile.bottomTile.transform);
                 }
             }
         }
