@@ -38,6 +38,13 @@ public class Enemy : Entity
 
     public Animator enemyAnim;
 
+    public bool isDying;
+    public bool isFading;
+    public float deathElapsedTime;
+    public float deathafterBlackElapsedTime;
+    public float toBlackTransitionTime = 0.4f;
+    public float fadeOutTime = 0.4f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -79,53 +86,70 @@ public class Enemy : Entity
         //hp management
         if (hp <= 0)
         {
-            AchievementManager.instanceAM.UpdateEnemiesKilled();
-            Feedback feedback = Instantiate(Resources.Load<Feedback>("Prefabs/Feedback"), this.transform.position, Quaternion.identity);
-            feedback.Init(true, true, 3, this.transform.position);
-            this.currentTile.entityOnTile = null;
-            Destroy(this.gameObject);
-            player.numEssence += 8;
-            switch (player.weapon.typeOfWeapon)
+            deathElapsedTime += Time.deltaTime;
+            if(isDying)
             {
-                case WeaponType.DAGGER:
-                    AchievementManager.instanceAM.UpdateEnemiesKilledWithDagger();
-                    break;
-                case WeaponType.HANDGUN:
-                    AchievementManager.instanceAM.UpdateEnemiesKilledWithHandgun();
-                    break;
-                case WeaponType.GRIMOIRE:
-                    AchievementManager.instanceAM.UpdateEnemiesKilledWithGrimory();
-                    break;
+                if(!isFading)
+                {
+                    entitySr.color = new Color(Mathf.Lerp(1, 0, deathElapsedTime / toBlackTransitionTime), Mathf.Lerp(1, 0, deathElapsedTime / toBlackTransitionTime), Mathf.Lerp(1, 0, deathElapsedTime / toBlackTransitionTime), 1f);
+                }
+                else
+                {
+                    deathafterBlackElapsedTime += Time.deltaTime;
+                    entitySr.color = new Color(0, 0, 0, Mathf.Lerp(1, 0, deathafterBlackElapsedTime / fadeOutTime));
+                }
             }
-            if (this is EnemyOne)
+            else
             {
-                GameManager.instanceGM.sfxAudioSource2.clip = Resources.Load<AudioClip>("SoundDesign/SFX/Monster1Death");
-                GameManager.instanceGM.sfxAudioSource2.Play();
-            }
-            else if (this is EnemyTwo)
-            {
-                GameManager.instanceGM.sfxAudioSource2.clip = Resources.Load<AudioClip>("SoundDesign/SFX/Monster2Death");
-                GameManager.instanceGM.sfxAudioSource2.Play();
-            }
-            else if (this is EnemyThree)
-            {
-                GameManager.instanceGM.sfxAudioSource2.clip = Resources.Load<AudioClip>("SoundDesign/SFX/Monster3Death");
-                GameManager.instanceGM.sfxAudioSource2.Play();
-            }
-            else if (this is EnemyFour)
-            {
-                GameManager.instanceGM.sfxAudioSource2.clip = Resources.Load<AudioClip>("SoundDesign/SFX/Monster4Death");
-                GameManager.instanceGM.sfxAudioSource2.Play();
-            }
-            else if (this is EnemyFive)
-            {
-                GameManager.instanceGM.sfxAudioSource2.clip = Resources.Load<AudioClip>("SoundDesign/SFX/Monster5Death");
-                GameManager.instanceGM.sfxAudioSource2.Play();
-            }
-            else if (this is EnemySix)
-            {
-                GameManager.instanceGM.sfxAudioSource2.clip = Resources.Load<AudioClip>("SoundDesign/SFX/Monster6Death");
-                GameManager.instanceGM.sfxAudioSource2.Play();
+                AchievementManager.instanceAM.UpdateEnemiesKilled();
+                Feedback feedback = Instantiate(Resources.Load<Feedback>("Prefabs/Feedback"), this.transform.position, Quaternion.identity);
+                feedback.Init(true, true, 3, this.transform.position);
+                this.currentTile.entityOnTile = null;
+                StartCoroutine(MonsterDeath());
+                GameManager.instanceGM.allEntities.Remove(this);
+                player.numEssence += 8;
+                switch (player.weapon.typeOfWeapon)
+                {
+                    case WeaponType.DAGGER:
+                        AchievementManager.instanceAM.UpdateEnemiesKilledWithDagger();
+                        break;
+                    case WeaponType.HANDGUN:
+                        AchievementManager.instanceAM.UpdateEnemiesKilledWithHandgun();
+                        break;
+                    case WeaponType.GRIMOIRE:
+                        AchievementManager.instanceAM.UpdateEnemiesKilledWithGrimory();
+                        break;
+                }
+                if (this is EnemyOne)
+                {
+                    GameManager.instanceGM.sfxAudioSource2.clip = Resources.Load<AudioClip>("SoundDesign/SFX/Monster1Death");
+                    GameManager.instanceGM.sfxAudioSource2.Play();
+                }
+                else if (this is EnemyTwo)
+                {
+                    GameManager.instanceGM.sfxAudioSource2.clip = Resources.Load<AudioClip>("SoundDesign/SFX/Monster2Death");
+                    GameManager.instanceGM.sfxAudioSource2.Play();
+                }
+                else if (this is EnemyThree)
+                {
+                    GameManager.instanceGM.sfxAudioSource2.clip = Resources.Load<AudioClip>("SoundDesign/SFX/Monster3Death");
+                    GameManager.instanceGM.sfxAudioSource2.Play();
+                }
+                else if (this is EnemyFour)
+                {
+                    GameManager.instanceGM.sfxAudioSource2.clip = Resources.Load<AudioClip>("SoundDesign/SFX/Monster4Death");
+                    GameManager.instanceGM.sfxAudioSource2.Play();
+                }
+                else if (this is EnemyFive)
+                {
+                    GameManager.instanceGM.sfxAudioSource2.clip = Resources.Load<AudioClip>("SoundDesign/SFX/Monster5Death");
+                    GameManager.instanceGM.sfxAudioSource2.Play();
+                }
+                else if (this is EnemySix)
+                {
+                    GameManager.instanceGM.sfxAudioSource2.clip = Resources.Load<AudioClip>("SoundDesign/SFX/Monster6Death");
+                    GameManager.instanceGM.sfxAudioSource2.Play();
+                }
             }
         }
     }
@@ -670,6 +694,15 @@ public class Enemy : Entity
             }
         }
 
+    }
+
+    public IEnumerator MonsterDeath()
+    {
+        isDying = true;
+        yield return new WaitForSeconds(toBlackTransitionTime);
+        isFading = true;
+        yield return new WaitForSeconds(fadeOutTime);
+        Destroy(this.gameObject);
     }
 
 }

@@ -424,7 +424,7 @@ public class Entity : MonoBehaviour
         if(entity is BossTP && entity.GetComponent<BossTP>().sunCreeps.Count > 0)
         {
             Feedback feedback = Instantiate(Resources.Load<Feedback>("Prefabs/Feedback"), this.transform.position, Quaternion.identity);
-            feedback.Init(false, 0, new Vector2(entity.transform.position.x, entity.transform.position.y + 1f));
+            feedback.Init(false, 0, new Vector2(entity.transform.position.x, entity.transform.position.y + 1.2f));
             return;
         }
         //Boss Damage with Boss Slayer
@@ -434,13 +434,13 @@ public class Entity : MonoBehaviour
             {
                 entity.hp -= damage * damageMultiplicator + 1;
                 Feedback feedback = Instantiate(Resources.Load<Feedback>("Prefabs/Feedback"), this.transform.position, Quaternion.identity);
-                feedback.Init(false, 2 * damageMultiplicator, new Vector2(entity.transform.position.x, entity.transform.position.y + 1f));
+                feedback.Init(false, 2 * damageMultiplicator, new Vector2(entity.transform.position.x, entity.transform.position.y + 1.3f));
             }
            else if (Inventory.instanceInventory.HasItem("Power Gloves"))
             {
                 entity.hp -= damage * damageMultiplicator;
                 Feedback feedback = Instantiate(Resources.Load<Feedback>("Prefabs/Feedback"), this.transform.position, Quaternion.identity);
-                feedback.Init(false, 2 * damageMultiplicator, new Vector2(entity.transform.position.x, entity.transform.position.y + 1f));
+                feedback.Init(false, 2 * damageMultiplicator, new Vector2(entity.transform.position.x, entity.transform.position.y + 1.3f));
             }
         }
         //Boss damage without Boss Slayer
@@ -448,14 +448,14 @@ public class Entity : MonoBehaviour
         {
             entity.hp -= damage * damageMultiplicator - 1;
             Feedback feedback = Instantiate(Resources.Load<Feedback>("Prefabs/Feedback"), this.transform.position, Quaternion.identity);
-            feedback.Init(false, 1 * damageMultiplicator, new Vector2(entity.transform.position.x, entity.transform.position.y + 1f));
+            feedback.Init(false, 1 * damageMultiplicator, new Vector2(entity.transform.position.x, entity.transform.position.y + 1.3f));
         }
         //Damage entites
         else if (entity.invincibilityTurn == 0)
         {
             entity.hp -= damage * damageMultiplicator;
             Feedback feedback = Instantiate(Resources.Load<Feedback>("Prefabs/Feedback"), this.transform.position, Quaternion.identity);
-            feedback.Init(false, damage * damageMultiplicator, new Vector2(entity.transform.position.x, entity.transform.position.y + 1f));
+            feedback.Init(false, damage * damageMultiplicator, new Vector2(entity.transform.position.x, entity.transform.position.y + 1.3f));
             damageMultiplicator = 1;
             if (entity.CompareTag("Player") && entity.hp > 0)
             {
