@@ -40,7 +40,20 @@ public class Player : Entity
         instanceGM = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
 
         currentPosition = transform.position;
-        weapon = new Weapon(RuneManager.instanceRM.currentWeapon, 0, 1);
+        if(RuneManager.instanceRM.currentWeapon == WeaponType.DAGGER)
+        {
+            weapon = new Weapon(RuneManager.instanceRM.currentWeapon, RuneManager.instanceRM.daggerLevel, 1);
+        }
+        else if(RuneManager.instanceRM.currentWeapon == WeaponType.HANDGUN)
+        {
+            weapon = new Weapon(RuneManager.instanceRM.currentWeapon, RuneManager.instanceRM.handgunLevel, 1);
+        }
+        else if(RuneManager.instanceRM.currentWeapon == WeaponType.GRIMOIRE)
+        {
+            weapon = new Weapon(RuneManager.instanceRM.currentWeapon, RuneManager.instanceRM.grimoireLevel, 1);
+        }
+
+
         hp = maxHP;
         attackDuration = 0.2f;
 
@@ -78,6 +91,7 @@ public class Player : Entity
                             tilesOnFire[i].fireCD -= 1;
                             if(tilesOnFire[i].fireCD <= 0)
                             {
+                                tilesOnFire[i].GetComponentInChildren<AnimDestruct>().DestroyAnimGO();
                                 tilesOnFire.Remove(tilesOnFire[i]);
                                 i--;
                             }
@@ -310,6 +324,7 @@ public class Player : Entity
             //anim
             List<Entity> enemiesInRange = new List<Entity>();
             enemiesInRange = GetEntityInRange(ConvertPattern(weapon.upDirectionATS, direction), false);
+            GameObject wVFX = null;
             if(enemiesInRange.Count > 0)
             {
                 foreach(Entity enemy in enemiesInRange)
@@ -332,10 +347,25 @@ public class Player : Entity
                             weaponVFX = null;
                         break;
                     }
-                    Instantiate(weaponVFX, enemy.transform.position, Quaternion.identity);
-                    Debug.Log("SFX " + weaponVFX.name);
+                    
+                    wVFX = Instantiate(weaponVFX, enemy.currentTile.transform);
+                    Debug.Log("VFX " + weaponVFX.name);
                 }
-            }            
+            }
+
+            if(this.weapon.typeOfWeapon == WeaponType.GRIMOIRE && this.weapon.weaponLevel >= 2)
+            {
+                if(wVFX != null)
+                    Destroy(wVFX);
+                GameObject fireTile = Resources.Load<GameObject>("Assets/GA/Player/fireTile");
+                Debug.Log(fireTile.name);
+                List<Tile> tileInRange = GetTileInRange(ConvertPattern(weapon.upDirectionATS, direction), false);
+                for(int i = 0; i < tileInRange.Count; i++)
+                {
+                    Instantiate(fireTile, tileInRange[i].transform);
+                }
+                this.weapon.ApplyEffect(this, 0);
+            }      
             
             if (mobility > 0)
             {

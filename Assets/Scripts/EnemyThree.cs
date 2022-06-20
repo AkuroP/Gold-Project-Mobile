@@ -112,6 +112,7 @@ public class EnemyThree : Enemy
             myTurn = false;
             turnDuration = 0;
 
+            CheckFire();
             StartTurn();
         }
 

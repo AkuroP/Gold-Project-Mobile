@@ -39,6 +39,8 @@ public class BossTP : Boss
                 this.CheckStatus(this);
             }
 
+            CheckFire();
+
             StartTurn();
             if(sunCreeps.Count > 0)
             {

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8513889350107552641}
   - component: {fileID: -280875112567762739}
   m_Layer: 0
-  m_Name: fire
+  m_Name: fireTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,7 +44,7 @@ Animator:
   m_GameObject: {fileID: 2815308551612488118}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 916fb8697effbee41bdf1c3e65c84926, type: 2}
+  m_Controller: {fileID: 9100000, guid: fe6cb0ac74bba09458ddfd7f35c683e3, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

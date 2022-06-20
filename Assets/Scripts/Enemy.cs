@@ -67,10 +67,10 @@ public class Enemy : Entity
 
     public void CheckFire()
     {
-        if(currentTile.fireCD > 0)
+        if(this.currentTile.fireCD > 0)
         {
             this.Damage(1, this);
-            currentTile.fireCD = 0;
+            this.currentTile.fireCD = 0;
         }
     }
 

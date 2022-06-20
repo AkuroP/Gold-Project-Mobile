@@ -106,6 +106,7 @@ public class EnemyFour : Enemy
             myTurn = false;
             turnDuration = 0;
 
+            CheckFire();
             StartTurn();
             StartCoroutine(EndTurn(turnDuration));
         }

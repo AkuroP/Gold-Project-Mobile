@@ -39,6 +39,8 @@ public class BossFrog : Boss
                 this.CheckStatus(this);
             }
 
+            CheckFire();
+            
             StartTurn();
             StartCoroutine(EndTurn(turnDuration));
         }
