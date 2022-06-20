@@ -264,6 +264,12 @@ public class UI : MonoBehaviour
                 sfxAudioSource.Play();
                 break;
         }
+        StartCoroutine(WaitBeforeLoad(sfxAudioSource.clip.length));
+    }
+
+    private IEnumerator WaitBeforeLoad(float _waitingTime)
+    {
+        yield return new WaitForSeconds(_waitingTime);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
