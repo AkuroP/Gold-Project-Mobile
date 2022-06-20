@@ -53,7 +53,7 @@ MonoBehaviour:
   nextBoss: 0
   numberOfBosses: 2
   shopRoomNumber: 5
-  actualDangerousness: 2
+  actualDangerousness: 1
   turnNumber: 0
   LevelClip: {fileID: 8300000, guid: 19ea2e7eaffc67646beab842c191e02e, type: 3}
   BossClip: {fileID: 8300000, guid: a1a233d42795d474286bdc9109df5f75, type: 3}
