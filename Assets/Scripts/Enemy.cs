@@ -80,6 +80,8 @@ public class Enemy : Entity
         if (hp <= 0)
         {
             AchievementManager.instanceAM.UpdateEnemiesKilled();
+            Feedback feedback = Instantiate(Resources.Load<Feedback>("Prefabs/Feedback"), this.transform.position, Quaternion.identity);
+            feedback.Init(true, true, 3, this.transform.position);
             this.currentTile.entityOnTile = null;
             Destroy(this.gameObject);
             player.numEssence += 8;

@@ -272,6 +272,8 @@ public class Player : Entity
         {
             playerAnim.SetTrigger("Atk");
             numEssence -= attackCost;
+            Feedback feedback = Instantiate(Resources.Load<Feedback>("Prefabs/Feedback"), this.transform.position, Quaternion.identity);
+            feedback.Init(true, 3, new Vector2(transform.position.x, transform.position.y + 1f));
 
             /*List<AttackTileSettings> attackPattern = ConvertPattern(_upDirectionATS, direction);
 
