@@ -39,6 +39,9 @@ public class EnemySix : Enemy
         entitySr = this.transform.Find("Sprite").GetComponent<SpriteRenderer>();
         entitySr.sprite = Resources.Load<Sprite>("Assets/Graphics/Enemies/MobGros");
 
+        enemyAnim = this.GetComponentInChildren<Animator>();
+        enemyAnim.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Assets/GA/Enemies/anims/titan");
+
         AssignPattern();
 
         turnArrow = this.transform.Find("Arrow").gameObject;
@@ -150,11 +153,22 @@ public class EnemySix : Enemy
                 if (chargeAttackCurrent > 0)
                 {
                     Debug.Log("charge in progress");
+
+                    if(!enemyAnim.GetBool("Charge1"))
+                    {
+                        enemyAnim.SetBool("Charge1", true);
+                    }
+
                     chargeAttackCurrent--;
                 }
                 else
                 {
                     Debug.Log("attaque");
+                    enemyAnim.SetTrigger("Atk");
+                    enemyAnim.SetBool("Charge1", false);
+                    enemyAnim.SetBool("Charge2", false);
+                    
+
                     chargeAttack = false;
                     chargeAttackCurrent = chargeAttackRoundMax;
 
@@ -180,6 +194,7 @@ public class EnemySix : Enemy
 
                         if (pathToTarget != null && pathToTarget.Count > 1)
                         {
+                            enemyAnim.SetTrigger("Move");
                             Move(pathToTarget[1]);
                             turnDuration += moveDuration;
                         }            
@@ -196,6 +211,7 @@ public class EnemySix : Enemy
                     }
                     else
                     {
+                        enemyAnim.SetTrigger("Move");
                         EnemyRandomMove();
                         turnDuration += moveDuration;
                         moveCDCurrent = moveCDMax;
@@ -209,10 +225,18 @@ public class EnemySix : Enemy
             {
                 Debug.Log("charge in progress");
                 chargeAttackCurrent--;
+                if(enemyAnim.GetBool("Charge1"))
+                {
+                    enemyAnim.SetBool("Charge2", true);
+                }
             }
             else
             {
                 Debug.Log("attaque");
+                enemyAnim.SetTrigger("Atk");
+                enemyAnim.SetBool("Charge1", false);
+                enemyAnim.SetBool("Charge2", false);
+                
                 chargeAttack = false;
                 chargeAttackCurrent = chargeAttackRoundMax;
                 GameManager.instanceGM.sfxAudioSource.clip = Resources.Load<AudioClip>("SoundDesign/SFX/SFX_Atk_Enemy6");
