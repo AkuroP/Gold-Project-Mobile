@@ -42,7 +42,8 @@ public class UI : MonoBehaviour
     [SerializeField] private GameObject titleScreen;
     [SerializeField] private GameObject descriptionPanel;
     [SerializeField] private GameObject tutorial;
-    [SerializeField] private Button lastTutoImage;
+    public Button lastTutoImage;
+    public AudioSource sfxAudioSource;
 
     //Fade
     public GameObject fadePrefab;
@@ -66,6 +67,7 @@ public class UI : MonoBehaviour
         {
             player = GameObject.FindWithTag("Player").GetComponent<Player>();
         }
+        sfxAudioSource = Camera.main.GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -188,11 +190,15 @@ public class UI : MonoBehaviour
     public void OpenMainMenuOptions()
     {
         optionMenu.SetActive(true);
+        sfxAudioSource.clip = Resources.Load<AudioClip>("SoundDesign/SFX/buttonmenu");
+        sfxAudioSource.Play();
     }
 
     public void CloseMainMenuOptions()
     {
         optionMenu.SetActive(false);
+        sfxAudioSource.clip = Resources.Load<AudioClip>("SoundDesign/SFX/buttonreturn");
+        sfxAudioSource.Play();
     }
 
     public void CloseShop()
@@ -244,12 +250,18 @@ public class UI : MonoBehaviour
         {
             case "Dagger":
                 RuneManager.instanceRM.currentWeapon = WeaponType.DAGGER;
+                sfxAudioSource.clip = Resources.Load<AudioClip>("SoundDesign/SFX/Drawnknife");
+                sfxAudioSource.Play();
                 break;
             case "Handgun":
                 RuneManager.instanceRM.currentWeapon = WeaponType.HANDGUN;
+                sfxAudioSource.clip = Resources.Load<AudioClip>("SoundDesign/SFX/reloadpistol");
+                sfxAudioSource.Play();
                 break;
             case "Grimoire":
                 RuneManager.instanceRM.currentWeapon = WeaponType.GRIMOIRE;
+                sfxAudioSource.clip = Resources.Load<AudioClip>("SoundDesign/SFX/openmagicbook");
+                sfxAudioSource.Play();
                 break;
         }
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -257,6 +269,8 @@ public class UI : MonoBehaviour
 
     public void OpenChooseWeapon()
     {
+        sfxAudioSource.clip = Resources.Load<AudioClip>("SoundDesign/SFX/buttonmenu");
+        sfxAudioSource.Play();
         if (RuneManager.instanceRM.hasBuyHandgun == "true" || RuneManager.instanceRM.hasBuyGrimoire == "true")
         {
             chooseWeaponMenu.SetActive(true);
@@ -277,31 +291,47 @@ public class UI : MonoBehaviour
     public void CloseChooseWeapon()
     {
         chooseWeaponMenu.SetActive(false);
+        optionMenu.SetActive(false);
+        sfxAudioSource.clip = Resources.Load<AudioClip>("SoundDesign/SFX/buttonreturn");
+        sfxAudioSource.Play();
     }
 
     public void CloseHubShop()
     {
         descriptionPanel.SetActive(false);
         hubShop.SetActive(false);
+        optionMenu.SetActive(false);
+        sfxAudioSource.clip = Resources.Load<AudioClip>("SoundDesign/SFX/buttonreturn");
+        sfxAudioSource.Play();
     }
 
     public void CloseRuneDescription()
     {
         descriptionPanel.SetActive(false);
+        optionMenu.SetActive(false);
+        sfxAudioSource.clip = Resources.Load<AudioClip>("SoundDesign/SFX/buttonreturn");
+        sfxAudioSource.Play();
     }
 
     public void OpenOptions()
     {
+        sfxAudioSource.clip = Resources.Load<AudioClip>("SoundDesign/SFX/buttonmenu");
+        sfxAudioSource.Play();
         GameManager.instanceGM.PauseResume(true);
     }
 
     public void CloseTitleScreen()
     {
         titleScreen.SetActive(false);
+        optionMenu.SetActive(false);
+        sfxAudioSource.clip = Resources.Load<AudioClip>("SoundDesign/SFX/buttonmenu");
+        sfxAudioSource.Play();
     }
 
     public void GoToMainMenu()
     {
+        sfxAudioSource.clip = Resources.Load<AudioClip>("SoundDesign/SFX/buttonreturn");
+        sfxAudioSource.Play();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 }

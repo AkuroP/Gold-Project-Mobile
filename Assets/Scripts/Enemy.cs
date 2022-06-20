@@ -95,6 +95,36 @@ public class Enemy : Entity
                     AchievementManager.instanceAM.UpdateEnemiesKilledWithGrimory();
                     break;
             }
+            if (this is EnemyOne)
+            {
+                GameManager.instanceGM.sfxAudioSource2.clip = Resources.Load<AudioClip>("SoundDesign/SFX/Monster1Death");
+                GameManager.instanceGM.sfxAudioSource2.Play();
+            }
+            else if (this is EnemyTwo)
+            {
+                GameManager.instanceGM.sfxAudioSource2.clip = Resources.Load<AudioClip>("SoundDesign/SFX/Monster2Death");
+                GameManager.instanceGM.sfxAudioSource2.Play();
+            }
+            else if (this is EnemyThree)
+            {
+                GameManager.instanceGM.sfxAudioSource2.clip = Resources.Load<AudioClip>("SoundDesign/SFX/Monster3Death");
+                GameManager.instanceGM.sfxAudioSource2.Play();
+            }
+            else if (this is EnemyFour)
+            {
+                GameManager.instanceGM.sfxAudioSource2.clip = Resources.Load<AudioClip>("SoundDesign/SFX/Monster4Death");
+                GameManager.instanceGM.sfxAudioSource2.Play();
+            }
+            else if (this is EnemyFive)
+            {
+                GameManager.instanceGM.sfxAudioSource2.clip = Resources.Load<AudioClip>("SoundDesign/SFX/Monster5Death");
+                GameManager.instanceGM.sfxAudioSource2.Play();
+            }
+            else if (this is EnemySix)
+            {
+                GameManager.instanceGM.sfxAudioSource2.clip = Resources.Load<AudioClip>("SoundDesign/SFX/Monster6Death");
+                GameManager.instanceGM.sfxAudioSource2.Play();
+            }
         }
     }
 
@@ -614,10 +644,9 @@ public class Enemy : Entity
                     }
 
                     Damage(enemyDamage, enemiesInRange[i]);
-                    player.playerAnim.SetTrigger("Hurt");
 
                     //item that boosts the player when damages
-                    if(Inventory.instanceInventory.HasItem("Counter Ring"))
+                    if (Inventory.instanceInventory.HasItem("Counter Ring"))
                     {
                         GameManager.instanceGM.sfxAudioSource.clip = Resources.Load<AudioClip>("Assets/audio/SFX_Item_Counter");
                         GameManager.instanceGM.sfxAudioSource.Play();

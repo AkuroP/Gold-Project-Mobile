@@ -286,6 +286,8 @@ public class BossTP : Boss
 
     public void TPOut()
     {
+        GameManager.instanceGM.sfxAudioSource.clip = Resources.Load<AudioClip>("SoundDesign/SFX/TPout");
+        GameManager.instanceGM.sfxAudioSource.Play();
         currentTile.entityOnTile = null;
         enemyAnim.SetBool("TP", true);
         heart1.GetComponent<SpriteRenderer>().enabled = false;
@@ -301,6 +303,8 @@ public class BossTP : Boss
         {
             newTile = currentMap.ReturnRandomTile();
         }
+        GameManager.instanceGM.sfxAudioSource.clip = Resources.Load<AudioClip>("SoundDesign/SFX/TPin");
+        GameManager.instanceGM.sfxAudioSource.Play();
 
         newTile.entityOnTile = this;
         currentTile = newTile;

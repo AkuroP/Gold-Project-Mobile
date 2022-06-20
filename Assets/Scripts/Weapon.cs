@@ -70,7 +70,8 @@ public class Weapon
         switch(this.typeOfWeapon)
         {
             case WeaponType.DAGGER:
-
+                GameManager.instanceGM.sfxAudioSource.clip = Resources.Load<AudioClip>("SoundDesign/SFX/Drawnknife");
+                GameManager.instanceGM.sfxAudioSource.Play();
                 for (int i = 0; i < enemiesInRange.Count; i++)
                 {
                     if (enemiesInRange[i] is Enemy)
@@ -92,7 +93,8 @@ public class Weapon
             
 
             case WeaponType.HANDGUN:
-
+                GameManager.instanceGM.sfxAudioSource.clip = Resources.Load<AudioClip>("SoundDesign/SFX/shootpistol");
+                GameManager.instanceGM.sfxAudioSource.Play();
                 for (int i = 0; i < enemiesInRange.Count; i++)
                 {
                     if (enemiesInRange[i] is Enemy)
@@ -117,7 +119,8 @@ public class Weapon
 
             case WeaponType.GRIMOIRE:
 
-
+                GameManager.instanceGM.sfxAudioSource.clip = Resources.Load<AudioClip>("SoundDesign/SFX/fireball");
+                GameManager.instanceGM.sfxAudioSource.Play();
                 for (int i = 0; i < enemiesInRange.Count; i++)
                 {
                     if (enemiesInRange[i] is Enemy)

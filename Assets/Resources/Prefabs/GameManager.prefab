@@ -60,6 +60,7 @@ MonoBehaviour:
   shopUIprefab: {fileID: 2232992195658834521, guid: f2461036fbabd3a45b7d6111cd0115d7, type: 3}
   shopPrefab: {fileID: 5128081185710407048, guid: 361bff0af5cb8554781bae3c5f48edbc, type: 3}
   sfxAudioSource: {fileID: 0}
+  sfxAudioSource2: {fileID: 0}
   player: {fileID: 0}
   enemiesPlaying: []
   allEnemiesActionFinished: 0

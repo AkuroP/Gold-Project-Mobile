@@ -94,7 +94,9 @@ public class EnemyThree : Enemy
             {
                 currentTile.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/Tiles/TilemapsDark_Spritesheet_25");
                 isOnThePike = true;
-                if(hp == 1)
+                GameManager.instanceGM.sfxAudioSource.clip = Resources.Load<AudioClip>("SoundDesign/SFX/spike");
+                GameManager.instanceGM.sfxAudioSource.Play();
+                if (hp == 1)
                 {
                     StartCoroutine(ResetPike(currentTile));
                 }
@@ -136,6 +138,8 @@ public class EnemyThree : Enemy
 
                     StartAttack(upDirectionATS);
                     enemyAnim.SetTrigger("Atk");
+                    GameManager.instanceGM.sfxAudioSource.clip = Resources.Load<AudioClip>("SoundDesign/SFX/SFX_Atk_Enemy3");
+                    GameManager.instanceGM.sfxAudioSource.Play();
                     turnDuration += attackDuration;
                 }
             }

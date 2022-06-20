@@ -152,6 +152,9 @@ MonoBehaviour:
   weaponUpPrice: {fileID: 8605224050343097537}
   weaponType: 2
   itemPrice: 5
+  descriptionPanel: {fileID: 0}
+  buyButton: {fileID: 0}
+  descriptionText: {fileID: 0}
 --- !u!1 &1449890363031980662
 GameObject:
   m_ObjectHideFlags: 0
@@ -304,6 +307,9 @@ MonoBehaviour:
   weaponUpPrice: {fileID: 6771532447942225756}
   weaponType: 1
   itemPrice: 5
+  descriptionPanel: {fileID: 0}
+  buyButton: {fileID: 0}
+  descriptionText: {fileID: 0}
 --- !u!1 &2043790415535976776
 GameObject:
   m_ObjectHideFlags: 0
@@ -598,7 +604,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &2749532188505197084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -915,6 +921,9 @@ MonoBehaviour:
   weaponUpPrice: {fileID: 544839277985837005}
   weaponType: 0
   itemPrice: 5
+  descriptionPanel: {fileID: 0}
+  buyButton: {fileID: 0}
+  descriptionText: {fileID: 0}
 --- !u!1 &3461600951553121148
 GameObject:
   m_ObjectHideFlags: 0
@@ -1564,7 +1573,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8686167934897488658
 RectTransform:
   m_ObjectHideFlags: 0

@@ -29,6 +29,11 @@ public class Boss : Enemy
         GameObject darkMatter = Resources.Load<GameObject>("Prefabs/DarkMatter");
         Instantiate(darkMatter, exitTile.transform.position, Quaternion.identity);
         GameObject.FindWithTag("Player").GetComponent<Player>().numEssence += 33;
+        if (this is BossFrog)
+        {
+            GameManager.instanceGM.sfxAudioSource.clip = Resources.Load<AudioClip>("SoundDesign/SFX/Boss1Death");
+            GameManager.instanceGM.sfxAudioSource.Play();
+        }
         switch (player.weapon.typeOfWeapon)
         {
             case WeaponType.DAGGER:

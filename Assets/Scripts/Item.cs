@@ -141,7 +141,9 @@ public class Item : MonoBehaviour
     {
         if(RuneManager.instanceRM.darkMatter >= this.itemPrice)
         {
-            if(_weaponName == "DAGGER")
+            UI.instanceUI.sfxAudioSource.clip = Resources.Load<AudioClip>("SoundDesign/SFX/money-sound-effect");
+            UI.instanceUI.sfxAudioSource.Play();
+            if (_weaponName == "DAGGER")
             {
                 if(RuneManager.instanceRM.hasBuyDagger == "false")
                 {

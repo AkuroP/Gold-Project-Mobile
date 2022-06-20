@@ -23,7 +23,9 @@ public class Shop : MonoBehaviour
 
     public void OpenCloseShop(bool _openClose)
     {
-        if(_openClose)
+        UI.instanceUI.sfxAudioSource.clip = Resources.Load<AudioClip>("SoundDesign/SFX/buttonmenu");
+        UI.instanceUI.sfxAudioSource.Play();
+        if (_openClose)
         {
             shopObject.SetActive(true);
         }
