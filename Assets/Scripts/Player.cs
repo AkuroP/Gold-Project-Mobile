@@ -81,7 +81,11 @@ public class Player : Entity
                             tilesOnFire[i].fireCD -= 1;
                             if(tilesOnFire[i].fireCD <= 0)
                             {
-                                tilesOnFire[i].GetComponentInChildren<AnimDestruct>().DestroyAnimGO();
+                                AnimDestruct[] animFireTile = tilesOnFire[i].GetComponentsInChildren<AnimDestruct>();
+                                foreach(AnimDestruct destruct in animFireTile)
+                                {
+                                    destruct.DestroyAnimGO();
+                                }
                                 tilesOnFire.Remove(tilesOnFire[i]);
                                 i--;
                             }
