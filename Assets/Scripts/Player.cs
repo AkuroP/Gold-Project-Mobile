@@ -40,20 +40,8 @@ public class Player : Entity
         instanceGM = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
 
         currentPosition = transform.position;
-        if(RuneManager.instanceRM.currentWeapon == WeaponType.DAGGER)
-        {
-            weapon = new Weapon(RuneManager.instanceRM.currentWeapon, RuneManager.instanceRM.daggerLevel, 1);
-        }
-        else if(RuneManager.instanceRM.currentWeapon == WeaponType.HANDGUN)
-        {
-            weapon = new Weapon(RuneManager.instanceRM.currentWeapon, RuneManager.instanceRM.handgunLevel, 1);
-        }
-        else if(RuneManager.instanceRM.currentWeapon == WeaponType.GRIMOIRE)
-        {
-            weapon = new Weapon(RuneManager.instanceRM.currentWeapon, RuneManager.instanceRM.grimoireLevel, 1);
-        }
-
-
+        weapon = new Weapon(RuneManager.instanceRM.currentWeapon, 0, 1);
+        
         hp = maxHP;
         attackDuration = 0.2f;
 
