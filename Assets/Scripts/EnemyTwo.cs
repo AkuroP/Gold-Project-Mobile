@@ -17,9 +17,31 @@ public class EnemyTwo : Enemy
     public override void Init()
     {
         player = GameObject.FindWithTag("Player").GetComponent<Player>();
-        maxHP = 1;
+        if (GameManager.instanceGM.floor >= 19)
+        {
+            maxHP = 3;
+        }
+        else if (GameManager.instanceGM.floor >= 7)
+        {
+            maxHP = 2;
+        }
+        else
+        {
+            maxHP = 1;
+        }
         hp = maxHP;
-        enemyDamage = 1;
+        if (GameManager.instanceGM.floor >= 25)
+        {
+            enemyDamage = 3;
+        }
+        else if (GameManager.instanceGM.floor >= 13)
+        {
+            enemyDamage = 2;
+        }
+        else
+        {
+            enemyDamage = 1;
+        }
         prio = Random.Range(1, 5);
         //InitAttackPattern();
         moveCDMax = 0;
@@ -36,11 +58,27 @@ public class EnemyTwo : Enemy
 
         turnArrow = this.transform.Find("Arrow").gameObject;
 
-        heart1 = this.transform.Find("Heart1").gameObject;
-        heart2 = this.transform.Find("Heart2").gameObject;
-        heart3 = this.transform.Find("Heart3").gameObject;
-        heart1.SetActive(false);
-        heart3.SetActive(false);
+        if (GameManager.instanceGM.floor >= 19)
+        {
+            heart1 = this.transform.Find("Heart1").gameObject;
+            heart2 = this.transform.Find("Heart2").gameObject;
+            heart3 = this.transform.Find("Heart3").gameObject;
+        }
+        else if (GameManager.instanceGM.floor >= 7)
+        {
+            heart1 = this.transform.Find("Heart1").gameObject;
+            heart2 = this.transform.Find("Heart2").gameObject;
+            heart3 = this.transform.Find("Heart3").gameObject;
+            heart2.SetActive(false);
+        }
+        else
+        {
+            heart1 = this.transform.Find("Heart1").gameObject;
+            heart2 = this.transform.Find("Heart2").gameObject;
+            heart3 = this.transform.Find("Heart3").gameObject;
+            heart1.SetActive(false);
+            heart3.SetActive(false);
+        }
 
         isInitialize = true;
     }
@@ -102,6 +140,46 @@ public class EnemyTwo : Enemy
             IsSelfDead();
 
         entitySr.sortingOrder = 11 - this.currentTile.tileY;
+
+        if (GameManager.instanceGM.floor >= 19)
+        {
+            switch (this.hp)
+            {
+                case 1:
+                    heart1.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/hud1_1");
+                    heart2.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/hud1_0");
+                    heart3.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/hud1_0");
+                    break;
+                case 2:
+                    heart1.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/hud1_1");
+                    heart2.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/hud1_1");
+                    heart3.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/hud1_0");
+                    break;
+                case 3:
+                    heart1.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/hud1_1");
+                    heart2.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/hud1_1");
+                    heart3.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/hud1_1");
+                    break;
+                default:
+                    break;
+            }
+        }
+        else if (GameManager.instanceGM.floor >= 7)
+        {
+            switch (this.hp)
+            {
+                case 1:
+                    heart1.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/hud1_1");
+                    heart3.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/hud1_0");
+                    break;
+                case 2:
+                    heart1.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/hud1_1");
+                    heart3.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/hud1_1");
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 
     public override void StartTurn()

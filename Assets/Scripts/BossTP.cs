@@ -87,18 +87,84 @@ public class BossTP : Boss
         }
         if(sunCreeps.Count == 0)
         {
-            heart2.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/hud1_1");
-            heart1.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/Graphics/empty");
-            heart3.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/Graphics/empty");
+            if (GameManager.instanceGM.floor >= 23)
+            {
+                switch (this.hp)
+                {
+                    case 1:
+                        heart1.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/hud1_1");
+                        heart2.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/hud1_0");
+                        heart3.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/hud1_0");
+                        break;
+                    case 2:
+                        heart1.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/hud1_1");
+                        heart2.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/hud1_1");
+                        heart3.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/hud1_0");
+                        break;
+                    case 3:
+                        heart1.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/hud1_1");
+                        heart2.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/hud1_1");
+                        heart3.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/hud1_1");
+                        break;
+                    default:
+                        break;
+                }
+            }
+            else if (GameManager.instanceGM.floor >= 11)
+            {
+                switch (this.hp)
+                {
+                    case 1:
+                        heart1.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/hud1_1");
+                        heart2.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/empty");
+                        heart3.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/hud1_0");
+                        break;
+                    case 2:
+                        heart1.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/hud1_1");
+                        heart2.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/empty");
+                        heart3.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/hud1_1");
+                        break;
+                    default:
+                        break;
+                }
+            }
+            else
+            {
+                heart2.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/hud1_1");
+                heart1.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/Graphics/empty");
+                heart3.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Assets/Graphics/empty");
+            }
         }
     }
 
     public override void Init()
     {
         player = GameObject.FindWithTag("Player").GetComponent<Player>();
-        maxHP = 1;
+        if (GameManager.instanceGM.floor >= 23)
+        {
+            maxHP = 3;
+        }
+        else if (GameManager.instanceGM.floor >= 11)
+        {
+            maxHP = 2;
+        }
+        else
+        {
+            maxHP = 1;
+        }
         hp = maxHP;
-        enemyDamage = 1;
+        if (GameManager.instanceGM.floor >= 25)
+        {
+            enemyDamage = 3;
+        }
+        else if (GameManager.instanceGM.floor >= 17)
+        {
+            enemyDamage = 2;
+        }
+        else
+        {
+            enemyDamage = 1;
+        }
         prio = Random.Range(1, 5);
         moveCDMax = 0;
         moveCDCurrent = 0;
@@ -166,6 +232,8 @@ public class BossTP : Boss
             if(doAttack1 && !doAttack2)
             {
                 Debug.Log("att 1");
+                GameManager.instanceGM.sfxAudioSource.clip = Resources.Load<AudioClip>("SoundDesign/SFX/SFX_Atk_Boss2-1");
+                GameManager.instanceGM.sfxAudioSource.Play();
                 List<Tile> fireTile = this.GetTileInRange(upDirectionATS1, false);
                 Debug.Log("fire tile count : " + fireTile.Count);
                 StartCoroutine(SpawnFire(fireTile));
@@ -176,6 +244,8 @@ public class BossTP : Boss
             else if(doAttack1 && doAttack2)
             {
                 Debug.Log("att 2");
+                GameManager.instanceGM.sfxAudioSource.clip = Resources.Load<AudioClip>("SoundDesign/SFX/SFX_Atk_Boss2-2");
+                GameManager.instanceGM.sfxAudioSource.Play();
                 List<Tile> fireTile = this.GetTileInRange(upDirectionATS2, false);
                 Debug.Log("fire tile count : " + fireTile.Count);
                 StartCoroutine(SpawnFire(fireTile));

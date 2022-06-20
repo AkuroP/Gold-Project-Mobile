@@ -76,6 +76,10 @@ public class Weapon
                 {
                     if (enemiesInRange[i] is Enemy)
                     {
+                        if(enemiesInRange[i] is Boss && Inventory.instanceInventory.HasItem("Power GLoves"))
+                        {
+                            _bonusDamage = 0;
+                        }
                         if (this.weaponLevel >= 2 && enemiesInRange[i].hp <= this.weaponDamage + _bonusDamage)
                         {
                             Debug.Log("BONUS MOVE");

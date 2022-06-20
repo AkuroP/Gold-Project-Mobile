@@ -426,7 +426,18 @@ public class Entity : MonoBehaviour
         }
         else if ((entity is BossTP || entity is BossFrog) && Inventory.instanceInventory.HasItem("Boss Slayer"))
         {
-            entity.hp -= damage * damageMultiplicator + 1;
+            if(!Inventory.instanceInventory.HasItem("Power Gloves"))
+            {
+                entity.hp -= damage * damageMultiplicator + 1;
+            }
+           else if (Inventory.instanceInventory.HasItem("Power Gloves"))
+            {
+                entity.hp -= damage * damageMultiplicator;
+            }
+        }
+        else if ((entity is BossTP || entity is BossFrog) && !Inventory.instanceInventory.HasItem("Boss Slayer") && Inventory.instanceInventory.HasItem("Power Gloves"))
+        {
+            entity.hp -= damage * damageMultiplicator - 1;
         }
         else if (entity.invincibilityTurn == 0)
         {
