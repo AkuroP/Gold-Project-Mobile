@@ -231,7 +231,8 @@ public class EnemyThree : Enemy
                 //chase move
                 if (inChase)
                 {
-                    chasingEye = Instantiate(Resources.Load<GameObject>("Prefabs/Discovered"), this.transform);
+                    if(chasingEye == null)
+                        chasingEye = Instantiate(Resources.Load<GameObject>("Prefabs/Discovered"), this.transform);
                     if (moveCDCurrent > 0)
                     {
                         moveCDCurrent--;
@@ -269,7 +270,6 @@ public class EnemyThree : Enemy
 
                     if(chasingEye != null)
                     {
-                        Debug.Log("DESTROYING EYES");
                         Destroy(chasingEye);
                     }
                 }

@@ -13,6 +13,8 @@ public class EnemyFive : Enemy
     public int chargeAttackRoundMax = 0;
     public int chargeAttackCurrent;
 
+    private GameObject chasingEye;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -250,6 +252,9 @@ public class EnemyFive : Enemy
                 //chase move
                 if (inChase)
                 {
+                    if(chasingEye == null)
+                        chasingEye = Instantiate(Resources.Load<GameObject>("Prefabs/Discovered"), this.transform);
+
                     if (moveCDCurrent > 0)
                     {
                         moveCDCurrent--;
@@ -298,6 +303,11 @@ public class EnemyFive : Enemy
                         turnDuration += moveDuration;
 
                         moveCDCurrent = moveCDMax;
+                    }
+                    
+                    if(chasingEye != null)
+                    {
+                        Destroy(chasingEye);
                     }
                 }
             }
