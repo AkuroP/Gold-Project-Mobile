@@ -67,6 +67,7 @@ public class UI : MonoBehaviour
         {
             player = GameObject.FindWithTag("Player").GetComponent<Player>();
         }
+        sfxAudioSource = Camera.main.GetComponent<AudioSource>();
     }
 
     private void Update()
