@@ -34,6 +34,8 @@ public class Player : Entity
 
     [HideInInspector] public Animator playerAnim;
 
+    private GameObject weaponVFX;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -319,7 +321,7 @@ public class Player : Entity
             {
                 foreach(Entity enemy in enemiesInRange)
                 {
-                    GameObject weaponVFX;
+                    
                     switch(weapon.typeOfWeapon)
                     {
                         case WeaponType.DAGGER :
@@ -343,20 +345,26 @@ public class Player : Entity
                 }
             }
 
-            if(this.weapon.typeOfWeapon == WeaponType.GRIMOIRE && this.weapon.weaponLevel >= 2)
+            if(this.weapon.typeOfWeapon == WeaponType.GRIMOIRE)
             {
-                if(wVFX != null)
-                    Destroy(wVFX);
+                weaponVFX = Resources.Load<GameObject>("Assets/GA/Player/fire");
                 GameObject fireTile = Resources.Load<GameObject>("Assets/GA/Player/fireTile");
-                Debug.Log(fireTile.name);
                 List<Tile> tileInRange = GetTileInRange(ConvertPattern(weapon.upDirectionATS, direction), false);
+
                 for(int i = 0; i < tileInRange.Count; i++)
                 {
-                    Instantiate(fireTile, tileInRange[i].transform);
+                    if(this.weapon.weaponLevel < 2)
+                    {
+                        Instantiate(weaponVFX, tileInRange[i].transform);
+                    }
+                    else
+                    {
+                        Instantiate(fireTile, tileInRange[i].transform);
+                    }
                 }
                 this.weapon.ApplyEffect(this, 0);
-            }      
-            
+            }
+
             if (mobility > 0)
             {
                 mobility--;

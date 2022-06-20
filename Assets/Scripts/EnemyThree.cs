@@ -13,6 +13,8 @@ public class EnemyThree : Enemy
     public int chargeAttackRoundMax = 0;
     public int chargeAttackCurrent;
 
+    private GameObject chasingEye;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -63,6 +65,7 @@ public class EnemyThree : Enemy
 
         entitySr = this.transform.Find("Sprite").GetComponent<SpriteRenderer>();
         entitySr.sprite = Resources.Load<Sprite>("Assets/Graphics/Enemies/Mob");
+        
 
         AssignPattern();
 
@@ -228,6 +231,7 @@ public class EnemyThree : Enemy
                 //chase move
                 if (inChase)
                 {
+                    chasingEye = Instantiate(Resources.Load<GameObject>("Prefabs/Discovered"), this.transform);
                     if (moveCDCurrent > 0)
                     {
                         moveCDCurrent--;
@@ -261,6 +265,12 @@ public class EnemyThree : Enemy
                         EnemyRandomMove();
                         turnDuration += moveDuration;
                         moveCDCurrent = moveCDMax;
+                    }
+
+                    if(chasingEye != null)
+                    {
+                        Debug.Log("DESTROYING EYES");
+                        Destroy(chasingEye);
                     }
                 }
             }

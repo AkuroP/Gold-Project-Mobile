@@ -143,7 +143,7 @@ public class GameManager : MonoBehaviour
                     playingEntity.GetComponent<Player>().cdFire = false;
                 }
 
-                if(GameObject.FindWithTag("Player").GetComponent<Player>().hp > 0)
+                if(GameObject.FindWithTag("Player").GetComponent<Player>().hp > 0 && !GameObject.FindWithTag("Player").GetComponent<Player>().changingRoom)
                 {
                     //next entity play
                     ChangeEntity();
@@ -152,7 +152,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            if(GameObject.FindWithTag("Player").GetComponent<Player>().hp > 0)
+            if(GameObject.FindWithTag("Player").GetComponent<Player>().hp > 0 && !GameObject.FindWithTag("Player").GetComponent<Player>().changingRoom)
             {
                 //next entity play
                 ChangeEntity();
