@@ -44,6 +44,7 @@ public class Enemy : Entity
     public float deathafterBlackElapsedTime;
     public float toBlackTransitionTime = 0.4f;
     public float fadeOutTime = 0.4f;
+    private GameObject enemyAtkVFX;
 
     // Start is called before the first frame update
     void Start()
@@ -388,6 +389,7 @@ public class Enemy : Entity
         return null;
     }
 
+
     public List<Tile> FindPath(Tile _originTile, Tile _targetTile, bool _drawDebug)
     {
         Tile startTile = _originTile;
@@ -597,6 +599,18 @@ public class Enemy : Entity
 
         List<Entity> enemiesInRange = new List<Entity>();
 
+        List<Tile> tileInRange =  GetTileInRange(ConvertPattern(_upDirectionATS, direction), false);
+        enemyAtkVFX = Resources.Load<GameObject>("Prefabs/Enemy_Atk_VFX");
+        if(this is EnemyTwo)
+        {
+            StartCoroutine(Enemy2WaitAnim(tileInRange));
+        }
+        else
+        {
+            SpawnAtkVFX(tileInRange);
+        }
+
+
         //Debug.Log(direction);
         foreach(AttackTileSettings oneATS in attackPattern)
         {
@@ -703,6 +717,20 @@ public class Enemy : Entity
         isFading = true;
         yield return new WaitForSeconds(fadeOutTime);
         Destroy(this.gameObject);
+    }
+
+    private IEnumerator Enemy2WaitAnim(List<Tile> _tileInRange)
+    {
+        yield return new WaitForSeconds(.28f);
+        SpawnAtkVFX(_tileInRange);
+    }
+
+    private void SpawnAtkVFX(List<Tile> _tileInRange)
+    {
+        for(int i = 0; i < _tileInRange.Count; i++)
+        {
+            Instantiate(enemyAtkVFX, _tileInRange[i].transform);
+        }
     }
 
 }

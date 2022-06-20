@@ -50,7 +50,7 @@ public class EnemyFour : Enemy
         prio = Random.Range(1, 5);
         moveCDMax = 0;
         moveCDCurrent = 0;
-        moveDuration = 0.25f;
+        moveDuration = 0.45f;
 
         entityDangerousness = 2;
 
@@ -58,6 +58,9 @@ public class EnemyFour : Enemy
 
         entitySr = this.transform.Find("Sprite").GetComponent<SpriteRenderer>();
         entitySr.sprite = Resources.Load<Sprite>("Assets/Graphics/Enemies/MobADistance");
+
+        enemyAnim = this.GetComponentInChildren<Animator>();
+        enemyAnim.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Assets/GA/Enemies/anims/whip");
 
         AssignPattern();
 
@@ -115,11 +118,13 @@ public class EnemyFour : Enemy
         if (moveInProgress && !canMove && timeElapsed < moveDuration)
         {
             //Debug.Log("Move");
+            enemyAnim.SetBool("Move", true);
             transform.position = Vector3.Lerp(currentPosition, targetPosition, timeElapsed / moveDuration) - new Vector3(0, 0, 1);
             timeElapsed += Time.deltaTime;
         }
         else
         {
+            enemyAnim.SetBool("Move", false);
             moveInProgress = false;
             canMove = true;
             timeElapsed = 0;
@@ -202,16 +207,20 @@ public class EnemyFour : Enemy
                 if (chargeAttackCurrent > 0)
                 {
                     Debug.Log("charge in progress");
+                    enemyAnim.SetBool("Charge", true);
                     chargeAttackCurrent--;
                 }
                 else
                 {
                     Debug.Log("attaque");
+
                     chargeAttack = false;
                     chargeAttackCurrent = chargeAttackRoundMax;
 
                     StartAttack(upDirectionATS);
                     turnDuration += attackDuration;
+                    enemyAnim.SetTrigger("Atk");
+                    enemyAnim.SetBool("Charge", false);
                 }
             }
             else
@@ -259,6 +268,7 @@ public class EnemyFour : Enemy
             if (chargeAttackCurrent > 0)
             {
                 Debug.Log("charge in progress");
+                enemyAnim.SetBool("Charge", true);
                 chargeAttackCurrent--;
             }
             else
@@ -272,6 +282,8 @@ public class EnemyFour : Enemy
                 turnDuration += attackDuration;
                 GameManager.instanceGM.sfxAudioSource.clip = Resources.Load<AudioClip>("SoundDesign/SFX/SFX_Atk_Enemy4");
                 GameManager.instanceGM.sfxAudioSource.Play();
+                enemyAnim.SetTrigger("Atk");
+                enemyAnim.SetBool("Charge", false);
             }
         }
     }
