@@ -181,7 +181,7 @@ public class Entity : MonoBehaviour
     {
         Color oldColor = tile.tileColor;
         yield return new WaitForSeconds(delay * 0.25f);
-        tile.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 0f, 1f);
+        tile.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 0f, 0f);
         yield return new WaitForSeconds(0.25f);
         tile.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f); ;
     }
@@ -236,8 +236,8 @@ public class Entity : MonoBehaviour
 
             if (attackedTile != null && !attackedTile.isWall)
             {
-                if (_drawAttack)
-                    StartCoroutine(DrawAttack(attackedTile));
+                //if (_drawAttack)
+                    //StartCoroutine(DrawAttack(attackedTile));
                 
                 if (attackedTile.entityOnTile && !entityInPattern.Contains(attackedTile.entityOnTile))
                 {
@@ -260,7 +260,7 @@ public class Entity : MonoBehaviour
                     {
                         Damage(GetComponent<Player>().weapon.weaponDamage, currentTile.leftTile.entityOnTile);
                     }
-                    StartCoroutine(DrawAttack(currentTile.leftTile));
+                    //StartCoroutine(DrawAttack(currentTile.leftTile));
                     
                     Instantiate(Resources.Load<GameObject>("Prefabs/Enemy_Atk_VFX"), currentTile.leftTile.transform);
                 }
@@ -271,7 +271,7 @@ public class Entity : MonoBehaviour
                     {
                         Damage(GetComponent<Player>().weapon.weaponDamage, currentTile.rightTile.entityOnTile);
                     }
-                    StartCoroutine(DrawAttack(currentTile.rightTile));
+                    //StartCoroutine(DrawAttack(currentTile.rightTile));
                 
                     Instantiate(Resources.Load<GameObject>("Prefabs/Enemy_Atk_VFX"), currentTile.rightTile.transform);
                 }
@@ -284,7 +284,7 @@ public class Entity : MonoBehaviour
                     {
                         Damage(GetComponent<Player>().weapon.weaponDamage, currentTile.topTile.entityOnTile);
                     }
-                    StartCoroutine(DrawAttack(currentTile.topTile));
+                    //StartCoroutine(DrawAttack(currentTile.topTile));
 
                     Instantiate(Resources.Load<GameObject>("Prefabs/Enemy_Atk_VFX"), currentTile.topTile.transform);
                 }
@@ -294,7 +294,7 @@ public class Entity : MonoBehaviour
                     {
                         Damage(GetComponent<Player>().weapon.weaponDamage, currentTile.bottomTile.entityOnTile);
                     }
-                    StartCoroutine(DrawAttack(currentTile.bottomTile));
+                    //StartCoroutine(DrawAttack(currentTile.bottomTile));
 
                     Instantiate(Resources.Load<GameObject>("Prefabs/Enemy_Atk_VFX"), currentTile.bottomTile.transform);
                 }

@@ -328,7 +328,7 @@ public class BossFrog : Boss
 
             if(currentFPG.turnBeforeImpact == 1)
             {
-                StartCoroutine(currentFPG.targetTile.TurnColor(new Color(0f, 1f, 0f, 1f), 0));
+                //StartCoroutine(currentFPG.targetTile.TurnColor(new Color(0f, 1f, 0f, 1f), 0));
                 GameObject poison = Instantiate(poisonGO, currentFPG.targetTile.transform);
                 poisoninTiles.Add(poison);
             }
