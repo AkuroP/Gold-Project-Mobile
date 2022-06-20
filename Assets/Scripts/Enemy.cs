@@ -104,7 +104,7 @@ public class Enemy : Entity
             {
                 AchievementManager.instanceAM.UpdateEnemiesKilled();
                 Feedback feedback = Instantiate(Resources.Load<Feedback>("Prefabs/Feedback"), this.transform.position, Quaternion.identity);
-                feedback.Init(true, true, 3, this.transform.position);
+                feedback.Init(true, true, 8, this.transform.position);
                 this.currentTile.entityOnTile = null;
                 StartCoroutine(MonsterDeath());
                 GameManager.instanceGM.allEntities.Remove(this);

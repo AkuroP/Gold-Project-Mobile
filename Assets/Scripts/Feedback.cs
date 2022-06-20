@@ -113,6 +113,9 @@ public class Feedback : MonoBehaviour
                 case 3:
                     sr.sprite = Resources.Load<Sprite>("Assets/Graphics/Feedback/3essence");
                     break;
+                case 8:
+                    sr.sprite = Resources.Load<Sprite>("Assets/Graphics/Feedback/8essence");
+                    break;
             }
             isGoingToPlayer = _isGain;
         }
