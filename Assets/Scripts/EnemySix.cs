@@ -54,6 +54,8 @@ public class EnemySix : Enemy
 
     private void AssignPattern()
     {
+        upDirectionATS.Add(new AttackTileSettings(1, 1, 0));
+        upDirectionATS.Add(new AttackTileSettings(1, -1, 0));
         upDirectionATS.Add(new AttackTileSettings(1, 0, 1));
         upDirectionATS.Add(new AttackTileSettings(1, 1, 1));
         upDirectionATS.Add(new AttackTileSettings(1, -1, 1));
