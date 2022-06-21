@@ -266,6 +266,10 @@ public class GameManager : MonoBehaviour
             UI.instanceUI.shopUI.transform.Find("Shop").transform.Find("CloseButton").gameObject.GetComponent<Button>().onClick.AddListener(UI.instanceUI.CloseShop);
             SwipeDetection.instanceSD.isInShop = true;
         }
+        if(Inventory.instanceInventory.HasItem("Speed Boots"))
+        {
+            player.mobility++;
+        }
     }
 
     public void ShopIG()

@@ -8,6 +8,8 @@ public class Item : MonoBehaviour
     public Text weaponLvl;
     public Text weaponUpPrice;
 
+    public int level;
+
     public WeaponType weaponType;
 
     public int itemPrice;
@@ -28,56 +30,117 @@ public class Item : MonoBehaviour
         switch (weaponType)
         {
             case WeaponType.DAGGER:
-                if(RuneManager.instanceRM.daggerLevel == 0 && RuneManager.instanceRM.hasBuyDagger == "true")
+                if(level == 0 && RuneManager.instanceRM.hasBuyDagger == "true")
                 {
-                    gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/runes_0");
+                    weaponUpPrice.text = "Unlocked";
+                    weaponUpPrice.gameObject.SetActive(true);
                 }
-                else if (RuneManager.instanceRM.daggerLevel == 1 && RuneManager.instanceRM.hasBuyDagger == "true")
+                else if(level - 1 == RuneManager.instanceRM.daggerLevel)
                 {
-                    gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/runes_1");
+                    this.GetComponent<Image>().color = new Color(1f, 1f, 1f, 0.8f);
+                    this.GetComponent<Button>().interactable = true;
+                    weaponUpPrice.gameObject.SetActive(true);
                 }
-                if (RuneManager.instanceRM.daggerLevel == 2 && RuneManager.instanceRM.hasBuyDagger == "true")
+                else if (level == 1 && level == RuneManager.instanceRM.daggerLevel)
                 {
-                    gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/runes_1");
-                    gameObject.GetComponent<Button>().interactable = false;
+                    weaponUpPrice.text = "Unlocked";
+                    weaponUpPrice.gameObject.SetActive(true);
+                }
+                else if (level + 2 == RuneManager.instanceRM.daggerLevel)
+                {
+                    this.GetComponent<Button>().interactable = false;
+                }
+                else if (level - 2 == RuneManager.instanceRM.daggerLevel)
+                {
+                    this.GetComponent<Button>().interactable = false;
+                    weaponUpPrice.gameObject.SetActive(false);
+                }
+                else
+                {
+                    this.GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
+                    this.GetComponent<Button>().interactable = true;
+                    weaponUpPrice.gameObject.SetActive(true);
+                    weaponUpPrice.text = "Unlocked";
                 }
                 break;
             case WeaponType.HANDGUN:
-                if (RuneManager.instanceRM.handgunLevel == 0 && RuneManager.instanceRM.hasBuyHandgun == "false")
+                if (level == 0 && RuneManager.instanceRM.hasBuyHandgun == "true")
                 {
-                    gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/gun");
+                    weaponUpPrice.text = "Unlocked";
+                    weaponUpPrice.gameObject.SetActive(true);
                 }
-                else if (RuneManager.instanceRM.handgunLevel == 0 && RuneManager.instanceRM.hasBuyHandgun == "true")
+                else if (level == 0 && RuneManager.instanceRM.hasBuyHandgun == "false")
                 {
-                    gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/runes_4");
+                    this.GetComponent<Image>().color = new Color(1f, 1f, 1f, 0.8f);
+                    this.GetComponent<Button>().interactable = true;
                 }
-                else if (RuneManager.instanceRM.handgunLevel == 1 && RuneManager.instanceRM.hasBuyHandgun == "true")
+                else if (level - 1 == RuneManager.instanceRM.handgunLevel && RuneManager.instanceRM.hasBuyHandgun == "false")
                 {
-                    gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/runes_5");
+                    this.GetComponent<Button>().interactable = false;
+                    weaponUpPrice.gameObject.SetActive(false);
                 }
-                if (RuneManager.instanceRM.handgunLevel == 2 && RuneManager.instanceRM.hasBuyHandgun == "true")
+                else if (level - 1  == RuneManager.instanceRM.handgunLevel && RuneManager.instanceRM.hasBuyHandgun == "true")
                 {
-                    gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/runes_5");
-                    gameObject.GetComponent<Button>().interactable = false;
+                    this.GetComponent<Image>().color = new Color(1f, 1f, 1f, 0.8f);
+                    this.GetComponent<Button>().interactable = true;
+                    weaponUpPrice.gameObject.SetActive(true);
+                }
+                else if (level == 1 && level == RuneManager.instanceRM.handgunLevel)
+                {
+                    weaponUpPrice.text = "Unlocked";
+                    weaponUpPrice.gameObject.SetActive(true);
+                }
+                else if (level - 2 == RuneManager.instanceRM.handgunLevel)
+                {
+                    this.GetComponent<Button>().interactable = false;
+                    weaponUpPrice.gameObject.SetActive(false);
+                }
+                else
+                {
+                    this.GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
+                    this.GetComponent<Button>().interactable = true;
+                    weaponUpPrice.gameObject.SetActive(true);
+                    weaponUpPrice.text = "Unlocked";
                 }
                 break;
             case WeaponType.GRIMOIRE:
-                if (RuneManager.instanceRM.grimoireLevel == 0 && RuneManager.instanceRM.hasBuyGrimoire == "false")
+                if (level == 0 && RuneManager.instanceRM.hasBuyGrimoire == "true")
                 {
-                    gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/grimoire_hud");
+                    weaponUpPrice.text = "Unlocked";
+                    weaponUpPrice.gameObject.SetActive(true);
                 }
-                else if (RuneManager.instanceRM.grimoireLevel == 0 && RuneManager.instanceRM.hasBuyGrimoire == "true")
+                else if (level == 0 && RuneManager.instanceRM.hasBuyGrimoire == "false")
                 {
-                    gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/runes_2");
+                    this.GetComponent<Image>().color = new Color(1f, 1f, 1f, 0.8f);
+                    this.GetComponent<Button>().interactable = true;
                 }
-                else if (RuneManager.instanceRM.grimoireLevel == 1 && RuneManager.instanceRM.hasBuyGrimoire == "true")
+                else if (level - 1 == RuneManager.instanceRM.grimoireLevel && RuneManager.instanceRM.hasBuyGrimoire == "false")
                 {
-                    gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/runes_3");
+                    this.GetComponent<Button>().interactable = false;
+                    weaponUpPrice.gameObject.SetActive(false);
                 }
-                if (RuneManager.instanceRM.grimoireLevel == 2 && RuneManager.instanceRM.hasBuyGrimoire == "true")
+                else if (level - 1 == RuneManager.instanceRM.grimoireLevel && RuneManager.instanceRM.hasBuyGrimoire == "true")
                 {
-                    gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>("Assets/GA/HUD/runes_3");
-                    gameObject.GetComponent<Button>().interactable = false;
+                    this.GetComponent<Image>().color = new Color(1f, 1f, 1f, 0.8f);
+                    this.GetComponent<Button>().interactable = true;
+                    weaponUpPrice.gameObject.SetActive(true);
+                }
+                else if (level == 1 && level == RuneManager.instanceRM.grimoireLevel)
+                {
+                    weaponUpPrice.text = "Unlocked";
+                    weaponUpPrice.gameObject.SetActive(true);
+                }
+                else if (level - 2 == RuneManager.instanceRM.grimoireLevel)
+                {
+                    this.GetComponent<Button>().interactable = false;
+                    weaponUpPrice.gameObject.SetActive(false);
+                }
+                else
+                {
+                    this.GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
+                    this.GetComponent<Button>().interactable = true;
+                    weaponUpPrice.gameObject.SetActive(true);
+                    weaponUpPrice.text = "Unlocked";
                 }
                 break;
         }
@@ -91,53 +154,96 @@ public class Item : MonoBehaviour
             case "DAGGER":
                 buyButton.onClick.RemoveAllListeners();
                 buyButton.onClick.AddListener(delegate { BuyWeapon("DAGGER"); });
-                if (RuneManager.instanceRM.daggerLevel == 0)
+                buyButton.gameObject.SetActive(true);
+                if (level == 0)
+                {
+                    descriptionText.text = "Melee attack with a 1 block range.";
+                    if (RuneManager.instanceRM.hasBuyDagger == "true")
+                    {
+                        buyButton.gameObject.SetActive(false);
+                    }
+                }
+                else if(level == 1)
                 {
                     descriptionText.text = "When an enemy is hit, he is bleeds and loses 1 hp at the end of its next turn.";
+                    if (RuneManager.instanceRM.daggerLevel == 1)
+                    {
+                        buyButton.gameObject.SetActive(false);
+                    }
                 }
                 else
                 {
                     descriptionText.text = "When an enemy is killed, you get a bonus turn.";
+                    if (RuneManager.instanceRM.daggerLevel == 2)
+                    {
+                        buyButton.gameObject.SetActive(false);
+                    }
                 }
                 break;
 
             case "HANDGUN":
                 buyButton.onClick.RemoveAllListeners();
                 buyButton.onClick.AddListener(delegate { BuyWeapon("HANDGUN"); });
-                if (RuneManager.instanceRM.hasBuyHandgun == "false")
+                buyButton.gameObject.SetActive(true);
+                if (level == 0)
                 {
                     descriptionText.text = "Ranged attack with a 3 block maximum range. Only the first enemy in range takes damage.";
+                    if (RuneManager.instanceRM.hasBuyHandgun == "true")
+                    {
+                        buyButton.gameObject.SetActive(false);
+                    }
                 }
-                else if (RuneManager.instanceRM.handgunLevel == 0)
+                else if (level == 1)
                 {
                     descriptionText.text = "Increases the handgun range by 1.";
+                    if (RuneManager.instanceRM.handgunLevel == 1)
+                    {
+                        buyButton.gameObject.SetActive(false);
+                    }
                 }
                 else
                 {
                     descriptionText.text = "Shots hit all enemies in the range.";
+                    if (RuneManager.instanceRM.handgunLevel == 2)
+                    {
+                        buyButton.gameObject.SetActive(false);
+                    }
                 }
                 break;
 
             case "GRIMOIRE":
                 buyButton.onClick.RemoveAllListeners();
                 buyButton.onClick.AddListener(delegate { BuyWeapon("GRIMOIRE"); });
-                if (RuneManager.instanceRM.hasBuyGrimoire == "false")
+                buyButton.gameObject.SetActive(true);
+                if (level == 0)
                 {
                     descriptionText.text = "Melee attack with a 1 block range. The attack is an AOE that summons fire and hits all 3 blocks horizontally in the direction of the attack.";
+                    if (RuneManager.instanceRM.hasBuyGrimoire == "true")
+                    {
+                        buyButton.gameObject.SetActive(false);
+                    }
                 }
-                else if (RuneManager.instanceRM.grimoireLevel == 0)
+                else if (level == 1)
                 {
                     descriptionText.text = "Spawns a flame on the square behind you.";
+                    if (RuneManager.instanceRM.grimoireLevel == 1)
+                    {
+                        buyButton.gameObject.SetActive(false);
+                    }
                 }
                 else
                 {
                     descriptionText.text = "The squares where fire has spawned do (for 1 turn) damage to everything that walks on them (except you).";
+                    if (RuneManager.instanceRM.grimoireLevel == 2)
+                    {
+                        buyButton.gameObject.SetActive(false);
+                    }
                 }
                 break;
         }
     }
 
-        public void BuyWeapon(string _weaponName)
+    public void BuyWeapon(string _weaponName)
     {
         if(RuneManager.instanceRM.darkMatter >= this.itemPrice)
         {
@@ -163,7 +269,7 @@ public class Item : MonoBehaviour
                 {
                     Debug.Log(_weaponName + " BUYED");
                     RuneManager.instanceRM.darkMatter -= itemPrice;
-                   // player.weapon = new Weapon(WeaponType.HANDGUN, 0, 1);
+                    // player.weapon = new Weapon(WeaponType.HANDGUN, 0, 1);
                     RuneManager.instanceRM.hasBuyHandgun = "true";
                     PlayerPrefs.SetString("hasHandgun", RuneManager.instanceRM.hasBuyHandgun);
                     AchievementManager.instanceAM.UpdateHandgunPurchase();
@@ -209,8 +315,6 @@ public class Item : MonoBehaviour
         {
             AchievementManager.instanceAM.UpdateallWeaponPurchased();
         }
-
-        CheckWeapon(this.name);
     }
 
     private void UpgradeWeapon(WeaponType _weaponType)
@@ -218,9 +322,9 @@ public class Item : MonoBehaviour
         switch (_weaponType)
         {
             case WeaponType.DAGGER:
-                if (RuneManager.instanceRM.daggerLevel < 2 && RuneManager.instanceRM.darkMatter >= (this.itemPrice * (RuneManager.instanceRM.daggerLevel + 2)))
+                if (RuneManager.instanceRM.daggerLevel < 2 && RuneManager.instanceRM.darkMatter >= this.itemPrice)
                 {
-                    RuneManager.instanceRM.darkMatter -= (this.itemPrice * (RuneManager.instanceRM.daggerLevel + 2));
+                    RuneManager.instanceRM.darkMatter -= this.itemPrice;
                     RuneManager.instanceRM.daggerLevel++;
                     PlayerPrefs.SetInt("daggerLevel", RuneManager.instanceRM.daggerLevel);
                     PlayerPrefs.SetInt("darkMatter", RuneManager.instanceRM.darkMatter);
@@ -229,9 +333,9 @@ public class Item : MonoBehaviour
                 break;
 
             case WeaponType.HANDGUN:
-                if (RuneManager.instanceRM.handgunLevel < 2 && RuneManager.instanceRM.darkMatter >= (this.itemPrice * (RuneManager.instanceRM.handgunLevel + 2)))
+                if (RuneManager.instanceRM.handgunLevel < 2 && RuneManager.instanceRM.darkMatter >= this.itemPrice)
                 {
-                    RuneManager.instanceRM.darkMatter -= (this.itemPrice * (RuneManager.instanceRM.handgunLevel + 2));
+                    RuneManager.instanceRM.darkMatter -= this.itemPrice;
                     RuneManager.instanceRM.handgunLevel++;
                     PlayerPrefs.SetInt("handgunLevel", RuneManager.instanceRM.handgunLevel);
                     PlayerPrefs.SetInt("darkMatter", RuneManager.instanceRM.darkMatter);
@@ -240,9 +344,9 @@ public class Item : MonoBehaviour
                 break;
 
             case WeaponType.GRIMOIRE:
-                if (RuneManager.instanceRM.grimoireLevel < 2 && RuneManager.instanceRM.darkMatter >= (this.itemPrice * (RuneManager.instanceRM.grimoireLevel + 2)))
+                if (RuneManager.instanceRM.grimoireLevel < 2 && RuneManager.instanceRM.darkMatter >= this.itemPrice)
                 {
-                    RuneManager.instanceRM.darkMatter -= (this.itemPrice * (RuneManager.instanceRM.grimoireLevel + 2));
+                    RuneManager.instanceRM.darkMatter -= this.itemPrice;
                     RuneManager.instanceRM.grimoireLevel++;
                     PlayerPrefs.SetInt("grimoireLevel", RuneManager.instanceRM.grimoireLevel);
                     PlayerPrefs.SetInt("darkMatter", RuneManager.instanceRM.darkMatter);
@@ -259,20 +363,17 @@ public class Item : MonoBehaviour
             case "DAGGER":
                 if(RuneManager.instanceRM.hasBuyDagger == "false")
                 {
-                    weaponLvl.text = "BUY".ToString();
                     weaponUpPrice.text = this.itemPrice.ToString();
                 }
                 else
                 {
                     if(RuneManager.instanceRM.daggerLevel < 2)
                     {
-                        weaponLvl.text = "LVL " + RuneManager.instanceRM.daggerLevel.ToString();
                         weaponUpPrice.text = (this.itemPrice * (RuneManager.instanceRM.daggerLevel + 2)).ToString();
 
                     }
                     else
                     {
-                        weaponLvl.text = "MAXED";
                         weaponUpPrice.text = " ";
                     }
                 }
@@ -281,20 +382,17 @@ public class Item : MonoBehaviour
             case "HANDGUN":
                 if(RuneManager.instanceRM.hasBuyHandgun == "false")
                 {
-                    weaponLvl.text = "BUY".ToString();
                     weaponUpPrice.text = this.itemPrice.ToString();
                 }
                 else
                 {
                     if(RuneManager.instanceRM.handgunLevel < 2)
                     {
-                        weaponLvl.text = "LVL " + RuneManager.instanceRM.handgunLevel.ToString();
                         weaponUpPrice.text = (this.itemPrice * (RuneManager.instanceRM.handgunLevel + 2)).ToString();
 
                     }
                     else
                     {
-                        weaponLvl.text = "MAXED";
                         weaponUpPrice.text = " ";
                     }
                 }
@@ -303,14 +401,12 @@ public class Item : MonoBehaviour
             case "GRIMOIRE" :
                 if(RuneManager.instanceRM.hasBuyGrimoire == "false")
                 {
-                    weaponLvl.text = "BUY".ToString();
                     weaponUpPrice.text = this.itemPrice.ToString();
                 }
                 else
                 {
                     if(RuneManager.instanceRM.grimoireLevel < 2)
                     {
-                        weaponLvl.text = "LVL " + RuneManager.instanceRM.grimoireLevel.ToString();
                         weaponUpPrice.text = (this.itemPrice * (RuneManager.instanceRM.grimoireLevel + 2)).ToString();
 
                     }
