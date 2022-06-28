@@ -695,7 +695,13 @@ public class Entity : MonoBehaviour
 
     public IEnumerator EndTurn(float waitDuration)
     {
-        yield return new WaitForSeconds(waitDuration + 0.3f);
+        if(!GameManager.instanceGM.isX2)
+        {
+            yield return new WaitForSeconds(waitDuration + 0.3f);
+        }else
+        {
+            yield return new WaitForSeconds((waitDuration + 0.3f) / GameManager.instanceGM.animSpeedMultiplier);
+        }
         hasPlay = true;
         if (turnArrow != null)
              turnArrow.SetActive(false);

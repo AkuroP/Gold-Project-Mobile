@@ -12,6 +12,16 @@ public class EnemyTwo : Enemy
     {
         enemyAnim = this.GetComponentInChildren<Animator>();
         enemyAnim.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Assets/GA/Enemies/anims/tentacules4");
+
+        if(!GameManager.instanceGM.isX2)
+        {
+            GameManager.instanceGM.allAnim.Add(this.enemyAnim);
+        }
+        else
+        {
+            this.enemyAnim.SetFloat("AnimSpeed", GameManager.instanceGM.animSpeedMultiplier);
+            GameManager.instanceGM.allAnim.Add(this.enemyAnim);
+        }
     }
 
     public override void Init()

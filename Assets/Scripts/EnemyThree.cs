@@ -21,6 +21,16 @@ public class EnemyThree : Enemy
         //test = FindPath(currentTile, currentMap.player.currentTile, false);
         enemyAnim = this.GetComponentInChildren<Animator>();
         enemyAnim.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Assets/GA/Enemies/anims/mob_base");
+
+        if(!GameManager.instanceGM.isX2)
+        {
+            GameManager.instanceGM.allAnim.Add(this.enemyAnim);
+        }
+        else
+        {
+            this.enemyAnim.SetFloat("AnimSpeed", GameManager.instanceGM.animSpeedMultiplier);
+            GameManager.instanceGM.allAnim.Add(this.enemyAnim);
+        }
     }
 
     public override void Init()
@@ -92,6 +102,8 @@ public class EnemyThree : Enemy
             heart1.SetActive(false);
             heart3.SetActive(false);
         }
+
+        
 
         isInitialize = true;
     }

@@ -73,6 +73,16 @@ public class EnemySix : Enemy
         heart2 = this.transform.Find("Heart2").gameObject;
         heart3 = this.transform.Find("Heart3").gameObject;
 
+        if(!GameManager.instanceGM.isX2)
+        {
+            GameManager.instanceGM.allAnim.Add(this.enemyAnim);
+        }
+        else
+        {
+            this.enemyAnim.SetFloat("AnimSpeed", GameManager.instanceGM.animSpeedMultiplier);
+            GameManager.instanceGM.allAnim.Add(this.enemyAnim);
+        }
+
         isInitialize = true;
     }
 

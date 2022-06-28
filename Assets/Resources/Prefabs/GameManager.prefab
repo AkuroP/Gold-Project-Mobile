@@ -65,6 +65,9 @@ MonoBehaviour:
   enemiesPlaying: []
   allEnemiesActionFinished: 0
   gold: 100
+  allAnim: []
+  isX2: 0
+  animSpeedMultiplier: 2
   currentMap: {fileID: 0}
   allEntities: []
   playingEntity: {fileID: 0}

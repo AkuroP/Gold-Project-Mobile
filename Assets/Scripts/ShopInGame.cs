@@ -23,7 +23,7 @@ public class ShopInGame : MonoBehaviour
     [SerializeField] private ShopItem poisonFog = new ShopItem("Poison Fog", 2, true, "Fills the room with a poison fog that deal 1 HP dmamage to all monsters when you get hit.");
     [SerializeField] private ShopItem freezeTime = new ShopItem("Freeze Time", 3, true, "Freezes time for 2 turns when you get hit by a monster.");
     [SerializeField] private ShopItem revivor = new ShopItem("Revivor", 4, true, "When you die, revives with 1 HP.");
-    [SerializeField] private ShopItem invincibility = new ShopItem("Invincibility", 5, true, "Makes you invincible for 3 turns when you get hit by a monster (you don’t take the hit from the monster).");
+    [SerializeField] private ShopItem invincibility = new ShopItem("Invincibility", 5, true, "Makes you invincible for 3 turns when you get hit by a monster (you donï¿½t take the hit from the monster).");
 
     //Damage items
     [Header("==== Damage items ====")]
@@ -206,6 +206,7 @@ public class ShopInGame : MonoBehaviour
             if(shopButtons[i].GetComponent<ShopButton>().item.itemName == "Mystery Box")
             {
                 shopButtons[i].GetComponent<ShopButton>().costText.text = "1HP";
+                shopButtons[i].GetComponent<Image>().sprite = Resources.LoadAll("Assets/GA/HUD/hud 1")[1] as Sprite;
             }
         }
         if (Inventory.instanceInventory.mysteryBoxInShop == true)

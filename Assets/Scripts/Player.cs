@@ -62,6 +62,16 @@ public class Player : Entity
                 break;
         }
         playerAnim = this.GetComponentInChildren<Animator>();
+
+        if(!GameManager.instanceGM.isX2)
+        {
+            GameManager.instanceGM.allAnim.Add(this.playerAnim);
+        }
+        else
+        {
+            this.playerAnim.SetFloat("AnimSpeed", GameManager.instanceGM.animSpeedMultiplier);
+            GameManager.instanceGM.allAnim.Add(this.playerAnim);
+        }
     }
 
     // Update is called once per frame

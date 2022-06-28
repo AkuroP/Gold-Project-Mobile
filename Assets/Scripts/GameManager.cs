@@ -38,6 +38,11 @@ public class GameManager : MonoBehaviour
 
     public int gold = 100;
 
+    public List<Animator> allAnim;
+    public bool isX2 = false;
+
+    public float animSpeedMultiplier = 0;
+
     private void Awake()
     {
         if (instanceGM != null)
@@ -70,6 +75,32 @@ public class GameManager : MonoBehaviour
         player = GameObject.FindWithTag("Player").GetComponent<Player>();
 
         AchievementManager.instanceAM.UpdateScoreAchievement();
+    }
+
+    public void SetAnimSpeed()
+    {
+        if(!isX2)
+        {
+            for(int i = 0; i < allAnim.Count; i++)
+            {
+                allAnim[i].SetFloat("AnimSpeed", animSpeedMultiplier);
+                allAnim[i].gameObject.GetComponentInParent<Entity>().moveDuration /= animSpeedMultiplier;
+                allAnim[i].gameObject.GetComponentInParent<Entity>().attackDuration /= animSpeedMultiplier;
+                allAnim[i].gameObject.GetComponentInParent<Entity>().turnDuration /= animSpeedMultiplier;
+            }
+            isX2 = true;
+        }
+        else
+        {
+            for(int i = 0; i < allAnim.Count; i++)
+            {
+                allAnim[i].SetFloat("AnimSpeed", 1);
+                allAnim[i].gameObject.GetComponentInParent<Entity>().moveDuration *= animSpeedMultiplier;
+                allAnim[i].gameObject.GetComponentInParent<Entity>().attackDuration *= animSpeedMultiplier;
+                allAnim[i].gameObject.GetComponentInParent<Entity>().turnDuration *= animSpeedMultiplier;
+            }
+            isX2 = false;
+        }
     }
 
     public void NewMap()

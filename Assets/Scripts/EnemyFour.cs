@@ -90,6 +90,16 @@ public class EnemyFour : Enemy
             heart3.SetActive(false);
         }
 
+        if(!GameManager.instanceGM.isX2)
+        {
+            GameManager.instanceGM.allAnim.Add(this.enemyAnim);
+        }
+        else
+        {
+            this.enemyAnim.SetFloat("AnimSpeed", GameManager.instanceGM.animSpeedMultiplier);
+            GameManager.instanceGM.allAnim.Add(this.enemyAnim);
+        }
+
         isInitialize = true;
     }
 

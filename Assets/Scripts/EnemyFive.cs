@@ -21,6 +21,16 @@ public class EnemyFive : Enemy
         //test = FindPath(currentTile, currentMap.player.currentTile, false);
         enemyAnim = this.GetComponentInChildren<Animator>();
         enemyAnim.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Assets/GA/Enemies/anims/doggo");
+
+        if(!GameManager.instanceGM.isX2)
+        {
+            GameManager.instanceGM.allAnim.Add(this.enemyAnim);
+        }
+        else
+        {
+            this.enemyAnim.SetFloat("AnimSpeed", GameManager.instanceGM.animSpeedMultiplier);
+            GameManager.instanceGM.allAnim.Add(this.enemyAnim);
+        }
     }
 
     public override void Init()
@@ -83,6 +93,8 @@ public class EnemyFive : Enemy
             heart3 = this.transform.Find("Heart3").gameObject;
             heart2.SetActive(false);
         }
+
+        
 
         Debug.Log("finInit");
 

@@ -340,5 +340,10 @@ public class UI : MonoBehaviour
         sfxAudioSource.Play();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
+
+    public void SetAnimSpeed()
+    {
+        GameManager.instanceGM.SetAnimSpeed();
+    }
 }
 

@@ -178,6 +178,16 @@ public class BossTP : Boss
         entitySr.sprite = Resources.Load<Sprite>("Assets/Graphics/Enemies/Sun");
         enemyAnim = this.GetComponentInChildren<Animator>();
         enemyAnim.runtimeAnimatorController = enemyAnim.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Assets/GA/Enemies/anims/sun");
+
+        if(!GameManager.instanceGM.isX2)
+        {
+            GameManager.instanceGM.allAnim.Add(this.enemyAnim);
+        }
+        else
+        {
+            this.enemyAnim.SetFloat("AnimSpeed", GameManager.instanceGM.animSpeedMultiplier);
+            GameManager.instanceGM.allAnim.Add(this.enemyAnim);
+        }
         sunfireGO = Resources.Load("Prefabs/SunFireEffect") as GameObject;
         this.transform.localScale = new Vector3(1f, 1f, 0f);
 
