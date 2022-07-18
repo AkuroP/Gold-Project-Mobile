@@ -20,7 +20,7 @@ public class ShopInGame : MonoBehaviour
     //Counter items
     [Header("==== Counter items ====")]
     [SerializeField] private ShopItem counterRing = new ShopItem("Counter Ring", 1, true, "Your next attack after getting hit will be 2x more powerful.");
-    [SerializeField] private ShopItem poisonFog = new ShopItem("Poison Fog", 2, true, "Fills the room with a poison fog that deal 1 HP dmamage to all monsters when you get hit.");
+    [SerializeField] private ShopItem poisonFog = new ShopItem("Poison Fog", 2, true, "Fills the room with a poison fog that deals 1 HP damage to all monsters when you get hit.");
     [SerializeField] private ShopItem freezeTime = new ShopItem("Freeze Time", 3, true, "Freezes time for 2 turns when you get hit by a monster.");
     [SerializeField] private ShopItem revivor = new ShopItem("Revivor", 4, true, "When you die, revives with 1 HP.");
     [SerializeField] private ShopItem invincibility = new ShopItem("Invincibility", 5, true, "Makes you invincible for 3 turns when you get hit by a monster (you don�t take the hit from the monster).");

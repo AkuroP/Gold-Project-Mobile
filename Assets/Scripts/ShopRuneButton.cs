@@ -68,7 +68,7 @@ public class ShopRuneButton : MonoBehaviour
             case WeaponType.DAGGER:
                 if(player.weapon.weaponLevel == 0)
                 {
-                    descriptionText.text = "When an enemy is hit, he is bleeds and loses 1 hp at the end of its next turn.";
+                    descriptionText.text = "When an enemy is hit, he bleeds and loses 1 hp at the end of its next turn.";
                 }
                 else
                 {
