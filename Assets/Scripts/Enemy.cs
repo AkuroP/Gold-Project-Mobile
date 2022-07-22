@@ -716,6 +716,7 @@ public class Enemy : Entity
         yield return new WaitForSeconds(toBlackTransitionTime);
         isFading = true;
         yield return new WaitForSeconds(fadeOutTime);
+        GameManager.instanceGM.allAnim.Remove(enemyAnim);
         Destroy(this.gameObject);
     }
 

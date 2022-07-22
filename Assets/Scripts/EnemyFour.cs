@@ -52,7 +52,7 @@ public class EnemyFour : Enemy
         prio = Random.Range(1, 5);
         moveCDMax = 0;
         moveCDCurrent = 0;
-        moveDuration = 0.45f;
+        moveDuration = 0.8f;
 
         entityDangerousness = 2;
 

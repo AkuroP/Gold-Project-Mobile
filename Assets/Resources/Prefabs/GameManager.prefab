@@ -49,11 +49,11 @@ MonoBehaviour:
   whatTurn: 0
   score: 0
   floor: 1
-  room: 1
+  room: 9
   nextBoss: 0
   numberOfBosses: 2
   shopRoomNumber: 5
-  actualDangerousness: 1
+  actualDangerousness: 2
   turnNumber: 0
   LevelClip: {fileID: 8300000, guid: 19ea2e7eaffc67646beab842c191e02e, type: 3}
   BossClip: {fileID: 8300000, guid: a1a233d42795d474286bdc9109df5f75, type: 3}
@@ -67,7 +67,7 @@ MonoBehaviour:
   gold: 100
   allAnim: []
   isX2: 0
-  animSpeedMultiplier: 2
+  animSpeedMultiplier: 1.5
   currentMap: {fileID: 0}
   allEntities: []
   playingEntity: {fileID: 0}

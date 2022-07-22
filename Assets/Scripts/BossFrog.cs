@@ -274,7 +274,7 @@ public class BossFrog : Boss
         foreach (Tile tile in tongueAttackZone)
         {
             Instantiate(Resources.Load<GameObject>("Prefabs/FrogTongue"), tile.transform);
-            StartCoroutine(ShowTile(tile, 0));
+            //StartCoroutine(ShowTile(tile, 0));
         }
 
         if (tongueAttackZone.Contains(player.currentTile))
