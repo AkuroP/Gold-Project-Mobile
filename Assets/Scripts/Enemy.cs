@@ -588,14 +588,29 @@ public class Enemy : Entity
 
         List<AttackTileSettings> attackPattern = ConvertPattern(_upDirectionATS, direction);
 
-        if (attackPattern[0].offsetX > 1)
+        if(!this is EnemyFive)
         {
-            entitySr.flipX = true;
+            if (attackPattern[0].offsetX > 1)
+            {
+                entitySr.flipX = true;
+            }
+            else if (attackPattern[0].offsetX < 1)
+            {
+                entitySr.flipX = false;
+            }
         }
-        else if (attackPattern[0].offsetX < 1)
+        else
         {
-            entitySr.flipX = false;
+            if (attackPattern[0].offsetX > 1)
+            {
+                entitySr.flipX = false;
+            }
+            else if (attackPattern[0].offsetX < 1)
+            {
+                entitySr.flipX = true;
+            }
         }
+        
 
         List<Entity> enemiesInRange = new List<Entity>();
 

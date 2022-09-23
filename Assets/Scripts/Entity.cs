@@ -569,6 +569,16 @@ public class Entity : MonoBehaviour
         currentPosition = transform.position;
         targetPosition = _targetTile.transform.position;
 
+        if (currentTile.tileX < _targetTile.tileX)
+        {
+            entitySr.flipX = false;
+        }
+        else if (currentTile.tileX > _targetTile.tileX)
+        {
+            entitySr.flipX = true;
+        }
+
+
         //Debug.Log(_delay + " / " + currentPosition + " / " + targetPosition);
 
         if (currentTile.isPike == true)
