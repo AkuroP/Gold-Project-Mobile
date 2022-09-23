@@ -48,12 +48,12 @@ MonoBehaviour:
   instanceMB: {fileID: 0}
   whatTurn: 0
   score: 0
-  floor: 1
-  room: 9
+  floor: 0
+  room: 1
   nextBoss: 0
   numberOfBosses: 2
   shopRoomNumber: 5
-  actualDangerousness: 2
+  actualDangerousness: 0
   turnNumber: 0
   LevelClip: {fileID: 8300000, guid: 19ea2e7eaffc67646beab842c191e02e, type: 3}
   BossClip: {fileID: 8300000, guid: a1a233d42795d474286bdc9109df5f75, type: 3}
